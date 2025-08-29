@@ -1,4 +1,4 @@
-#What is Technical Writing?
+# What is Technical Writing?
 
 Are you exploring career options and stumbled upon **technical writing**? Maybe you’ve wondered: “Do I need to be an engineer? Can I really make a career writing manuals or tutorials?”  
 
@@ -6,7 +6,7 @@ If so, you’re in the right place. This article is a **complete beginner’s gu
 
 ---
 
-##Introduction to Technical Writing
+## Introduction to Technical Writing
 
 At its core, **technical writing is about communication** — taking complex concepts and making them **clear, concise, and useful** for someone else.  
 
@@ -21,7 +21,7 @@ Common examples of technical writing include:
 
 ---
 
-##Who is a Technical Writer?
+## Who is a Technical Writer?
 
 A **technical writer** (or documentation specialist) is a professional who:  
 
@@ -35,7 +35,7 @@ Think of a technical writer as the **bridge between experts and end users** — 
 
 ---
 
-##Do You Need an Engineering Background?
+## Do You Need an Engineering Background?
 
 Short answer: **No.**  
 
@@ -49,28 +49,28 @@ That said, learning some **technical basics** (like coding concepts, APIs, or AI
 
 ---
 
-##Where to Start and What to Do
+## Where to Start and What to Do
 
 If you’re new, here’s a **step-by-step roadmap** to get started in technical writing:
 
-###1. Master Clear Writing
+### 1. Master Clear Writing
 - Practice explaining simple things to someone unfamiliar with the topic.  
 - Keep sentences short and use plain language.  
 - Avoid jargon unless it’s defined clearly.  
 **Example:** Instead of “Authenticate via OAuth2 flow,” write “Sign in using the secure OAuth2 process.”
 
-###2. Learn the Tools
+### 2. Learn the Tools
 - **Google Docs / Word** – For writing and collaboration.  
 - **Markdown** – Lightweight formatting for GitHub or docs-as-code.  
 - **Diagram Tools** – Lucidchart, Draw.io, or simple PowerPoint shapes.  
 - **Version Control** – Git/GitHub basics can be very helpful for modern documentation workflows.
 
-###3. Explore Existing Documentation
+### 3. Explore Existing Documentation
 - Read **API docs** like Stripe, OpenAI, or GitHub.  
 - Study **user manuals** from popular software products.  
 - Look at **knowledge bases** like Atlassian or Notion.  
 
-###4. Build a Portfolio
+### 4. Build a Portfolio
 - Create sample documentation for a **fictional or personal project**.  
 - Examples:  
   - Quick-start guide for a small app you built  
@@ -78,19 +78,19 @@ If you’re new, here’s a **step-by-step roadmap** to get started in technical
   - Step-by-step tutorial  
 - Publish it on **GitHub** to showcase your work to potential employers.
 
-###5. Understand Your Audience
+### 5. Understand Your Audience
 - Identify **who will read your content**: beginner, intermediate, or expert.  
 - Tailor your language, examples, and visuals accordingly.  
 - Always focus on **helping the reader accomplish a goal**.
 
-###6. Start Small, Iterate, Improve
+### 6. Start Small, Iterate, Improve
 - Write short guides first.  
 - Seek feedback from peers or online communities.  
 - Continuously refine your content for clarity and usability.
 
 ---
 
-##Quick Example: How a Technical Writer Adds Value
+## Quick Example: How a Technical Writer Adds Value
 
 Imagine a developer releases a **new AI-powered note-taking app**.  
 
@@ -101,7 +101,7 @@ The technical writer **turns complexity into clarity**.
 
 ---
 
-##What’s Next?
+## What’s Next?
 
 In the next article, we’ll dive into:  
 
@@ -111,7 +111,7 @@ You’ll learn why **style guides are crucial**, how they ensure consistency, an
 
 ---
 
-##Key Takeaways
+## Key Takeaways
 
 - Technical writing = **making complex information simple and usable**.  
 - A technical writer is a **bridge between experts and users**.  
