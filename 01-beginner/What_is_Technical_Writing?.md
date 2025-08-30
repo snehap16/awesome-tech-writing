@@ -11,6 +11,7 @@ If so, you’re in the right place. This article is a **complete beginner’s gu
 At its core, **technical writing is about communication** — taking complex concepts and making them **clear, concise, and useful** for someone else.  
 
 Common examples of technical writing include:  
+
 - **User manuals** – e.g., how to set up a smartphone, software, or household appliance.  
 - **API documentation** – guides that developers use to integrate software or services.  
 - **Tutorials and how-to articles** – step-by-step instructions for completing tasks.  
@@ -54,23 +55,27 @@ That said, learning some **technical basics** (like coding concepts, APIs, or AI
 If you’re new, here’s a **step-by-step roadmap** to get started in technical writing:
 
 ### 1. Master Clear Writing
+
 - Practice explaining simple things to someone unfamiliar with the topic.  
 - Keep sentences short and use plain language.  
 - Avoid jargon unless it’s defined clearly.  
 **Example:** Instead of “Authenticate via OAuth2 flow,” write “Sign in using the secure OAuth2 process.”
 
 ### 2. Learn the Tools
+
 - **Google Docs / Word** – For writing and collaboration.  
 - **Markdown** – Lightweight formatting for GitHub or docs-as-code.  
 - **Diagram Tools** – Lucidchart, Draw.io, or simple PowerPoint shapes.  
 - **Version Control** – Git/GitHub basics can be very helpful for modern documentation workflows.
 
 ### 3. Explore Existing Documentation
+
 - Read **API docs** like Stripe, OpenAI, or GitHub.  
 - Study **user manuals** from popular software products.  
 - Look at **knowledge bases** like Atlassian or Notion.  
 
 ### 4. Build a Portfolio
+
 - Create sample documentation for a **fictional or personal project**.  
 - Examples:  
   - Quick-start guide for a small app you built  
@@ -79,11 +84,13 @@ If you’re new, here’s a **step-by-step roadmap** to get started in technical
 - Publish it on **GitHub** to showcase your work to potential employers.
 
 ### 5. Understand Your Audience
+
 - Identify **who will read your content**: beginner, intermediate, or expert.  
 - Tailor your language, examples, and visuals accordingly.  
 - Always focus on **helping the reader accomplish a goal**.
 
 ### 6. Start Small, Iterate, Improve
+
 - Write short guides first.  
 - Seek feedback from peers or online communities.  
 - Continuously refine your content for clarity and usability.
