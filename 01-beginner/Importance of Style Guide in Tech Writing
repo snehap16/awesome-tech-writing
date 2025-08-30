@@ -29,7 +29,7 @@ This way, the guide not only ensures consistency but also reflects the **identit
 Although every style guide differs, there are core principles that nearly all of them include. These rules help technical writers create documentation that is clear, easy to follow, and reliable.  
 
 
-1. **Active voice:**  
+1. ** Active voice: **  
    - ✅ *“Click the Submit button.”*  
    - ❌ *“The Submit button should be clicked.”*  
    Active voice is direct, easier to understand, and places the responsibility clearly on the user.  
