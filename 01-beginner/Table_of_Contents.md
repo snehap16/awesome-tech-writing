@@ -13,7 +13,7 @@ It covers the basics — from understanding what technical writing is, to learni
 2. Writing Style Guide  
    Learn the importance of consistency, tone, and following style standards.
 
-3. Grammar and Clarity in Tech Writing 
+3. Grammar and Clarity in Tech Writing
    Tips to write clear, concise, and error-free documentation.
 
 4. Learning basic tools and relevant courses
