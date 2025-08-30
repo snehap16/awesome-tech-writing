@@ -1,4 +1,4 @@
-# Beginner Technical Writing
+# Technical Writing For Beginners
 
 This section is designed for **beginners who are just starting their journey in technical writing**.  
 It covers the basics — from understanding what technical writing is, to learning style, tools, and process.
