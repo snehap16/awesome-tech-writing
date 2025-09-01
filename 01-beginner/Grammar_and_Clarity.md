@@ -93,12 +93,12 @@ Clarity is about **structuring information so that readers can understand and ac
 
 | Focus Area | Common Issue | Tip / Correction | Example |
 |------------|-------------|-----------------|---------|
-| **Active vs Passive Voice** | Overuse of passive voice makes instructions unclear | Prefer active voice to show who does the action | Passive: “The file should be saved by the user.” <br> Active: “Save the file.” |
-| **Sentence Length** | Long, run-on sentences confuse readers | Keep sentences short (15–20 words max) | Long: “Open the application it may take a while to load and you might see a warning.” <br> Short: “Open the application. It may take a few seconds to load. You may see a warning.” |
-| **Punctuation** | Misplaced commas and periods can change meaning | Place punctuation carefully to reflect intended meaning | Incorrect: “Install the software, before restarting the system.” <br> Correct: “Install the software before restarting the system.” |
-| **Redundancy** | Extra words dilute clarity | Remove unnecessary words | Wordy: “It is required that you must first verify the configuration.” <br> Clear: “Verify the configuration first.” |
-| **Consistency** | Mixed terminology confuses readers | Define terms and stick to them | Inconsistent: “App” vs “Application” <br> Consistent: Always use “Application” |
-| **Formatting** | Dense text blocks are hard to scan | Use headings, bullet points, and code formatting | ❌ Paragraph of instructions <br> ✅ Step 1: Do this <br> Step 2: Do that |
+| **Active vs Passive Voice** | Overuse of passive voice makes instructions unclear | Prefer active voice to show who does the action | Passive: “The file should be saved by the user.”  Active: “Save the file.” |
+| **Sentence Length** | Long, run-on sentences confuse readers | Keep sentences short (15–20 words max) | Long: “Open the application it may take a while to load and you might see a warning.”  Short: “Open the application. It may take a few seconds to load. You may see a warning.” |
+| **Punctuation** | Misplaced commas and periods can change meaning | Place punctuation carefully to reflect intended meaning | Incorrect: “Install the software, before restarting the system.”  Correct: “Install the software before restarting the system.” |
+| **Redundancy** | Extra words dilute clarity | Remove unnecessary words | Wordy: “It is required that you must first verify the configuration.”  Clear: “Verify the configuration first.” |
+| **Consistency** | Mixed terminology confuses readers | Define terms and stick to them | Inconsistent: “App” vs “Application” Consistent: Always use “Application” |
+| **Formatting** | Dense text blocks are hard to scan | Use headings, bullet points, and code formatting | ❌ Paragraph of instructions  ✅ Step 1: Do this  Step 2: Do that |
 | **Examples & Visuals** | Abstract instructions are hard to follow | Use screenshots, diagrams, or code snippets | Provide a screenshot of a settings panel alongside instructions |
 | **Audience Awareness** | Assumptions about reader knowledge cause errors | Define terms, explain context, and use simple language | Assume readers may be non-technical; explain abbreviations and processes |
 | **Proofreading** | Missed errors reduce credibility | Always proofread and, if possible, get a peer review | Run grammar check, read aloud, check formatting and links |
