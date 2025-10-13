@@ -72,6 +72,6 @@ This checklist is not just a reminder; it's a **quality assurance framework**. I
 
 ## Reference
 
-Microsoft Style Guide - https://learn.microsoft.com/en-us/style-guide/welcome/
+Microsoft Style Guide - <https://learn.microsoft.com/en-us/style-guide/welcome/>
 
-Chicago Manual of Style - https://www.chicagomanualofstyle.org/home.html
+Chicago Manual of Style - <https://www.chicagomanualofstyle.org/home.html>
