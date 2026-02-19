@@ -1,8 +1,8 @@
-# GitHub for Technical Writers: A Comprehensive User Guide
+# GitHub for Technical Writers
 
 ## Introduction
 
-This guide helps technical writers understand and use GitHub effectively. Whether you're collaborating with development teams, managing documentation projects, or contributing to open-source content, GitHub provides the tools you need to work efficiently and professionally.
+This guide helps technical writers understand and use GitHub effectively. Whether you are collaborating with development teams, managing documentation projects, or contributing to open-source content, GitHub provides the tools you need to work efficiently and professionally.
 
 ---
 
@@ -34,7 +34,7 @@ A commit is a snapshot of your changes. Each commit includes a message describin
 
 #### 1.2.5 Pull Request
 
-A pull request is a proposal to merge changes from one branch to another. It allows team members to review changes before they're added to the main project, ensuring quality and consistency.
+A pull request is a proposal to merge changes from one branch to another. It allows team members to review changes before they are added to the main project, ensuring quality and consistency.
 
 ### 1.3 Recognizing Benefits for Technical Writers
 
@@ -250,7 +250,7 @@ When joining an existing project, you need to clone the repository to your local
 
 1. Navigate to the repository on GitHub
 2. Click the green **Code** button
-3. Copy the URL displayed (choose HTTPS for simplicity, or SSH if you've set up keys)
+3. Copy the URL displayed (choose HTTPS for simplicity, or SSH if you have set up keys)
 
 #### 3.3.2 Cloning to Your Computer
 
@@ -413,7 +413,7 @@ Your changes are now available on GitHub for review and discussion.
 
 #### 4.5.2 Updating an Existing Branch
 
-If you've already pushed a branch, update it with new commits:
+If you have already pushed a branch, update it with new commits:
 
 ```
 git push origin branch-name
@@ -1261,7 +1261,7 @@ Deepen your GitHub expertise over time.
 
 #### 12.3.1 Taking Immediate Next Steps
 
-1. Create your GitHub account if you haven't already
+1. Create your GitHub account if you have not already
 2. Set up your local Git configuration
 3. Create your first repository
 4. Clone it to your local computer
