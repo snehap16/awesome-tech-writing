@@ -42,14 +42,21 @@
         .w-1 { background: #dff6dd; color: var(--success); }
         .q-remarks input { width: 100%; padding: 8px; border: 1px solid var(--border); font-size: 12px; }
         
-        .footer-actions { margin-top: 50px; display: flex; gap: 10px; border-top: 1px solid var(--border); padding-top: 30px; flex-wrap: wrap; justify-content: center; }
+        /* How-To Guide Styles */
+        .how-to-guide { background: #f3f2f1; padding: 25px; border-radius: 4px; margin-top: 40px; border: 1px dashed var(--secondary); }
+        .how-to-guide h3 { margin-top: 0; color: var(--text); font-size: 16px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+        .how-to-guide ol { padding-left: 20px; }
+        .how-to-guide li { margin-bottom: 10px; }
+        .code-snippet { background: #000; color: #0f0; padding: 10px; border-radius: 3px; font-family: monospace; font-size: 12px; margin-top: 10px; display: block; }
+
+        .footer-actions { margin-top: 30px; display: flex; gap: 10px; border-top: 1px solid var(--border); padding-top: 30px; flex-wrap: wrap; justify-content: center; }
         .btn { padding: 12px 25px; border: none; font-weight: 600; cursor: pointer; border-radius: 2px; transition: 0.2s; font-size: 13px; }
         .btn-primary { background: var(--primary); color: white; }
         .btn-success { background: var(--success); color: white; }
         .btn-outline { background: white; border: 1px solid var(--primary); color: var(--primary); }
         .btn-danger { background: #d13438; color: white; }
         #save-status { color: var(--success); opacity:0; transition: 0.3s; margin-right: 15px; font-weight: bold; }
-        @media print { .sticky-header, .footer-actions, .btn-danger, .btn-success, .btn-outline, .intro-box { display: none; } .container { box-shadow: none; margin: 0; padding: 0; } }
+        @media print { .sticky-header, .footer-actions, .btn-danger, .btn-success, .btn-outline, .intro-box, .how-to-guide { display: none; } .container { box-shadow: none; margin: 0; padding: 0; } }
     </style>
 </head>
 <body>
@@ -87,6 +94,20 @@
     </div>
 
     <div id="audit-content"></div>
+
+    <div class="how-to-guide">
+        <h3>How to use the JSON Rubric with AI</h3>
+        <ol>
+            <li>Click <strong>Export JSON Rubric</strong> to download the structured configuration file.</li>
+            <li>Open the JSON file and copy its entire content.</li>
+            <li>In your AI tool (ChatGPT, Claude, Gemini), use the following prompt:
+                <span class="code-snippet">
+                    "Act as a Senior Technical Editor. Use the following JSON rubric to audit my technical documentation. Provide a detailed report on gaps and suggest specific rewrites based on the checkpoints provided: [PASTE JSON CONTENT HERE]"
+                </span>
+            </li>
+            <li>Upload your Markdown or text file to the AI to receive an automated, rubric-aligned audit.</li>
+        </ol>
+    </div>
 
     <div class="footer-actions">
         <button class="btn btn-success" onclick="manualSave()">Save Progress</button>
@@ -200,6 +221,7 @@
 
     const auditContent = document.getElementById('audit-content');
     let rowCounter = 0;
+    let hasUnsavedChanges = false;
 
     sections.forEach(sec => {
         let sectionHtml = `<section><h2>${sec.title}</h2>`;
@@ -228,6 +250,7 @@
     });
 
     function calculateScore() {
+        hasUnsavedChanges = true;
         const yesRadios = document.querySelectorAll('.rb-yes');
         const noRadios = document.querySelectorAll('.rb-no');
         let totalWeight = 0, earnedWeight = 0;
@@ -252,19 +275,29 @@
     }
 
     window.onload = () => {
-        document.querySelectorAll('.rb-yes, .rb-no').forEach(r => {
-            if(localStorage.getItem(r.id) === "true") r.checked = true;
+        localStorage.clear();
+        document.querySelectorAll('input').forEach(input => {
+            if (input.type === 'radio') input.checked = false;
+            else input.value = '';
         });
-        document.querySelectorAll('.rem, .meta').forEach(r => { r.value = localStorage.getItem(r.id) || ""; });
         calculateScore();
+        hasUnsavedChanges = false;
         document.querySelectorAll('input').forEach(el => {
             el.addEventListener('input', calculateScore);
             el.addEventListener('change', calculateScore);
         });
     };
 
+    window.addEventListener('beforeunload', (event) => {
+        if (hasUnsavedChanges) {
+            event.preventDefault();
+            event.returnValue = '';
+        }
+    });
+
     function manualSave() {
         calculateScore();
+        hasUnsavedChanges = false;
         const ss = document.getElementById('save-status');
         ss.style.opacity = "1";
         setTimeout(() => ss.style.opacity = "0", 2000);
@@ -299,7 +332,7 @@
         window.location.href = `mailto:${email}?subject=Review Ready&body=${body}`;
     }
 
-    function resetForm() { if(confirm("Clear audit data?")) { localStorage.clear(); location.reload(); } }
+    function resetForm() { if(confirm("Clear audit data?")) { hasUnsavedChanges = false; localStorage.clear(); location.reload(); } }
 </script>
 </body>
 </html>
