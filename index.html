@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Writer/Editor's Checklist - Sneha Pandey</title>
+    <style>
+        :root {
+            --primary: #0078d4; --bg: #f3f2f1; --text: #323130;
+            --secondary: #605e5c; --white: #ffffff; --border: #edebe9;
+            --success: #107c10; --warning: #ffb900; --error: #d13438;
+        }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 20px; font-size: 13px; line-height: 1.6; }
+        .container { max-width: 1300px; margin: 20px auto; background: var(--white); padding: 50px; border-radius: 2px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        
+        /* Branded Header */
+        .brand-header { text-align: center; margin-bottom: 40px; border-bottom: 4px solid var(--primary); padding-bottom: 20px; }
+        .brand-header h1 { font-size: 36px; margin: 0; color: #000; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; }
+        .brand-header .author { font-size: 14px; color: var(--secondary); margin-top: 5px; font-weight: 400; }
+
+        /* Intro Section */
+        .intro-box { background: #f9f9f9; border-left: 5px solid var(--primary); padding: 20px; margin-bottom: 40px; font-size: 14px; color: #444; }
+        .intro-box h3 { margin-top: 0; color: var(--primary); font-size: 16px; }
+
+        .meta-section { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 25px; padding: 20px; background: #faf9f8; border: 1px solid var(--border); }
+        .field { display: flex; flex-direction: column; }
+        .field label { font-weight: 600; font-size: 11px; margin-bottom: 5px; color: var(--secondary); text-transform: uppercase; }
+        .field input { padding: 8px; border: 1px solid var(--border); font-size: 13px; }
+        
+        .sticky-header { position: sticky; top: 0; background: var(--white); padding: 15px 0; border-bottom: 2px solid var(--border); z-index: 1000; margin-bottom: 30px; }
+        .score-container { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 8px; }
+        .score-large { font-size: 24px; font-weight: 800; color: var(--primary); }
+        progress { width: 100%; height: 12px; accent-color: var(--primary); border-radius: 10px; }
+        
+        section { margin-bottom: 50px; }
+        h2 { font-size: 1.1rem; color: var(--primary); border-bottom: 1px solid #e1dfdd; padding-bottom: 8px; margin-bottom: 15px; text-transform: uppercase; }
+        .row-head { display: grid; grid-template-columns: 3.5fr 80px 4fr 100px; gap: 20px; padding: 10px; background: #f3f2f1; font-weight: 700; color: var(--secondary); font-size: 10px; text-transform: uppercase; }
+        .review-row { display: grid; grid-template-columns: 3.5fr 80px 4fr 100px; gap: 20px; padding: 12px 10px; border-bottom: 1px solid #f3f2f1; align-items: start; }
+        .weight-tag { font-size: 10px; padding: 2px 6px; border-radius: 10px; text-align: center; font-weight: bold; }
+        .w-3 { background: #fde7e9; color: var(--error); }
+        .w-2 { background: #fff4ce; color: #8a660b; }
+        .w-1 { background: #dff6dd; color: var(--success); }
+        .q-remarks input { width: 100%; padding: 8px; border: 1px solid var(--border); font-size: 12px; }
+        
+        .footer-actions { margin-top: 50px; display: flex; gap: 10px; border-top: 1px solid var(--border); padding-top: 30px; flex-wrap: wrap; justify-content: center; }
+        .btn { padding: 12px 25px; border: none; font-weight: 600; cursor: pointer; border-radius: 2px; transition: 0.2s; font-size: 13px; }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-success { background: var(--success); color: white; }
+        .btn-outline { background: white; border: 1px solid var(--primary); color: var(--primary); }
+        .btn-danger { background: #d13438; color: white; }
+        #save-status { color: var(--success); opacity:0; transition: 0.3s; margin-right: 15px; font-weight: bold; }
+        @media print { .sticky-header, .footer-actions, .btn-danger, .btn-success, .btn-outline, .intro-box { display: none; } .container { box-shadow: none; margin: 0; padding: 0; } }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="brand-header">
+        <h1>Tech Writer/Editor's Checklist</h1>
+        <div class="author">Developed by Sneha Pandey</div>
+    </div>
+
+    <div class="intro-box">
+        <h3>About This Framework</h3>
+        <p>This comprehensive audit system was designed to standardize documentation quality across engineering and content teams. It bridges the gap between technical accuracy and linguistic precision, ensuring every document is production-ready.</p>
+        <p><strong>Manual Review:</strong> Use this as a step-by-step guide during peer reviews or self-edits to ensure no detail—from API placeholders to global accessibility—is overlooked.</p>
+        <p><strong>AI Integration:</strong> To automate your workflow, export the <strong>JSON configuration</strong> of this checklist and feed it into your LLM (like Gemini or GPT-4) as a system prompt. By providing this structured rubric, you can instruct AI agents to pre-audit your Markdown files for style, structure, and AI-readiness before the final human review.</p>
+    </div>
+
+    <div class="meta-section">
+        <div class="field"><label>Reviewer</label><input type="text" class="meta" id="m1"></div>
+        <div class="field"><label>Writer</label><input type="text" class="meta" id="m2"></div>
+        <div class="field"><label>Writer Email</label><input type="email" class="meta" id="m3" placeholder="writer@example.com"></div>
+        <div class="field" style="grid-column: span 2;"><label>Doc URL / Title</label><input type="text" class="meta" id="m4"></div>
+        <div class="field"><label>Audit Date</label><input type="date" class="meta" id="m5"></div>
+    </div>
+
+    <div class="sticky-header">
+        <div class="score-container">
+            <span style="font-weight: 700; color: var(--secondary);">Weighted Readiness Score</span>
+            <div style="display: flex; align-items: center;">
+                <span id="save-status">Saved!</span>
+                <span class="score-large" id="p-text">0%</span>
+            </div>
+        </div>
+        <progress id="p-bar" value="0" max="100"></progress>
+    </div>
+
+    <div id="audit-content"></div>
+
+    <div class="footer-actions">
+        <button class="btn btn-success" onclick="manualSave()">Save Progress</button>
+        <button class="btn btn-outline" onclick="exportJSON()">Export JSON Rubric</button>
+        <button class="btn btn-primary" onclick="sendEmail()">Notify Writer</button>
+        <button class="btn btn-primary" onclick="window.print()">Export PDF</button>
+        <button class="btn btn-danger" onclick="resetForm()">Clear All</button>
+    </div>
+</div>
+
+<script>
+    // Note: Checklist items remain consistent with v4.5 to maintain your required level of detail.
+    const sections = [
+        { 
+            title: "1. Core Technical Validation", 
+            weight: 3, 
+            items: [
+                "Tested all code snippets, CLI commands, and scripts in a fresh environment?",
+                "Verified API endpoints, methods, and payload examples against current production?",
+                "Are all placeholders (e.g., <YOUR_API_KEY>) obvious and used consistently?",
+                "Are required vs. optional fields explicitly identified in all tables?",
+                "Are sample responses (JSON/XML) complete and properly indented for readability?",
+                "Are troubleshooting steps provided for every likely error code mentioned?",
+                "Is the authentication/authorization flow explained step-by-step for new users?",
+                "Are system constraints (quotas, rate limits, file sizes) clearly defined?",
+                "Is sensitive information (PII, secrets, real hostnames) redacted in all media?",
+                "Does the 'Getting Started' flow lead to a verified 'First Success' milestone?",
+                "Are supported platforms/versions/browsers explicitly listed at the start?"
+            ]
+        },
+        { 
+            title: "2. Information Architecture & AI Readiness", 
+            weight: 3, 
+            items: [
+                "Does the H1 reflect the specific user intent or problem being solved?",
+                "Is the document structured using semantic Markdown/HTML for AI-parsing?",
+                "Are tables optimized (no merged cells/complex spans) for RAG systems?",
+                "Is conceptual background strictly separated from procedural steps?",
+                "Are prerequisites (permissions, installs) listed before the first action?",
+                "Does the heading hierarchy (H1-H4) flow logically without skipping levels?",
+                "Is the TOC/Sidebar sync-checked with the actual page content?",
+                "Are 'What’s Next' or 'Learn More' links included to prevent user dead-ends?",
+                "Are metadata tags (keywords, categories) set for internal search findability?",
+                "Is the document accessible via a logical breadcrumb path?",
+                "Are glossary terms linked to their definitions on first use?"
+            ]
+        },
+        {
+            title: "3. UX Writing & Microcopy",
+            weight: 2,
+            items: [
+                "Are UI labels bolded and case-matched exactly to the product interface?",
+                "Is the navigation path clear (e.g., Settings > Security > API Keys)?",
+                "Are keyboard shortcuts formatted correctly (e.g., CTRL+S)?",
+                "Used 'Select' for UI elements and 'Enter' for command-line inputs?",
+                "Are error message explanations helpful rather than just stating the error?",
+                "Is the distinction between 'Click' and 'Tap' (Desktop vs. Mobile) handled?",
+                "Are hover-over descriptions or tooltips used where brief context is needed?",
+                "Is there a 1:1 match between button names in text and screenshots?",
+                "Are success messages or 'confirmation states' described for key actions?"
+            ]
+        },
+        {
+            title: "4. Style, Voice & Mechanics",
+            weight: 2,
+            items: [
+                "Is Active Voice used consistently in all procedural instructions?",
+                "Is the user addressed as 'you' consistently (Second Person)?",
+                "Has 'Future Tense' (will/shall) been removed in favor of Present Tense?",
+                "Are sentences kept under a 25-word limit for clarity?",
+                "Have filler/weak words (simply, just, basically, actually) been removed?",
+                "Is the tone professional yet approachable (helpful peer voice)?",
+                "Is the Oxford Comma used for list clarity?",
+                "Are acronyms spelled out on first mention?",
+                "Are bulleted lists used for 3+ items to break up walls of text?",
+                "Is the punctuation inside or outside quotes consistent with style guide?"
+            ]
+        },
+        {
+            title: "5. Global English & Accessibility",
+            weight: 2,
+            items: [
+                "Does every image/diagram have descriptive, functional Alt Text?",
+                "Is spatial language (above, below, left-side) avoided for screen readers?",
+                "Are hyperlinks descriptive (no generic 'Click Here' or 'This Link')?",
+                "Is gender-neutral language (singular they) used throughout?",
+                "Are idioms/metaphors (ballpark, home run, low-hanging fruit) removed?",
+                "Is the date format unambiguous for global users (e.g., 05-Mar-2026)?",
+                "Are color-only instructions avoided (e.g., 'click the red icon')?",
+                "Are non-breaking spaces used between values and units (e.g., 10 MB)?",
+                "Is the text contrast sufficient for readability standards?",
+                "Are complex diagrams accompanied by a text-based summary?"
+            ]
+        },
+        {
+            title: "6. Legal, Compliance & Media",
+            weight: 1,
+            items: [
+                "Are copyright dates and legal disclaimers current?",
+                "Are third-party trademarks acknowledged where necessary?",
+                "Are screenshots cropped to eliminate irrelevant UI noise?",
+                "Are callouts (arrows, boxes) used to highlight specific UI areas?",
+                "Is the URL slug descriptive, lowercase, and hyphenated?",
+                "Is the meta description unique and within 160 characters?",
+                "Are external links set to open in a new tab?",
+                "Are high-res SVGs used for technical diagrams where possible?",
+                "Is the page size/image weight optimized for slow connections?",
+                "Are internal cross-references verified (no 404s/broken anchors)?"
+            ]
+        }
+    ];
+
+    const auditContent = document.getElementById('audit-content');
+    let rowCounter = 0;
+
+    sections.forEach(sec => {
+        let sectionHtml = `<section><h2>${sec.title}</h2>`;
+        sectionHtml += `<div class="row-head"><div>Checkpoint</div><div>Pass?</div><div>Reviewer Remarks</div><div>Impact</div></div>`;
+        sec.items.forEach(item => {
+            const impact = sec.weight === 3 ? 'Blocker' : sec.weight === 2 ? 'Important' : 'Minor';
+            sectionHtml += `
+                <div class="review-row">
+                    <div class="q-text">${item}</div>
+                    <div class="q-actions"><input type="checkbox" class="cb" data-weight="${sec.weight}" id="cb-${rowCounter}"></div>
+                    <div class="q-remarks"><input type="text" class="rem" id="rem-${rowCounter}" placeholder="Notes..."></div>
+                    <div class="weight-tag w-${sec.weight}">${impact}</div>
+                </div>
+            `;
+            rowCounter++;
+        });
+        sectionHtml += `</section>`;
+        auditContent.innerHTML += sectionHtml;
+    });
+
+    function calculateScore() {
+        const cbs = document.querySelectorAll('.cb');
+        let totalWeight = 0, earnedWeight = 0;
+        cbs.forEach(cb => {
+            const w = parseInt(cb.getAttribute('data-weight'));
+            totalWeight += w;
+            if(cb.checked) earnedWeight += w;
+            localStorage.setItem(cb.id, cb.checked);
+        });
+        const score = totalWeight > 0 ? Math.round((earnedWeight / totalWeight) * 100) : 0;
+        document.getElementById('p-bar').value = score;
+        document.getElementById('p-text').innerText = score + '%';
+        document.querySelectorAll('.rem, .meta').forEach(el => localStorage.setItem(el.id, el.value));
+    }
+
+    window.onload = () => {
+        document.querySelectorAll('.cb').forEach(c => { if(localStorage.getItem(c.id) === "true") c.checked = true; });
+        document.querySelectorAll('.rem, .meta').forEach(r => { r.value = localStorage.getItem(r.id) || ""; });
+        calculateScore();
+        document.querySelectorAll('input').forEach(el => {
+            el.addEventListener('input', calculateScore);
+            el.addEventListener('change', calculateScore);
+        });
+    };
+
+    function manualSave() {
+        calculateScore();
+        const ss = document.getElementById('save-status');
+        ss.style.opacity = "1";
+        setTimeout(() => ss.style.opacity = "0", 2000);
+    }
+
+    function exportJSON() {
+        const data = { author: "Sneha Pandey", rubric: "Tech Writer/Editor's Checklist", results: [] };
+        document.querySelectorAll('.review-row').forEach(row => {
+            data.results.push({ q: row.querySelector('.q-text').innerText, pass: row.querySelector('.cb').checked });
+        });
+        const blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob); a.download = `Sneha_Pandey_Rubric.json`;
+        a.click();
+    }
+
+    function sendEmail() {
+        const email = document.getElementById('m3').value;
+        const score = document.getElementById('p-text').innerText;
+        if (!email) { alert("Please enter the Writer Email."); return; }
+        const body = encodeURIComponent(`Audit complete via Sneha Pandey's Checklist.\nReadiness Score: ${score}`);
+        window.location.href = `mailto:${email}?subject=Review Ready&body=${body}`;
+    }
+
+    function resetForm() { if(confirm("Clear audit data?")) { localStorage.clear(); location.reload(); } }
+</script>
+</body>
+</html>
