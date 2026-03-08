@@ -1,0 +1,2778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TW Prompt Library — Technical Writers AI Toolkit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & BASE ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 15px; }
+body {
+  font-family: 'Sora', sans-serif;
+  background: #f8f9fc;
+  color: #1e2535;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+a { color: inherit; text-decoration: none; }
+
+/* ── LAYOUT SHELL ── */
+.shell {
+  display: grid;
+  grid-template-columns: 256px 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "header header"
+    "sidebar main";
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+.site-header {
+  grid-area: header;
+  background: #0f172a;
+  color: #fff;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo-mark {
+  width: 32px; height: 32px;
+  background: #0d9488;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+.logo-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+.logo-text span { color: #5eead4; }
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.header-stat {
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+}
+.header-stat strong { color: #5eead4; font-weight: 600; }
+.header-platforms {
+  display: flex;
+  gap: 6px;
+}
+.hplat {
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.4);
+  background: rgba(255,255,255,0.06);
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ── SEARCH BAR (in header) ── */
+.search-wrap {
+  position: relative;
+}
+.search-wrap svg {
+  position: absolute; left: 10px; top: 50%;
+  transform: translateY(-50%);
+  width: 14px; height: 14px;
+  color: rgba(255,255,255,0.3);
+  pointer-events: none;
+}
+#searchInput {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 7px 12px 7px 32px;
+  color: #fff;
+  font-family: 'Sora', sans-serif;
+  font-size: 13px;
+  width: 220px;
+  outline: none;
+  transition: border-color 0.15s, background 0.15s;
+}
+#searchInput:focus {
+  border-color: #0d9488;
+  background: rgba(255,255,255,0.1);
+}
+#searchInput::placeholder { color: rgba(255,255,255,0.3); }
+
+/* ── SIDEBAR ── */
+.sidebar {
+  grid-area: sidebar;
+  background: #fff;
+  border-right: 1px solid #e5e9f0;
+  position: sticky;
+  top: 64px;
+  height: calc(100vh - 64px);
+  overflow-y: auto;
+  padding: 24px 16px;
+}
+.sidebar-title {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  padding: 0 8px;
+  margin-bottom: 10px;
+}
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.12s;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.nav-link:hover { background: #f1f5f9; color: #1e2535; }
+.nav-link.active { background: #f0fdf4; color: #0d9488; }
+.nav-count {
+  margin-left: auto;
+  flex-shrink: 0;
+  background: #f1f5f9;
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 1px 7px;
+  border-radius: 10px;
+}
+.sidebar-divider { height: 1px; background: #f1f5f9; margin: 16px 8px; }
+.filter-section { margin-top: 0; }
+.filter-title {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  padding: 0 8px;
+  margin-bottom: 10px;
+}
+.filter-btn {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 7px 10px;
+  border-radius: 6px;
+  font-family: 'Sora', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.12s;
+  margin-bottom: 1px;
+}
+.filter-btn:hover { background: #f1f5f9; color: #1e2535; }
+.filter-btn.active { background: #eff6ff; color: #2563eb; }
+
+/* ── MAIN AREA ── */
+.main-area {
+  grid-area: main;
+  padding: 32px 36px 64px;
+  max-width: 980px;
+}
+
+/* ── HOW-TO BANNER ── */
+.how-to-bar {
+  background: #fff;
+  border: 1px solid #e5e9f0;
+  border-radius: 12px;
+  padding: 18px 24px;
+  margin-bottom: 32px;
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+.how-to-bar h3 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+}
+.steps-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  flex: 1;
+  min-width: 140px;
+}
+.step-n {
+  width: 20px; height: 20px;
+  background: #0d9488;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 10px;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.step p { font-size: 12.5px; color: #475569; line-height: 1.45; }
+.step p strong { color: #0d9488; }
+
+/* ── RESULT COUNT ── */
+.result-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.result-count {
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 500;
+}
+.result-count strong { color: #0d9488; }
+.expand-all-btn {
+  background: none;
+  border: 1px solid #e5e9f0;
+  border-radius: 6px;
+  padding: 5px 12px;
+  font-family: 'Sora', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.12s;
+}
+.expand-all-btn:hover { background: #f8f9fc; border-color: #cbd5e1; color: #1e2535; }
+
+/* ── CATEGORY SECTION ── */
+.cat-section { margin-bottom: 40px; }
+.cat-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #f1f5f9;
+}
+.cat-emoji { font-size: 18px; }
+.cat-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1e2535;
+  letter-spacing: -0.01em;
+}
+.cat-badge {
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748b;
+  background: #f1f5f9;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+.cards { display: flex; flex-direction: column; gap: 10px; }
+
+/* ── CARD ── */
+.card {
+  background: #fff;
+  border: 1px solid #e5e9f0;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: box-shadow 0.15s, border-color 0.15s;
+}
+.card:hover {
+  box-shadow: 0 2px 12px rgba(15,23,42,0.07);
+  border-color: #cbd5e1;
+}
+.card.collapsed .card-body { display: none; }
+
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  cursor: pointer;
+  user-select: none;
+  gap: 12px;
+}
+.card-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+.badge {
+  width: 28px; height: 28px;
+  border-radius: 7px;
+  color: #fff;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.card-info { min-width: 0; flex: 1; }
+.card-info h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e2535;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.use-case {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.chevron {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 4px;
+  flex-shrink: 0;
+  transition: color 0.12s, transform 0.2s;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 5px;
+}
+.chevron:hover { color: #475569; background: #f1f5f9; }
+.card.collapsed .chevron { transform: rotate(180deg); }
+
+.card-body { padding: 0 18px 18px; border-top: 1px solid #f1f5f9; }
+
+.code-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: #94a3b8;
+  margin-top: 14px;
+  margin-bottom: 6px;
+}
+
+.code-wrap {
+  position: relative;
+  background: #0f172a;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.code-block {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12.5px;
+  line-height: 1.75;
+  color: #94a3b8;
+  padding: 16px 16px 52px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin: 0;
+}
+.code-block mark {
+  background: rgba(13,148,136,0.18);
+  color: #5eead4;
+  border-radius: 3px;
+  padding: 0 2px;
+  font-weight: 500;
+}
+
+.copy-btn {
+  position: absolute;
+  bottom: 10px; right: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.6);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-family: 'Sora', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.copy-btn:hover {
+  background: #0d9488;
+  border-color: #0d9488;
+  color: #fff;
+}
+.copy-btn.copied {
+  background: #16a34a;
+  border-color: #16a34a;
+  color: #fff;
+}
+
+.tip {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: 7px;
+  padding: 10px 12px;
+  margin-top: 10px;
+  font-size: 12.5px;
+  color: #78350f;
+  line-height: 1.5;
+}
+.tip span:first-child { flex-shrink: 0; font-size: 14px; }
+.tip strong { color: #b45309; }
+
+/* ── HIDDEN / SEARCH ── */
+.card.hidden { display: none; }
+.cat-section.hidden { display: none; }
+.no-results {
+  text-align: center;
+  padding: 60px 20px;
+  color: #94a3b8;
+  display: none;
+}
+.no-results h3 { font-size: 16px; color: #475569; margin-bottom: 8px; }
+
+/* ── NOTES SECTION ── */
+.notes-section {
+  background: #fff;
+  border: 1px solid #e5e9f0;
+  border-radius: 12px;
+  padding: 28px 28px;
+  margin-top: 8px;
+}
+.notes-section h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1e2535;
+  margin-bottom: 4px;
+}
+.notes-section > p {
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 20px;
+}
+.principles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+.principle {
+  background: #f8f9fc;
+  border: 1px solid #e5e9f0;
+  border-radius: 9px;
+  padding: 14px 16px;
+}
+.principle-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #0d9488;
+  margin-bottom: 4px;
+  display: flex; align-items: center; gap: 6px;
+}
+.principle-name::before {
+  content: '';
+  width: 5px; height: 5px;
+  background: #0d9488;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.principle p { font-size: 12.5px; color: #64748b; line-height: 1.5; }
+
+/* ── FOOTER ── */
+.site-footer {
+  grid-column: 1/-1;
+  background: #0f172a;
+  color: rgba(255,255,255,0.35);
+  text-align: center;
+  padding: 20px 24px;
+  font-size: 12px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 860px) {
+  .shell { grid-template-columns: 1fr; grid-template-areas: "header" "main"; }
+  .sidebar { display: none; }
+  .main-area { padding: 24px 20px 48px; }
+  .header-right .header-platforms { display: none; }
+  #searchInput { width: 160px; }
+}
+@media (max-width: 540px) {
+  .site-header { padding: 0 16px; }
+  .header-right .header-stat { display: none; }
+  .how-to-bar { flex-direction: column; gap: 12px; }
+}
+</style>
+</head>
+<body>
+<div class="shell">
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="logo">
+    <div class="logo-mark">✍️</div>
+    <div class="logo-text">TW Prompt Library <span>v2.0</span></div>
+  </div>
+  <div class="header-right">
+    <div class="header-stat"><strong>23</strong> Prompts · <strong>6</strong> Categories</div>
+    <div class="header-platforms">
+      <span class="hplat">ChatGPT</span>
+      <span class="hplat">Claude</span>
+      <span class="hplat">Gemini</span>
+      <span class="hplat">Copilot</span>
+    </div>
+    <div class="search-wrap">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="searchInput" placeholder="Search prompts…" oninput="liveSearch(this.value)" autocomplete="off">
+    </div>
+  </div>
+</header>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sidebar-title">Categories</div>
+  <a href="#cat-drafting" class="nav-link" data-cat="drafting">✍️ Drafting & Content Creation <span class="nav-count">6</span></a>
+<a href="#cat-review" class="nav-link" data-cat="review">🔍 Review & Quality Assurance <span class="nav-count">4</span></a>
+<a href="#cat-video" class="nav-link" data-cat="video">🎬 Video, Audio & Transcripts <span class="nav-count">3</span></a>
+<a href="#cat-format" class="nav-link" data-cat="format">⚙️ Format & Convert <span class="nav-count">4</span></a>
+<a href="#cat-structure" class="nav-link" data-cat="structure">📐 Structure & Style <span class="nav-count">3</span></a>
+<a href="#cat-strategy" class="nav-link" data-cat="strategy">🗺️ Strategy & Planning <span class="nav-count">3</span></a>
+
+  <div class="sidebar-divider"></div>
+  <div class="filter-section">
+    <div class="filter-title">Filter</div>
+    <button class="filter-btn active" onclick="filterCat('all',this)">All prompts</button>
+    <button class="filter-btn" onclick="filterCat('drafting',this)">✍️ Drafting</button>
+    <button class="filter-btn" onclick="filterCat('review',this)">🔍 Review & QA</button>
+    <button class="filter-btn" onclick="filterCat('video',this)">🎬 Video & Audio</button>
+    <button class="filter-btn" onclick="filterCat('format',this)">⚙️ Format & Convert</button>
+    <button class="filter-btn" onclick="filterCat('structure',this)">📐 Structure & Style</button>
+    <button class="filter-btn" onclick="filterCat('strategy',this)">🗺️ Strategy</button>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<main class="main-area">
+
+  <!-- HOW TO USE -->
+  <div class="how-to-bar">
+    <div class="steps-row">
+      <div class="step"><div class="step-n">1</div><p>Find a prompt and click to expand it.</p></div>
+      <div class="step"><div class="step-n">2</div><p>Click <strong>Copy Prompt</strong> to copy clean text.</p></div>
+      <div class="step"><div class="step-n">3</div><p>Replace every <strong>[PLACEHOLDER]</strong> with your info.</p></div>
+      <div class="step"><div class="step-n">4</div><p>Paste into any AI platform and iterate.</p></div>
+    </div>
+  </div>
+
+  <div class="result-bar">
+    <div class="result-count" id="resultCount">Showing <strong>23</strong> of 23 prompts</div>
+    <button class="expand-all-btn" onclick="expandAll()">Expand All</button>
+  </div>
+
+  <div id="no-results" class="no-results">
+    <h3>No prompts match your search</h3>
+    <p>Try a different keyword or clear the search field.</p>
+  </div>
+
+  <section class="cat-section" id="cat-drafting" data-cat="drafting">
+  <div class="cat-header">
+    <span class="cat-emoji">✍️</span>
+    <div>
+      <h2 class="cat-title">Drafting & Content Creation</h2>
+    </div>
+    <span class="cat-badge">6 prompts</span>
+  </div>
+  <div class="cards">
+<div class="card" data-cat="01" id="p01">
+  <div class="card-top">
+    <div class="card-left">
+      <span class="badge" style="background:#0d9488">01</span>
+      <div class="card-info">
+        <h3>Generate a First Draft</h3>
+        <p class="use-case">Scaffold docs for a new feature or product from scratch</p>
+      </div>
+    </div>
+    <button class="chevron" onclick="toggle(this)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+  </div>
+  <div class="card-body">
+    <div class="code-label">PROMPT</div>
+    <div class="code-wrap">
+      <pre class="code-block">Act as an experienced technical writer with expertise in <mark>[INDUSTRY/DOMAIN]</mark>.
+I need to create documentation for <mark>[PRODUCT/FEATURE NAME]</mark>.
+
+Here is the context:
+- Target audience: <mark>[e.g., developers, end users, IT admins]</mark>
+- Documentation type: <mark>[e.g., user guide, API reference, release notes]</mark>
+- Key functionality to cover: <mark>[LIST 3–5 BULLET POINTS]</mark>
+- Tone: <mark>[e.g., formal, conversational, instructional]</mark>
+
+Write a complete first draft including: an overview section, step-by-step instructions, and a troubleshooting section. Use clear headings, numbered steps for procedures, and plain language appropriate for the audience.</pre>
+      <button class="copy-btn" onclick='copyText(`Act as an experienced technical writer with expertise in [INDUSTRY/DOMAIN].
+I need to create documentation for [PRODUCT/FEATURE NAME].
+
+Here is the context:
+- Target audience: [e.g., developers, end users, IT admins]
+- Documentation type: [e.g., user guide, API reference, release notes]
+- Key functionality to cover: [LIST 3–5 BULLET POINTS]
+- Tone: [e.g., formal, conversational, instructional]
+
+Write a complete first draft including: an overview section, step-by-step instructions, and a troubleshooting section. Use clear headings, numbered steps for procedures, and plain language appropriate for the audience.`,this)'>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy Prompt
+      </button>
+    </div>
+    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> The more specific your context, the more accurate the draft. Attach existing docs as examples if your platform supports file uploads.</span></div>
+  </div>
+</div>
+<div class="card" data-cat="02" id="p02">
+  <div class="card-top">
+    <div class="card-left">
+      <span class="badge" style="background:#0d9488">02</span>
+      <div class="card-info">
+        <h3>Simplify Complex Technical Content</h3>
+        <p class="use-case">Rewrite jargon-heavy content for a general audience</p>
+      </div>
+    </div>
+    <button class="chevron" onclick="toggle(this)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+  </div>
+  <div class="card-body">
+    <div class="code-label">PROMPT</div>
+    <div class="code-wrap">
+      <pre class="code-block">You are a technical writer specializing in plain language. Below is a piece of technical content written for expert-level readers. Rewrite it for <mark>[TARGET AUDIENCE, e.g., non-technical business users / beginners / customers]</mark>.
+
+Original content:
+<mark>[PASTE YOUR CONTENT HERE]</mark>
+
+Guidelines:
+- Replace all jargon with plain-language equivalents
+- Keep sentences under 20 words where possible
+- Use active voice throughout
+- Preserve all factual accuracy — do not omit critical information
+- Maintain the same structure (headings, lists, steps) as the original
+
+Output the rewritten version followed by a short glossary defining any technical terms that could not be fully avoided.</pre>
+      <button class="copy-btn" onclick='copyText(`You are a technical writer specializing in plain language. Below is a piece of technical content written for expert-level readers. Rewrite it for [TARGET AUDIENCE, e.g., non-technical business users / beginners / customers].
+
+Original content:
+[PASTE YOUR CONTENT HERE]
+
+Guidelines:
+- Replace all jargon with plain-language equivalents
+- Keep sentences under 20 words where possible
+- Use active voice throughout
+- Preserve all factual accuracy — do not omit critical information
+- Maintain the same structure (headings, lists, steps) as the original
+
+Output the rewritten version followed by a short glossary defining any technical terms that could not be fully avoided.`,this)'>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy Prompt
+      </button>
+    </div>
+    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> Describe the audience's exact technical level (e.g., 'someone with no IT background') for best results.</span></div>
+  </div>
+</div>
+<div class="card" data-cat="03" id="p03">
+  <div class="card-top">
+    <div class="card-left">
+      <span class="badge" style="background:#0d9488">03</span>
+      <div class="card-info">
+        <h3>Write an API Reference Entry</h3>
+        <p class="use-case">Document a REST endpoint with curl examples and schemas</p>
+      </div>
+    </div>
+    <button class="chevron" onclick="toggle(this)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+  </div>
+  <div class="card-body">
+    <div class="code-label">PROMPT</div>
+    <div class="code-wrap">
+      <pre class="code-block">You are a technical writer documenting a REST API. Write a reference entry for the following endpoint.
+
+Endpoint details:
+- Method: <mark>[GET / POST / PUT / DELETE]</mark>
+- Endpoint URL: <mark>[e.g., /api/v1/users/{id}]</mark>
+- Description: <mark>[WHAT THIS ENDPOINT DOES]</mark>
+- Authentication: <mark>[e.g., Bearer token, API key]</mark>
+- Request parameters: <mark>[LIST NAME, TYPE, REQUIRED/OPTIONAL, DESCRIPTION]</mark>
+- Request body (if applicable): <mark>[PASTE SCHEMA OR EXAMPLE]</mark>
+- Response codes and meanings: <mark>[e.g., 200, 400, 404, 500]</mark>
+- Example response: <mark>[PASTE SAMPLE JSON]</mark>
+
+Format the output using standard API documentation structure with clearly labeled sections. Include a working curl example. Flag any parameters with constraints (e.g., max length, allowed values).</pre>
+      <button class="copy-btn" onclick='copyText(`You are a technical writer documenting a REST API. Write a reference entry for the following endpoint.
+
+Endpoint details:
+- Method: [GET / POST / PUT / DELETE]
+- Endpoint URL: [e.g., /api/v1/users/{id}]
+- Description: [WHAT THIS ENDPOINT DOES]
+- Authentication: [e.g., Bearer token, API key]
+- Request parameters: [LIST NAME, TYPE, REQUIRED/OPTIONAL, DESCRIPTION]
+- Request body (if applicable): [PASTE SCHEMA OR EXAMPLE]
+- Response codes and meanings: [e.g., 200, 400, 404, 500]
+- Example response: [PASTE SAMPLE JSON]
+
+Format the output using standard API documentation structure with clearly labeled sections. Include a working curl example. Flag any parameters with constraints (e.g., max length, allowed values).`,this)'>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy Prompt
+      </button>
+    </div>
+    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> Paste actual schema or JSON examples for highest accuracy. Use consistent formatting across all entries in your library.</span></div>
+  </div>
+</div>
+<div class="card" data-cat="04" id="p04">
+  <div class="card-top">
+    <div class="card-left">
+      <span class="badge" style="background:#0d9488">04</span>
+      <div class="card-info">
+        <h3>Create a Feature Documentation Section</h3>
+        <p class="use-case">Write one focused section for a newly shipped feature</p>
+      </div>
+    </div>
+    <button class="chevron" onclick="toggle(this)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+  </div>
+  <div class="card-body">
+    <div class="code-label">PROMPT</div>
+    <div class="code-wrap">
+      <pre class="code-block">Act as a senior technical writer. Write a documentation section for a newly released product feature.
+
+Feature name: <mark>[FEATURE NAME]</mark>
+Product: <mark>[PRODUCT NAME]</mark>
+Target audience: <mark>[e.g., end users, administrators, developers]</mark>
+Section type: <mark>[e.g., Overview, How It Works, Getting Started, Configuration, Best Practices]</mark>
+Where this section lives: <mark>[e.g., in a user guide, help center article, in-app tooltip, README]</mark>
+
+Feature description (your notes):
+<mark>[PASTE YOUR RAW NOTES, TICKET DESCRIPTION, OR FEATURE BRIEF HERE]</mark>
+
+Write the section with:
+- A one-paragraph feature overview (what it is and why it matters to the user)
+- Prerequisites or requirements (if any)
+- Step-by-step instructions to use the feature
+- A note on any limitations, known issues, or edge cases
+- One concrete example showing a real-world use case
+
+Use clear headings, active voice, and second-person ("you") throughout.</pre>
+      <button class="copy-btn" onclick='copyText(`Act as a senior technical writer. Write a documentation section for a newly released product feature.
+
+Feature name: [FEATURE NAME]
+Product: [PRODUCT NAME]
+Target audience: [e.g., end users, administrators, developers]
+Section type: [e.g., Overview, How It Works, Getting Started, Configuration, Best Practices]
+Where this section lives: [e.g., in a user guide, help center article, in-app tooltip, README]
+
+Feature description (your notes):
+[PASTE YOUR RAW NOTES, TICKET DESCRIPTION, OR FEATURE BRIEF HERE]
+
+Write the section with:
+- A one-paragraph feature overview (what it is and why it matters to the user)
+- Prerequisites or requirements (if any)
+- Step-by-step instructions to use the feature
+- A note on any limitations, known issues, or edge cases
+- One concrete example showing a real-world use case
+
+Use clear headings, active voice, and second-person ("you") throughout.`,this)'>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy Prompt
+      </button>
+    </div>
+    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> Paste the Jira or GitHub ticket directly as your feature description — the AI will extract the relevant details automatically.</span></div>
+  </div>
+</div>
+<div class="card" data-cat="05" id="p05">
+  <div class="card-top">
+    <div class="card-left">
+      <span class="badge" style="background:#0d9488">05</span>
+      <div class="card-info">
+        <h3>Write UI Microcopy</h3>
+        <p class="use-case">Buttons, tooltips, error messages, and onboarding text</p>
+      </div>
+    </div>
+    <button class="chevron" onclick="toggle(this)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+  </div>
+  <div class="card-body">
+    <div class="code-label">PROMPT</div>
+    <div class="code-wrap">
+      <pre class="code-block">You are a UX writer and technical writer specializing in UI microcopy. Write copy for the following UI elements in <mark>[PRODUCT NAME]</mark>.
+
+Product context: <mark>[BRIEFLY DESCRIBE WHAT THE PRODUCT DOES]</mark>
+Tone of voice: <mark>[e.g., professional and direct / friendly and approachable / minimal and technical]</mark>
+Target user: <mark>[DESCRIBE USER]</mark>
+
+UI elements needed (complete the applicable items):
+- Page/screen title: <mark>[DESCRIBE SCREEN PURPOSE]</mark>
+- Primary button label: <mark>[DESCRIBE ACTION]</mark>
+- Secondary button label: <mark>[DESCRIBE ACTION]</mark>
+- Empty state message: <mark>[DESCRIBE CONTEXT — what is empty and why]</mark>
+- Error message for: <mark>[DESCRIBE ERROR SCENARIO]</mark>
+- Success message for: <mark>[DESCRIBE COMPLETION ACTION]</mark>
+- Tooltip for: <mark>[DESCRIBE FIELD OR ICON]</mark>
+- Onboarding tip: <mark>[DESCRIBE FEATURE OR STEP]</mark>
+
+For each item: provide the copy, a one-line rationale, and one alternative option.</pre>
+      <button class="copy-btn" onclick='copyText(`You are a UX writer and technical writer specializing in UI microcopy. Write copy for the following UI elements in [PRODUCT NAME].
+
+Product context: [BRIEFLY DESCRIBE WHAT THE PRODUCT DOES]
+Tone of voice: [e.g., professional and direct / friendly and approachable / minimal and technical]
+Target user: [DESCRIBE USER]
+
+UI elements needed (complete the applicable items):
+- Page/screen title: [DESCRIBE SCREEN PURPOSE]
+- Primary button label: [DESCRIBE ACTION]
+- Secondary button label: [DESCRIBE ACTION]
+- Empty state message: [DESCRIBE CONTEXT — what is empty and why]
+- Error message for: [DESCRIBE ERROR SCENARIO]
+- Success message for: [DESCRIBE COMPLETION ACTION]
+- Tooltip for: [DESCRIBE FIELD OR ICON]
+- Onboarding tip: [DESCRIBE FEATURE OR STEP]
+
+For each item: provide the copy, a one-line rationale, and one alternative option.`,this)'>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy Prompt
+      </button>
+    </div>
+    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> Keep all copy under your UI framework's character limits. Always include rationale so stakeholders can approve with confidence.</span></div>
+  </div>
+</div>
+<div class="card" data-cat="06" id="p06">
+  <div class="card-top">
+    <div class="card-left">
+      <span class="badge" style="background:#0d9488">06</span>
+      <div class="card-info">
+        <h3>Generate Release Notes</h3>
+        <p class="use-case">Consistent, user-friendly notes for any software update</p>
+      </div>
+    </div>
+    <button class="chevron" onclick="toggle(this)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+  </div>
+  <div class="card-body">
+    <div class="code-label">PROMPT</div>
+    <div class="code-wrap">
+      <pre class="code-block">You are a technical writer responsible for software release communications. Write professional release notes for the following update.
+
+Product: <mark>[PRODUCT NAME]</mark>
+Version: <mark>[VERSION NUMBER]</mark>
+Release date: <mark>[DATE]</mark>
+Audience: <mark>[e.g., end users, developers, IT teams]</mark>
+
+Changes to document:
+- New features: <mark>[LIST]</mark>
+- Improvements/enhancements: <mark>[LIST]</mark>
+- Bug fixes: <mark>[LIST]</mark>
+- Deprecations or breaking changes: <mark>[LIST, OR "None"]</mark>
+- Known issues: <mark>[LIST, OR "None"]</mark>
+
+Format requirements:
+- Lead with a one-paragraph summary of the most impactful changes
+- Use clear category headings
+- For each item: one sentence describing what changed and why it matters to the user
+- Flag any breaking changes prominently with a warning label
+- Close with upgrade instructions or a link placeholder</pre>
+      <button class="copy-btn" onclick='copyText(`You are a technical writer responsible for software release communications. Write professional release notes for the following update.
+
+Product: [PRODUCT NAME]
+Version: [VERSION NUMBER]
+Release date: [DATE]
+Audience: [e.g., end users, developers, IT teams]
+
+Changes to document:
+- New features: [LIST]
+- Improvements/enhancements: [LIST]
+- Bug fixes: [LIST]
+- Deprecations or breaking changes: [LIST, OR "None"]
+- Known issues: [LIST, OR "None"]
+
+Format requirements:
+- Lead with a one-paragraph summary of the most impactful changes
+- Use clear category headings
+- For each item: one sentence describing what changed and why it matters to the user
+- Flag any breaking changes prominently with a warning label
+- Close with upgrade instructions or a link placeholder`,this)'>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy Prompt
+      </button>
+    </div>
+    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> Frame every change from the user's perspective ('You can now...' rather than 'We added...').</span></div>
+  </div>
+</div>
+  </div>
+</section>
+<section class="cat-section" id="cat-review" data-cat="review">
+  <div class="cat-header">
+    <span class="cat-emoji">🔍</span>
+    <div>
+      <h2 class="cat-title">Review & Quality Assurance</h2>
+    </div>
+    <span class="cat-badge">4 prompts</span>
+  </div>
+  <div class="cards">
+<div class="card" data-cat="07" id="p07">
+  <div class="card-top">
+    <div class="card-left">
+      <span class="badge" style="background:#6366f1">07</span>
+      <div class="card-info">
+        <h3>Style Guide Compliance Report</h3>
+        <p class="use-case">Audit a doc against your style guide with a scored report</p>
+      </div>
+    </div>
+    <button class="chevron" onclick="toggle(this)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+  </div>
+  <div class="card-body">
+    <div class="code-label">PROMPT</div>
+    <div class="code-wrap">
+      <pre class="code-block">You are a documentation quality reviewer. I am giving you two inputs: (1) my team's style guide, and (2) a document I have written. Your task is to audit the document against the style guide and produce a detailed compliance report.
+
+STYLE GUIDE:
+<mark>[PASTE YOUR FULL STYLE GUIDE HERE — or paste the relevant sections]</mark>
+
+DOCUMENT TO REVIEW:
+<mark>[PASTE YOUR DOCUMENT HERE]</mark>
+
+Produce a report structured as follows:
+
+## Compliance Report: <mark>[Document Title]</mark>
+
+### 1. Overall Score
+Give an overall compliance score out of 100, with a 2-sentence summary.
+
+### 2. Category Scores (score each out of 10)
+- Voice and Tone
+- Formatting and Structure
+- Terminology Consistency
+- Sentence Clarity and Length
+- Use of Headings and Lists
+- Grammar and Punctuation
+
+### 3. Violations Found
+For each violation: quote the original text, state which style guide rule it breaks, and provide a corrected version.
+
+### 4. Positive Observations
+List 3–5 things the document does well against the style guide.
+
+### 5. Priority Action List
+Rank all violations as CRITICAL / MAJOR / MINOR and list them in order of priority.</pre>
+      <button class="copy-btn" onclick='copyText(`You are a documentation quality reviewer. I am giving you two inputs: (1) my team's style guide, and (2) a document I have written. Your task is to audit the document against the style guide and produce a detailed compliance report.
+
+STYLE GUIDE:
+[PASTE YOUR FULL STYLE GUIDE HERE — or paste the relevant sections]
+
+DOCUMENT TO REVIEW:
+[PASTE YOUR DOCUMENT HERE]
+
+Produce a report structured as follows:
+
+## Compliance Report: [Document Title]
+
+### 1. Overall Score
+Give an overall compliance score out of 100, with a 2-sentence summary.
+
+### 2. Category Scores (score each out of 10)
+- Voice and Tone
+- Formatting and Structure
+- Terminology Consistency
+- Sentence Clarity and Length
+- Use of Headings and Lists
+- Grammar and Punctuation
+
+### 3. Violations Found
+For each violation: quote the original text, state which style guide rule it breaks, and provide a corrected version.
+
+### 4. Positive Observations
+List 3–5 things the document does well against the style guide.
+
+### 5. Priority Action List
+Rank all violations as CRITICAL / MAJOR / MINOR and list them in order of priority.`,this)'>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy Prompt
+      </button>
+    </div>
+    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> If your style guide is long, paste only the most relevant sections (Voice & Tone + Formatting) to keep the audit focused.</span></div>
+  </div>
+</div>
+<div class="card" data-cat="08" id="p08">
+  <div class="card-top">
+    <div class="card-left">
+      <span class="badge" style="background:#6366f1">08</span>
+      <div class="card-info">
+        <h3>General Document Review</h3>
+        <p class="use-case">Scored critique plus a fully revised version of your doc</p>
+      </div>
+    </div>
+    <button class="chevron" onclick="toggle(this)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+  </div>
+  <div class="card-body">
+    <div class="code-label">PROMPT</div>
+    <div class="code-wrap">
+      <pre class="code-block">Act as a senior technical writer and documentation reviewer. Review the following document and provide:
+
+1. An overall assessment (2–3 sentences)
+2. A scored evaluation (1–5) for each criterion:
+   - Clarity and readability
+   - Accuracy of structure and logical flow
+   - Consistency of terminology and formatting
+   - Appropriateness for the target audience
+   - Completeness (no gaps in information)
+3. A prioritized list of specific improvements (label each HIGH / MEDIUM / LOW priority)
+4. A fully revised version of the document incorporating all HIGH-priority improvements
+
+Document to review:
+<mark>[PASTE DOCUMENT HERE]</mark>
+
+Target audience: <mark>[DESCRIBE AUDIENCE]</mark>
+Document purpose: <mark>[DESCRIBE INTENDED USE]</mark></pre>
+      <button class="copy-btn" onclick='copyText(`Act as a senior technical writer and documentation reviewer. Review the following document and provide:
+
+1. An overall assessment (2–3 sentences)
+2. A scored evaluation (1–5) for each criterion:
+   - Clarity and readability
+   - Accuracy of structure and logical flow
+   - Consistency of terminology and formatting
+   - Appropriateness for the target audience
+   - Completeness (no gaps in information)
+3. A prioritized list of specific improvements (label each HIGH / MEDIUM / LOW priority)
+4. A fully revised version of the document incorporating all HIGH-priority improvements
+
+Document to review:
+[PASTE DOCUMENT HERE]
+
+Target audience: [DESCRIBE AUDIENCE]
+Document purpose: [DESCRIBE INTENDED USE]`,this)'>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy Prompt
+      </button>
+    </div>
+    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> Always specify the intended audience and purpose — without this context, the review will be generic.</span></div>
+  </div>
+</div>
+<div class="card" data-cat="09" id="p09">
+  <div class="card-top">
+    <div class="card-left">
+      <span class="badge" style="background:#6366f1">09</span>
+      <div class="card-info">
+        <h3>Terminology & Consistency Audit</h3>
+        <p class="use-case">Find inconsistent terms, caps, hyphens, and abbreviations</p>
+      </div>
+    </div>
+    <button class="chevron" onclick="toggle(this)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+  </div>
+  <div class="card-body">
+    <div class="code-label">PROMPT</div>
+    <div class="code-wrap">
+      <pre class="code-block">You are a technical editor specializing in terminology management. Audit the following document for terminology and consistency issues.
+
+Document:
+<mark>[PASTE DOCUMENT HERE]</mark>
+
+Preferred terminology list (if available):
+<mark>[PASTE YOUR GLOSSARY OR PREFERRED TERMS — or write "None provided"]</mark>
+
+Perform the following analysis and produce a structured report:
+
+1. TERMINOLOGY INCONSISTENCIES
+   List every case where the same concept is referred to by different names (e.g., "end user" vs "user" vs "customer"). For each: show all variants found, their locations, and the recommended single term to use.
+
+2. CAPITALIZATION INCONSISTENCIES
+   Flag any terms that are capitalized in some places and lowercase in others.
+
+3. HYPHENATION INCONSISTENCIES
+   Flag terms that appear both hyphenated and unhyphenated.
+
+4. ABBREVIATION ISSUES
+   Find abbreviations used without being defined on first use, or defined more than once.
+
+5. RECOMMENDED GLOSSARY
+   Based on your findings, suggest a 10-term mini glossary with preferred spellings and definitions.</pre>
+      <button class="copy-btn" onclick='copyText(`You are a technical editor specializing in terminology management. Audit the following document for terminology and consistency issues.
+
+Document:
+[PASTE DOCUMENT HERE]
+
+Preferred terminology list (if available):
+[PASTE YOUR GLOSSARY OR PREFERRED TERMS — or write "None provided"]
+
+Perform the following analysis and produce a structured report:
+
+1. TERMINOLOGY INCONSISTENCIES
+   List every case where the same concept is referred to by different names (e.g., "end user" vs "user" vs "customer"). For each: show all variants found, their locations, and the recommended single term to use.
+
+2. CAPITALIZATION INCONSISTENCIES
+   Flag any terms that are capitalized in some places and lowercase in others.
+
+3. HYPHENATION INCONSISTENCIES
+   Flag terms that appear both hyphenated and unhyphenated.
+
+4. ABBREVIATION ISSUES
+   Find abbreviations used without being defined on first use, or defined more than once.
+
+5. RECOMMENDED GLOSSARY
+   Based on your findings, suggest a 10-term mini glossary with preferred spellings and definitions.`,this)'>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy Prompt
+      </button>
+    </div>
+    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> Run this before a major release. Save the recommended glossary output as your official terminology reference going forward.</span></div>
+  </div>
+</div>
+<div class="card" data-cat="10" id="p10">
+  <div class="card-top">
+    <div class="card-left">
+      <span class="badge" style="background:#6366f1">10</span>
+      <div class="card-info">
+        <h3>Readability & Accessibility Check</h3>
+        <p class="use-case">Score and improve for plain language and accessibility</p>
+      </div>
+    </div>
+    <button class="chevron" onclick="toggle(this)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+  </div>
+  <div class="card-body">
+    <div class="code-label">PROMPT</div>
+    <div class="code-wrap">
+      <pre class="code-block">You are a plain language and accessibility specialist. Analyze the following document and produce an accessibility and readability report.
+
+Document:
+<mark>[PASTE DOCUMENT HERE]</mark>
+
+Target reading level: <mark>[e.g., Grade 8, general public, technical professional]</mark>
+
+Provide the following:
+
+1. READABILITY ASSESSMENT
+   Estimate the current reading level (Flesch-Kincaid equivalent). List the 5 most complex sentences and rewrite each in plain language.
+
+2. PLAIN LANGUAGE AUDIT
+   Identify: passive voice instances, nominalizations (e.g., "make a decision" → "decide"), overly long sentences (20+ words), and weak openers (e.g., "There are", "It is").
+
+3. ACCESSIBILITY CHECKLIST
+   Evaluate against these criteria (Pass / Needs Work / Fail):
+   - Logical heading hierarchy (H1 &gt; H2 &gt; H3)
+   - Alt text guidance for images (are images described in surrounding text?)
+   - Link text quality (e.g., "click here" vs descriptive links)
+   - Use of color or formatting as the sole indicator of meaning
+   - Consistent list formatting
+
+4. REWRITTEN EXCERPT
+   Rewrite the most problematic paragraph using plain language principles.
+
+5. SUMMARY SCORE
+   Give an overall accessibility readiness score (1–10) with a brief rationale.</pre>
+      <button class="copy-btn" onclick='copyText(`You are a plain language and accessibility specialist. Analyze the following document and produce an accessibility and readability report.
+
+Document:
+[PASTE DOCUMENT HERE]
+
+Target reading level: [e.g., Grade 8, general public, technical professional]
+
+Provide the following:
+
+1. READABILITY ASSESSMENT
+   Estimate the current reading level (Flesch-Kincaid equivalent). List the 5 most complex sentences and rewrite each in plain language.
+
+2. PLAIN LANGUAGE AUDIT
+   Identify: passive voice instances, nominalizations (e.g., "make a decision" → "decide"), overly long sentences (20+ words), and weak openers (e.g., "There are", "It is").
+
+3. ACCESSIBILITY CHECKLIST
+   Evaluate against these criteria (Pass / Needs Work / Fail):
+   - Logical heading hierarchy (H1 > H2 > H3)
+   - Alt text guidance for images (are images described in surrounding text?)
+   - Link text quality (e.g., "click here" vs descriptive links)
+   - Use of color or formatting as the sole indicator of meaning
+   - Consistent list formatting
+
+4. REWRITTEN EXCERPT
+   Rewrite the most problematic paragraph using plain language principles.
+
+5. SUMMARY SCORE
+   Give an overall accessibility readiness score (1–10) with a brief rationale.`,this)'>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy Prompt
+      </button>
+    </div>
+    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> Use this before publishing any customer-facing documentation. The before/after excerpt is a great stakeholder artifact.</span></div>
+  </div>
+</div>
+  </div>
+</section>
+<section class="cat-section" id="cat-video" data-cat="video">
+  <div class="cat-header">
+    <span class="cat-emoji">🎬</span>
+    <div>
+      <h2 class="cat-title">Video, Audio & Transcripts</h2>
+    </div>
+    <span class="cat-badge">3 prompts</span>
+  </div>
+  <div class="cards">
+<div class="card" data-cat="11" id="p11">
+  <div class="card-top">
+    <div class="card-left">
+      <span class="badge" style="background:#e11d48">11</span>
+      <div class="card-info">
+        <h3>Demo Video → How-To Guide</h3>
+        <p class="use-case">Turn a video transcript into step-by-step instructions</p>
+      </div>
+    </div>
+    <button class="chevron" onclick="toggle(this)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+  </div>
+  <div class="card-body">
+    <div class="code-label">PROMPT</div>
+    <div class="code-wrap">
+      <pre class="code-block">You are a technical writer. I have a transcript from a product demo video and I need you to turn it into polished, structured documentation.
+
+Product being demonstrated: <mark>[PRODUCT/FEATURE NAME]</mark>
+Target audience: <mark>[e.g., new users, IT administrators, developers]</mark>
+Output document type: <mark>[e.g., step-by-step how-to guide, feature overview, getting started guide]</mark>
+
+Video transcript:
+<mark>[PASTE THE FULL VIDEO TRANSCRIPT HERE — raw auto-captions are fine]</mark>
+
+Instructions:
+- Ignore filler words, false starts, and off-topic commentary
+- Extract every distinct step or action the presenter performs and turn them into numbered instructions
+- Where the presenter says "as you can see here" or refers to something visual, replace with a written description of what should be visible and add a placeholder: <mark>[SCREENSHOT: describe what to capture]</mark>
+- Group related steps under descriptive headings
+- Add a Prerequisites section at the top for anything mentioned as a setup requirement
+- Add a "What you'll achieve" intro paragraph
+- Flag any part of the transcript that is unclear or contradictory with <mark>[VERIFY WITH SME]</mark>
+- End with a list of follow-up questions to ask the presenter</pre>
+      <button class="copy-btn" onclick='copyText(`You are a technical writer. I have a transcript from a product demo video and I need you to turn it into polished, structured documentation.
+
+Product being demonstrated: [PRODUCT/FEATURE NAME]
+Target audience: [e.g., new users, IT administrators, developers]
+Output document type: [e.g., step-by-step how-to guide, feature overview, getting started guide]
+
+Video transcript:
+[PASTE THE FULL VIDEO TRANSCRIPT HERE — raw auto-captions are fine]
+
+Instructions:
+- Ignore filler words, false starts, and off-topic commentary
+- Extract every distinct step or action the presenter performs and turn them into numbered instructions
+- Where the presenter says "as you can see here" or refers to something visual, replace with a written description of what should be visible and add a placeholder: [SCREENSHOT: describe what to capture]
+- Group related steps under descriptive headings
+- Add a Prerequisites section at the top for anything mentioned as a setup requirement
+- Add a "What you'll achieve" intro paragraph
+- Flag any part of the transcript that is unclear or contradictory with [VERIFY WITH SME]
+- End with a list of follow-up questions to ask the presenter`,this)'>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy Prompt
+      </button>
+    </div>
+    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> Use YouTube auto-captions, Otter.ai, or Whisper to get a rough transcript first. Even messy transcripts produce great results.</span></div>
+  </div>
+</div>
+<div class="card" data-cat="12" id="p12">
+  <div class="card-top">
+    <div class="card-left">
+      <span class="badge" style="background:#e11d48">12</span>
+      <div class="card-info">
+        <h3>Video Transcript → Full Feature Doc</h3>
+        <p class="use-case">Build a complete feature reference doc from a walkthrough</p>
+      </div>
+    </div>
+    <button class="chevron" onclick="toggle(this)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+  </div>
+  <div class="card-body">
+    <div class="code-label">PROMPT</div>
+    <div class="code-wrap">
+      <pre class="code-block">You are a technical writer creating product documentation from a video walkthrough. Convert the transcript below into a complete feature document — not just a procedure, but a full reference document a user could rely on.
+
+Feature name: <mark>[FEATURE NAME]</mark>
+Product: <mark>[PRODUCT NAME]</mark>
+Audience: <mark>[TARGET AUDIENCE]</mark>
+Tone: <mark>[e.g., formal, friendly, developer-facing]</mark>
+
+Transcript:
+<mark>[PASTE TRANSCRIPT HERE]</mark>
+
+Structure the output as a complete feature document including:
+
+## Overview
+What this feature does and the business or user problem it solves (2–3 sentences).
+
+## Key Concepts
+Define 3–5 terms or concepts a user must understand before using this feature.
+
+## How It Works
+A plain-language explanation of the underlying logic or workflow (not step-by-step instructions — conceptual understanding).
+
+## How to Use <mark>[Feature Name]</mark>
+Numbered step-by-step instructions extracted from the video.
+Add <mark>[SCREENSHOT: description]</mark> placeholders where visuals are needed.
+
+## Configuration Options
+Any settings, toggles, or parameters mentioned. Format as a table: Option | Description | Default Value.
+
+## Limitations &amp; Known Constraints
+What this feature cannot do. Any restrictions mentioned.
+
+## Related Features
+<mark>[LEAVE BLANK OR LIST IF MENTIONED IN TRANSCRIPT]</mark>
+
+Mark anything uncertain with <mark>[VERIFY]</mark> and list SME follow-up questions at the end.</pre>
+      <button class="copy-btn" onclick='copyText(`You are a technical writer creating product documentation from a video walkthrough. Convert the transcript below into a complete feature document — not just a procedure, but a full reference document a user could rely on.
+
+Feature name: [FEATURE NAME]
+Product: [PRODUCT NAME]
+Audience: [TARGET AUDIENCE]
+Tone: [e.g., formal, friendly, developer-facing]
+
+Transcript:
+[PASTE TRANSCRIPT HERE]
+
+Structure the output as a complete feature document including:
+
+## Overview
+What this feature does and the business or user problem it solves (2–3 sentences).
+
+## Key Concepts
+Define 3–5 terms or concepts a user must understand before using this feature.
+
+## How It Works
+A plain-language explanation of the underlying logic or workflow (not step-by-step instructions — conceptual understanding).
+
+## How to Use [Feature Name]
+Numbered step-by-step instructions extracted from the video.
+Add [SCREENSHOT: description] placeholders where visuals are needed.
+
+## Configuration Options
+Any settings, toggles, or parameters mentioned. Format as a table: Option | Description | Default Value.
+
+## Limitations & Known Constraints
+What this feature cannot do. Any restrictions mentioned.
+
+## Related Features
+[LEAVE BLANK OR LIST IF MENTIONED IN TRANSCRIPT]
+
+Mark anything uncertain with [VERIFY] and list SME follow-up questions at the end.`,this)'>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy Prompt
+      </button>
+    </div>
+    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> Ideal for internal product demos or sprint review recordings. The Key Concepts section alone saves hours of SME follow-up.</span></div>
+  </div>
+</div>
+<div class="card" data-cat="13" id="p13">
+  <div class="card-top">
+    <div class="card-left">
+      <span class="badge" style="background:#e11d48">13</span>
+      <div class="card-info">
+        <h3>SME Interview / Notes → Documentation</h3>
+        <p class="use-case">Convert meeting notes or expert interviews into polished docs</p>
+      </div>
+    </div>
+    <button class="chevron" onclick="toggle(this)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+  </div>
+  <div class="card-body">
+    <div class="code-label">PROMPT</div>
+    <div class="code-wrap">
+      <pre class="code-block">You are a technical writer. I have raw notes or a transcript from <mark>[SOURCE — e.g., a subject matter expert interview / a product demo / a team meeting]</mark> that need to be turned into polished documentation.
+
+Documentation type needed: <mark>[e.g., how-to guide, feature overview, FAQ, process doc]</mark>
+Target audience: <mark>[DESCRIBE AUDIENCE]</mark>
+Desired length: <mark>[e.g., 500 words, 1 page, as long as needed]</mark>
+
+Raw notes/transcript:
+<mark>[PASTE YOUR NOTES OR TRANSCRIPT HERE]</mark>
+
+Instructions:
+- Extract only information relevant to the documentation type specified
+- Fill structural gaps logically, but mark any assumed information with <mark>[VERIFY]</mark> so I can confirm with the SME
+- Organize content with clear headings and a logical flow
+- Remove filler language, repetition, and off-topic content
+- Flag any contradictions or ambiguities with <mark>[CLARIFY NEEDED]</mark>
+- Output the final document followed by a short list of follow-up questions for the SME</pre>
+      <button class="copy-btn" onclick='copyText(`You are a technical writer. I have raw notes or a transcript from [SOURCE — e.g., a subject matter expert interview / a product demo / a team meeting] that need to be turned into polished documentation.
+
+Documentation type needed: [e.g., how-to guide, feature overview, FAQ, process doc]
+Target audience: [DESCRIBE AUDIENCE]
+Desired length: [e.g., 500 words, 1 page, as long as needed]
+
+Raw notes/transcript:
+[PASTE YOUR NOTES OR TRANSCRIPT HERE]
+
+Instructions:
+- Extract only information relevant to the documentation type specified
+- Fill structural gaps logically, but mark any assumed information with [VERIFY] so I can confirm with the SME
+- Organize content with clear headings and a logical flow
+- Remove filler language, repetition, and off-topic content
+- Flag any contradictions or ambiguities with [CLARIFY NEEDED]
+- Output the final document followed by a short list of follow-up questions for the SME`,this)'>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy Prompt
+      </button>
+    </div>
+    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> The [VERIFY] and [CLARIFY NEEDED] flags protect accuracy and give you a clear checklist before you publish.</span></div>
+  </div>
+</div>
+  </div>
+</section>
+<section class="cat-section" id="cat-format" data-cat="format">
+  <div class="cat-header">
+    <span class="cat-emoji">⚙️</span>
+    <div>
+      <h2 class="cat-title">Format & Convert</h2>
+    </div>
+    <span class="cat-badge">4 prompts</span>
+  </div>
+  <div class="cards">
+<div class="card" data-cat="14" id="p14">
+  <div class="card-top">
+    <div class="card-left">
+      <span class="badge" style="background:#16a34a">14</span>
+      <div class="card-info">
+        <h3>Convert Documentation to Markdown</h3>
+        <p class="use-case">Reformat any doc into clean, publish-ready Markdown</p>
+      </div>
+    </div>
+    <button class="chevron" onclick="toggle(this)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+  </div>
+  <div class="card-body">
+    <div class="code-label">PROMPT</div>
+    <div class="code-wrap">
+      <pre class="code-block">You are a technical writer and documentation engineer. Convert the following document into clean, well-structured Markdown.
+
+Document to convert:
+<mark>[PASTE YOUR DOCUMENT HERE]</mark>
+
+Markdown flavor: <mark>[e.g., standard Markdown / GitHub Flavored Markdown (GFM) / MDX / MkDocs / Docusaurus]</mark>
+Where this will be published: <mark>[e.g., GitHub README, Confluence, internal wiki, docs site]</mark>
+
+Conversion rules to follow:
+- Use ATX-style headings (# H1, ## H2, ### H3) — never use underline-style
+- Convert all numbered lists to proper Markdown ordered lists
+- Convert all bullet points to unordered lists (-)
+- Format all code, commands, file paths, and UI elements in backtick code spans
+- Format multi-line code blocks with triple backticks and a language identifier (e.g., \`\`\`bash, \`\`\`json)
+- Convert any tables to Markdown pipe tables with header row and alignment separators
+- Replace bold/italic formatting with **bold** and _italic_ syntax
+- Add a blank line before and after every heading, list, and code block
+- Preserve all heading hierarchy from the original
+- Add a document-level front matter block at the top: title, description, and date fields (leave values as placeholders if unknown)
+
+After the converted document, include:
+1. A short summary of conversion decisions made
+2. A list of any elements that could not be converted cleanly, with recommendations</pre>
+      <button class="copy-btn" onclick='copyText(`You are a technical writer and documentation engineer. Convert the following document into clean, well-structured Markdown.
+
+Document to convert:
+[PASTE YOUR DOCUMENT HERE]
+
+Markdown flavor: [e.g., standard Markdown / GitHub Flavored Markdown (GFM) / MDX / MkDocs / Docusaurus]
+Where this will be published: [e.g., GitHub README, Confluence, internal wiki, docs site]
+
+Conversion rules to follow:
+- Use ATX-style headings (# H1, ## H2, ### H3) — never use underline-style
+- Convert all numbered lists to proper Markdown ordered lists
+- Convert all bullet points to unordered lists (-)
+- Format all code, commands, file paths, and UI elements in backtick code spans
+- Format multi-line code blocks with triple backticks and a language identifier (e.g., \\\`\\\`\\\`bash, \\\`\\\`\\\`json)
+- Convert any tables to Markdown pipe tables with header row and alignment separators
+- Replace bold/italic formatting with **bold** and _italic_ syntax
+- Add a blank line before and after every heading, list, and code block
+- Preserve all heading hierarchy from the original
+- Add a document-level front matter block at the top: title, description, and date fields (leave values as placeholders if unknown)
+
+After the converted document, include:
+1. A short summary of conversion decisions made
+2. A list of any elements that could not be converted cleanly, with recommendations`,this)'>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy Prompt
+      </button>
+    </div>
+    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> Specify the Markdown flavor — GFM supports tables and task lists that standard Markdown doesn't.</span></div>
+  </div>
+</div>
+<div class="card" data-cat="15" id="p15">
+  <div class="card-top">
+    <div class="card-left">
+      <span class="badge" style="background:#16a34a">15</span>
+      <div class="card-info">
+        <h3>Convert Documentation to DITA XML</h3>
+        <p class="use-case">Transform prose into structured DITA topics with a map</p>
+      </div>
+    </div>
+    <button class="chevron" onclick="toggle(this)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+  </div>
+  <div class="card-body">
+    <div class="code-label">PROMPT</div>
+    <div class="code-wrap">
+      <pre class="code-block">You are a structured authoring specialist and technical writer experienced in DITA XML. Convert the following document into valid DITA XML.
+
+Document to convert:
+<mark>[PASTE YOUR DOCUMENT HERE]</mark>
+
+DITA version: <mark>[e.g., DITA 1.3 / DITA 2.0]</mark>
+Topic type: <mark>[e.g., concept / task / reference / troubleshooting — or "choose the best type for each section"]</mark>
+Toolchain/output: <mark>[e.g., Oxygen XML, DITA-OT, Heretto, Paligo — or "generic DITA"]</mark>
+
+Conversion requirements:
+- Split the document into separate DITA topics as appropriate (one topic per logical unit of information)
+- Use correct topic type elements: &lt;concept&gt;, &lt;task&gt;, or &lt;reference&gt;
+- In task topics: wrap each step in &lt;step&gt;&lt;cmd&gt;...&lt;/cmd&gt;&lt;/step&gt; inside &lt;steps&gt;
+- In concept topics: use &lt;conbody&gt; with &lt;p&gt;, &lt;ul&gt;, &lt;ol&gt;, and &lt;note&gt; elements
+- In reference topics: use &lt;refbody&gt; with &lt;table&gt; or &lt;properties&gt; elements for structured data
+- Use &lt;shortdesc&gt; for every topic (1–2 sentence description immediately after &lt;title&gt;)
+- Mark up UI elements with &lt;uicontrol&gt;, code with &lt;codeph&gt;, file paths with &lt;filepath&gt;, and variables with &lt;varname&gt;
+- Use &lt;note type="warning"&gt; and &lt;note type="tip"&gt; appropriately
+- Wrap the output in a DITA map (&lt;map&gt;) that references all generated topics
+
+After the XML output, provide:
+1. A topic list showing the hierarchy of generated topics
+2. Notes on any content that required interpretation or restructuring</pre>
+      <button class="copy-btn" onclick='copyText(`You are a structured authoring specialist and technical writer experienced in DITA XML. Convert the following document into valid DITA XML.
+
+Document to convert:
+[PASTE YOUR DOCUMENT HERE]
+
+DITA version: [e.g., DITA 1.3 / DITA 2.0]
+Topic type: [e.g., concept / task / reference / troubleshooting — or "choose the best type for each section"]
+Toolchain/output: [e.g., Oxygen XML, DITA-OT, Heretto, Paligo — or "generic DITA"]
+
+Conversion requirements:
+- Split the document into separate DITA topics as appropriate (one topic per logical unit of information)
+- Use correct topic type elements: <concept>, <task>, or <reference>
+- In task topics: wrap each step in <step><cmd>...</cmd></step> inside <steps>
+- In concept topics: use <conbody> with <p>, <ul>, <ol>, and <note> elements
+- In reference topics: use <refbody> with <table> or <properties> elements for structured data
+- Use <shortdesc> for every topic (1–2 sentence description immediately after <title>)
+- Mark up UI elements with <uicontrol>, code with <codeph>, file paths with <filepath>, and variables with <varname>
+- Use <note type="warning"> and <note type="tip"> appropriately
+- Wrap the output in a DITA map (<map>) that references all generated topics
+
+After the XML output, provide:
+1. A topic list showing the hierarchy of generated topics
+2. Notes on any content that required interpretation or restructuring`,this)'>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy Prompt
+      </button>
+    </div>
+    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> Always validate the output in Oxygen XML or a DITA linter before committing to your toolchain.</span></div>
+  </div>
+</div>
+<div class="card" data-cat="16" id="p16">
+  <div class="card-top">
+    <div class="card-left">
+      <span class="badge" style="background:#16a34a">16</span>
+      <div class="card-info">
+        <h3>Convert Documentation to DocBook XML</h3>
+        <p class="use-case">Reformat content into DocBook 5 with semantic elements</p>
+      </div>
+    </div>
+    <button class="chevron" onclick="toggle(this)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+  </div>
+  <div class="card-body">
+    <div class="code-label">PROMPT</div>
+    <div class="code-wrap">
+      <pre class="code-block">You are a technical writer and XML authoring specialist. Convert the following document into valid DocBook 5 XML.
+
+Document to convert:
+<mark>[PASTE YOUR DOCUMENT HERE]</mark>
+
+DocBook output type: <mark>[e.g., &lt;article&gt;, &lt;book&gt;, &lt;chapter&gt;, &lt;section&gt;]</mark>
+Publishing tool: <mark>[e.g., Publican, Asciidoctor with DocBook backend, generic DocBook — or "not specified"]</mark>
+
+Conversion requirements:
+- Use DocBook 5 namespace: xmlns="http://docbook.org/ns/docbook" version="5.0"
+- Wrap the document in the appropriate root element (&lt;article&gt; or &lt;book&gt;)
+- Use &lt;section&gt; with &lt;title&gt; for each major heading
+- Convert procedural content into &lt;procedure&gt;&lt;step&gt;&lt;para&gt;...&lt;/para&gt;&lt;/step&gt;&lt;/procedure&gt;
+- Mark up: &lt;command&gt; for CLI commands, &lt;filename&gt; for file paths, &lt;literal&gt; for code values, &lt;guilabel&gt; for UI elements, &lt;keycap&gt; for keyboard keys
+- Use &lt;itemizedlist&gt; and &lt;orderedlist&gt; for bullets and numbered lists
+- Use &lt;table&gt; with &lt;thead&gt; and &lt;tbody&gt; for any tabular data
+- Use &lt;note&gt;, &lt;warning&gt;, &lt;tip&gt;, &lt;caution&gt; elements for callouts
+- Add &lt;info&gt; block at the top with &lt;title&gt;, &lt;author&gt; (placeholder), and &lt;pubdate&gt; (placeholder)
+- Add xml:id attributes to all &lt;section&gt; elements using kebab-case slugs
+
+After the XML, list any DocBook semantic elements you chose and why.</pre>
+      <button class="copy-btn" onclick='copyText(`You are a technical writer and XML authoring specialist. Convert the following document into valid DocBook 5 XML.
+
+Document to convert:
+[PASTE YOUR DOCUMENT HERE]
+
+DocBook output type: [e.g., <article>, <book>, <chapter>, <section>]
+Publishing tool: [e.g., Publican, Asciidoctor with DocBook backend, generic DocBook — or "not specified"]
+
+Conversion requirements:
+- Use DocBook 5 namespace: xmlns="http://docbook.org/ns/docbook" version="5.0"
+- Wrap the document in the appropriate root element (<article> or <book>)
+- Use <section> with <title> for each major heading
+- Convert procedural content into <procedure><step><para>...</para></step></procedure>
+- Mark up: <command> for CLI commands, <filename> for file paths, <literal> for code values, <guilabel> for UI elements, <keycap> for keyboard keys
+- Use <itemizedlist> and <orderedlist> for bullets and numbered lists
+- Use <table> with <thead> and <tbody> for any tabular data
+- Use <note>, <warning>, <tip>, <caution> elements for callouts
+- Add <info> block at the top with <title>, <author> (placeholder), and <pubdate> (placeholder)
+- Add xml:id attributes to all <section> elements using kebab-case slugs
+
+After the XML, list any DocBook semantic elements you chose and why.`,this)'>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy Prompt
+      </button>
+    </div>
+    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> Specify your publishing tool — Publican and Asciidoctor have slightly different expectations for structure and ID conventions.</span></div>
+  </div>
+</div>
+<div class="card" data-cat="17" id="p17">
+  <div class="card-top">
+    <div class="card-left">
+      <span class="badge" style="background:#16a34a">17</span>
+      <div class="card-info">
+        <h3>Adapt Doc for a Different Output Channel</h3>
+        <p class="use-case">Single-source one doc to print, mobile, chatbot, or in-app</p>
+      </div>
+    </div>
+    <button class="chevron" onclick="toggle(this)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+  </div>
+  <div class="card-body">
+    <div class="code-label">PROMPT</div>
+    <div class="code-wrap">
+      <pre class="code-block">You are a technical writer specializing in single-sourcing and multi-channel publishing. I have an existing document written for <mark>[ORIGINAL FORMAT, e.g., printed user manual / web help center]</mark> and I need to adapt it for <mark>[TARGET FORMAT, e.g., in-app contextual help / mobile-first help article / PDF quick reference card / slideshow / chatbot FAQ]</mark>.
+
+Original document:
+<mark>[PASTE DOCUMENT HERE]</mark>
+
+Target channel constraints:
+- Maximum length: <mark>[e.g., 300 words, 1 screen, 5 slides]</mark>
+- Reading context: <mark>[e.g., user is mid-task and needs quick answers, not background reading]</mark>
+- Format limitations: <mark>[e.g., no tables, no images, plain text only / HTML supported / Markdown only]</mark>
+
+Adapt the document by:
+1. Cutting all content that doesn't serve a user who is actively trying to complete a task
+2. Rewriting for the target context (e.g., shorter sentences for mobile, imperative voice for in-app)
+3. Restructuring if needed (e.g., convert prose to Q&amp;A for chatbot, convert steps to a checklist for quick ref)
+4. Flagging any content cut that may need a separate, deeper article
+
+Output: the adapted document + a brief editorial note explaining key decisions made.</pre>
+      <button class="copy-btn" onclick='copyText(`You are a technical writer specializing in single-sourcing and multi-channel publishing. I have an existing document written for [ORIGINAL FORMAT, e.g., printed user manual / web help center] and I need to adapt it for [TARGET FORMAT, e.g., in-app contextual help / mobile-first help article / PDF quick reference card / slideshow / chatbot FAQ].
+
+Original document:
+[PASTE DOCUMENT HERE]
+
+Target channel constraints:
+- Maximum length: [e.g., 300 words, 1 screen, 5 slides]
+- Reading context: [e.g., user is mid-task and needs quick answers, not background reading]
+- Format limitations: [e.g., no tables, no images, plain text only / HTML supported / Markdown only]
+
+Adapt the document by:
+1. Cutting all content that doesn't serve a user who is actively trying to complete a task
+2. Rewriting for the target context (e.g., shorter sentences for mobile, imperative voice for in-app)
+3. Restructuring if needed (e.g., convert prose to Q&A for chatbot, convert steps to a checklist for quick ref)
+4. Flagging any content cut that may need a separate, deeper article
+
+Output: the adapted document + a brief editorial note explaining key decisions made.`,this)'>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy Prompt
+      </button>
+    </div>
+    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> Describe the user's mental state at the point of reading — 'frustrated and mid-task' leads to very different output than 'onboarding'.</span></div>
+  </div>
+</div>
+  </div>
+</section>
+<section class="cat-section" id="cat-structure" data-cat="structure">
+  <div class="cat-header">
+    <span class="cat-emoji">📐</span>
+    <div>
+      <h2 class="cat-title">Structure & Style</h2>
+    </div>
+    <span class="cat-badge">3 prompts</span>
+  </div>
+  <div class="cards">
+<div class="card" data-cat="18" id="p18">
+  <div class="card-top">
+    <div class="card-left">
+      <span class="badge" style="background:#9333ea">18</span>
+      <div class="card-info">
+        <h3>Create a Standard Operating Procedure</h3>
+        <p class="use-case">Build a complete, repeatable SOP for any business process</p>
+      </div>
+    </div>
+    <button class="chevron" onclick="toggle(this)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+  </div>
+  <div class="card-body">
+    <div class="code-label">PROMPT</div>
+    <div class="code-wrap">
+      <pre class="code-block">Act as a technical writer creating a Standard Operating Procedure (SOP) document.
+
+Process name: <mark>[PROCESS NAME]</mark>
+Department/Team: <mark>[DEPARTMENT]</mark>
+Frequency: <mark>[e.g., daily, monthly, as needed]</mark>
+Stakeholders involved: <mark>[LIST ROLES]</mark>
+
+Write a complete SOP that includes:
+1. Purpose — why this process exists
+2. Scope — who this applies to
+3. Roles and Responsibilities — table format
+4. Prerequisites — tools, access, or knowledge required
+5. Step-by-step Procedure — numbered steps with sub-steps where needed
+6. Expected Outcomes — what success looks like
+7. Exceptions and Escalation — what to do when things go wrong
+8. Revision History — placeholder table
+
+Use clear, imperative language (e.g., "Click Save", not "You should click Save").</pre>
+      <button class="copy-btn" onclick='copyText(`Act as a technical writer creating a Standard Operating Procedure (SOP) document.
+
+Process name: [PROCESS NAME]
+Department/Team: [DEPARTMENT]
+Frequency: [e.g., daily, monthly, as needed]
+Stakeholders involved: [LIST ROLES]
+
+Write a complete SOP that includes:
+1. Purpose — why this process exists
+2. Scope — who this applies to
+3. Roles and Responsibilities — table format
+4. Prerequisites — tools, access, or knowledge required
+5. Step-by-step Procedure — numbered steps with sub-steps where needed
+6. Expected Outcomes — what success looks like
+7. Exceptions and Escalation — what to do when things go wrong
+8. Revision History — placeholder table
+
+Use clear, imperative language (e.g., "Click Save", not "You should click Save").`,this)'>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy Prompt
+      </button>
+    </div>
+    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> Provide a rough process outline in point form as additional context — it significantly improves the output quality.</span></div>
+  </div>
+</div>
+<div class="card" data-cat="19" id="p19">
+  <div class="card-top">
+    <div class="card-left">
+      <span class="badge" style="background:#9333ea">19</span>
+      <div class="card-info">
+        <h3>Write a Style Guide Section</h3>
+        <p class="use-case">Create a DO/DON'T rule with examples and a reference table</p>
+      </div>
+    </div>
+    <button class="chevron" onclick="toggle(this)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+  </div>
+  <div class="card-body">
+    <div class="code-label">PROMPT</div>
+    <div class="code-wrap">
+      <pre class="code-block">Act as a senior technical writer and documentation strategist. Write a style guide section for <mark>[COMPANY/TEAM NAME]</mark>'s documentation.
+
+Section topic: <mark>[e.g., Voice and Tone / Formatting Standards / Terminology / Procedures Writing / Accessibility]</mark>
+Documentation types this covers: <mark>[e.g., user guides, API docs, internal wikis]</mark>
+Existing standards we follow: <mark>[e.g., Microsoft Writing Style Guide, Google Developer Style Guide, or "none yet"]</mark>
+Team size and experience level: <mark>[e.g., 3 writers, mixed experience]</mark>
+
+The section should include:
+1. Purpose of this guideline
+2. Core rules (5–8 rules, each with a DO and DON'T example)
+3. Edge cases and exceptions
+4. Quick-reference summary table
+5. Examples drawn from <mark>[DOMAIN/PRODUCT TYPE]</mark>
+
+Write in a clear, instructional tone that a new writer can follow independently.</pre>
+      <button class="copy-btn" onclick='copyText(`Act as a senior technical writer and documentation strategist. Write a style guide section for [COMPANY/TEAM NAME]'s documentation.
+
+Section topic: [e.g., Voice and Tone / Formatting Standards / Terminology / Procedures Writing / Accessibility]
+Documentation types this covers: [e.g., user guides, API docs, internal wikis]
+Existing standards we follow: [e.g., Microsoft Writing Style Guide, Google Developer Style Guide, or "none yet"]
+Team size and experience level: [e.g., 3 writers, mixed experience]
+
+The section should include:
+1. Purpose of this guideline
+2. Core rules (5–8 rules, each with a DO and DON'T example)
+3. Edge cases and exceptions
+4. Quick-reference summary table
+5. Examples drawn from [DOMAIN/PRODUCT TYPE]
+
+Write in a clear, instructional tone that a new writer can follow independently.`,this)'>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy Prompt
+      </button>
+    </div>
+    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> Build your style guide one section per session. Link each section to real examples from your own product's docs.</span></div>
+  </div>
+</div>
+<div class="card" data-cat="20" id="p20">
+  <div class="card-top">
+    <div class="card-left">
+      <span class="badge" style="background:#9333ea">20</span>
+      <div class="card-info">
+        <h3>Create a Troubleshooting Guide</h3>
+        <p class="use-case">Structured entries to help users self-resolve common issues</p>
+      </div>
+    </div>
+    <button class="chevron" onclick="toggle(this)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+  </div>
+  <div class="card-body">
+    <div class="code-label">PROMPT</div>
+    <div class="code-wrap">
+      <pre class="code-block">Act as a technical writer creating a troubleshooting guide for <mark>[PRODUCT/SYSTEM NAME]</mark>.
+
+Target audience: <mark>[e.g., end users, IT support staff]</mark>
+Support context: <mark>[e.g., standalone guide, embedded in help center, printed handout]</mark>
+
+Known issues to cover:
+<mark>[LIST 3–6 ISSUES OR SYMPTOMS — e.g., "Cannot log in", "Sync fails", "Dashboard loads slowly"]</mark>
+
+For each issue, write a troubleshooting entry that includes:
+1. Issue title — written as the user would describe it (e.g., "I can't log in")
+2. Symptoms — what the user sees or experiences
+3. Possible causes — brief list
+4. Resolution steps — numbered, with clear actions
+5. If unresolved — escalation path or next step
+
+Use plain language. Avoid blaming the user. Where helpful, include a note if the issue is a known bug with a workaround.</pre>
+      <button class="copy-btn" onclick='copyText(`Act as a technical writer creating a troubleshooting guide for [PRODUCT/SYSTEM NAME].
+
+Target audience: [e.g., end users, IT support staff]
+Support context: [e.g., standalone guide, embedded in help center, printed handout]
+
+Known issues to cover:
+[LIST 3–6 ISSUES OR SYMPTOMS — e.g., "Cannot log in", "Sync fails", "Dashboard loads slowly"]
+
+For each issue, write a troubleshooting entry that includes:
+1. Issue title — written as the user would describe it (e.g., "I can't log in")
+2. Symptoms — what the user sees or experiences
+3. Possible causes — brief list
+4. Resolution steps — numbered, with clear actions
+5. If unresolved — escalation path or next step
+
+Use plain language. Avoid blaming the user. Where helpful, include a note if the issue is a known bug with a workaround.`,this)'>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy Prompt
+      </button>
+    </div>
+    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> Pull issue titles directly from support tickets or user feedback — this makes the guide immediately relevant to real users.</span></div>
+  </div>
+</div>
+  </div>
+</section>
+<section class="cat-section" id="cat-strategy" data-cat="strategy">
+  <div class="cat-header">
+    <span class="cat-emoji">🗺️</span>
+    <div>
+      <h2 class="cat-title">Strategy & Planning</h2>
+    </div>
+    <span class="cat-badge">3 prompts</span>
+  </div>
+  <div class="cards">
+<div class="card" data-cat="21" id="p21">
+  <div class="card-top">
+    <div class="card-left">
+      <span class="badge" style="background:#0284c7">21</span>
+      <div class="card-info">
+        <h3>Build a Documentation Plan</h3>
+        <p class="use-case">Scope, deliverables, timeline, and risks for a product launch</p>
+      </div>
+    </div>
+    <button class="chevron" onclick="toggle(this)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+  </div>
+  <div class="card-body">
+    <div class="code-label">PROMPT</div>
+    <div class="code-wrap">
+      <pre class="code-block">You are a lead technical writer and documentation strategist. Create a comprehensive documentation plan for a new product launch.
+
+Product name: <mark>[PRODUCT NAME]</mark>
+Product type: <mark>[e.g., SaaS platform, developer tool, hardware device, internal enterprise tool]</mark>
+Target audiences: <mark>[LIST ALL AUDIENCES — e.g., end users, IT admins, developers, support agents]</mark>
+Launch date: <mark>[DATE OR TIMEFRAME]</mark>
+Team size: <mark>[e.g., 1 writer, 3 writers, embedded in product squads]</mark>
+Known features to document: <mark>[LIST KEY FEATURES]</mark>
+
+Produce a documentation plan that includes:
+
+1. DOCUMENTATION SCOPE
+   List every deliverable needed at launch vs. post-launch (as a prioritized table: Deliverable | Audience | Priority | Owner | Format).
+
+2. CONTENT HIERARCHY
+   Propose a recommended information architecture — the top-level structure of the documentation site or help center.
+
+3. WRITING TIMELINE
+   A phased schedule from first draft to publication, including review cycles. Flag dependencies (e.g., "needs UI freeze before screenshots").
+
+4. RESOURCE ESTIMATE
+   Rough estimate of writing effort per deliverable (hours or days). Flag which items are highest-risk due to complexity or dependency on SME access.
+
+5. RISKS &amp; MITIGATIONS
+   List 3–5 risks (e.g., late feature changes, SME unavailability) and a mitigation plan for each.
+
+6. SUCCESS METRICS
+   Suggest 3–5 measurable outcomes to define whether the documentation is successful post-launch.</pre>
+      <button class="copy-btn" onclick='copyText(`You are a lead technical writer and documentation strategist. Create a comprehensive documentation plan for a new product launch.
+
+Product name: [PRODUCT NAME]
+Product type: [e.g., SaaS platform, developer tool, hardware device, internal enterprise tool]
+Target audiences: [LIST ALL AUDIENCES — e.g., end users, IT admins, developers, support agents]
+Launch date: [DATE OR TIMEFRAME]
+Team size: [e.g., 1 writer, 3 writers, embedded in product squads]
+Known features to document: [LIST KEY FEATURES]
+
+Produce a documentation plan that includes:
+
+1. DOCUMENTATION SCOPE
+   List every deliverable needed at launch vs. post-launch (as a prioritized table: Deliverable | Audience | Priority | Owner | Format).
+
+2. CONTENT HIERARCHY
+   Propose a recommended information architecture — the top-level structure of the documentation site or help center.
+
+3. WRITING TIMELINE
+   A phased schedule from first draft to publication, including review cycles. Flag dependencies (e.g., "needs UI freeze before screenshots").
+
+4. RESOURCE ESTIMATE
+   Rough estimate of writing effort per deliverable (hours or days). Flag which items are highest-risk due to complexity or dependency on SME access.
+
+5. RISKS & MITIGATIONS
+   List 3–5 risks (e.g., late feature changes, SME unavailability) and a mitigation plan for each.
+
+6. SUCCESS METRICS
+   Suggest 3–5 measurable outcomes to define whether the documentation is successful post-launch.`,this)'>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy Prompt
+      </button>
+    </div>
+    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> Use the Resource Estimate output to make a business case for headcount or contractor support.</span></div>
+  </div>
+</div>
+<div class="card" data-cat="22" id="p22">
+  <div class="card-top">
+    <div class="card-left">
+      <span class="badge" style="background:#0284c7">22</span>
+      <div class="card-info">
+        <h3>Help Center Audit Report</h3>
+        <p class="use-case">Identify gaps, stale content, and priorities across a doc set</p>
+      </div>
+    </div>
+    <button class="chevron" onclick="toggle(this)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+  </div>
+  <div class="card-body">
+    <div class="code-label">PROMPT</div>
+    <div class="code-wrap">
+      <pre class="code-block">You are a documentation strategist. I will give you a list of existing articles or documents in our help center/knowledge base. Perform a documentation audit and produce a prioritized improvement report.
+
+Product/platform: <mark>[PRODUCT NAME]</mark>
+Current doc list (paste article titles, URLs, or a table of contents):
+<mark>[PASTE YOUR ARTICLE LIST OR TABLE OF CONTENTS HERE]</mark>
+
+Known user pain points or frequent support tickets: <mark>[LIST OR "Not provided"]</mark>
+Recently shipped features not yet documented: <mark>[LIST OR "Unknown"]</mark>
+Audience: <mark>[WHO USES THIS HELP CENTER]</mark>
+
+Produce an audit report with:
+
+1. COVERAGE GAPS
+   Identify topics or user tasks that appear to be missing from the current doc set, based on what a typical user of this product would need.
+
+2. LIKELY OUTDATED CONTENT
+   Flag articles that are likely outdated based on their titles or apparent scope. Explain why.
+
+3. STRUCTURAL ISSUES
+   Identify navigation or organization problems (e.g., duplicate topics, illogical grouping, missing top-level categories).
+
+4. PRIORITIZED ACTION PLAN
+   A table: Article/Topic | Issue Type | Priority (High/Med/Low) | Recommended Action (Create/Update/Merge/Archive)
+
+5. QUICK WINS
+   List 3–5 improvements that could be made in under 2 hours and would have high user impact.
+
+6. LONG-TERM RECOMMENDATIONS
+   Strategic suggestions for the overall documentation structure.</pre>
+      <button class="copy-btn" onclick='copyText(`You are a documentation strategist. I will give you a list of existing articles or documents in our help center/knowledge base. Perform a documentation audit and produce a prioritized improvement report.
+
+Product/platform: [PRODUCT NAME]
+Current doc list (paste article titles, URLs, or a table of contents):
+[PASTE YOUR ARTICLE LIST OR TABLE OF CONTENTS HERE]
+
+Known user pain points or frequent support tickets: [LIST OR "Not provided"]
+Recently shipped features not yet documented: [LIST OR "Unknown"]
+Audience: [WHO USES THIS HELP CENTER]
+
+Produce an audit report with:
+
+1. COVERAGE GAPS
+   Identify topics or user tasks that appear to be missing from the current doc set, based on what a typical user of this product would need.
+
+2. LIKELY OUTDATED CONTENT
+   Flag articles that are likely outdated based on their titles or apparent scope. Explain why.
+
+3. STRUCTURAL ISSUES
+   Identify navigation or organization problems (e.g., duplicate topics, illogical grouping, missing top-level categories).
+
+4. PRIORITIZED ACTION PLAN
+   A table: Article/Topic | Issue Type | Priority (High/Med/Low) | Recommended Action (Create/Update/Merge/Archive)
+
+5. QUICK WINS
+   List 3–5 improvements that could be made in under 2 hours and would have high user impact.
+
+6. LONG-TERM RECOMMENDATIONS
+   Strategic suggestions for the overall documentation structure.`,this)'>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy Prompt
+      </button>
+    </div>
+    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> Add your top 10 support ticket topics to the 'pain points' field — this instantly aligns the audit with real user needs.</span></div>
+  </div>
+</div>
+<div class="card" data-cat="23" id="p23">
+  <div class="card-top">
+    <div class="card-left">
+      <span class="badge" style="background:#0284c7">23</span>
+      <div class="card-info">
+        <h3>Write a GitHub README</h3>
+        <p class="use-case">Comprehensive, developer-ready README for any repository</p>
+      </div>
+    </div>
+    <button class="chevron" onclick="toggle(this)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+  </div>
+  <div class="card-body">
+    <div class="code-label">PROMPT</div>
+    <div class="code-wrap">
+      <pre class="code-block">You are a technical writer who specializes in developer documentation and doc-as-code workflows. Write a comprehensive, well-structured README.md for the following project.
+
+Project name: <mark>[PROJECT NAME]</mark>
+Project type: <mark>[e.g., CLI tool, open-source library, API, internal tool, data pipeline]</mark>
+Primary language/stack: <mark>[e.g., Python, Node.js, Go, Rust]</mark>
+Primary audience: <mark>[e.g., developers integrating this library, DevOps engineers, end users of a CLI]</mark>
+What this project does: <mark>[2–4 SENTENCE DESCRIPTION]</mark>
+Key features: <mark>[LIST]</mark>
+Installation method: <mark>[e.g., pip install, npm install, Docker, binary download]</mark>
+Basic usage example: <mark>[PASTE A CODE SNIPPET OR DESCRIBE THE SIMPLEST USE CASE]</mark>
+License: <mark>[e.g., MIT, Apache 2.0]</mark>
+Contribution guidelines: <mark>[e.g., "see CONTRIBUTING.md" or brief description]</mark>
+
+Write the full README.md in GitHub Flavored Markdown including:
+- Badges row (build status, version, license — use placeholder URLs)
+- One-line description + a short "why this exists" paragraph
+- Features section (bulleted)
+- Prerequisites &amp; Installation (with code blocks)
+- Quick Start / Usage (with realistic code examples)
+- Configuration reference (table format if applicable)
+- Contributing section
+- License section
+- A "Getting Help" or "Support" section
+
+Tone: technical but approachable. Write for a developer who has never seen this project before.</pre>
+      <button class="copy-btn" onclick='copyText(`You are a technical writer who specializes in developer documentation and doc-as-code workflows. Write a comprehensive, well-structured README.md for the following project.
+
+Project name: [PROJECT NAME]
+Project type: [e.g., CLI tool, open-source library, API, internal tool, data pipeline]
+Primary language/stack: [e.g., Python, Node.js, Go, Rust]
+Primary audience: [e.g., developers integrating this library, DevOps engineers, end users of a CLI]
+What this project does: [2–4 SENTENCE DESCRIPTION]
+Key features: [LIST]
+Installation method: [e.g., pip install, npm install, Docker, binary download]
+Basic usage example: [PASTE A CODE SNIPPET OR DESCRIBE THE SIMPLEST USE CASE]
+License: [e.g., MIT, Apache 2.0]
+Contribution guidelines: [e.g., "see CONTRIBUTING.md" or brief description]
+
+Write the full README.md in GitHub Flavored Markdown including:
+- Badges row (build status, version, license — use placeholder URLs)
+- One-line description + a short "why this exists" paragraph
+- Features section (bulleted)
+- Prerequisites & Installation (with code blocks)
+- Quick Start / Usage (with realistic code examples)
+- Configuration reference (table format if applicable)
+- Contributing section
+- License section
+- A "Getting Help" or "Support" section
+
+Tone: technical but approachable. Write for a developer who has never seen this project before.`,this)'>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy Prompt
+      </button>
+    </div>
+    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> Paste an existing README and ask the AI to compare it against this structure to identify what's missing.</span></div>
+  </div>
+</div>
+  </div>
+</section>
+
+
+  <!-- PROMPT ENGINEERING NOTES -->
+  <div class="notes-section">
+    <h2>Prompt Engineering Principles</h2>
+    <p>Every prompt in this library is built on five core principles that make them work across all major AI platforms.</p>
+    <div class="principles">
+      <div class="principle">
+        <div class="principle-name">Role Assignment</div>
+        <p>Opens with "Act as..." or "You are..." to prime the model with the right expertise and tone.</p>
+      </div>
+      <div class="principle">
+        <div class="principle-name">Structured Context</div>
+        <p>Provides all background — audience, purpose, format — before stating the task, reducing guesswork.</p>
+      </div>
+      <div class="principle">
+        <div class="principle-name">Explicit Output Format</div>
+        <p>Specifies exactly what sections, structure, or format the response should follow.</p>
+      </div>
+      <div class="principle">
+        <div class="principle-name">Bracketed Placeholders</div>
+        <p>Every customizable field is marked [LIKE THIS] so nothing is accidentally submitted as-is.</p>
+      </div>
+      <div class="principle">
+        <div class="principle-name">Iteration Guidance</div>
+        <p>Pro Tips tell you how to follow up or adapt each prompt for your specific context.</p>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  TW Prompt Library · v2.0 · 23 Prompts · Works with ChatGPT, Claude, Gemini, Microsoft Copilot &amp; more · Free to use and share
+</footer>
+
+</div><!-- /shell -->
+
+<script>
+const PROMPTS = {
+  '01':`Act as an experienced technical writer with expertise in [INDUSTRY/DOMAIN].
+I need to create documentation for [PRODUCT/FEATURE NAME].
+
+Here is the context:
+- Target audience: [e.g., developers, end users, IT admins]
+- Documentation type: [e.g., user guide, API reference, release notes]
+- Key functionality to cover: [LIST 3–5 BULLET POINTS]
+- Tone: [e.g., formal, conversational, instructional]
+
+Write a complete first draft including: an overview section, step-by-step instructions, and a troubleshooting section. Use clear headings, numbered steps for procedures, and plain language appropriate for the audience.`,
+  '02':`You are a technical writer specializing in plain language. Below is a piece of technical content written for expert-level readers. Rewrite it for [TARGET AUDIENCE, e.g., non-technical business users / beginners / customers].
+
+Original content:
+[PASTE YOUR CONTENT HERE]
+
+Guidelines:
+- Replace all jargon with plain-language equivalents
+- Keep sentences under 20 words where possible
+- Use active voice throughout
+- Preserve all factual accuracy — do not omit critical information
+- Maintain the same structure (headings, lists, steps) as the original
+
+Output the rewritten version followed by a short glossary defining any technical terms that could not be fully avoided.`,
+  '03':`You are a technical writer documenting a REST API. Write a reference entry for the following endpoint.
+
+Endpoint details:
+- Method: [GET / POST / PUT / DELETE]
+- Endpoint URL: [e.g., /api/v1/users/{id}]
+- Description: [WHAT THIS ENDPOINT DOES]
+- Authentication: [e.g., Bearer token, API key]
+- Request parameters: [LIST NAME, TYPE, REQUIRED/OPTIONAL, DESCRIPTION]
+- Request body (if applicable): [PASTE SCHEMA OR EXAMPLE]
+- Response codes and meanings: [e.g., 200, 400, 404, 500]
+- Example response: [PASTE SAMPLE JSON]
+
+Format the output using standard API documentation structure with clearly labeled sections. Include a working curl example. Flag any parameters with constraints (e.g., max length, allowed values).`,
+  '04':`Act as a senior technical writer. Write a documentation section for a newly released product feature.
+
+Feature name: [FEATURE NAME]
+Product: [PRODUCT NAME]
+Target audience: [e.g., end users, administrators, developers]
+Section type: [e.g., Overview, How It Works, Getting Started, Configuration, Best Practices]
+Where this section lives: [e.g., in a user guide, help center article, in-app tooltip, README]
+
+Feature description (your notes):
+[PASTE YOUR RAW NOTES, TICKET DESCRIPTION, OR FEATURE BRIEF HERE]
+
+Write the section with:
+- A one-paragraph feature overview (what it is and why it matters to the user)
+- Prerequisites or requirements (if any)
+- Step-by-step instructions to use the feature
+- A note on any limitations, known issues, or edge cases
+- One concrete example showing a real-world use case
+
+Use clear headings, active voice, and second-person ("you") throughout.`,
+  '05':`You are a UX writer and technical writer specializing in UI microcopy. Write copy for the following UI elements in [PRODUCT NAME].
+
+Product context: [BRIEFLY DESCRIBE WHAT THE PRODUCT DOES]
+Tone of voice: [e.g., professional and direct / friendly and approachable / minimal and technical]
+Target user: [DESCRIBE USER]
+
+UI elements needed (complete the applicable items):
+- Page/screen title: [DESCRIBE SCREEN PURPOSE]
+- Primary button label: [DESCRIBE ACTION]
+- Secondary button label: [DESCRIBE ACTION]
+- Empty state message: [DESCRIBE CONTEXT — what is empty and why]
+- Error message for: [DESCRIBE ERROR SCENARIO]
+- Success message for: [DESCRIBE COMPLETION ACTION]
+- Tooltip for: [DESCRIBE FIELD OR ICON]
+- Onboarding tip: [DESCRIBE FEATURE OR STEP]
+
+For each item: provide the copy, a one-line rationale, and one alternative option.`,
+  '06':`You are a technical writer responsible for software release communications. Write professional release notes for the following update.
+
+Product: [PRODUCT NAME]
+Version: [VERSION NUMBER]
+Release date: [DATE]
+Audience: [e.g., end users, developers, IT teams]
+
+Changes to document:
+- New features: [LIST]
+- Improvements/enhancements: [LIST]
+- Bug fixes: [LIST]
+- Deprecations or breaking changes: [LIST, OR "None"]
+- Known issues: [LIST, OR "None"]
+
+Format requirements:
+- Lead with a one-paragraph summary of the most impactful changes
+- Use clear category headings
+- For each item: one sentence describing what changed and why it matters to the user
+- Flag any breaking changes prominently with a warning label
+- Close with upgrade instructions or a link placeholder`,
+  '07':`You are a documentation quality reviewer. I am giving you two inputs: (1) my team's style guide, and (2) a document I have written. Your task is to audit the document against the style guide and produce a detailed compliance report.
+
+STYLE GUIDE:
+[PASTE YOUR FULL STYLE GUIDE HERE — or paste the relevant sections]
+
+DOCUMENT TO REVIEW:
+[PASTE YOUR DOCUMENT HERE]
+
+Produce a report structured as follows:
+
+## Compliance Report: [Document Title]
+
+### 1. Overall Score
+Give an overall compliance score out of 100, with a 2-sentence summary.
+
+### 2. Category Scores (score each out of 10)
+- Voice and Tone
+- Formatting and Structure
+- Terminology Consistency
+- Sentence Clarity and Length
+- Use of Headings and Lists
+- Grammar and Punctuation
+
+### 3. Violations Found
+For each violation: quote the original text, state which style guide rule it breaks, and provide a corrected version.
+
+### 4. Positive Observations
+List 3–5 things the document does well against the style guide.
+
+### 5. Priority Action List
+Rank all violations as CRITICAL / MAJOR / MINOR and list them in order of priority.`,
+  '08':`Act as a senior technical writer and documentation reviewer. Review the following document and provide:
+
+1. An overall assessment (2–3 sentences)
+2. A scored evaluation (1–5) for each criterion:
+   - Clarity and readability
+   - Accuracy of structure and logical flow
+   - Consistency of terminology and formatting
+   - Appropriateness for the target audience
+   - Completeness (no gaps in information)
+3. A prioritized list of specific improvements (label each HIGH / MEDIUM / LOW priority)
+4. A fully revised version of the document incorporating all HIGH-priority improvements
+
+Document to review:
+[PASTE DOCUMENT HERE]
+
+Target audience: [DESCRIBE AUDIENCE]
+Document purpose: [DESCRIBE INTENDED USE]`,
+  '09':`You are a technical editor specializing in terminology management. Audit the following document for terminology and consistency issues.
+
+Document:
+[PASTE DOCUMENT HERE]
+
+Preferred terminology list (if available):
+[PASTE YOUR GLOSSARY OR PREFERRED TERMS — or write "None provided"]
+
+Perform the following analysis and produce a structured report:
+
+1. TERMINOLOGY INCONSISTENCIES
+   List every case where the same concept is referred to by different names (e.g., "end user" vs "user" vs "customer"). For each: show all variants found, their locations, and the recommended single term to use.
+
+2. CAPITALIZATION INCONSISTENCIES
+   Flag any terms that are capitalized in some places and lowercase in others.
+
+3. HYPHENATION INCONSISTENCIES
+   Flag terms that appear both hyphenated and unhyphenated.
+
+4. ABBREVIATION ISSUES
+   Find abbreviations used without being defined on first use, or defined more than once.
+
+5. RECOMMENDED GLOSSARY
+   Based on your findings, suggest a 10-term mini glossary with preferred spellings and definitions.`,
+  '10':`You are a plain language and accessibility specialist. Analyze the following document and produce an accessibility and readability report.
+
+Document:
+[PASTE DOCUMENT HERE]
+
+Target reading level: [e.g., Grade 8, general public, technical professional]
+
+Provide the following:
+
+1. READABILITY ASSESSMENT
+   Estimate the current reading level (Flesch-Kincaid equivalent). List the 5 most complex sentences and rewrite each in plain language.
+
+2. PLAIN LANGUAGE AUDIT
+   Identify: passive voice instances, nominalizations (e.g., "make a decision" → "decide"), overly long sentences (20+ words), and weak openers (e.g., "There are", "It is").
+
+3. ACCESSIBILITY CHECKLIST
+   Evaluate against these criteria (Pass / Needs Work / Fail):
+   - Logical heading hierarchy (H1 > H2 > H3)
+   - Alt text guidance for images (are images described in surrounding text?)
+   - Link text quality (e.g., "click here" vs descriptive links)
+   - Use of color or formatting as the sole indicator of meaning
+   - Consistent list formatting
+
+4. REWRITTEN EXCERPT
+   Rewrite the most problematic paragraph using plain language principles.
+
+5. SUMMARY SCORE
+   Give an overall accessibility readiness score (1–10) with a brief rationale.`,
+  '11':`You are a technical writer. I have a transcript from a product demo video and I need you to turn it into polished, structured documentation.
+
+Product being demonstrated: [PRODUCT/FEATURE NAME]
+Target audience: [e.g., new users, IT administrators, developers]
+Output document type: [e.g., step-by-step how-to guide, feature overview, getting started guide]
+
+Video transcript:
+[PASTE THE FULL VIDEO TRANSCRIPT HERE — raw auto-captions are fine]
+
+Instructions:
+- Ignore filler words, false starts, and off-topic commentary
+- Extract every distinct step or action the presenter performs and turn them into numbered instructions
+- Where the presenter says "as you can see here" or refers to something visual, replace with a written description of what should be visible and add a placeholder: [SCREENSHOT: describe what to capture]
+- Group related steps under descriptive headings
+- Add a Prerequisites section at the top for anything mentioned as a setup requirement
+- Add a "What you'll achieve" intro paragraph
+- Flag any part of the transcript that is unclear or contradictory with [VERIFY WITH SME]
+- End with a list of follow-up questions to ask the presenter`,
+  '12':`You are a technical writer creating product documentation from a video walkthrough. Convert the transcript below into a complete feature document — not just a procedure, but a full reference document a user could rely on.
+
+Feature name: [FEATURE NAME]
+Product: [PRODUCT NAME]
+Audience: [TARGET AUDIENCE]
+Tone: [e.g., formal, friendly, developer-facing]
+
+Transcript:
+[PASTE TRANSCRIPT HERE]
+
+Structure the output as a complete feature document including:
+
+## Overview
+What this feature does and the business or user problem it solves (2–3 sentences).
+
+## Key Concepts
+Define 3–5 terms or concepts a user must understand before using this feature.
+
+## How It Works
+A plain-language explanation of the underlying logic or workflow (not step-by-step instructions — conceptual understanding).
+
+## How to Use [Feature Name]
+Numbered step-by-step instructions extracted from the video.
+Add [SCREENSHOT: description] placeholders where visuals are needed.
+
+## Configuration Options
+Any settings, toggles, or parameters mentioned. Format as a table: Option | Description | Default Value.
+
+## Limitations & Known Constraints
+What this feature cannot do. Any restrictions mentioned.
+
+## Related Features
+[LEAVE BLANK OR LIST IF MENTIONED IN TRANSCRIPT]
+
+Mark anything uncertain with [VERIFY] and list SME follow-up questions at the end.`,
+  '13':`You are a technical writer. I have raw notes or a transcript from [SOURCE — e.g., a subject matter expert interview / a product demo / a team meeting] that need to be turned into polished documentation.
+
+Documentation type needed: [e.g., how-to guide, feature overview, FAQ, process doc]
+Target audience: [DESCRIBE AUDIENCE]
+Desired length: [e.g., 500 words, 1 page, as long as needed]
+
+Raw notes/transcript:
+[PASTE YOUR NOTES OR TRANSCRIPT HERE]
+
+Instructions:
+- Extract only information relevant to the documentation type specified
+- Fill structural gaps logically, but mark any assumed information with [VERIFY] so I can confirm with the SME
+- Organize content with clear headings and a logical flow
+- Remove filler language, repetition, and off-topic content
+- Flag any contradictions or ambiguities with [CLARIFY NEEDED]
+- Output the final document followed by a short list of follow-up questions for the SME`,
+  '14':`You are a technical writer and documentation engineer. Convert the following document into clean, well-structured Markdown.
+
+Document to convert:
+[PASTE YOUR DOCUMENT HERE]
+
+Markdown flavor: [e.g., standard Markdown / GitHub Flavored Markdown (GFM) / MDX / MkDocs / Docusaurus]
+Where this will be published: [e.g., GitHub README, Confluence, internal wiki, docs site]
+
+Conversion rules to follow:
+- Use ATX-style headings (# H1, ## H2, ### H3) — never use underline-style
+- Convert all numbered lists to proper Markdown ordered lists
+- Convert all bullet points to unordered lists (-)
+- Format all code, commands, file paths, and UI elements in backtick code spans
+- Format multi-line code blocks with triple backticks and a language identifier (e.g., \\\`\\\`\\\`bash, \\\`\\\`\\\`json)
+- Convert any tables to Markdown pipe tables with header row and alignment separators
+- Replace bold/italic formatting with **bold** and _italic_ syntax
+- Add a blank line before and after every heading, list, and code block
+- Preserve all heading hierarchy from the original
+- Add a document-level front matter block at the top: title, description, and date fields (leave values as placeholders if unknown)
+
+After the converted document, include:
+1. A short summary of conversion decisions made
+2. A list of any elements that could not be converted cleanly, with recommendations`,
+  '15':`You are a structured authoring specialist and technical writer experienced in DITA XML. Convert the following document into valid DITA XML.
+
+Document to convert:
+[PASTE YOUR DOCUMENT HERE]
+
+DITA version: [e.g., DITA 1.3 / DITA 2.0]
+Topic type: [e.g., concept / task / reference / troubleshooting — or "choose the best type for each section"]
+Toolchain/output: [e.g., Oxygen XML, DITA-OT, Heretto, Paligo — or "generic DITA"]
+
+Conversion requirements:
+- Split the document into separate DITA topics as appropriate (one topic per logical unit of information)
+- Use correct topic type elements: <concept>, <task>, or <reference>
+- In task topics: wrap each step in <step><cmd>...</cmd></step> inside <steps>
+- In concept topics: use <conbody> with <p>, <ul>, <ol>, and <note> elements
+- In reference topics: use <refbody> with <table> or <properties> elements for structured data
+- Use <shortdesc> for every topic (1–2 sentence description immediately after <title>)
+- Mark up UI elements with <uicontrol>, code with <codeph>, file paths with <filepath>, and variables with <varname>
+- Use <note type="warning"> and <note type="tip"> appropriately
+- Wrap the output in a DITA map (<map>) that references all generated topics
+
+After the XML output, provide:
+1. A topic list showing the hierarchy of generated topics
+2. Notes on any content that required interpretation or restructuring`,
+  '16':`You are a technical writer and XML authoring specialist. Convert the following document into valid DocBook 5 XML.
+
+Document to convert:
+[PASTE YOUR DOCUMENT HERE]
+
+DocBook output type: [e.g., <article>, <book>, <chapter>, <section>]
+Publishing tool: [e.g., Publican, Asciidoctor with DocBook backend, generic DocBook — or "not specified"]
+
+Conversion requirements:
+- Use DocBook 5 namespace: xmlns="http://docbook.org/ns/docbook" version="5.0"
+- Wrap the document in the appropriate root element (<article> or <book>)
+- Use <section> with <title> for each major heading
+- Convert procedural content into <procedure><step><para>...</para></step></procedure>
+- Mark up: <command> for CLI commands, <filename> for file paths, <literal> for code values, <guilabel> for UI elements, <keycap> for keyboard keys
+- Use <itemizedlist> and <orderedlist> for bullets and numbered lists
+- Use <table> with <thead> and <tbody> for any tabular data
+- Use <note>, <warning>, <tip>, <caution> elements for callouts
+- Add <info> block at the top with <title>, <author> (placeholder), and <pubdate> (placeholder)
+- Add xml:id attributes to all <section> elements using kebab-case slugs
+
+After the XML, list any DocBook semantic elements you chose and why.`,
+  '17':`You are a technical writer specializing in single-sourcing and multi-channel publishing. I have an existing document written for [ORIGINAL FORMAT, e.g., printed user manual / web help center] and I need to adapt it for [TARGET FORMAT, e.g., in-app contextual help / mobile-first help article / PDF quick reference card / slideshow / chatbot FAQ].
+
+Original document:
+[PASTE DOCUMENT HERE]
+
+Target channel constraints:
+- Maximum length: [e.g., 300 words, 1 screen, 5 slides]
+- Reading context: [e.g., user is mid-task and needs quick answers, not background reading]
+- Format limitations: [e.g., no tables, no images, plain text only / HTML supported / Markdown only]
+
+Adapt the document by:
+1. Cutting all content that doesn't serve a user who is actively trying to complete a task
+2. Rewriting for the target context (e.g., shorter sentences for mobile, imperative voice for in-app)
+3. Restructuring if needed (e.g., convert prose to Q&A for chatbot, convert steps to a checklist for quick ref)
+4. Flagging any content cut that may need a separate, deeper article
+
+Output: the adapted document + a brief editorial note explaining key decisions made.`,
+  '18':`Act as a technical writer creating a Standard Operating Procedure (SOP) document.
+
+Process name: [PROCESS NAME]
+Department/Team: [DEPARTMENT]
+Frequency: [e.g., daily, monthly, as needed]
+Stakeholders involved: [LIST ROLES]
+
+Write a complete SOP that includes:
+1. Purpose — why this process exists
+2. Scope — who this applies to
+3. Roles and Responsibilities — table format
+4. Prerequisites — tools, access, or knowledge required
+5. Step-by-step Procedure — numbered steps with sub-steps where needed
+6. Expected Outcomes — what success looks like
+7. Exceptions and Escalation — what to do when things go wrong
+8. Revision History — placeholder table
+
+Use clear, imperative language (e.g., "Click Save", not "You should click Save").`,
+  '19':`Act as a senior technical writer and documentation strategist. Write a style guide section for [COMPANY/TEAM NAME]'s documentation.
+
+Section topic: [e.g., Voice and Tone / Formatting Standards / Terminology / Procedures Writing / Accessibility]
+Documentation types this covers: [e.g., user guides, API docs, internal wikis]
+Existing standards we follow: [e.g., Microsoft Writing Style Guide, Google Developer Style Guide, or "none yet"]
+Team size and experience level: [e.g., 3 writers, mixed experience]
+
+The section should include:
+1. Purpose of this guideline
+2. Core rules (5–8 rules, each with a DO and DON'T example)
+3. Edge cases and exceptions
+4. Quick-reference summary table
+5. Examples drawn from [DOMAIN/PRODUCT TYPE]
+
+Write in a clear, instructional tone that a new writer can follow independently.`,
+  '20':`Act as a technical writer creating a troubleshooting guide for [PRODUCT/SYSTEM NAME].
+
+Target audience: [e.g., end users, IT support staff]
+Support context: [e.g., standalone guide, embedded in help center, printed handout]
+
+Known issues to cover:
+[LIST 3–6 ISSUES OR SYMPTOMS — e.g., "Cannot log in", "Sync fails", "Dashboard loads slowly"]
+
+For each issue, write a troubleshooting entry that includes:
+1. Issue title — written as the user would describe it (e.g., "I can't log in")
+2. Symptoms — what the user sees or experiences
+3. Possible causes — brief list
+4. Resolution steps — numbered, with clear actions
+5. If unresolved — escalation path or next step
+
+Use plain language. Avoid blaming the user. Where helpful, include a note if the issue is a known bug with a workaround.`,
+  '21':`You are a lead technical writer and documentation strategist. Create a comprehensive documentation plan for a new product launch.
+
+Product name: [PRODUCT NAME]
+Product type: [e.g., SaaS platform, developer tool, hardware device, internal enterprise tool]
+Target audiences: [LIST ALL AUDIENCES — e.g., end users, IT admins, developers, support agents]
+Launch date: [DATE OR TIMEFRAME]
+Team size: [e.g., 1 writer, 3 writers, embedded in product squads]
+Known features to document: [LIST KEY FEATURES]
+
+Produce a documentation plan that includes:
+
+1. DOCUMENTATION SCOPE
+   List every deliverable needed at launch vs. post-launch (as a prioritized table: Deliverable | Audience | Priority | Owner | Format).
+
+2. CONTENT HIERARCHY
+   Propose a recommended information architecture — the top-level structure of the documentation site or help center.
+
+3. WRITING TIMELINE
+   A phased schedule from first draft to publication, including review cycles. Flag dependencies (e.g., "needs UI freeze before screenshots").
+
+4. RESOURCE ESTIMATE
+   Rough estimate of writing effort per deliverable (hours or days). Flag which items are highest-risk due to complexity or dependency on SME access.
+
+5. RISKS & MITIGATIONS
+   List 3–5 risks (e.g., late feature changes, SME unavailability) and a mitigation plan for each.
+
+6. SUCCESS METRICS
+   Suggest 3–5 measurable outcomes to define whether the documentation is successful post-launch.`,
+  '22':`You are a documentation strategist. I will give you a list of existing articles or documents in our help center/knowledge base. Perform a documentation audit and produce a prioritized improvement report.
+
+Product/platform: [PRODUCT NAME]
+Current doc list (paste article titles, URLs, or a table of contents):
+[PASTE YOUR ARTICLE LIST OR TABLE OF CONTENTS HERE]
+
+Known user pain points or frequent support tickets: [LIST OR "Not provided"]
+Recently shipped features not yet documented: [LIST OR "Unknown"]
+Audience: [WHO USES THIS HELP CENTER]
+
+Produce an audit report with:
+
+1. COVERAGE GAPS
+   Identify topics or user tasks that appear to be missing from the current doc set, based on what a typical user of this product would need.
+
+2. LIKELY OUTDATED CONTENT
+   Flag articles that are likely outdated based on their titles or apparent scope. Explain why.
+
+3. STRUCTURAL ISSUES
+   Identify navigation or organization problems (e.g., duplicate topics, illogical grouping, missing top-level categories).
+
+4. PRIORITIZED ACTION PLAN
+   A table: Article/Topic | Issue Type | Priority (High/Med/Low) | Recommended Action (Create/Update/Merge/Archive)
+
+5. QUICK WINS
+   List 3–5 improvements that could be made in under 2 hours and would have high user impact.
+
+6. LONG-TERM RECOMMENDATIONS
+   Strategic suggestions for the overall documentation structure.`,
+  '23':`You are a technical writer who specializes in developer documentation and doc-as-code workflows. Write a comprehensive, well-structured README.md for the following project.
+
+Project name: [PROJECT NAME]
+Project type: [e.g., CLI tool, open-source library, API, internal tool, data pipeline]
+Primary language/stack: [e.g., Python, Node.js, Go, Rust]
+Primary audience: [e.g., developers integrating this library, DevOps engineers, end users of a CLI]
+What this project does: [2–4 SENTENCE DESCRIPTION]
+Key features: [LIST]
+Installation method: [e.g., pip install, npm install, Docker, binary download]
+Basic usage example: [PASTE A CODE SNIPPET OR DESCRIBE THE SIMPLEST USE CASE]
+License: [e.g., MIT, Apache 2.0]
+Contribution guidelines: [e.g., "see CONTRIBUTING.md" or brief description]
+
+Write the full README.md in GitHub Flavored Markdown including:
+- Badges row (build status, version, license — use placeholder URLs)
+- One-line description + a short "why this exists" paragraph
+- Features section (bulleted)
+- Prerequisites & Installation (with code blocks)
+- Quick Start / Usage (with realistic code examples)
+- Configuration reference (table format if applicable)
+- Contributing section
+- License section
+- A "Getting Help" or "Support" section
+
+Tone: technical but approachable. Write for a developer who has never seen this project before.`
+};
+
+// ── COPY ──
+function copyText(text, btn) {
+  navigator.clipboard.writeText(text).then(() => {
+    btn.classList.add('copied');
+    btn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Copied!`;
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      btn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>Copy Prompt`;
+    }, 2200);
+  });
+}
+
+// ── TOGGLE CARD ──
+function toggle(btn) {
+  const card = btn.closest('.card');
+  card.classList.toggle('collapsed');
+}
+
+// Wire card-top click to toggle
+document.querySelectorAll('.card-top').forEach(top => {
+  top.addEventListener('click', e => {
+    if (e.target.closest('.chevron')) return;
+    const card = top.closest('.card');
+    card.classList.toggle('collapsed');
+  });
+});
+
+// ── EXPAND ALL ──
+let allExpanded = false;
+function expandAll() {
+  allExpanded = !allExpanded;
+  const btn = document.querySelector('.expand-all-btn');
+  document.querySelectorAll('.card:not(.hidden)').forEach(c => {
+    if (allExpanded) c.classList.remove('collapsed');
+    else c.classList.add('collapsed');
+  });
+  btn.textContent = allExpanded ? 'Collapse All' : 'Expand All';
+}
+
+// ── SEARCH ──
+let activeFilter = 'all';
+function liveSearch(q) {
+  q = q.toLowerCase().trim();
+  let count = 0;
+  document.querySelectorAll('.card').forEach(card => {
+    const catMatch = activeFilter === 'all' || card.id.startsWith('p') && matchesCat(card, activeFilter);
+    const text = (card.querySelector('.card-info h3').textContent + ' ' + card.querySelector('.use-case').textContent + ' ' + (card.querySelector('.code-block') ? card.querySelector('.code-block').textContent : '')).toLowerCase();
+    const qMatch = !q || text.includes(q);
+    const show = catMatch && qMatch;
+    card.classList.toggle('hidden', !show);
+    if (show) count++;
+  });
+  updateSections();
+  updateCount(count);
+}
+
+function matchesCat(card, cat) {
+  const sec = card.closest('.cat-section');
+  return sec && sec.dataset.cat === cat;
+}
+
+function updateSections() {
+  document.querySelectorAll('.cat-section').forEach(sec => {
+    const any = [...sec.querySelectorAll('.card')].some(c => !c.classList.contains('hidden'));
+    sec.classList.toggle('hidden', !any);
+  });
+  const noRes = document.getElementById('no-results');
+  const anySection = [...document.querySelectorAll('.cat-section')].some(s => !s.classList.contains('hidden'));
+  noRes.style.display = anySection ? 'none' : 'block';
+}
+
+function updateCount(n) {
+  document.getElementById('resultCount').innerHTML = `Showing <strong>${n}</strong> of 23 prompts`;
+}
+
+function filterCat(cat, btn) {
+  activeFilter = cat;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.nav-link').forEach(l => l.classList.toggle('active', l.dataset.cat === cat || (cat === 'all' && l.dataset.cat === 'all')));
+  const q = document.getElementById('searchInput').value;
+  liveSearch(q);
+}
+
+// Nav link highlight on scroll
+const sections = document.querySelectorAll('.cat-section');
+const navLinks = document.querySelectorAll('.nav-link[href]');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      const link = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
+      if (link) link.classList.add('active');
+    }
+  });
+}, { threshold: 0.3 });
+sections.forEach(s => observer.observe(s));
+
+// Start with all cards expanded
+document.querySelectorAll('.card').forEach(c => c.classList.remove('collapsed'));
+</script>
+</body>
+</html>
