@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TW Prompt Library — Technical Writers AI Toolkit</title>
+<title>Prompt Library for Writers</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -50,21 +50,13 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   gap: 10px;
 }
-.logo-mark {
-  width: 32px; height: 32px;
-  background: #0d9488;
-  border-radius: 8px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 16px;
-  flex-shrink: 0;
-}
+
 .logo-text {
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 700;
   color: #fff;
   letter-spacing: -0.01em;
 }
-.logo-text span { color: #5eead4; }
 .header-right {
   display: flex;
   align-items: center;
@@ -235,16 +227,13 @@ a { color: inherit; text-decoration: none; }
   flex: 1;
   min-width: 140px;
 }
-.step-n {
-  width: 20px; height: 20px;
-  background: #0d9488;
-  color: #fff;
-  border-radius: 50%;
-  font-size: 10px;
+.step-num {
+  font-size: 13px;
   font-weight: 700;
-  display: flex; align-items: center; justify-content: center;
+  color: #0d9488;
   flex-shrink: 0;
   margin-top: 1px;
+  min-width: 18px;
 }
 .step p { font-size: 12.5px; color: #475569; line-height: 1.45; }
 .step p strong { color: #0d9488; }
@@ -286,7 +275,6 @@ a { color: inherit; text-decoration: none; }
   padding-bottom: 12px;
   border-bottom: 2px solid #f1f5f9;
 }
-.cat-emoji { font-size: 18px; }
 .cat-title {
   font-size: 16px;
   font-weight: 700;
@@ -453,7 +441,7 @@ a { color: inherit; text-decoration: none; }
   color: #78350f;
   line-height: 1.5;
 }
-.tip span:first-child { flex-shrink: 0; font-size: 14px; }
+.tip span:first-child { flex-shrink: 0; }
 .tip strong { color: #b45309; }
 
 /* ── HIDDEN / SEARCH ── */
@@ -513,6 +501,31 @@ a { color: inherit; text-decoration: none; }
 }
 .principle p { font-size: 12.5px; color: #64748b; line-height: 1.5; }
 
+/* ── INTRO BAR ── */
+.intro-bar {
+  background: #fff;
+  border: 1px solid #e5e9f0;
+  border-left: 4px solid #0d9488;
+  border-radius: 8px;
+  padding: 14px 18px;
+  font-size: 13.5px;
+  color: #475569;
+  line-height: 1.65;
+  margin-bottom: 24px;
+}
+
+/* ── SIDEBAR CREDIT ── */
+.sidebar-credit {
+  padding: 12px 10px;
+  font-size: 12px;
+  color: #94a3b8;
+  line-height: 1.5;
+}
+.sidebar-credit strong {
+  color: #475569;
+  font-weight: 600;
+}
+
 /* ── FOOTER ── */
 .site-footer {
   grid-column: 1/-1;
@@ -544,8 +557,7 @@ a { color: inherit; text-decoration: none; }
 <!-- HEADER -->
 <header class="site-header">
   <div class="logo">
-    <div class="logo-mark">✍️</div>
-    <div class="logo-text">TW Prompt Library <span>v2.0</span></div>
+    <div class="logo-text">Prompt Library for Writers</div>
   </div>
   <div class="header-right">
     <div class="header-stat"><strong>23</strong> Prompts · <strong>6</strong> Categories</div>
@@ -565,24 +577,27 @@ a { color: inherit; text-decoration: none; }
 <!-- SIDEBAR -->
 <aside class="sidebar">
   <div class="sidebar-title">Categories</div>
-  <a href="#cat-drafting" class="nav-link" data-cat="drafting">✍️ Drafting & Content Creation <span class="nav-count">6</span></a>
-<a href="#cat-review" class="nav-link" data-cat="review">🔍 Review & Quality Assurance <span class="nav-count">4</span></a>
-<a href="#cat-video" class="nav-link" data-cat="video">🎬 Video, Audio & Transcripts <span class="nav-count">3</span></a>
-<a href="#cat-format" class="nav-link" data-cat="format">⚙️ Format & Convert <span class="nav-count">4</span></a>
-<a href="#cat-structure" class="nav-link" data-cat="structure">📐 Structure & Style <span class="nav-count">3</span></a>
-<a href="#cat-strategy" class="nav-link" data-cat="strategy">🗺️ Strategy & Planning <span class="nav-count">3</span></a>
+  <a href="#cat-drafting" class="nav-link" data-cat="drafting">Drafting & Content Creation <span class="nav-count">6</span></a>
+<a href="#cat-review" class="nav-link" data-cat="review">Review & Quality Assurance <span class="nav-count">4</span></a>
+<a href="#cat-video" class="nav-link" data-cat="video">Video, Audio & Transcripts <span class="nav-count">3</span></a>
+<a href="#cat-format" class="nav-link" data-cat="format">Format & Convert <span class="nav-count">4</span></a>
+<a href="#cat-structure" class="nav-link" data-cat="structure">Structure & Style <span class="nav-count">3</span></a>
+<a href="#cat-strategy" class="nav-link" data-cat="strategy">Strategy & Planning <span class="nav-count">3</span></a>
 
   <div class="sidebar-divider"></div>
   <div class="filter-section">
     <div class="filter-title">Filter</div>
     <button class="filter-btn active" onclick="filterCat('all',this)">All prompts</button>
-    <button class="filter-btn" onclick="filterCat('drafting',this)">✍️ Drafting</button>
-    <button class="filter-btn" onclick="filterCat('review',this)">🔍 Review & QA</button>
-    <button class="filter-btn" onclick="filterCat('video',this)">🎬 Video & Audio</button>
-    <button class="filter-btn" onclick="filterCat('format',this)">⚙️ Format & Convert</button>
-    <button class="filter-btn" onclick="filterCat('structure',this)">📐 Structure & Style</button>
-    <button class="filter-btn" onclick="filterCat('strategy',this)">🗺️ Strategy</button>
+    <button class="filter-btn" onclick="filterCat('drafting',this)">Drafting</button>
+    <button class="filter-btn" onclick="filterCat('review',this)">Review & QA</button>
+    <button class="filter-btn" onclick="filterCat('video',this)">Video & Audio</button>
+    <button class="filter-btn" onclick="filterCat('format',this)">Format & Convert</button>
+    <button class="filter-btn" onclick="filterCat('structure',this)">Structure & Style</button>
+    <button class="filter-btn" onclick="filterCat('strategy',this)">Strategy</button>
   </div>
+
+  <div class="sidebar-divider"></div>
+  <div class="sidebar-credit">Created by<br><strong>Sneha Pandey</strong></div>
 </aside>
 
 <!-- MAIN -->
@@ -591,13 +606,17 @@ a { color: inherit; text-decoration: none; }
   <!-- HOW TO USE -->
   <div class="how-to-bar">
     <div class="steps-row">
-      <div class="step"><div class="step-n">1</div><p>Find a prompt and click to expand it.</p></div>
-      <div class="step"><div class="step-n">2</div><p>Click <strong>Copy Prompt</strong> to copy clean text.</p></div>
-      <div class="step"><div class="step-n">3</div><p>Replace every <strong>[PLACEHOLDER]</strong> with your info.</p></div>
-      <div class="step"><div class="step-n">4</div><p>Paste into any AI platform and iterate.</p></div>
+      <div class="step"><span class="step-num">1.</span><p>Find a prompt and click to expand it.</p></div>
+      <div class="step"><span class="step-num">2.</span><p>Click <strong>Copy Prompt</strong> to copy clean text.</p></div>
+      <div class="step"><span class="step-num">3.</span><p>Replace every <strong>[PLACEHOLDER]</strong> with your info.</p></div>
+      <div class="step"><span class="step-num">4.</span><p>Paste into any AI platform and iterate.</p></div>
     </div>
   </div>
 
+
+  <div class="intro-bar">
+    This library gives you 23 ready-to-use AI prompts built specifically for technical writers. Each prompt follows prompt engineering best practices — just copy it, fill in the bracketed placeholders with your own details, and paste it into any AI platform to get a strong, structured output in seconds.
+  </div>
   <div class="result-bar">
     <div class="result-count" id="resultCount">Showing <strong>23</strong> of 23 prompts</div>
     <button class="expand-all-btn" onclick="expandAll()">Expand All</button>
@@ -610,8 +629,7 @@ a { color: inherit; text-decoration: none; }
 
   <section class="cat-section" id="cat-drafting" data-cat="drafting">
   <div class="cat-header">
-    <span class="cat-emoji">✍️</span>
-    <div>
+        <div>
       <h2 class="cat-title">Drafting & Content Creation</h2>
     </div>
     <span class="cat-badge">6 prompts</span>
@@ -657,7 +675,7 @@ Write a complete first draft including: an overview section, step-by-step instru
         Copy Prompt
       </button>
     </div>
-    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> The more specific your context, the more accurate the draft. Attach existing docs as examples if your platform supports file uploads.</span></div>
+    <div class="tip"><span><strong>Pro Tip:</strong> The more specific your context, the more accurate the draft. Attach existing docs as examples if your platform supports file uploads.</span></div>
   </div>
 </div>
 <div class="card" data-cat="02" id="p02">
@@ -706,7 +724,7 @@ Output the rewritten version followed by a short glossary defining any technical
         Copy Prompt
       </button>
     </div>
-    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> Describe the audience's exact technical level (e.g., 'someone with no IT background') for best results.</span></div>
+    <div class="tip"><span><strong>Pro Tip:</strong> Describe the audience's exact technical level (e.g., 'someone with no IT background') for best results.</span></div>
   </div>
 </div>
 <div class="card" data-cat="03" id="p03">
@@ -755,7 +773,7 @@ Format the output using standard API documentation structure with clearly labele
         Copy Prompt
       </button>
     </div>
-    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> Paste actual schema or JSON examples for highest accuracy. Use consistent formatting across all entries in your library.</span></div>
+    <div class="tip"><span><strong>Pro Tip:</strong> Paste actual schema or JSON examples for highest accuracy. Use consistent formatting across all entries in your library.</span></div>
   </div>
 </div>
 <div class="card" data-cat="04" id="p04">
@@ -816,7 +834,7 @@ Use clear headings, active voice, and second-person ("you") throughout.`,this)'>
         Copy Prompt
       </button>
     </div>
-    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> Paste the Jira or GitHub ticket directly as your feature description — the AI will extract the relevant details automatically.</span></div>
+    <div class="tip"><span><strong>Pro Tip:</strong> Paste the Jira or GitHub ticket directly as your feature description — the AI will extract the relevant details automatically.</span></div>
   </div>
 </div>
 <div class="card" data-cat="05" id="p05">
@@ -873,7 +891,7 @@ For each item: provide the copy, a one-line rationale, and one alternative optio
         Copy Prompt
       </button>
     </div>
-    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> Keep all copy under your UI framework's character limits. Always include rationale so stakeholders can approve with confidence.</span></div>
+    <div class="tip"><span><strong>Pro Tip:</strong> Keep all copy under your UI framework's character limits. Always include rationale so stakeholders can approve with confidence.</span></div>
   </div>
 </div>
 <div class="card" data-cat="06" id="p06">
@@ -936,15 +954,14 @@ Format requirements:
         Copy Prompt
       </button>
     </div>
-    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> Frame every change from the user's perspective ('You can now...' rather than 'We added...').</span></div>
+    <div class="tip"><span><strong>Pro Tip:</strong> Frame every change from the user's perspective ('You can now...' rather than 'We added...').</span></div>
   </div>
 </div>
   </div>
 </section>
 <section class="cat-section" id="cat-review" data-cat="review">
   <div class="cat-header">
-    <span class="cat-emoji">🔍</span>
-    <div>
+        <div>
       <h2 class="cat-title">Review & Quality Assurance</h2>
     </div>
     <span class="cat-badge">4 prompts</span>
@@ -1032,7 +1049,7 @@ Rank all violations as CRITICAL / MAJOR / MINOR and list them in order of priori
         Copy Prompt
       </button>
     </div>
-    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> If your style guide is long, paste only the most relevant sections (Voice & Tone + Formatting) to keep the audit focused.</span></div>
+    <div class="tip"><span><strong>Pro Tip:</strong> If your style guide is long, paste only the most relevant sections (Voice & Tone + Formatting) to keep the audit focused.</span></div>
   </div>
 </div>
 <div class="card" data-cat="08" id="p08">
@@ -1089,7 +1106,7 @@ Document purpose: [DESCRIBE INTENDED USE]`,this)'>
         Copy Prompt
       </button>
     </div>
-    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> Always specify the intended audience and purpose — without this context, the review will be generic.</span></div>
+    <div class="tip"><span><strong>Pro Tip:</strong> Always specify the intended audience and purpose — without this context, the review will be generic.</span></div>
   </div>
 </div>
 <div class="card" data-cat="09" id="p09">
@@ -1160,7 +1177,7 @@ Perform the following analysis and produce a structured report:
         Copy Prompt
       </button>
     </div>
-    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> Run this before a major release. Save the recommended glossary output as your official terminology reference going forward.</span></div>
+    <div class="tip"><span><strong>Pro Tip:</strong> Run this before a major release. Save the recommended glossary output as your official terminology reference going forward.</span></div>
   </div>
 </div>
 <div class="card" data-cat="10" id="p10">
@@ -1239,15 +1256,14 @@ Provide the following:
         Copy Prompt
       </button>
     </div>
-    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> Use this before publishing any customer-facing documentation. The before/after excerpt is a great stakeholder artifact.</span></div>
+    <div class="tip"><span><strong>Pro Tip:</strong> Use this before publishing any customer-facing documentation. The before/after excerpt is a great stakeholder artifact.</span></div>
   </div>
 </div>
   </div>
 </section>
 <section class="cat-section" id="cat-video" data-cat="video">
   <div class="cat-header">
-    <span class="cat-emoji">🎬</span>
-    <div>
+        <div>
       <h2 class="cat-title">Video, Audio & Transcripts</h2>
     </div>
     <span class="cat-badge">3 prompts</span>
@@ -1309,7 +1325,7 @@ Instructions:
         Copy Prompt
       </button>
     </div>
-    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> Use YouTube auto-captions, Otter.ai, or Whisper to get a rough transcript first. Even messy transcripts produce great results.</span></div>
+    <div class="tip"><span><strong>Pro Tip:</strong> Use YouTube auto-captions, Otter.ai, or Whisper to get a rough transcript first. Even messy transcripts produce great results.</span></div>
   </div>
 </div>
 <div class="card" data-cat="12" id="p12">
@@ -1402,7 +1418,7 @@ Mark anything uncertain with [VERIFY] and list SME follow-up questions at the en
         Copy Prompt
       </button>
     </div>
-    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> Ideal for internal product demos or sprint review recordings. The Key Concepts section alone saves hours of SME follow-up.</span></div>
+    <div class="tip"><span><strong>Pro Tip:</strong> Ideal for internal product demos or sprint review recordings. The Key Concepts section alone saves hours of SME follow-up.</span></div>
   </div>
 </div>
 <div class="card" data-cat="13" id="p13">
@@ -1457,15 +1473,14 @@ Instructions:
         Copy Prompt
       </button>
     </div>
-    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> The [VERIFY] and [CLARIFY NEEDED] flags protect accuracy and give you a clear checklist before you publish.</span></div>
+    <div class="tip"><span><strong>Pro Tip:</strong> The [VERIFY] and [CLARIFY NEEDED] flags protect accuracy and give you a clear checklist before you publish.</span></div>
   </div>
 </div>
   </div>
 </section>
 <section class="cat-section" id="cat-format" data-cat="format">
   <div class="cat-header">
-    <span class="cat-emoji">⚙️</span>
-    <div>
+        <div>
       <h2 class="cat-title">Format & Convert</h2>
     </div>
     <span class="cat-badge">4 prompts</span>
@@ -1537,7 +1552,7 @@ After the converted document, include:
         Copy Prompt
       </button>
     </div>
-    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> Specify the Markdown flavor — GFM supports tables and task lists that standard Markdown doesn't.</span></div>
+    <div class="tip"><span><strong>Pro Tip:</strong> Specify the Markdown flavor — GFM supports tables and task lists that standard Markdown doesn't.</span></div>
   </div>
 </div>
 <div class="card" data-cat="15" id="p15">
@@ -1606,7 +1621,7 @@ After the XML output, provide:
         Copy Prompt
       </button>
     </div>
-    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> Always validate the output in Oxygen XML or a DITA linter before committing to your toolchain.</span></div>
+    <div class="tip"><span><strong>Pro Tip:</strong> Always validate the output in Oxygen XML or a DITA linter before committing to your toolchain.</span></div>
   </div>
 </div>
 <div class="card" data-cat="16" id="p16">
@@ -1671,7 +1686,7 @@ After the XML, list any DocBook semantic elements you chose and why.`,this)'>
         Copy Prompt
       </button>
     </div>
-    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> Specify your publishing tool — Publican and Asciidoctor have slightly different expectations for structure and ID conventions.</span></div>
+    <div class="tip"><span><strong>Pro Tip:</strong> Specify your publishing tool — Publican and Asciidoctor have slightly different expectations for structure and ID conventions.</span></div>
   </div>
 </div>
 <div class="card" data-cat="17" id="p17">
@@ -1728,15 +1743,14 @@ Output: the adapted document + a brief editorial note explaining key decisions m
         Copy Prompt
       </button>
     </div>
-    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> Describe the user's mental state at the point of reading — 'frustrated and mid-task' leads to very different output than 'onboarding'.</span></div>
+    <div class="tip"><span><strong>Pro Tip:</strong> Describe the user's mental state at the point of reading — 'frustrated and mid-task' leads to very different output than 'onboarding'.</span></div>
   </div>
 </div>
   </div>
 </section>
 <section class="cat-section" id="cat-structure" data-cat="structure">
   <div class="cat-header">
-    <span class="cat-emoji">📐</span>
-    <div>
+        <div>
       <h2 class="cat-title">Structure & Style</h2>
     </div>
     <span class="cat-badge">3 prompts</span>
@@ -1798,7 +1812,7 @@ Use clear, imperative language (e.g., "Click Save", not "You should click Save")
         Copy Prompt
       </button>
     </div>
-    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> Provide a rough process outline in point form as additional context — it significantly improves the output quality.</span></div>
+    <div class="tip"><span><strong>Pro Tip:</strong> Provide a rough process outline in point form as additional context — it significantly improves the output quality.</span></div>
   </div>
 </div>
 <div class="card" data-cat="19" id="p19">
@@ -1851,7 +1865,7 @@ Write in a clear, instructional tone that a new writer can follow independently.
         Copy Prompt
       </button>
     </div>
-    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> Build your style guide one section per session. Link each section to real examples from your own product's docs.</span></div>
+    <div class="tip"><span><strong>Pro Tip:</strong> Build your style guide one section per session. Link each section to real examples from your own product's docs.</span></div>
   </div>
 </div>
 <div class="card" data-cat="20" id="p20">
@@ -1906,15 +1920,14 @@ Use plain language. Avoid blaming the user. Where helpful, include a note if the
         Copy Prompt
       </button>
     </div>
-    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> Pull issue titles directly from support tickets or user feedback — this makes the guide immediately relevant to real users.</span></div>
+    <div class="tip"><span><strong>Pro Tip:</strong> Pull issue titles directly from support tickets or user feedback — this makes the guide immediately relevant to real users.</span></div>
   </div>
 </div>
   </div>
 </section>
 <section class="cat-section" id="cat-strategy" data-cat="strategy">
   <div class="cat-header">
-    <span class="cat-emoji">🗺️</span>
-    <div>
+        <div>
       <h2 class="cat-title">Strategy & Planning</h2>
     </div>
     <span class="cat-badge">3 prompts</span>
@@ -1996,7 +2009,7 @@ Produce a documentation plan that includes:
         Copy Prompt
       </button>
     </div>
-    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> Use the Resource Estimate output to make a business case for headcount or contractor support.</span></div>
+    <div class="tip"><span><strong>Pro Tip:</strong> Use the Resource Estimate output to make a business case for headcount or contractor support.</span></div>
   </div>
 </div>
 <div class="card" data-cat="22" id="p22">
@@ -2077,7 +2090,7 @@ Produce an audit report with:
         Copy Prompt
       </button>
     </div>
-    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> Add your top 10 support ticket topics to the 'pain points' field — this instantly aligns the audit with real user needs.</span></div>
+    <div class="tip"><span><strong>Pro Tip:</strong> Add your top 10 support ticket topics to the 'pain points' field — this instantly aligns the audit with real user needs.</span></div>
   </div>
 </div>
 <div class="card" data-cat="23" id="p23">
@@ -2150,7 +2163,7 @@ Tone: technical but approachable. Write for a developer who has never seen this 
         Copy Prompt
       </button>
     </div>
-    <div class="tip"><span>💡</span><span><strong>Pro Tip:</strong> Paste an existing README and ask the AI to compare it against this structure to identify what's missing.</span></div>
+    <div class="tip"><span><strong>Pro Tip:</strong> Paste an existing README and ask the AI to compare it against this structure to identify what's missing.</span></div>
   </div>
 </div>
   </div>
@@ -2188,7 +2201,7 @@ Tone: technical but approachable. Write for a developer who has never seen this 
 </main>
 
 <footer class="site-footer">
-  TW Prompt Library · v2.0 · 23 Prompts · Works with ChatGPT, Claude, Gemini, Microsoft Copilot &amp; more · Free to use and share
+  Prompt Library for Writers · 23 Prompts · Works with ChatGPT, Claude, Gemini, Microsoft Copilot &amp; more · Created by Sneha Pandey
 </footer>
 
 </div><!-- /shell -->
