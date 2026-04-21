@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aaj Kya Khau 🍛</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Kalam:wght@400;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --saffron: #FF6B00;
+  --saffron2: #FF8C2A;
+  --turmeric: #F5A623;
+  --chili: #E8272A;
+  --mint: #00C9A7;
+  --curry: #D4A017;
+  --cream: #FFF8EE;
+  --dark: #1A0A00;
+  --dark2: #2D1400;
+  --cardBg: #FFFDF7;
+  --shadow: 0 8px 32px rgba(255,107,0,0.15);
+  --shadow2: 0 4px 16px rgba(255,107,0,0.1);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--dark);overflow-x:hidden;cursor:default;}
+
+/* CUSTOM CURSOR */
+body{cursor:none;}
+#cursor{position:fixed;width:28px;height:28px;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform 0.1s;font-size:20px;display:flex;align-items:center;justify-content:center;}
+
+/* PAGES */
+.page{display:none;min-height:100vh;flex-direction:column;}
+.page.active{display:flex;}
+
+/* ===================== LANDING ===================== */
+#landing{
+  background:linear-gradient(150deg,#FF4500 0%,#FF6B00 25%,#FF9A3C 55%,#FFD166 80%,#FFF3D0 100%);
+  position:relative;overflow:hidden;align-items:center;justify-content:center;text-align:center;padding:2rem;min-height:100vh;
+}
+.grain-overlay{position:absolute;inset:0;opacity:0.04;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");pointer-events:none;z-index:1;}
+.floating-emoji{position:absolute;animation:floatUp linear infinite;pointer-events:none;user-select:none;z-index:1;}
+@keyframes floatUp{0%{transform:translateY(110vh) rotate(0deg) scale(0.8);opacity:0;}8%{opacity:0.65;}88%{opacity:0.65;}100%{transform:translateY(-15vh) rotate(720deg) scale(1.1);opacity:0;}}
+.landing-content{position:relative;z-index:2;max-width:720px;width:100%;}
+.tagline-top{font-family:'Kalam',cursive;font-size:clamp(1rem,3vw,1.4rem);color:#7A2800;margin-bottom:0.6rem;animation:fadeDown 0.7s ease both;}
+.main-title{font-family:'Baloo 2',cursive;font-size:clamp(3.2rem,11vw,7.5rem);font-weight:800;color:white;text-shadow:4px 4px 0 #7A2000,8px 8px 0 rgba(120,32,0,0.25);line-height:0.95;animation:popIn 0.9s cubic-bezier(0.175,0.885,0.32,1.275) 0.2s both;letter-spacing:-3px;}
+.title-emoji{display:block;font-size:clamp(2.5rem,8vw,5rem);letter-spacing:0;margin-top:0.3rem;}
+.rotating-quote{background:rgba(255,255,255,0.92);backdrop-filter:blur(8px);border-radius:20px;padding:1.1rem 1.8rem;margin:1.5rem auto;max-width:560px;font-size:clamp(0.9rem,2.5vw,1.1rem);color:#5A1A00;font-weight:700;border:2.5px dashed rgba(255,107,0,0.4);position:relative;min-height:80px;display:flex;align-items:center;justify-content:center;animation:fadeUp 0.7s ease 0.5s both;}
+.rotating-quote::before{content:"😅";position:absolute;top:-18px;left:18px;font-size:2rem;}
+.quote-text{transition:opacity 0.4s ease,transform 0.4s ease;}
+.quote-text.fade-out{opacity:0;transform:translateY(8px);}
+.cta-btn{background:var(--dark);color:white;border:none;padding:1.1rem 3.2rem;border-radius:50px;font-family:'Baloo 2',cursive;font-size:1.45rem;font-weight:700;cursor:none;transition:all 0.3s;animation:fadeUp 0.7s ease 0.8s both;box-shadow:0 6px 0 #6B1500,0 10px 30px rgba(0,0,0,0.25);margin-top:0.8rem;letter-spacing:0.5px;}
+.cta-btn:hover{transform:translateY(-4px);box-shadow:0 10px 0 #6B1500,0 14px 35px rgba(0,0,0,0.3);}
+.cta-btn:active{transform:translateY(2px);box-shadow:0 3px 0 #6B1500;}
+.sound-toggle{position:absolute;top:1.2rem;right:1.5rem;z-index:10;background:rgba(255,255,255,0.2);border:none;border-radius:50px;padding:0.5rem 1rem;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;color:white;cursor:none;transition:all 0.25s;backdrop-filter:blur(4px);}
+.sound-toggle:hover{background:rgba(255,255,255,0.35);}
+
+@keyframes fadeDown{from{opacity:0;transform:translateY(-20px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+@keyframes popIn{from{opacity:0;transform:scale(0.4) rotate(-5deg);}to{opacity:1;transform:scale(1) rotate(0deg);}}
+@keyframes bounceIn{from{opacity:0;transform:scale(0.5);}60%{transform:scale(1.1);}to{opacity:1;transform:scale(1);}}
+
+/* ===================== QUESTIONS ===================== */
+#questions{background:var(--cream);padding:1.5rem;align-items:center;justify-content:center;}
+.q-container{max-width:680px;width:100%;}
+.q-topbar{display:flex;align-items:center;gap:0.8rem;margin-bottom:1.8rem;}
+.q-logo{font-family:'Baloo 2',cursive;font-weight:800;font-size:1.3rem;color:var(--saffron);cursor:none;flex:1;}
+.q-back-btn{background:transparent;border:2px solid #FFD4A8;color:#CC5500;padding:0.4rem 1rem;border-radius:50px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.85rem;cursor:none;transition:all 0.2s;}
+.q-back-btn:hover{background:#FFE8CC;border-color:var(--saffron);}
+.q-back-btn:disabled{opacity:0.3;cursor:not-allowed;}
+.progress-wrap{margin-bottom:0.6rem;display:flex;justify-content:space-between;align-items:center;}
+.progress-label{font-family:'Kalam',cursive;font-size:0.9rem;color:#AA6633;}
+.progress-bar{width:100%;height:10px;background:#FFE0C8;border-radius:10px;margin-bottom:1.8rem;overflow:hidden;}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--saffron),var(--turmeric));border-radius:10px;transition:width 0.5s cubic-bezier(0.4,0,0.2,1);}
+.question-card{background:white;border-radius:28px;padding:2rem;box-shadow:var(--shadow);border:2px solid #FFE5CC;}
+.question-card.slide-in{animation:slideInRight 0.45s cubic-bezier(0.175,0.885,0.32,1.275);}
+.question-card.slide-back{animation:slideInLeft 0.45s cubic-bezier(0.175,0.885,0.32,1.275);}
+@keyframes slideInRight{from{opacity:0;transform:translateX(50px);}to{opacity:1;transform:translateX(0);}}
+@keyframes slideInLeft{from{opacity:0;transform:translateX(-50px);}to{opacity:1;transform:translateX(0);}}
+.q-number-badge{display:inline-flex;align-items:center;gap:0.4rem;background:linear-gradient(135deg,var(--saffron),var(--turmeric));color:white;font-family:'Baloo 2',cursive;font-weight:800;padding:0.25rem 0.9rem;border-radius:50px;font-size:0.85rem;margin-bottom:1rem;}
+.q-emoji-big{font-size:3rem;display:block;margin-bottom:0.8rem;animation:bounceIn 0.5s ease;}
+.question-text{font-family:'Baloo 2',cursive;font-size:clamp(1.2rem,4vw,1.65rem);font-weight:700;color:var(--dark);margin-bottom:1.5rem;line-height:1.35;}
+.options-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;}
+.option-btn{background:var(--cream);border:2.5px solid #FFE0C8;border-radius:18px;padding:1rem 0.8rem;font-family:'Nunito',sans-serif;font-size:0.92rem;font-weight:700;cursor:none;transition:all 0.22s;text-align:center;color:var(--dark);position:relative;overflow:hidden;}
+.option-btn::after{content:'';position:absolute;inset:0;background:var(--saffron);opacity:0;transition:opacity 0.2s;border-radius:inherit;}
+.option-btn:hover{background:#FFF0E0;border-color:var(--saffron);transform:translateY(-3px);box-shadow:0 6px 18px rgba(255,107,0,0.18);}
+.option-btn.selected{background:var(--saffron);border-color:var(--saffron);color:white;transform:scale(1.04);}
+.option-btn.selected .option-emoji{animation:rubberBand 0.5s ease;}
+@keyframes rubberBand{0%{transform:scaleX(1);}30%{transform:scaleX(1.25) scaleY(0.75);}60%{transform:scaleX(0.85) scaleY(1.1);}100%{transform:scaleX(1) scaleY(1);}}
+.option-emoji{font-size:1.9rem;display:block;margin-bottom:0.35rem;}
+
+/* ===================== RESULT ===================== */
+#result{background:linear-gradient(160deg,#FFF8EE 0%,#FFE8CC 60%,#FFD4A8 100%);padding:1.5rem;align-items:center;min-height:100vh;}
+.result-container{max-width:720px;width:100%;padding-bottom:2rem;}
+.result-topbar{display:flex;align-items:center;gap:0.8rem;margin-bottom:1.5rem;}
+.result-header-section{text-align:center;margin-bottom:1.5rem;}
+.result-big-emoji{font-size:4rem;animation:bounceIn 0.6s ease;display:block;margin-bottom:0.5rem;}
+.result-headline{font-family:'Baloo 2',cursive;font-size:clamp(1.5rem,5vw,2.4rem);font-weight:800;color:var(--dark);line-height:1.2;margin-bottom:0.5rem;}
+.result-subline{font-family:'Kalam',cursive;font-size:clamp(1rem,2.5vw,1.2rem);color:#AA5500;margin-bottom:1rem;}
+.mood-badge{display:inline-flex;align-items:center;gap:0.4rem;background:var(--dark);color:var(--turmeric);font-family:'Baloo 2',cursive;font-weight:700;padding:0.35rem 1.2rem;border-radius:50px;font-size:0.95rem;}
+
+/* FILTER PILLS */
+.filter-row{display:flex;gap:0.5rem;flex-wrap:wrap;justify-content:center;margin-bottom:1.2rem;}
+.filter-pill{background:white;border:2px solid #FFD4A8;color:#AA5500;padding:0.4rem 1rem;border-radius:50px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.82rem;cursor:none;transition:all 0.2s;}
+.filter-pill:hover{border-color:var(--saffron);background:#FFF0E0;}
+.filter-pill.active{background:var(--saffron);border-color:var(--saffron);color:white;}
+
+/* FOOD CARDS */
+.food-cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:0.9rem;margin-bottom:1.5rem;}
+.food-card{background:white;border-radius:22px;padding:1.3rem 1rem;box-shadow:var(--shadow2);border:2px solid #FFE5CC;transition:transform 0.25s,box-shadow 0.25s;cursor:none;animation:cardPop 0.5s cubic-bezier(0.175,0.885,0.32,1.275) both;position:relative;}
+.food-card:hover{transform:translateY(-5px) scale(1.02);box-shadow:0 12px 30px rgba(255,107,0,0.2);}
+@keyframes cardPop{from{opacity:0;transform:scale(0.7) translateY(20px);}to{opacity:1;transform:scale(1) translateY(0);}}
+.food-emoji-big{font-size:3.2rem;display:block;margin-bottom:0.5rem;}
+.food-name{font-family:'Baloo 2',cursive;font-weight:700;font-size:1.05rem;color:var(--dark);margin-bottom:0.2rem;}
+.food-desc{font-size:0.78rem;color:#888;line-height:1.45;margin-bottom:0.5rem;}
+.food-meta{display:flex;gap:0.3rem;flex-wrap:wrap;margin-bottom:0.4rem;}
+.food-tag{display:inline-block;background:#FFE8CC;color:#CC5500;font-size:0.68rem;font-weight:800;padding:0.15rem 0.5rem;border-radius:50px;}
+.food-stats{display:flex;gap:0.4rem;margin-top:0.3rem;}
+.food-stat{font-size:0.7rem;color:#AAA;display:flex;align-items:center;gap:0.15rem;}
+.food-card.hidden{display:none;}
+
+/* RESULT ACTION BUTTONS */
+.result-actions{display:flex;flex-direction:column;align-items:center;gap:0.7rem;margin-top:0.5rem;}
+.shuffle-btn{background:linear-gradient(135deg,var(--saffron),var(--turmeric));color:white;border:none;padding:0.9rem 2.2rem;border-radius:50px;font-family:'Baloo 2',cursive;font-size:1.2rem;font-weight:700;cursor:none;transition:all 0.25s;box-shadow:0 5px 0 #AA3A00,0 8px 20px rgba(255,107,0,0.25);}
+.shuffle-btn:hover{transform:translateY(-3px);box-shadow:0 8px 0 #AA3A00,0 12px 25px rgba(255,107,0,0.3);}
+.shuffle-btn:active{transform:translateY(2px);box-shadow:0 2px 0 #AA3A00;}
+.dillema-btn{background:linear-gradient(135deg,var(--chili),#FF6B6B);color:white;border:none;padding:0.85rem 2rem;border-radius:50px;font-family:'Baloo 2',cursive;font-size:1.15rem;font-weight:700;cursor:none;transition:all 0.3s;box-shadow:0 5px 0 #8B0000,0 7px 20px rgba(232,39,42,0.25);animation:pulse 2.5s infinite;}
+@keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.04);}}
+.dillema-btn:hover{transform:translateY(-3px);box-shadow:0 8px 0 #8B0000,0 12px 25px rgba(232,39,42,0.35);animation:none;}
+.share-btn{background:white;border:2.5px solid var(--saffron);color:var(--saffron);padding:0.7rem 1.8rem;border-radius:50px;font-family:'Baloo 2',cursive;font-size:1rem;font-weight:700;cursor:none;transition:all 0.25s;}
+.share-btn:hover{background:var(--saffron);color:white;}
+.btn-row{display:flex;gap:0.6rem;flex-wrap:wrap;justify-content:center;}
+.retry-btn{background:transparent;border:2px solid #CCA080;color:#AA5500;padding:0.6rem 1.5rem;border-radius:50px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.9rem;cursor:none;transition:all 0.22s;}
+.retry-btn:hover{background:#FFE0C8;border-color:var(--saffron);}
+
+/* CONFETTI */
+.confetti-piece{position:fixed;width:10px;height:10px;top:-10px;border-radius:2px;animation:confettiFall linear forwards;pointer-events:none;z-index:999;}
+@keyframes confettiFall{0%{transform:translateY(0) rotate(0deg);opacity:1;}100%{transform:translateY(105vh) rotate(720deg);opacity:0;}}
+
+/* SHARE MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:500;display:none;align-items:center;justify-content:center;padding:1rem;backdrop-filter:blur(4px);}
+.modal-overlay.show{display:flex;}
+.share-modal{background:white;border-radius:28px;padding:2rem;max-width:380px;width:100%;text-align:center;animation:bounceIn 0.4s ease;box-shadow:0 20px 60px rgba(0,0,0,0.3);}
+.share-card-preview{background:linear-gradient(135deg,#FF6B00,#FFD166);border-radius:20px;padding:1.5rem;margin-bottom:1.5rem;}
+.share-card-preview .s-title{font-family:'Baloo 2',cursive;font-weight:800;font-size:1.4rem;color:white;text-shadow:2px 2px 0 rgba(0,0,0,0.2);}
+.share-card-preview .s-food{font-size:2.5rem;margin:0.5rem 0;display:block;}
+.share-card-preview .s-foodname{font-family:'Baloo 2',cursive;font-weight:700;font-size:1.1rem;color:white;}
+.share-card-preview .s-mood{font-family:'Kalam',cursive;font-size:0.9rem;color:rgba(255,255,255,0.85);margin-top:0.3rem;}
+.share-modal h3{font-family:'Baloo 2',cursive;font-size:1.2rem;font-weight:700;margin-bottom:1rem;color:var(--dark);}
+.share-copy-btn{background:var(--dark);color:white;border:none;padding:0.8rem 2rem;border-radius:50px;font-family:'Baloo 2',cursive;font-size:1rem;font-weight:700;cursor:none;width:100%;margin-bottom:0.6rem;transition:all 0.2s;}
+.share-copy-btn:hover{background:var(--saffron);}
+.share-close{background:transparent;border:2px solid #DDD;color:#888;padding:0.6rem 2rem;border-radius:50px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.9rem;cursor:none;width:100%;transition:all 0.2s;}
+.share-close:hover{border-color:#CCC;background:#F5F5F5;}
+
+/* ===================== DILLEMA ===================== */
+#dillema{background:linear-gradient(135deg,#0D0500,#1A0A00,#250E00);position:relative;overflow:hidden;padding:1.5rem;align-items:center;justify-content:center;}
+#dillema::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 60%,rgba(255,107,0,0.12) 0%,transparent 65%);pointer-events:none;}
+.dillema-stars{position:absolute;inset:0;pointer-events:none;}
+.dstar{position:absolute;width:2px;height:2px;background:rgba(255,200,100,0.6);border-radius:50%;animation:twinkle linear infinite;}
+@keyframes twinkle{0%,100%{opacity:0.2;}50%{opacity:1;}}
+.dillema-container{max-width:580px;width:100%;text-align:center;position:relative;z-index:2;}
+.dillema-back{background:transparent;border:1.5px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.5);padding:0.4rem 1rem;border-radius:50px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.82rem;cursor:none;margin-bottom:1.5rem;transition:all 0.2s;display:inline-block;}
+.dillema-back:hover{border-color:rgba(255,255,255,0.4);color:rgba(255,255,255,0.8);}
+.dillema-title{font-family:'Baloo 2',cursive;font-size:clamp(1.8rem,6vw,3.2rem);font-weight:800;color:var(--turmeric);text-shadow:0 0 40px rgba(245,166,35,0.4);margin-bottom:0.4rem;}
+.dillema-subtitle{font-family:'Kalam',cursive;font-size:clamp(0.95rem,2.5vw,1.15rem);color:#CC8844;margin-bottom:2rem;line-height:1.7;}
+.slot-machine{background:rgba(255,255,255,0.04);border:1.5px solid rgba(245,166,35,0.25);border-radius:28px;padding:2rem 1.5rem;margin-bottom:1.5rem;backdrop-filter:blur(12px);}
+.slot-display{display:flex;gap:0.8rem;justify-content:center;margin-bottom:1.8rem;}
+.slot-col{display:flex;flex-direction:column;align-items:center;gap:0.5rem;flex:1;max-width:160px;}
+.slot-label{font-size:0.65rem;font-family:'Nunito',sans-serif;font-weight:800;color:#665533;text-transform:uppercase;letter-spacing:1.5px;}
+.slot-reel{background:#0A0300;border:1.5px solid rgba(245,166,35,0.4);border-radius:16px;width:100%;height:88px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 20px rgba(0,0,0,0.5);}
+.slot-reel::before,.slot-reel::after{content:'';position:absolute;left:0;right:0;height:28px;z-index:2;pointer-events:none;}
+.slot-reel::before{top:0;background:linear-gradient(to bottom,#0A0300,transparent);}
+.slot-reel::after{bottom:0;background:linear-gradient(to top,#0A0300,transparent);}
+.slot-value{font-size:0.82rem;font-family:'Baloo 2',cursive;font-weight:700;color:var(--turmeric);text-align:center;padding:0 0.5rem;line-height:1.3;transition:none;}
+.slot-value.spinning{animation:slotFlash 0.09s steps(1) infinite;}
+@keyframes slotFlash{0%{color:var(--turmeric);}33%{color:#FF6B6B;}66%{color:#00C9A7};}100%{color:white;}}
+.slot-value.landed{animation:slotLand 0.4s cubic-bezier(0.175,0.885,0.32,1.275);}
+@keyframes slotLand{0%{transform:scale(1.3);color:white;}100%{transform:scale(1);color:var(--turmeric);}}
+.spin-btn{background:linear-gradient(135deg,var(--saffron),var(--turmeric));color:white;border:none;padding:1rem 3rem;border-radius:50px;font-family:'Baloo 2',cursive;font-size:1.4rem;font-weight:800;cursor:none;transition:all 0.3s;box-shadow:0 5px 0 #7A3A00,0 8px 25px rgba(255,107,0,0.35);letter-spacing:1px;}
+.spin-btn:hover{transform:translateY(-3px);box-shadow:0 8px 0 #7A3A00,0 12px 30px rgba(255,107,0,0.45);}
+.spin-btn:disabled{opacity:0.5;cursor:not-allowed;transform:none;box-shadow:none;}
+.dillema-result{background:rgba(0,201,167,0.08);border:1.5px solid rgba(0,201,167,0.3);border-radius:22px;padding:1.5rem;margin-top:1.5rem;display:none;animation:fadeUp 0.5s ease;}
+.dillema-result.show{display:block;}
+.dillema-verdict{font-family:'Baloo 2',cursive;font-size:clamp(1.4rem,4.5vw,2rem);font-weight:800;color:var(--mint);margin-bottom:0.6rem;}
+.dillema-food-suggestion{display:inline-block;background:rgba(245,166,35,0.15);border:1px solid rgba(245,166,35,0.3);border-radius:50px;padding:0.3rem 1rem;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.85rem;color:var(--turmeric);margin-bottom:0.8rem;}
+.dillema-explanation{font-family:'Kalam',cursive;font-size:1rem;color:#8899AA;line-height:1.7;}
+.spin-again-wrap{margin-top:1rem;}
+
+/* EASTER EGG */
+#easter{background:linear-gradient(135deg,#1A0A00,#0D0500);display:none;align-items:center;justify-content:center;min-height:100vh;text-align:center;}
+#easter.active{display:flex;}
+.easter-content{position:relative;z-index:2;}
+.easter-emoji{font-size:8rem;display:block;animation:sadBounce 1s ease infinite;}
+@keyframes sadBounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-15px);}}
+.easter-title{font-family:'Baloo 2',cursive;font-size:clamp(2rem,6vw,3.5rem);font-weight:800;color:var(--turmeric);margin:1rem 0 0.5rem;}
+.easter-sub{font-family:'Kalam',cursive;font-size:1.2rem;color:#AA8844;margin-bottom:2rem;}
+.countdown-circle{width:120px;height:120px;border-radius:50%;border:4px solid var(--turmeric);display:flex;align-items:center;justify-content:center;font-family:'Baloo 2',cursive;font-size:3rem;font-weight:800;color:var(--turmeric);margin:0 auto 2rem;animation:countdownPulse 1s ease infinite;}
+@keyframes countdownPulse{0%,100%{box-shadow:0 0 0 rgba(245,166,35,0);}50%{box-shadow:0 0 30px rgba(245,166,35,0.4);}}
+.easter-back{background:var(--saffron);color:white;border:none;padding:0.9rem 2.5rem;border-radius:50px;font-family:'Baloo 2',cursive;font-size:1.2rem;font-weight:700;cursor:none;transition:all 0.25s;box-shadow:0 5px 0 #7A2000;}
+.easter-back:hover{transform:translateY(-3px);}
+
+/* TOAST */
+.toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(100px);background:var(--dark);color:white;padding:0.8rem 1.8rem;border-radius:50px;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.9rem;z-index:999;transition:transform 0.4s cubic-bezier(0.175,0.885,0.32,1.275);box-shadow:0 8px 25px rgba(0,0,0,0.3);}
+.toast.show{transform:translateX(-50%) translateY(0);}
+
+/* RESPONSIVE */
+@media(max-width:520px){
+  .options-grid{grid-template-columns:1fr;}
+  .slot-display{gap:0.4rem;}
+  .btn-row{flex-direction:column;align-items:stretch;}
+  .food-cards-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:360px){
+  .food-cards-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- CUSTOM CURSOR -->
+<div id="cursor">🍴</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- SHARE MODAL -->
+<div class="modal-overlay" id="shareModal">
+  <div class="share-modal">
+    <div class="share-card-preview" id="shareCardPreview">
+      <div class="s-title">🍛 Aaj Kya Khau</div>
+      <span class="s-food" id="shareEmoji">🍛</span>
+      <div class="s-foodname" id="shareFoodName">Biryani</div>
+      <div class="s-mood" id="shareMoodText">Mood: Khush Mode 🎉</div>
+    </div>
+    <h3>Share karein! 📤</h3>
+    <button class="share-copy-btn" onclick="copyShareText()">📋 Copy for WhatsApp / Insta</button>
+    <button class="share-close" onclick="closeShare()">Baad mein</button>
+  </div>
+</div>
+
+<!-- ======================== LANDING ======================== -->
+<div class="page active" id="landing">
+  <div class="grain-overlay"></div>
+  <button class="sound-toggle" id="soundToggle" onclick="toggleSound()">🔇 Sound Off</button>
+  <div class="landing-content">
+    <p class="tagline-top">🙏 Namaste, bhooke insaan! 🙏</p>
+    <h1 class="main-title">
+      Aaj Kya<br>Khau?
+      <span class="title-emoji">🍛</span>
+    </h1>
+    <div class="rotating-quote">
+      <span class="quote-text" id="quoteText">You've opened 7 food apps, scrolled 200 options, closed them all, and now you're googling "food near me" for the 4th time. <b>We've been expecting you.</b></span>
+    </div>
+    <button class="cta-btn" onclick="goTo('questions')">
+      Bata mujhe 👆
+    </button>
+  </div>
+</div>
+
+<!-- ======================== QUESTIONS ======================== -->
+<div class="page" id="questions">
+  <div style="max-width:680px;width:100%;margin:0 auto;padding:1.5rem;">
+    <div class="q-topbar">
+      <span class="q-logo" onclick="goTo('landing')">🍛 Aaj Kya Khau</span>
+      <button class="q-back-btn" id="backBtn" onclick="goBack()" disabled>← Wapas</button>
+    </div>
+    <div class="progress-wrap">
+      <span class="progress-label" id="progressLabel">Sawaal 1 / 5</span>
+      <span class="progress-label" id="progressPct">0%</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+    <div class="question-card" id="questionCard"></div>
+  </div>
+</div>
+
+<!-- ======================== RESULT ======================== -->
+<div class="page" id="result">
+  <div class="result-container" style="margin:0 auto;padding:1.5rem 1.5rem 3rem;">
+    <div class="result-topbar">
+      <span class="q-logo" onclick="goTo('landing')">🍛 Aaj Kya Khau</span>
+    </div>
+    <div class="result-header-section">
+      <span class="result-big-emoji" id="resultBigEmoji">🎉</span>
+      <div class="result-headline" id="resultHeadline">Aapka khana mil gaya!</div>
+      <div class="result-subline" id="resultSubline">Based on your mood, yeh raha aapka perfect meal</div>
+      <div class="mood-badge" id="moodBadge">🎉 Khush Mode</div>
+    </div>
+    <div class="filter-row" id="filterRow"></div>
+    <div class="food-cards-grid" id="foodCardsGrid"></div>
+    <div class="result-actions">
+      <button class="shuffle-btn" onclick="shuffleResults()">🔀 Aur options dikhao!</button>
+      <div class="btn-row">
+        <button class="dillema-btn" onclick="goTo('dillema')">😵 I am in Dilemma!</button>
+        <button class="share-btn" onclick="openShare()">📤 Share</button>
+      </div>
+      <div class="btn-row">
+        <button class="retry-btn" onclick="restartQuiz()">🔄 Quiz dobara khelo</button>
+        <button class="retry-btn" onclick="goTo('easter')" style="font-size:0.8rem;">🚫 Aaj nahi khana</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== DILLEMA ======================== -->
+<div class="page" id="dillema">
+  <div class="dillema-stars" id="dillemaStars"></div>
+  <div class="dillema-container">
+    <button class="dillema-back" onclick="goTo('result')">← Wapas jao</button>
+    <div class="dillema-title">🎰 Dilemma Mode</div>
+    <div class="dillema-subtitle">
+      Order karein 🛵 &nbsp;·&nbsp; Bahar jao 🚶 &nbsp;·&nbsp; Ghar pe pakao 👨‍🍳<br>
+      <span style="font-size:0.9em;opacity:0.8;">Decide nahi ho raha? Spin karo, destiny decide karegi!</span>
+    </div>
+    <div class="slot-machine">
+      <div class="slot-display" id="slotDisplay">
+        <div class="slot-col">
+          <div class="slot-label">😴 Energy</div>
+          <div class="slot-reel"><div class="slot-value" id="s1">?</div></div>
+        </div>
+        <div class="slot-col">
+          <div class="slot-label">💰 Budget</div>
+          <div class="slot-reel"><div class="slot-value" id="s2">?</div></div>
+        </div>
+        <div class="slot-col">
+          <div class="slot-label">✨ Vibe</div>
+          <div class="slot-reel"><div class="slot-value" id="s3">?</div></div>
+        </div>
+      </div>
+      <button class="spin-btn" id="spinBtn" onclick="spinSlots()">🎰 SPIN IT!</button>
+      <div class="dillema-result" id="dillemaResultBox">
+        <div class="dillema-verdict" id="dillemaVerdict"></div>
+        <div class="dillema-food-suggestion" id="dillemaSuggestion"></div>
+        <div class="dillema-explanation" id="dillemaExplanation"></div>
+        <div class="spin-again-wrap">
+          <button class="retry-btn" style="color:var(--mint);border-color:rgba(0,201,167,0.4);" onclick="resetDillema()">↺ Phir se spin karo</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== EASTER EGG ======================== -->
+<div class="page" id="easter">
+  <div class="easter-content">
+    <span class="easter-emoji">😭</span>
+    <div class="easter-title">Nahi Khana?!</div>
+    <div class="easter-sub">Yeh option galat select kiya tumne.<br>Bhookh maro mat. 5 second mein wapas bhejte hain.</div>
+    <div class="countdown-circle" id="easterCountdown">5</div>
+    <button class="easter-back" onclick="goTo('result')">Theek hai theek hai, khata hoon 🍽️</button>
+  </div>
+</div>
+
+<script>
+// ============================================================
+//  DATA
+// ============================================================
+const QUOTES = [
+  "You've opened 7 food apps, scrolled 200 options, closed them all, and now you're googling 'food near me' for the 4th time. <b>We've been expecting you.</b>",
+  "Subah se soch raha hoon kya khaaun. It is now 11pm. <b>Yeh app last chance hai.</b>",
+  "\"Kuch bhi chalega\" - you, literally every day, who is never satisfied with 'kuch bhi'. 🙃",
+  "Aapka fridge: empty. Aapka wallet: crying 😭. Aapka hunger: MAXIMUM. <b>Perfect timing to be here.</b>",
+  "Bhai, itna socho mat. <b>Bas yahan click karo aur apni life aasaan karo.</b> 5 sawaal, 1 plate.",
+  "Delivery app open → scroll 30 min → close. Phir repeat. <b>Is cycle ko aaj tod denge.</b> 🔥",
+  "Ghar mein kuch nahi hai. Bahar jaane ka mann nahi. Order karna costly lagta hai. <b>Classically stuck.</b>",
+  "Maine socha pasta banaunga. Phir socha nahi. Phir pizza order kiya. <b>Haan, yeh app tumhare liye hi hai.</b>",
+];
+
+const QUESTIONS = [
+  {
+    key:'mood', emoji:'😶', text:"Abhi aap kaisa feel kar rahe ho?",
+    options:[
+      {emoji:"😴",text:"Bilkul seedha seedha thaka hua",value:"tired"},
+      {emoji:"😄",text:"Ekdum mast! Party mood on!",value:"happy"},
+      {emoji:"😤",text:"Kuch zyada hi stressed hun",value:"stressed"},
+      {emoji:"🤷",text:"Yaar honestly kuch pata nahi",value:"meh"}
+    ]
+  },
+  {
+    key:'budget', emoji:'💸', text:"Aaj budget kya hai bhai?",
+    options:[
+      {emoji:"🪙",text:"Ekdum broke. ₹0–200 max",value:"broke"},
+      {emoji:"💵",text:"Theek thak. ₹200–600",value:"medium"},
+      {emoji:"💳",text:"Maze lo! ₹600–1500",value:"good"},
+      {emoji:"🤑",text:"Paise nahi dekhta main",value:"rich"}
+    ]
+  },
+  {
+    key:'spice', emoji:'🌶️', text:"Spice level kya chahiye?",
+    options:[
+      {emoji:"🧊",text:"Zero spice, seedha mild",value:"mild"},
+      {emoji:"😊",text:"Thoda sa, normal type",value:"medium"},
+      {emoji:"🔥",text:"Thoda teekha chahiye",value:"spicy"},
+      {emoji:"💀",text:"Itna teekha ki aankhon se aansu!",value:"fire"}
+    ]
+  },
+  {
+    key:'cuisine', emoji:'🍽️', text:"Kya type ka khana mann hai?",
+    options:[
+      {emoji:"🏠",text:"Ghar jaisa desi khana",value:"desi"},
+      {emoji:"🍕",text:"Thoda western/continental",value:"western"},
+      {emoji:"🌏",text:"Kuch alag — world cuisine",value:"world"},
+      {emoji:"🍟",text:"Junk food. Zero guilt zone.",value:"junk"}
+    ]
+  },
+  {
+    key:'time', emoji:'⏰', text:"Aaj ka scene kya hai?",
+    options:[
+      {emoji:"🌅",text:"Subah subah, breakfast time",value:"morning"},
+      {emoji:"☀️",text:"Dopahar ka scene, lunch time",value:"afternoon"},
+      {emoji:"🌆",text:"Sham ka chill snack time",value:"evening"},
+      {emoji:"🌙",text:"Raat ko bhooka utha!",value:"night"}
+    ]
+  }
+];
+
+// Mood-specific result copy
+const MOOD_COPY = {
+  happy:{emoji:"🎉",headline:"Party mood ke liye perfect picks!",subline:"Aaj toh full maza karo — yeh sab options bilkul tumhare liye hain"},
+  tired:{emoji:"😴",headline:"Thake ho toh yeh lo, araam se",subline:"Koi effort nahi, maximum comfort. Simple aur satisfying."},
+  stressed:{emoji:"🫂",headline:"Stress dour, khana paas",subline:"Yeh foods scientifically (aur emotionally) stress reduce karte hain. Trust karo."},
+  meh:{emoji:"🤷",headline:"Meh feel ke liye tried-and-tested",subline:"Kab fail hua hai yeh combination? Kabhi nahi."}
+};
+
+// Comprehensive food database
+const FOOD_DB = {
+  desi:{
+    mild:{
+      morning:[
+        {emoji:"🥣",name:"Poha",desc:"Light, fluffy, mustard seeds & curry leaves",tag:"Maharashtra",time:"10 min",cal:"250",effort:"Easy"},
+        {emoji:"🫓",name:"Idli Sambar",desc:"Soft steamed rice cakes with tangy sambar",tag:"South Indian",time:"20 min",cal:"200",effort:"Easy"},
+        {emoji:"🥞",name:"Dahi Wale Parathe",desc:"Soft parathas with fresh yoghurt and pickle",tag:"Punjab",time:"15 min",cal:"380",effort:"Easy"},
+        {emoji:"🥣",name:"Upma",desc:"Warm semolina tempered with veggies & nuts",tag:"South Indian",time:"12 min",cal:"220",effort:"Easy"},
+        {emoji:"🍵",name:"Sabudana Khichdi",desc:"Tapioca pearls with peanuts and mild spices",tag:"Vrat",time:"15 min",cal:"280",effort:"Easy"},
+      ],
+      afternoon:[
+        {emoji:"🍚",name:"Dal Chawal",desc:"The holy desi comfort — arhar dal over steamed rice",tag:"North Indian",time:"30 min",cal:"420",effort:"Easy"},
+        {emoji:"🥘",name:"Khichdi + Ghee",desc:"Dal, rice, ghee, pickle. Life sorted.",tag:"Classic",time:"20 min",cal:"380",effort:"Easy"},
+        {emoji:"🫓",name:"Roti + Aloo Sabzi",desc:"Soft chapatis with mildly spiced potato curry",tag:"Ghar ka",time:"25 min",cal:"400",effort:"Medium"},
+        {emoji:"🥘",name:"Malai Paneer",desc:"Creamy tomato-cashew gravy, zero heat",tag:"North Indian",time:"25 min",cal:"450",effort:"Medium"},
+      ],
+      evening:[
+        {emoji:"🥣",name:"Fruit Chaat",desc:"Seasonal fruits with chaat masala & kala namak",tag:"Healthy",time:"5 min",cal:"120",effort:"Easy"},
+        {emoji:"🫓",name:"Peanut Chikki",desc:"Crunchy jaggery-peanut brittle, perfect snack",tag:"Traditional",time:"0 min",cal:"180",effort:"Easy"},
+      ],
+      night:[
+        {emoji:"🍚",name:"Curd Rice",desc:"Cool yoghurt rice with mustard-curry leaf tempering",tag:"South Indian",time:"10 min",cal:"320",effort:"Easy"},
+        {emoji:"🥘",name:"Moong Dal Khichdi",desc:"Light, digestive, gentle on the stomach",tag:"Classic",time:"25 min",cal:"350",effort:"Easy"},
+      ]
+    },
+    medium:{
+      morning:[
+        {emoji:"🥞",name:"Masala Dosa",desc:"Crispy rice crepe with spiced potato filling & sambar",tag:"South Indian",time:"25 min",cal:"380",effort:"Medium"},
+        {emoji:"🥣",name:"Poha Upkari",desc:"Flattened rice with peanuts, onion, green chilli",tag:"Maharashtra",time:"10 min",cal:"280",effort:"Easy"},
+        {emoji:"🥘",name:"Aloo Paratha",desc:"Stuffed with spiced potato, served with butter & pickle",tag:"Punjabi",time:"20 min",cal:"430",effort:"Medium"},
+      ],
+      afternoon:[
+        {emoji:"🫘",name:"Rajma Chawal",desc:"Kidney bean curry simmered till thick, with steamed rice",tag:"North Indian",time:"40 min",cal:"520",effort:"Medium"},
+        {emoji:"🥘",name:"Chole Bhature",desc:"Fluffy fried bread with thick, tangy chickpea curry",tag:"Punjabi",time:"35 min",cal:"650",effort:"Hard"},
+        {emoji:"🍚",name:"Jeera Rice + Dal Fry",desc:"Cumin-tempered rice with golden fried dal",tag:"Classic",time:"30 min",cal:"480",effort:"Easy"},
+        {emoji:"🥘",name:"Palak Paneer",desc:"Fresh spinach purée with soft paneer cubes",tag:"North Indian",time:"30 min",cal:"420",effort:"Medium"},
+      ],
+      evening:[
+        {emoji:"🥗",name:"Bhel Puri",desc:"Puffed rice, sev, chutneys — tangy street classic",tag:"Mumbai Street",time:"5 min",cal:"250",effort:"Easy"},
+        {emoji:"🧆",name:"Samosa",desc:"Crispy pastry with spiced potato filling",tag:"Street Food",time:"0 min",cal:"310",effort:"Easy"},
+        {emoji:"🥙",name:"Vada Pav",desc:"Mumbai's burger: spicy potato fritter in a bun",tag:"Mumbai",time:"5 min",cal:"370",effort:"Easy"},
+      ],
+      night:[
+        {emoji:"🍳",name:"Egg Bhurji + Pav",desc:"Spiced scrambled eggs with buttery bun — midnight gold",tag:"Street Food",time:"8 min",cal:"390",effort:"Easy"},
+        {emoji:"🫕",name:"Butter Chicken",desc:"Rich tomato-cream gravy with tender chicken pieces",tag:"Mughlai",time:"35 min",cal:"560",effort:"Medium"},
+      ]
+    },
+    spicy:{
+      morning:[
+        {emoji:"🥘",name:"Spicy Upma",desc:"Semolina tempered hard with chilli & ginger",tag:"South Indian",time:"12 min",cal:"260",effort:"Easy"},
+        {emoji:"🥞",name:"Mirchi ke Parathe",desc:"Green chilli stuffed parathas with white butter",tag:"Rajasthani",time:"20 min",cal:"450",effort:"Medium"},
+      ],
+      afternoon:[
+        {emoji:"🫕",name:"Hyderabadi Biryani",desc:"Fragrant basmati, slow-cooked spiced mutton, dum style",tag:"Hyderabadi",time:"60 min",cal:"680",effort:"Hard"},
+        {emoji:"🥘",name:"Spicy Chole",desc:"Chickpeas cooked with 12 whole spices — deep flavor",tag:"Punjabi",time:"40 min",cal:"490",effort:"Medium"},
+        {emoji:"🥗",name:"Pav Bhaji",desc:"Buttery spiced mashed vegetable curry with toasted pav",tag:"Mumbai",time:"30 min",cal:"550",effort:"Medium"},
+      ],
+      evening:[
+        {emoji:"🥙",name:"Kathi Roll",desc:"Egg & chicken wrapped in roomali roti with green chutney",tag:"Kolkata",time:"15 min",cal:"420",effort:"Easy"},
+        {emoji:"🌶️",name:"Mirchi Bajji",desc:"Whole green chillies stuffed & batter-fried",tag:"Andhra",time:"15 min",cal:"280",effort:"Easy"},
+      ],
+      night:[
+        {emoji:"🌙",name:"Seekh Kebab",desc:"Spiced minced meat on skewers, grilled over coal",tag:"Mughlai",time:"30 min",cal:"380",effort:"Medium"},
+        {emoji:"🥘",name:"Spicy Kadai Paneer",desc:"Paneer in a smoky, fiery karahi masala",tag:"North Indian",time:"25 min",cal:"490",effort:"Medium"},
+      ]
+    },
+    fire:{
+      morning:[
+        {emoji:"💀",name:"Schezwan Paratha",desc:"Paratha stuffed with schezwan-spiced potato — face melting",tag:"Fusion",time:"20 min",cal:"480",effort:"Medium"},
+      ],
+      afternoon:[
+        {emoji:"🌶️",name:"Andhra Chicken Curry",desc:"Red chilli-forward, mustard-tempered. Not for the faint-hearted.",tag:"Andhra",time:"40 min",cal:"580",effort:"Hard"},
+        {emoji:"💀",name:"Vindaloo",desc:"Goan pork curry — vinegar + ghost pepper level heat",tag:"Goan",time:"50 min",cal:"520",effort:"Hard"},
+        {emoji:"🔥",name:"Naga Chicken",desc:"Northeast India's famously fiery chicken preparation",tag:"Naga",time:"35 min",cal:"460",effort:"Medium"},
+      ],
+      evening:[
+        {emoji:"💀",name:"Extra Hot Pani Puri",desc:"Jaljeera water so spicy your ancestors will feel it",tag:"Street Food",time:"0 min",cal:"150",effort:"Easy"},
+      ],
+      night:[
+        {emoji:"🌶️",name:"Fiery Chicken 65",desc:"Deep fried chicken with red chilli paste & curry leaves",tag:"South Indian",time:"25 min",cal:"480",effort:"Medium"},
+      ]
+    }
+  },
+  western:{
+    mild:{
+      morning:[
+        {emoji:"🥞",name:"Fluffy Pancakes",desc:"Buttermilk pancakes with maple syrup & butter",tag:"American",time:"15 min",cal:"420",effort:"Easy"},
+        {emoji:"🥑",name:"Avocado Toast",desc:"Sourdough, smashed avo, lemon, salt flakes",tag:"Modern",time:"5 min",cal:"310",effort:"Easy"},
+        {emoji:"🍳",name:"Classic Eggs Benedict",desc:"Poached eggs, Canadian bacon, hollandaise on English muffin",tag:"American",time:"20 min",cal:"520",effort:"Medium"},
+      ],
+      afternoon:[
+        {emoji:"🥗",name:"Caesar Salad",desc:"Romaine, croutons, anchovies, parmesan dressing",tag:"American",time:"10 min",cal:"340",effort:"Easy"},
+        {emoji:"🥙",name:"Club Sandwich",desc:"Triple decker: turkey, bacon, egg, lettuce, tomato",tag:"Continental",time:"10 min",cal:"520",effort:"Easy"},
+        {emoji:"🍝",name:"Aglio e Olio",desc:"Spaghetti, garlic, olive oil, parmesan, parsley",tag:"Italian",time:"15 min",cal:"480",effort:"Easy"},
+      ],
+      evening:[
+        {emoji:"🍕",name:"Margherita Pizza",desc:"San Marzano tomatoes, fresh mozzarella, fresh basil",tag:"Italian",time:"20 min",cal:"560",effort:"Medium"},
+        {emoji:"🥐",name:"Croissant + Soup",desc:"Buttery croissant with a creamy tomato bisque",tag:"French",time:"5 min",cal:"380",effort:"Easy"},
+      ],
+      night:[
+        {emoji:"🍝",name:"Carbonara",desc:"Guanciale, egg yolks, pecorino, black pepper — that's it",tag:"Italian",time:"20 min",cal:"620",effort:"Medium"},
+        {emoji:"🥘",name:"Mac and Cheese",desc:"Creamy bechamel, three cheeses, breadcrumb crust",tag:"American",time:"30 min",cal:"680",effort:"Medium"},
+      ]
+    },
+    medium:{
+      morning:[
+        {emoji:"🌮",name:"Breakfast Burrito",desc:"Scrambled egg, chorizo, salsa, cheese in a warm tortilla",tag:"Mexican",time:"15 min",cal:"560",effort:"Easy"},
+      ],
+      afternoon:[
+        {emoji:"🍔",name:"Classic Cheeseburger",desc:"Beef patty, cheddar, pickles, mustard, thousand island",tag:"American",time:"15 min",cal:"680",effort:"Easy"},
+        {emoji:"🥙",name:"Chicken Wrap",desc:"Grilled chicken, chipotle mayo, fresh veggies in flatbread",tag:"Continental",time:"10 min",cal:"490",effort:"Easy"},
+        {emoji:"🍕",name:"Pepperoni Pizza",desc:"Crispy base, tangy sauce, pepperoni, mozzarella",tag:"Italian",time:"20 min",cal:"640",effort:"Medium"},
+        {emoji:"🥗",name:"Greek Salad",desc:"Feta, olives, cucumber, tomato, oregano dressing",tag:"Greek",time:"8 min",cal:"280",effort:"Easy"},
+      ],
+      evening:[
+        {emoji:"🌮",name:"Street Tacos",desc:"Carne asada, cilantro, onion, lime, salsa verde",tag:"Mexican",time:"20 min",cal:"380",effort:"Easy"},
+        {emoji:"🍕",name:"White Pizza",desc:"Ricotta, garlic, mozzarella, fresh arugula",tag:"Italian",time:"18 min",cal:"520",effort:"Medium"},
+      ],
+      night:[
+        {emoji:"🍝",name:"Bolognese",desc:"Slow-cooked meat ragù with pappardelle, parmesan",tag:"Italian",time:"60 min",cal:"620",effort:"Hard"},
+        {emoji:"🍔",name:"Smash Burger",desc:"Double smashed patty, american cheese, special sauce, brioche",tag:"American",time:"12 min",cal:"780",effort:"Medium"},
+      ]
+    },
+    spicy:{
+      afternoon:[
+        {emoji:"🌶️",name:"Spicy Chicken Sandwich",desc:"Nashville hot sauce, coleslaw, pickles on brioche",tag:"American",time:"15 min",cal:"680",effort:"Easy"},
+        {emoji:"🌮",name:"Spicy Birria Tacos",desc:"Braised beef in ancho-guajillo broth, melted cheese, consommé",tag:"Mexican",time:"40 min",cal:"580",effort:"Hard"},
+      ],
+      evening:[
+        {emoji:"🌶️",name:"Jalapeño Mac and Cheese",desc:"Creamy mac, diced jalapeños, crispy bacon",tag:"American",time:"25 min",cal:"720",effort:"Medium"},
+        {emoji:"🍕",name:"Spicy Nduja Pizza",desc:"Spreadable spicy Calabrian salami, mozzarella",tag:"Italian",time:"20 min",cal:"620",effort:"Medium"},
+      ],
+      night:[
+        {emoji:"🔥",name:"Arrabbiata Pasta",desc:"Rigatoni in fiery tomato-chilli-garlic sauce",tag:"Italian",time:"20 min",cal:"520",effort:"Easy"},
+        {emoji:"🌮",name:"Spicy Chorizo Quesadilla",desc:"Flour tortilla, spicy chorizo, jalapeños, cheddar",tag:"Mexican",time:"10 min",cal:"620",effort:"Easy"},
+      ]
+    },
+    fire:{
+      afternoon:[
+        {emoji:"💀",name:"Ghost Pepper Burger",desc:"Carolina reaper sauce, pepper jack, fried onion — pure chaos",tag:"American",time:"15 min",cal:"780",effort:"Medium"},
+        {emoji:"🔥",name:"Diablo Tacos",desc:"Habanero-marinated chicken, mango-habanero salsa",tag:"Mexican",time:"25 min",cal:"520",effort:"Medium"},
+      ],
+      night:[
+        {emoji:"💀",name:"Nashville Hot Chicken",desc:"Cayenne-paste fried chicken, white bread, pickles",tag:"American",time:"30 min",cal:"780",effort:"Hard"},
+      ]
+    }
+  },
+  world:{
+    mild:{
+      morning:[
+        {emoji:"🥐",name:"Shakshuka",desc:"Eggs poached in mild spiced tomato-pepper sauce",tag:"Middle Eastern",time:"15 min",cal:"320",effort:"Easy"},
+        {emoji:"🍳",name:"Japanese Tamagoyaki",desc:"Sweet rolled omelette, light soy, serve with rice",tag:"Japanese",time:"10 min",cal:"220",effort:"Medium"},
+      ],
+      afternoon:[
+        {emoji:"🍜",name:"Chicken Ramen",desc:"Rich chicken broth, ramen noodles, soft egg, nori",tag:"Japanese",time:"20 min",cal:"520",effort:"Medium"},
+        {emoji:"🥘",name:"Shakshuka",desc:"Eggs poached in spiced tomato-pepper sauce, with bread",tag:"Middle Eastern",time:"15 min",cal:"380",effort:"Easy"},
+        {emoji:"🍲",name:"Korean Sundubu Jjigae",desc:"Soft tofu stew with mushrooms and mild broth",tag:"Korean",time:"20 min",cal:"280",effort:"Easy"},
+      ],
+      evening:[
+        {emoji:"🥙",name:"Falafel Wrap",desc:"Crispy chickpea falafel, tahini, pickled veggies, pita",tag:"Lebanese",time:"10 min",cal:"420",effort:"Easy"},
+        {emoji:"🥗",name:"Bahn Mi",desc:"Baguette, pickled daikon, cilantro, pate, sriracha-lite",tag:"Vietnamese",time:"10 min",cal:"380",effort:"Easy"},
+      ],
+      night:[
+        {emoji:"🍜",name:"Tonkotsu Ramen",desc:"48-hour pork bone broth, chashu, soft egg",tag:"Japanese",time:"20 min",cal:"620",effort:"Easy"},
+        {emoji:"🥘",name:"Tom Kha Gai",desc:"Coconut milk, galangal, lemongrass, chicken — mild & fragrant",tag:"Thai",time:"20 min",cal:"380",effort:"Medium"},
+      ]
+    },
+    medium:{
+      morning:[
+        {emoji:"🌯",name:"Shakshuka with Za'atar",desc:"Eggs in spiced tomato, topped with za'atar & olive oil",tag:"Middle Eastern",time:"15 min",cal:"350",effort:"Easy"},
+      ],
+      afternoon:[
+        {emoji:"🍣",name:"Salmon Sushi Bowl",desc:"Sashimi salmon, sushi rice, avocado, cucumber, ponzu",tag:"Japanese",time:"20 min",cal:"520",effort:"Medium"},
+        {emoji:"🥙",name:"Chicken Shawarma",desc:"Rotisserie chicken, garlic sauce, pickles, pita",tag:"Lebanese",time:"30 min",cal:"580",effort:"Medium"},
+        {emoji:"🍜",name:"Pad Thai",desc:"Rice noodles, tamarind sauce, peanuts, egg, lime",tag:"Thai",time:"15 min",cal:"520",effort:"Medium"},
+        {emoji:"🍲",name:"Korean Bibimbap",desc:"Rice, seasonal veggies, beef, egg, gochujang",tag:"Korean",time:"25 min",cal:"540",effort:"Medium"},
+      ],
+      evening:[
+        {emoji:"🥘",name:"Moroccan Couscous",desc:"Semolina couscous, slow-braised lamb, preserved lemon",tag:"Moroccan",time:"40 min",cal:"580",effort:"Hard"},
+        {emoji:"🥗",name:"Vietnamese Bún Bò",desc:"Beef noodle salad with lemongrass, fish sauce dressing",tag:"Vietnamese",time:"20 min",cal:"420",effort:"Medium"},
+      ],
+      night:[
+        {emoji:"🍜",name:"Vietnamese Pho",desc:"12-hour bone broth, rice noodles, fresh herbs, lime",tag:"Vietnamese",time:"20 min",cal:"480",effort:"Easy"},
+        {emoji:"🫕",name:"Thai Green Curry",desc:"Coconut cream, kaffir lime, Thai basil, jasmine rice",tag:"Thai",time:"25 min",cal:"560",effort:"Medium"},
+      ]
+    },
+    spicy:{
+      afternoon:[
+        {emoji:"🌶️",name:"Sichuan Mapo Tofu",desc:"Soft tofu in numbing ma la sauce, minced pork",tag:"Chinese",time:"20 min",cal:"380",effort:"Medium"},
+        {emoji:"🍜",name:"Dan Dan Noodles",desc:"Sesame-chilli noodles, minced pork, Sichuan pepper",tag:"Chinese",time:"15 min",cal:"520",effort:"Easy"},
+        {emoji:"🥘",name:"Korean Kimchi Jjigae",desc:"Fermented kimchi stew with tofu and pork belly",tag:"Korean",time:"25 min",cal:"450",effort:"Medium"},
+      ],
+      night:[
+        {emoji:"🌶️",name:"Spicy Laab",desc:"Thai minced meat salad with toasted rice, chilli, herbs",tag:"Thai",time:"20 min",cal:"380",effort:"Medium"},
+        {emoji:"🍜",name:"Tom Yum",desc:"Lemongrass prawn soup — fragrant, sour and hot",tag:"Thai",time:"20 min",cal:"280",effort:"Easy"},
+      ]
+    },
+    fire:{
+      afternoon:[
+        {emoji:"💀",name:"Sichuan Hot Pot",desc:"Numbing ma la broth, 15 types of meat & veggies — you choose the pain",tag:"Chinese",time:"45 min",cal:"650",effort:"Medium"},
+        {emoji:"🔥",name:"Ethiopian Doro Wat",desc:"Berbere spice-braised chicken — deep, fiery, unique",tag:"Ethiopian",time:"60 min",cal:"520",effort:"Hard"},
+      ],
+      night:[
+        {emoji:"💀",name:"Fire Ramen",desc:"Habanero tare, pork belly, ghost pepper oil — sweat guaranteed",tag:"Japanese Fusion",time:"20 min",cal:"680",effort:"Medium"},
+      ]
+    }
+  },
+  junk:{
+    mild:{
+      morning:[
+        {emoji:"🥐",name:"Croissant + Hot Chocolate",desc:"Flaky butter croissant with rich, creamy hot chocolate",tag:"French",time:"5 min",cal:"480",effort:"Easy"},
+        {emoji:"🥞",name:"Nutella Pancakes",desc:"Fluffy pancakes smothered in Nutella & banana slices",tag:"Dessert",time:"15 min",cal:"620",effort:"Easy"},
+      ],
+      afternoon:[
+        {emoji:"🍕",name:"Cheese Burst Pizza",desc:"Stuffed crust oozing with melted cheese — comfort food PEAK",tag:"Fast Food",time:"25 min",cal:"780",effort:"Easy"},
+        {emoji:"🍔",name:"Chicken Burger",desc:"Crispy fried chicken, lettuce, mayo on a sesame bun",tag:"Fast Food",time:"20 min",cal:"680",effort:"Easy"},
+      ],
+      evening:[
+        {emoji:"🍦",name:"Soft Serve Ice Cream",desc:"Creamy vanilla or chocolate soft serve in a waffle cone",tag:"Dessert",time:"0 min",cal:"320",effort:"Easy"},
+        {emoji:"🧁",name:"Red Velvet Cupcake",desc:"Moist red velvet with cream cheese frosting",tag:"Bakery",time:"0 min",cal:"380",effort:"Easy"},
+      ],
+      night:[
+        {emoji:"🍫",name:"Cookie Dough Ice Cream",desc:"Pint of Ben & Jerry's, spoon, Netflix. You know the drill.",tag:"Dessert",time:"0 min",cal:"520",effort:"Easy"},
+        {emoji:"🥐",name:"Bread + Butter + Jam",desc:"Literally the OG comfort food. Toasted, with lots of butter.",tag:"Classic",time:"3 min",cal:"340",effort:"Easy"},
+      ]
+    },
+    medium:{
+      morning:[
+        {emoji:"🌯",name:"Egg Roll Frankie",desc:"Runny egg, spiced filling in a roomali roti — spicy & satisfying",tag:"Mumbai Street",time:"10 min",cal:"480",effort:"Easy"},
+      ],
+      afternoon:[
+        {emoji:"🍟",name:"Loaded Cheese Fries",desc:"Thick-cut fries, nacho cheese sauce, jalapeños, sour cream",tag:"American",time:"15 min",cal:"680",effort:"Easy"},
+        {emoji:"🌭",name:"Chilli Cheese Dog",desc:"All-beef frank, chilli con carne, melted cheddar, onions",tag:"American",time:"10 min",cal:"620",effort:"Easy"},
+        {emoji:"🥙",name:"Vada Pav Double",desc:"Two spicy potato fritter burgers with extra chutney",tag:"Mumbai",time:"5 min",cal:"580",effort:"Easy"},
+      ],
+      evening:[
+        {emoji:"🍕",name:"BBQ Chicken Pizza",desc:"Smoky BBQ sauce, grilled chicken, red onion, coriander",tag:"Fast Food",time:"20 min",cal:"680",effort:"Easy"},
+        {emoji:"🌮",name:"Chicken Frankie Roll",desc:"Egg paratha wrapped with spiced chicken and onions",tag:"Street Food",time:"10 min",cal:"520",effort:"Easy"},
+      ],
+      night:[
+        {emoji:"🍜",name:"Masala Maggi",desc:"The classic — add egg, veggies, extra masala. 8 minutes flat.",tag:"Emergency",time:"8 min",cal:"380",effort:"Easy"},
+        {emoji:"🍕",name:"Leftover Pizza",desc:"Cold or reheated, pizza is always the answer at midnight.",tag:"Late Night",time:"2 min",cal:"620",effort:"Easy"},
+      ]
+    },
+    spicy:{
+      afternoon:[
+        {emoji:"🌶️",name:"Spicy Chicken Lollipop",desc:"Indo-Chinese classic — fiery, saucy, finger-licking good",tag:"Indo-Chinese",time:"25 min",cal:"480",effort:"Medium"},
+        {emoji:"🔥",name:"Pav Bhaji (Extra Butter)",desc:"Buttery spicy bhaji, 2 pavs, raw onion & lemon",tag:"Mumbai",time:"30 min",cal:"640",effort:"Medium"},
+      ],
+      evening:[
+        {emoji:"🌶️",name:"Masala Chips",desc:"Thick fries tossed in chaat masala, lemon & red chilli",tag:"Street Food",time:"10 min",cal:"420",effort:"Easy"},
+        {emoji:"🌮",name:"Spicy Mutton Frankie",desc:"Tender mutton keema in a spicy paratha wrap",tag:"Street Food",time:"15 min",cal:"580",effort:"Easy"},
+      ],
+      night:[
+        {emoji:"🍜",name:"Spicy Ramen",desc:"Samyang 2X spicy noodles with egg, cheese and spring onion",tag:"Korean",time:"8 min",cal:"580",effort:"Easy"},
+        {emoji:"🌶️",name:"Chicken Manchurian + Fried Rice",desc:"Indo-Chinese best duo — tangy, spicy, wok-tossed",tag:"Indo-Chinese",time:"20 min",cal:"680",effort:"Medium"},
+      ]
+    },
+    fire:{
+      evening:[
+        {emoji:"💀",name:"Suicide Wings",desc:"Scorpion pepper sauce, no dipping sauce allowed. You asked.",tag:"American",time:"25 min",cal:"480",effort:"Easy"},
+        {emoji:"🔥",name:"2X Spicy Samyang",desc:"The viral ramen. Your tears are the flavor enhancer.",tag:"Korean",time:"5 min",cal:"520",effort:"Easy"},
+      ],
+      night:[
+        {emoji:"💀",name:"Ghost Pepper Fries",desc:"Loaded fries with ghost pepper cheese sauce. Ambulance on standby.",tag:"American",time:"15 min",cal:"680",effort:"Easy"},
+      ]
+    }
+  }
+};
+
+// Flat pool by mood for fallback
+const MOOD_POOLS = {
+  happy:[
+    {emoji:"🎂",name:"Celebration Pastry",desc:"Life is good — mark it with a slice of something wonderful",tag:"Dessert",time:"0 min",cal:"380",effort:"Easy"},
+    {emoji:"🍣",name:"Sushi Platter",desc:"Fresh rolls, nigiri, a little wasabi kick",tag:"Japanese",time:"30 min",cal:"480",effort:"Hard"},
+    {emoji:"🥘",name:"Butter Chicken",desc:"Rich, creamy tomato gravy — the undisputed king",tag:"Mughlai",time:"35 min",cal:"560",effort:"Medium"},
+    {emoji:"🫕",name:"Thai Green Curry",desc:"Coconut cream, kaffir lime, Thai basil, pure joy",tag:"Thai",time:"25 min",cal:"540",effort:"Medium"},
+    {emoji:"🍕",name:"Quattro Formaggi Pizza",desc:"Four cheese pizza — mozzarella, gorgonzola, provolone, parmesan",tag:"Italian",time:"20 min",cal:"680",effort:"Medium"},
+  ],
+  tired:[
+    {emoji:"🍲",name:"Dal Makhani",desc:"Slow-cooked overnight, maximum comfort, zero regret",tag:"Punjabi",time:"45 min",cal:"480",effort:"Easy"},
+    {emoji:"🍚",name:"Curd Rice + Pickle",desc:"Cold, soothing, the Indian soul food",tag:"South Indian",time:"5 min",cal:"300",effort:"Easy"},
+    {emoji:"🥘",name:"Chicken Noodle Soup",desc:"Reset button for soul and body",tag:"Continental",time:"20 min",cal:"320",effort:"Easy"},
+    {emoji:"🥣",name:"Masala Oats",desc:"10 minutes flat. Filling, healthy, zero stress.",tag:"Quick",time:"10 min",cal:"280",effort:"Easy"},
+    {emoji:"🍜",name:"Instant Ramen Upgrade",desc:"Cup noodles + egg + cheese. Lazy genius.",tag:"Quick",time:"5 min",cal:"420",effort:"Easy"},
+  ],
+  stressed:[
+    {emoji:"🍫",name:"Dark Chocolate",desc:"70% cacao. Proven stress buster. Zero guilt.",tag:"Snack",time:"0 min",cal:"160",effort:"Easy"},
+    {emoji:"🍦",name:"Ice Cream Tub",desc:"Salted caramel, Netflix, do not disturb",tag:"Dessert",time:"0 min",cal:"480",effort:"Easy"},
+    {emoji:"🫕",name:"Biryani",desc:"Fragrant, filling, makes everything feel okay for 20 minutes",tag:"Mughlai",time:"60 min",cal:"680",effort:"Hard"},
+    {emoji:"🧁",name:"Chocolate Lava Cake",desc:"Warm, gooey, the sweetest kind of therapy",tag:"Dessert",time:"15 min",cal:"420",effort:"Easy"},
+    {emoji:"🫓",name:"Garlic Bread + Pasta",desc:"Carbs are therapy. No notes. No apologies.",tag:"Italian",time:"20 min",cal:"620",effort:"Easy"},
+  ],
+  meh:[
+    {emoji:"🥗",name:"Pav Bhaji",desc:"Can't go wrong. Literally ever. The benchmark.",tag:"Mumbai Street",time:"30 min",cal:"550",effort:"Medium"},
+    {emoji:"🍳",name:"Egg Bhurji + Pav",desc:"Quick, spicy, hits different at any hour",tag:"Street Food",time:"8 min",cal:"390",effort:"Easy"},
+    {emoji:"🌮",name:"Frankie Roll",desc:"Egg + masala in a roomali roti. Mumbai staple.",tag:"Street Food",time:"10 min",cal:"420",effort:"Easy"},
+    {emoji:"🍜",name:"Maggi Masala",desc:"When all else fails, there is always Maggi. Always.",tag:"Emergency",time:"5 min",cal:"380",effort:"Easy"},
+    {emoji:"🥙",name:"Vada Pav",desc:"The Mumbai burger. Simple, iconic, perfect.",tag:"Mumbai",time:"5 min",cal:"370",effort:"Easy"},
+  ]
+};
+
+// Dillema
+const DILLEMA_OPTS = {
+  energy:["Zero energy 😴","Bahut thaka 🥱","Thoda theek 😐","Fresh hoon 💪","Hypercaffeinated ⚡"],
+  budget:["Pockets empty 🪙","₹100-300 hai 💵","₹300-800 hai 💳","Aaj treat 🤑","Friend pay karega 😏"],
+  vibe:["Bed nahi chodna 🛏️","Couch pe lethna 🛋️","Quick bahar jaana 🚶","Dhaba vibes 🏮","Fancy night out 🍽️"]
+};
+
+// Dillema result logic based on energy/budget combo
+function getDillemaResult(energy, budget, vibe) {
+  const e = energy.toLowerCase(); const b = budget.toLowerCase(); const v = vibe.toLowerCase();
+  const isTired = e.includes('zero') || e.includes('thaka');
+  const isEnergetic = e.includes('fresh') || e.includes('hyper');
+  const isBroke = b.includes('empty') || b.includes('100');
+  const isRich = b.includes('aaj') || b.includes('friend') || b.includes('800');
+  const wantsOut = v.includes('bahar') || v.includes('dhaba') || v.includes('fancy');
+  const wantsIn = v.includes('bed') || v.includes('couch');
+
+  if (isTired && isBroke) return {verdict:"👨‍🍳 Ghar pe banao!",food:"Dal Chawal",explanation:"Bhai, energy nahi hai, paise nahi hain. Dal chawal mein ghee daalo, gas pe rakh do, aur sofa pe gir jao. 30 minutes mein life sorted. Delivery nahi, restaurant nahi — ghar ka khana hi tum deserve karte ho aaj."};
+  if (isTired && !isBroke) return {verdict:"🛵 Order kar lo!",food:"Biryani ya Butter Chicken",explanation:"Thake hue ho aur paise hain — yeh toh Zomato open karne ka direct signal hai. Biryani order karo, delivery waite karte karte so jao, phir khana aaega toh uthna padega anyway. Perfect plan."};
+  if (!isTired && isBroke) return {verdict:"🚶 Dhaba chalte hain!",food:"Paratha + Chai",explanation:"Energy hai, paise nahi — yeh walking-to-dhaba energy hai exactly. Nearest dhaba, butter paratha, kala chai. ₹80 mein full satisfaction. Apne andar ka budget traveler unlock karo."};
+  if (isRich && wantsOut) return {verdict:"🍽️ Bahar jao, restaurant!",food:"Sushi ya Fine Dining",explanation:"Budget full hai, vibe bahar jaane ki hai — destiny bol rahi hai: RESTAURANT. Dress up karo, reservation leke jao, aur remember karo: aaj apni baat hoti hai."};
+  if (wantsIn && !isBroke) return {verdict:"🛵 Order in, couch pe baitho!",food:"Pizza ya Manchurian",explanation:"Couch nahi chhodna, paise hain — perfect delivery candidate. Order karo, 35-40 min wait karo bina hile, door pe pakad lo. The ideal formula for a perfect evening."};
+  if (wantsOut) return {verdict:"🚶 Bahar niklo!",food:"Street Food",explanation:"Bahar jaane ki vibe hai — niklo toh sahi! Local chaat stall, vada pav wala ya nearest dhaba. Fresh air + fresh food. Ghumne ke baad jo appetite aata hai woh unforgettable hai."};
+  return {verdict:"👨‍🍳 Ghar pe experiment karo!",food:"Khud decide karo",explanation:"Honestly yaar, tumhare signals mixed hain. Toh let's go — fridge kholna, kuch bhi naya try karna. Ek boiled egg bhi khaoge toh chef feel aayega. Life mein thoda experiment zaroori hai."};
+}
+
+// ============================================================
+//  STATE
+// ============================================================
+let currentQ = 0, answers = {}, allFoods = [], currentFilter = 'all', soundEnabled = false;
+let easterTimer = null;
+
+// ============================================================
+//  SOUND
+// ============================================================
+const AudioCtx = window.AudioContext || window.webkitAudioContext;
+let audioCtx = null;
+
+function getAudioCtx() { if(!audioCtx) audioCtx = new AudioCtx(); return audioCtx; }
+
+function playTing() {
+  if(!soundEnabled) return;
+  try {
+    const ctx = getAudioCtx(); const o = ctx.createOscillator(); const g = ctx.createGain();
+    o.connect(g); g.connect(ctx.destination);
+    o.type = 'sine'; o.frequency.setValueAtTime(880, ctx.currentTime);
+    o.frequency.exponentialRampToValueAtTime(440, ctx.currentTime+0.15);
+    g.gain.setValueAtTime(0.3, ctx.currentTime); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime+0.2);
+    o.start(ctx.currentTime); o.stop(ctx.currentTime+0.25);
+  } catch(e){}
+}
+
+function playDrumroll(duration=2.5) {
+  if(!soundEnabled) return;
+  try {
+    const ctx = getAudioCtx();
+    let t = ctx.currentTime;
+    let interval = 0.18;
+    while(t < ctx.currentTime + duration) {
+      const o = ctx.createOscillator(); const g = ctx.createGain();
+      o.connect(g); g.connect(ctx.destination);
+      o.type = 'triangle'; o.frequency.setValueAtTime(120, t);
+      g.gain.setValueAtTime(0.15, t); g.gain.exponentialRampToValueAtTime(0.001, t+0.1);
+      o.start(t); o.stop(t+0.12);
+      interval = Math.max(0.04, interval*0.92);
+      t += interval;
+    }
+  } catch(e){}
+}
+
+function playReveal() {
+  if(!soundEnabled) return;
+  try {
+    const ctx = getAudioCtx();
+    [523,659,784,1047].forEach((f,i) => {
+      const o = ctx.createOscillator(); const g = ctx.createGain();
+      o.connect(g); g.connect(ctx.destination);
+      o.type = 'sine'; o.frequency.setValueAtTime(f, ctx.currentTime+i*0.1);
+      g.gain.setValueAtTime(0.25, ctx.currentTime+i*0.1);
+      g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime+i*0.1+0.35);
+      o.start(ctx.currentTime+i*0.1); o.stop(ctx.currentTime+i*0.1+0.4);
+    });
+  } catch(e){}
+}
+
+function toggleSound() {
+  soundEnabled = !soundEnabled;
+  document.getElementById('soundToggle').textContent = soundEnabled ? '🔊 Sound On' : '🔇 Sound Off';
+  if(soundEnabled) playTing();
+}
+
+// ============================================================
+//  CURSOR
+// ============================================================
+const cursorEmojis = {'#landing':'🍴','#questions':'🤔','#result':'🍽️','#dillema':'🎲','#easter':'😭'};
+document.addEventListener('mousemove', e => {
+  document.getElementById('cursor').style.left = e.clientX+'px';
+  document.getElementById('cursor').style.top = e.clientY+'px';
+});
+
+// ============================================================
+//  NAVIGATION
+// ============================================================
+function goTo(pageId) {
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(pageId).classList.add('active');
+  window.scrollTo(0,0);
+  // update cursor
+  const emoji = cursorEmojis['#'+pageId] || '🍴';
+  document.getElementById('cursor').textContent = emoji;
+  if(pageId==='questions') { currentQ=0; answers={}; renderQuestion(false); }
+  if(pageId==='dillema') { resetDillema(); spawnStars(); }
+  if(pageId==='easter') startEasterEgg();
+}
+
+// ============================================================
+//  FLOATING EMOJIS (landing)
+// ============================================================
+function spawnEmojis() {
+  const emojis = ['🍛','🍕','🍜','🍣','🍔','🌮','🥘','🍱','🥗','🍚','🌯','🍝','🥙','🧆','🍲','🥞','🍳','🥐','🌭','🍦'];
+  const landing = document.getElementById('landing');
+  emojis.forEach((e,i) => {
+    const el = document.createElement('div');
+    el.className = 'floating-emoji';
+    el.textContent = e;
+    el.style.left = `${5+Math.random()*88}%`;
+    el.style.animationDuration = `${7+Math.random()*11}s`;
+    el.style.animationDelay = `${Math.random()*10}s`;
+    el.style.fontSize = `${1.8+Math.random()*2.2}rem`;
+    landing.appendChild(el);
+  });
+}
+
+// ============================================================
+//  ROTATING QUOTES
+// ============================================================
+let quoteIdx = 0;
+function rotateQuotes() {
+  const el = document.getElementById('quoteText');
+  el.classList.add('fade-out');
+  setTimeout(() => {
+    quoteIdx = (quoteIdx+1) % QUOTES.length;
+    el.innerHTML = QUOTES[quoteIdx];
+    el.classList.remove('fade-out');
+  }, 420);
+}
+setInterval(rotateQuotes, 4500);
+
+// ============================================================
+//  QUIZ
+// ============================================================
+function renderQuestion(goingBack=false) {
+  const q = QUESTIONS[currentQ];
+  const pct = (currentQ / QUESTIONS.length) * 100;
+  document.getElementById('progressFill').style.width = pct+'%';
+  document.getElementById('progressLabel').textContent = `Sawaal ${currentQ+1} / ${QUESTIONS.length}`;
+  document.getElementById('progressPct').textContent = Math.round(pct)+'%';
+  document.getElementById('backBtn').disabled = currentQ === 0;
+
+  const card = document.getElementById('questionCard');
+  card.className = 'question-card ' + (goingBack ? 'slide-back' : 'slide-in');
+  card.innerHTML = `
+    <div class="q-number-badge">🎯 Sawaal ${currentQ+1}</div>
+    <span class="q-emoji-big">${q.emoji}</span>
+    <div class="question-text">${q.text}</div>
+    <div class="options-grid">
+      ${q.options.map(o => `
+        <button class="option-btn ${answers[q.key]===o.value?'selected':''}" onclick="selectOption('${o.value}',this,'${q.key}')">
+          <span class="option-emoji">${o.emoji}</span>${o.text}
+        </button>`).join('')}
+    </div>
+  `;
+  void card.offsetWidth;
+}
+
+function selectOption(value, btn, key) {
+  playTing();
+  document.querySelectorAll('.option-btn').forEach(b=>b.classList.remove('selected'));
+  btn.classList.add('selected');
+  answers[key] = value;
+  setTimeout(()=>{
+    if(currentQ < QUESTIONS.length-1) { currentQ++; renderQuestion(false); }
+    else showResult();
+  }, 380);
+}
+
+function goBack() {
+  if(currentQ>0) { currentQ--; renderQuestion(true); }
+}
+
+// ============================================================
+//  RESULT
+// ============================================================
+function showResult() {
+  const mood = answers.mood || 'meh';
+  const moodCopy = MOOD_COPY[mood] || MOOD_COPY.meh;
+  allFoods = buildFoodPool();
+
+  document.getElementById('resultBigEmoji').textContent = moodCopy.emoji;
+  document.getElementById('resultHeadline').textContent = moodCopy.headline;
+  document.getElementById('resultSubline').textContent = moodCopy.subline;
+  const moodLabels = {happy:'🎉 Khush Mode',tired:'😴 Thaka Mode',stressed:'😤 Stressed Mode',meh:'🤷 Meh Mode'};
+  document.getElementById('moodBadge').textContent = moodLabels[mood]||'🍽️ Hungry Mode';
+
+  buildFilters();
+  renderFoodCards();
+  goTo('result');
+  triggerMoodEffect(mood);
+  playReveal();
+}
+
+function buildFoodPool() {
+  const {mood, budget, spice, cuisine, time} = answers;
+  const spiceKey = spice || 'medium';
+  const timeKey = time || 'afternoon';
+  const cuisineKey = cuisine || 'desi';
+
+  let pool = [];
+  // Try to get from specific path
+  try {
+    const specific = FOOD_DB[cuisineKey][spiceKey][timeKey];
+    if(specific && specific.length) pool = [...specific];
+  } catch(e){}
+
+  // Supplement with other spice levels from same cuisine/time
+  if(pool.length < 8) {
+    ['medium','mild','spicy','fire'].forEach(sp => {
+      if(sp === spiceKey) return;
+      try { pool = [...pool, ...(FOOD_DB[cuisineKey][sp][timeKey]||[])]; } catch(e){}
+    });
+  }
+  // Supplement with other times from same cuisine/spice
+  if(pool.length < 8) {
+    ['afternoon','evening','morning','night'].forEach(t => {
+      if(t === timeKey) return;
+      try { pool = [...pool, ...(FOOD_DB[cuisineKey][spiceKey][t]||[])]; } catch(e){}
+    });
+  }
+  // Add mood-based extras
+  if(MOOD_POOLS[mood]) pool = [...pool, ...MOOD_POOLS[mood]];
+
+  // Deduplicate by name
+  const seen = new Set();
+  pool = pool.filter(f => { if(seen.has(f.name)) return false; seen.add(f.name); return true; });
+
+  return pool.sort(()=>Math.random()-0.5);
+}
+
+function buildFilters() {
+  const tags = new Set(['all']);
+  allFoods.forEach(f => tags.add(f.tag.split(' ')[0]));
+  // Limit to 6 filter pills
+  const topTags = ['all',...Array.from(tags).filter(t=>t!=='all').slice(0,5)];
+  const filterRow = document.getElementById('filterRow');
+  filterRow.innerHTML = topTags.map(t=>`
+    <button class="filter-pill ${t==='all'?'active':''}" onclick="setFilter('${t}',this)">
+      ${t==='all'?'✨ Sab':'🍽️ '+t}
+    </button>`).join('');
+  currentFilter = 'all';
+}
+
+function setFilter(tag, btn) {
+  document.querySelectorAll('.filter-pill').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  currentFilter = tag;
+  renderFoodCards();
+}
+
+function renderFoodCards() {
+  const filtered = currentFilter==='all' ? allFoods : allFoods.filter(f=>f.tag.includes(currentFilter));
+  const display = filtered.slice(0,6);
+  const grid = document.getElementById('foodCardsGrid');
+  grid.innerHTML = display.length ? display.map((f,i)=>`
+    <div class="food-card" style="animation-delay:${i*0.08}s">
+      <span class="food-emoji-big">${f.emoji}</span>
+      <div class="food-name">${f.name}</div>
+      <div class="food-desc">${f.desc}</div>
+      <div class="food-meta"><span class="food-tag">${f.tag}</span></div>
+      <div class="food-stats">
+        <span class="food-stat">⏱ ${f.time||'?'}</span>
+        <span class="food-stat">🔥 ${f.cal||'?'} kcal</span>
+        <span class="food-stat">👨‍🍳 ${f.effort||'?'}</span>
+      </div>
+    </div>`).join('') : `<div style="text-align:center;padding:2rem;color:#AAA;grid-column:1/-1;font-family:'Kalam',cursive;font-size:1.1rem;">Is filter mein kuch nahi mila 😅<br>Dusra filter try karo!</div>`;
+}
+
+function shuffleResults() {
+  playTing();
+  allFoods = allFoods.sort(()=>Math.random()-0.5);
+  renderFoodCards();
+  showToast('🔀 Naye options aa gaye!');
+}
+
+function restartQuiz() { currentQ=0; answers={}; goTo('questions'); }
+
+// ============================================================
+//  MOOD EFFECTS
+// ============================================================
+function triggerMoodEffect(mood) {
+  if(mood==='happy') launchConfetti();
+  if(mood==='tired') { /* slow card reveals already handled by animation-delay */ }
+  if(mood==='stressed') shakeCards();
+}
+
+function launchConfetti() {
+  const colors = ['#FF6B00','#FFD166','#00C9A7','#E8272A','#F5A623','#FF8C2A'];
+  for(let i=0;i<80;i++) {
+    const el = document.createElement('div');
+    el.className = 'confetti-piece';
+    el.style.left = Math.random()*100+'vw';
+    el.style.background = colors[Math.floor(Math.random()*colors.length)];
+    el.style.width = (6+Math.random()*8)+'px';
+    el.style.height = (6+Math.random()*8)+'px';
+    el.style.animationDuration = (2+Math.random()*3)+'s';
+    el.style.animationDelay = Math.random()*1.5+'s';
+    el.style.borderRadius = Math.random()>0.5?'50%':'2px';
+    el.style.transform = `rotate(${Math.random()*360}deg)`;
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(), 6000);
+  }
+}
+
+function shakeCards() {
+  const cards = document.querySelectorAll('.food-card');
+  cards.forEach((c,i)=>{ setTimeout(()=>{
+    c.style.animation='shake 0.5s ease';
+    setTimeout(()=>c.style.animation='',600);
+  },i*100); });
+  if(!document.getElementById('shakeKF')) {
+    const s=document.createElement('style'); s.id='shakeKF';
+    s.textContent='@keyframes shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-6px);}75%{transform:translateX(6px);}}';
+    document.head.appendChild(s);
+  }
+}
+
+// ============================================================
+//  SHARE
+// ============================================================
+function openShare() {
+  const foods = document.querySelectorAll('.food-card');
+  const firstName = foods.length ? foods[0].querySelector('.food-name')?.textContent : 'Biryani';
+  const firstEmoji = foods.length ? foods[0].querySelector('.food-emoji-big')?.textContent : '🍛';
+  const mood = document.getElementById('moodBadge').textContent;
+  document.getElementById('shareEmoji').textContent = firstEmoji||'🍛';
+  document.getElementById('shareFoodName').textContent = firstName||'Biryani';
+  document.getElementById('shareMoodText').textContent = 'Mood: '+mood;
+  document.getElementById('shareModal').classList.add('show');
+}
+
+function closeShare() { document.getElementById('shareModal').classList.remove('show'); }
+
+function copyShareText() {
+  const foodName = document.getElementById('shareFoodName').textContent;
+  const foodEmoji = document.getElementById('shareEmoji').textContent;
+  const mood = document.getElementById('shareMoodText').textContent;
+  const text = `🍛 Aaj Kya Khau? App ne decide kiya!\n\n${foodEmoji} Aaj main kha raha/rahi hoon: ${foodName}\n${mood}\n\nTumhara kya scene hai? Try karo: github.com/aaj-kya-khau`;
+  navigator.clipboard.writeText(text).then(()=>{
+    showToast('✅ Copied! Paste it on WhatsApp ya Instagram!');
+    closeShare();
+  }).catch(()=>showToast('❌ Copy nahi hua, manually select karo'));
+}
+
+// ============================================================
+//  DILLEMA
+// ============================================================
+function spawnStars() {
+  const c = document.getElementById('dillemaStars'); c.innerHTML='';
+  for(let i=0;i<60;i++) {
+    const s=document.createElement('div'); s.className='dstar';
+    s.style.left=Math.random()*100+'%'; s.style.top=Math.random()*100+'%';
+    s.style.animationDuration=(2+Math.random()*4)+'s'; s.style.animationDelay=Math.random()*3+'s';
+    s.style.opacity=Math.random()*0.6;
+    c.appendChild(s);
+  }
+}
+
+function resetDillema() {
+  ['s1','s2','s3'].forEach(id=>{ const el=document.getElementById(id); if(el){el.textContent='?';el.className='slot-value';} });
+  const res=document.getElementById('dillemaResultBox'); if(res) res.classList.remove('show');
+  const btn=document.getElementById('spinBtn'); if(btn){btn.disabled=false;btn.textContent='🎰 SPIN IT!';}
+}
+
+function spinSlots() {
+  const btn=document.getElementById('spinBtn'); btn.disabled=true; btn.textContent='🎲 Spinning...';
+  playDrumroll(3.5);
+  const pools=[Object.values(DILLEMA_OPTS)[0],Object.values(DILLEMA_OPTS)[1],Object.values(DILLEMA_OPTS)[2]];
+  const finals=pools.map(p=>p[Math.floor(Math.random()*p.length)]);
+  const stopTimes=[2000,2800,3600];
+  let elapsed=0;
+  const ticker=setInterval(()=>{
+    elapsed+=80;
+    ['s1','s2','s3'].forEach((id,i)=>{
+      const el=document.getElementById(id);
+      if(elapsed<stopTimes[i]) {
+        el.className='slot-value spinning';
+        el.textContent=pools[i][Math.floor(Math.random()*pools[i].length)];
+      } else if(el.textContent!==finals[i]) {
+        el.className='slot-value landed';
+        el.textContent=finals[i];
+        playTing();
+      }
+    });
+    if(elapsed>=stopTimes[2]) {
+      clearInterval(ticker);
+      setTimeout(()=>revealDillemaResult(finals), 400);
+    }
+  },80);
+}
+
+function revealDillemaResult(finals) {
+  const result = getDillemaResult(finals[0], finals[1], finals[2]);
+  document.getElementById('dillemaVerdict').textContent = result.verdict;
+  document.getElementById('dillemaSuggestion').textContent = '🍽️ Try: '+result.food;
+  document.getElementById('dillemaExplanation').textContent = result.explanation;
+  document.getElementById('dillemaResultBox').classList.add('show');
+  document.getElementById('spinBtn').disabled=false;
+  document.getElementById('spinBtn').textContent='🔄 Phir spin karo';
+  playReveal();
+}
+
+// ============================================================
+//  EASTER EGG
+// ============================================================
+function startEasterEgg() {
+  let count=5;
+  document.getElementById('easterCountdown').textContent=count;
+  if(easterTimer) clearInterval(easterTimer);
+  easterTimer=setInterval(()=>{
+    count--;
+    document.getElementById('easterCountdown').textContent=count;
+    if(count<=0) { clearInterval(easterTimer); goTo('result'); showToast('😂 Bola tha! Khana hi padega!'); }
+  },1000);
+}
+
+// ============================================================
+//  TOAST
+// ============================================================
+function showToast(msg) {
+  const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 3000);
+}
+
+// ============================================================
+//  INIT
+// ============================================================
+spawnEmojis();
+document.getElementById('shareModal').addEventListener('click',function(e){
+  if(e.target===this) closeShare();
+});
+</script>
+</body>
+</html>

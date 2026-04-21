@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Writer/Editor's Checklist - Sneha Pandey</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0078d4; --bg: #f3f2f1; --text: #323130;
+            --secondary: #605e5c; --white: #ffffff; --border: #edebe9;
+            --success: #107c10; --warning: #ffb900; --error: #d13438;
+            --ai-accent: #6b21a8;
+            --ai-light: #f5f0ff;
+            --ai-border: #c4b5fd;
+        }
+        body { font-family: 'IBM Plex Sans', 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 20px; font-size: 13px; line-height: 1.6; }
+        .container { max-width: 1300px; margin: 20px auto; background: var(--white); padding: 50px; border-radius: 2px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        
+        .brand-header { text-align: center; margin-bottom: 40px; border-bottom: 4px solid var(--primary); padding-bottom: 20px; }
+        .brand-header h1 { font-size: 36px; margin: 0; color: #000; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; }
+        .brand-header .author { font-size: 14px; color: var(--secondary); margin-top: 5px; font-weight: 400; }
+
+        .intro-box { background: #f9f9f9; border-left: 5px solid var(--primary); padding: 20px; margin-bottom: 40px; font-size: 14px; color: #444; }
+        .intro-box h3 { margin-top: 0; color: var(--primary); font-size: 16px; }
+
+        .meta-section { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 25px; padding: 20px; background: #faf9f8; border: 1px solid var(--border); }
+        .field { display: flex; flex-direction: column; }
+        .field label { font-weight: 600; font-size: 11px; margin-bottom: 5px; color: var(--secondary); text-transform: uppercase; }
+        .field input { padding: 8px; border: 1px solid var(--border); font-size: 13px; font-family: inherit; }
+        
+        .sticky-header { position: sticky; top: 0; background: var(--white); padding: 15px 0; border-bottom: 2px solid var(--border); z-index: 1000; margin-bottom: 30px; }
+        .score-container { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 8px; }
+        .score-large { font-size: 24px; font-weight: 800; color: var(--primary); }
+        progress { width: 100%; height: 12px; accent-color: var(--primary); border-radius: 10px; }
+        
+        section { margin-bottom: 50px; }
+        h2 { font-size: 1.1rem; color: var(--primary); border-bottom: 1px solid #e1dfdd; padding-bottom: 8px; margin-bottom: 15px; text-transform: uppercase; }
+        .row-head { display: grid; grid-template-columns: 3.5fr 130px 4fr 100px; gap: 20px; padding: 10px; background: #f3f2f1; font-weight: 700; color: var(--secondary); font-size: 10px; text-transform: uppercase; }
+        .review-row { display: grid; grid-template-columns: 3.5fr 130px 4fr 100px; gap: 20px; padding: 12px 10px; border-bottom: 1px solid #f3f2f1; align-items: start; transition: background 0.3s; }
+        .review-row.ai-filled { background: #fdf8ff; border-left: 3px solid var(--ai-border); }
+        .weight-tag { font-size: 10px; padding: 2px 6px; border-radius: 10px; text-align: center; font-weight: bold; }
+        .w-3 { background: #fde7e9; color: var(--error); }
+        .w-2 { background: #fff4ce; color: #8a660b; }
+        .w-1 { background: #dff6dd; color: var(--success); }
+        .q-remarks input { width: 100%; padding: 8px; border: 1px solid var(--border); font-size: 12px; font-family: inherit; box-sizing: border-box; }
+        .q-actions { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+        .q-actions label { font-size: 10px; display: flex; flex-direction: column; align-items: center; cursor: pointer; }
+
+        /* ─── AI PANEL ─── */
+        .ai-panel {
+            background: var(--ai-light);
+            border: 2px solid var(--ai-border);
+            border-radius: 6px;
+            padding: 28px 32px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        .ai-panel::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #6b21a8, #0078d4, #6b21a8);
+            background-size: 200%;
+            animation: gradientShift 3s ease infinite;
+        }
+        @keyframes gradientShift { 0%,100% { background-position: 0% } 50% { background-position: 100% } }
+
+        .ai-panel-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+        .ai-panel-header .ai-icon { width: 36px; height: 36px; background: var(--ai-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; flex-shrink: 0; }
+        .ai-panel-header h3 { margin: 0; font-size: 17px; color: var(--ai-accent); font-weight: 700; }
+        .ai-panel-header p { margin: 2px 0 0; font-size: 12px; color: #7c3aed; }
+
+        .ai-input-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+        @media (max-width: 800px) { .ai-input-grid { grid-template-columns: 1fr; } }
+
+        .ai-field label { display: block; font-weight: 700; font-size: 11px; color: var(--ai-accent); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+        .ai-field textarea, .ai-field input[type=text] {
+            width: 100%; box-sizing: border-box;
+            padding: 12px; border: 1.5px solid var(--ai-border);
+            border-radius: 4px; font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px; resize: vertical; background: white;
+            transition: border-color 0.2s;
+        }
+        .ai-field textarea:focus, .ai-field input[type=text]:focus { outline: none; border-color: var(--ai-accent); }
+
+        .ai-field textarea.doc-area { min-height: 160px; }
+
+        .upload-zone {
+            border: 2px dashed var(--ai-border); border-radius: 4px;
+            padding: 20px; text-align: center; cursor: pointer;
+            background: white; transition: all 0.2s; margin-bottom: 10px;
+        }
+        .upload-zone:hover, .upload-zone.drag-over { border-color: var(--ai-accent); background: #fdf4ff; }
+        .upload-zone .upload-icon { font-size: 28px; margin-bottom: 6px; }
+        .upload-zone p { margin: 0; font-size: 12px; color: var(--secondary); }
+        .upload-zone strong { color: var(--ai-accent); }
+        #file-name-display { font-size: 11px; color: var(--success); font-weight: 600; margin-top: 6px; min-height: 16px; font-family: 'IBM Plex Mono', monospace; }
+
+        .ai-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+        .btn-ai {
+            background: var(--ai-accent); color: white; border: none;
+            padding: 13px 28px; font-weight: 700; cursor: pointer;
+            border-radius: 4px; font-size: 14px; font-family: inherit;
+            display: flex; align-items: center; gap: 8px; transition: all 0.2s;
+        }
+        .btn-ai:hover:not(:disabled) { background: #581c87; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(107,33,168,0.3); }
+        .btn-ai:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none; }
+        .btn-ai-clear { background: white; color: var(--ai-accent); border: 1.5px solid var(--ai-accent); padding: 12px 20px; font-weight: 600; cursor: pointer; border-radius: 4px; font-size: 13px; font-family: inherit; transition: 0.2s; }
+        .btn-ai-clear:hover { background: var(--ai-light); }
+
+        .ai-status {
+            display: none; align-items: center; gap: 10px;
+            padding: 12px 16px; border-radius: 4px; font-size: 13px; font-weight: 600;
+            margin-top: 16px;
+        }
+        .ai-status.loading { display: flex; background: #ede9fe; color: var(--ai-accent); }
+        .ai-status.success { display: flex; background: #d1fae5; color: #065f46; }
+        .ai-status.error { display: flex; background: #fee2e2; color: #991b1b; }
+
+        .spinner {
+            width: 18px; height: 18px;
+            border: 2px solid rgba(107,33,168,0.2);
+            border-top-color: var(--ai-accent);
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+            flex-shrink: 0;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .ai-summary-box {
+            display: none; margin-top: 20px;
+            background: white; border: 1px solid var(--ai-border);
+            border-radius: 4px; padding: 16px 20px;
+        }
+        .ai-summary-box h4 { margin: 0 0 8px; color: var(--ai-accent); font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .ai-summary-box p { margin: 0; font-size: 13px; color: var(--text); line-height: 1.7; }
+        
+        /* footer & misc */
+        .how-to-guide { background: #f3f2f1; padding: 25px; border-radius: 4px; margin-top: 40px; border: 1px dashed var(--secondary); }
+        .how-to-guide h3 { margin-top: 0; color: var(--text); font-size: 16px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+        .how-to-guide ol { padding-left: 20px; }
+        .how-to-guide li { margin-bottom: 10px; }
+        .code-snippet { background: #000; color: #0f0; padding: 10px; border-radius: 3px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; margin-top: 10px; display: block; }
+        .footer-actions { margin-top: 30px; display: flex; gap: 10px; border-top: 1px solid var(--border); padding-top: 30px; flex-wrap: wrap; justify-content: center; }
+        .btn { padding: 12px 25px; border: none; font-weight: 600; cursor: pointer; border-radius: 2px; transition: 0.2s; font-size: 13px; font-family: inherit; }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-success { background: var(--success); color: white; }
+        .btn-outline { background: white; border: 1px solid var(--primary); color: var(--primary); }
+        .btn-danger { background: #d13438; color: white; }
+        #save-status { color: var(--success); opacity:0; transition: 0.3s; margin-right: 15px; font-weight: bold; }
+        @media print { .sticky-header, .footer-actions, .btn-danger, .btn-success, .btn-outline, .intro-box, .how-to-guide, .ai-panel { display: none; } .container { box-shadow: none; margin: 0; padding: 0; } }
+        .na-label { font-size: 10px; display: flex; flex-direction: column; align-items: center; cursor: pointer; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="brand-header">
+        <h1>Tech Writer/Editor's Checklist</h1>
+        <div class="author">Developed by Sneha Pandey</div>
+    </div>
+
+    <div class="intro-box">
+        <h3>About This Framework</h3>
+        <p>This comprehensive audit checklist standardizes documentation quality across engineering and content teams. It ensures every document is accurate, accessible, and ready for production.</p>
+        <p><strong>Manual Review:</strong> Use this checklist as a step-by-step guide during peer reviews or self-edits. It helps you verify technical details, such as API placeholders, and confirms that content meets global accessibility standards.</p>
+        <p><strong>AI Integration:</strong> Use the <strong>AI Review Panel</strong> below to automatically audit any document. Paste your content (or upload a file), optionally add a custom prompt, and Claude will fill in the checklist for you.</p>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         AI REVIEW PANEL
+    ══════════════════════════════════════════ -->
+    <div class="ai-panel">
+        <div class="ai-panel-header">
+            <div class="ai-icon">✦</div>
+            <div>
+                <h3>AI Review Panel</h3>
+                <p>Powered by Claude · Automatically fills your checklist based on the document you provide</p>
+            </div>
+        </div>
+
+        <div class="ai-input-grid">
+            <!-- Left: Document input -->
+            <div class="ai-field">
+                <label>📄 Document Content</label>
+                <div class="upload-zone" id="upload-zone" onclick="document.getElementById('file-upload').click()" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)">
+                    <div class="upload-icon">⬆️</div>
+                    <p><strong>Click to upload</strong> or drag & drop your file</p>
+                    <p style="font-size:11px; margin-top:4px;">Supports <strong>.pdf</strong> · <strong>.docx</strong> · <strong>.txt</strong> · <strong>.md</strong></p>
+                </div>
+                <div id="file-name-display"></div>
+                <div id="file-parse-status" style="font-size:11px; color:var(--secondary); margin-top:4px; min-height:16px;"></div>
+                <input type="file" id="file-upload" accept=".txt,.md,.html,.pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document" style="display:none" onchange="handleFileUpload(event)">
+                <textarea class="doc-area" id="doc-content" placeholder="Paste your document text here, or upload a file above..."></textarea>
+            </div>
+
+            <!-- Right: Prompt + API key -->
+            <div class="ai-field">
+                <label>💬 Custom Prompt (Optional)</label>
+                <textarea style="min-height:80px" id="custom-prompt" placeholder="e.g. Focus especially on API documentation standards. This is a getting-started guide for developers..."></textarea>
+
+                <div style="margin-top:16px">
+                    <label>🔑 Your Anthropic API Key</label>
+                    <div style="display:flex; gap:8px; align-items:center;">
+                        <input type="password" id="api-key" placeholder="sk-ant-api03-..." style="font-family:'IBM Plex Mono',monospace; flex:1; padding:10px; border:1.5px solid var(--ai-border); border-radius:4px; font-size:12px;">
+                        <button onclick="toggleKeyVisibility()" id="key-toggle-btn" title="Show/hide key" style="padding:10px 12px; border:1.5px solid var(--ai-border); border-radius:4px; background:white; cursor:pointer; font-size:14px;">👁</button>
+                        <button onclick="saveKey()" style="padding:10px 12px; border:1.5px solid var(--ai-border); border-radius:4px; background:white; cursor:pointer; font-size:12px; font-weight:700; color:var(--ai-accent); white-space:nowrap;">Save Key</button>
+                    </div>
+                    <div id="key-saved-msg" style="font-size:11px; color:var(--success); margin-top:4px; min-height:14px;"></div>
+                    <div style="margin-top:12px; background:white; border:1px solid var(--ai-border); border-radius:4px; padding:14px; font-size:12px; line-height:1.8; color:#444;">
+                        <strong style="color:var(--ai-accent); display:block; margin-bottom:4px;">🆓 How to get a free API key</strong>
+                        1. Go to <a href="https://console.anthropic.com" target="_blank" style="color:var(--ai-accent); font-weight:600;">console.anthropic.com</a><br>
+                        2. Sign up / log in &rarr; click <strong>API Keys</strong> &rarr; <strong>Create Key</strong><br>
+                        3. Copy and paste it above, then click <strong>Save Key</strong><br><br>
+                        <span style="color:var(--secondary);">✦ New accounts get <strong>$5 free credits</strong> (~300 reviews).<br>
+                        ✦ Your key is saved only in your browser. It never touches any server.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ai-actions">
+            <button class="btn-ai" id="ai-review-btn" onclick="runAIReview()">
+                <span>✦</span> Run AI Review
+            </button>
+            <button class="btn-ai-clear" onclick="clearAIResults()">Clear AI Results</button>
+            <span style="font-size:11px; color:var(--secondary); margin-left:4px;">AI will fill Yes / No / N/A and add remarks for each checklist item</span>
+        </div>
+
+        <div class="ai-status" id="ai-status">
+            <div class="spinner"></div>
+            <span id="ai-status-text">Analyzing your document against all checklist criteria…</span>
+        </div>
+
+        <div class="ai-summary-box" id="ai-summary-box">
+            <h4>✦ AI Overall Assessment</h4>
+            <p id="ai-summary-text"></p>
+        </div>
+    </div>
+
+    <div class="meta-section">
+        <div class="field"><label>Reviewer</label><input type="text" class="meta" id="m1"></div>
+        <div class="field"><label>Writer</label><input type="text" class="meta" id="m2"></div>
+        <div class="field"><label>Writer Email</label><input type="email" class="meta" id="m3" placeholder="writer@example.com"></div>
+        <div class="field" style="grid-column: span 2;"><label>Doc URL / Title</label><input type="text" class="meta" id="m4"></div>
+        <div class="field"><label>Audit Date</label><input type="date" class="meta" id="m5"></div>
+    </div>
+
+    <div class="sticky-header">
+        <div class="score-container">
+            <span style="font-weight: 700; color: var(--secondary);">Weighted Readiness Score</span>
+            <div style="display: flex; align-items: center;">
+                <span id="save-status">Saved!</span>
+                <span class="score-large" id="p-text">0%</span>
+            </div>
+        </div>
+        <progress id="p-bar" value="0" max="100"></progress>
+    </div>
+
+    <div id="audit-content"></div>
+
+    <div class="how-to-guide">
+        <h3>How to use the JSON Rubric with AI</h3>
+        <ol>
+            <li>Click <strong>Export JSON Rubric</strong> to download the structured configuration file.</li>
+            <li>Open the JSON file and copy its entire content.</li>
+            <li>In your AI tool (ChatGPT, Claude, Gemini), use the following prompt:
+                <span class="code-snippet">"Act as a Senior Technical Editor. Use the following JSON rubric to audit my technical documentation. Provide a detailed report on gaps and suggest specific rewrites based on the checkpoints provided: [PASTE JSON CONTENT HERE]"</span>
+            </li>
+            <li>Upload your Markdown or text file to the AI to receive an automated, rubric-aligned audit.</li>
+        </ol>
+    </div>
+
+    <div class="footer-actions">
+        <button class="btn btn-success" onclick="manualSave()">Save Progress</button>
+        <button class="btn btn-outline" onclick="exportJSON()">Export JSON Rubric</button>
+        <button class="btn btn-primary" onclick="sendEmail()">Notify Writer</button>
+        <button class="btn btn-primary" onclick="window.print()">Export PDF</button>
+        <button class="btn btn-danger" onclick="resetForm()">Clear All</button>
+    </div>
+</div>
+
+<script>
+    const sections = [
+        { 
+            title: "1. Core Technical Validation", weight: 3, 
+            items: [
+                "Tested all code snippets, CLI commands, and scripts in a fresh environment?",
+                "Verified API endpoints, methods, and payload examples against current production?",
+                "Are all placeholders (e.g., <YOUR_API_KEY>) obvious and used consistently?",
+                "Are required vs. optional fields explicitly identified in all tables?",
+                "Are sample responses (JSON/XML) complete and properly indented for readability?",
+                "Are troubleshooting steps provided for every likely error code mentioned?",
+                "Is the authentication/authorization flow explained step-by-step for new users?",
+                "Are system constraints (quotas, rate limits, file sizes) clearly defined?",
+                "Is sensitive information (PII, secrets, real hostnames) redacted in all media?",
+                "Does the 'Getting Started' flow lead to a verified 'First Success' milestone?",
+                "Are supported platforms/versions/browsers explicitly listed at the start?"
+            ]
+        },
+        { 
+            title: "2. Information Architecture & AI Readiness", weight: 3, 
+            items: [
+                "Does the H1 reflect the specific user intent or problem being solved?",
+                "Is the document structured using semantic Markdown/HTML for AI-parsing?",
+                "Are tables optimized (no merged cells/complex spans) for RAG systems?",
+                "Is conceptual background strictly separated from procedural steps?",
+                "Are prerequisites (permissions, installs) listed before the first action?",
+                "Does the heading hierarchy (H1-H4) flow logically without skipping levels?",
+                "Is the TOC/Sidebar sync-checked with the actual page content?",
+                "Are 'What's Next' or 'Learn More' links included to prevent user dead-ends?",
+                "Are metadata tags (keywords, categories) set for internal search findability?",
+                "Is the document accessible via a logical breadcrumb path?",
+                "Are glossary terms linked to their definitions on first use?"
+            ]
+        },
+        {
+            title: "3. UX Writing & Microcopy", weight: 2,
+            items: [
+                "Are UI labels bolded and case-matched exactly to the product interface?",
+                "Is the navigation path clear (e.g., Settings > Security > API Keys)?",
+                "Are keyboard shortcuts formatted correctly (e.g., CTRL+S)?",
+                "Used 'Select' for UI elements and 'Enter' for command-line inputs?",
+                "Are error message explanations helpful rather than just stating the error?",
+                "Is the distinction between 'Click' and 'Tap' (Desktop vs. Mobile) handled?",
+                "Are hover-over descriptions or tooltips used where brief context is needed?",
+                "Is there a 1:1 match between button names in text and screenshots?",
+                "Are success messages or 'confirmation states' described for key actions?"
+            ]
+        },
+        {
+            title: "4. Style, Voice & Mechanics", weight: 2,
+            items: [
+                "Is Active Voice used consistently in all procedural instructions?",
+                "Is the user addressed as 'you' consistently (Second Person)?",
+                "Has 'Future Tense' (will/shall) been removed in favor of Present Tense?",
+                "Are sentences kept under a 25-word limit for clarity?",
+                "Have filler/weak words (simply, just, basically, actually) been removed?",
+                "Is the tone professional yet approachable (helpful peer voice)?",
+                "Is the Oxford Comma used for list clarity?",
+                "Are acronyms spelled out on first mention?",
+                "Are bulleted lists used for 3+ items to break up walls of text?",
+                "Is the punctuation inside or outside quotes consistent with style guide?"
+            ]
+        },
+        {
+            title: "5. Global English & Accessibility", weight: 2,
+            items: [
+                "Does every image/diagram have descriptive, functional Alt Text?",
+                "Is spatial language (above, below, left-side) avoided for screen readers?",
+                "Are hyperlinks descriptive (no generic 'Click Here' or 'This Link')?",
+                "Is gender-neutral language (singular they) used throughout?",
+                "Are idioms/metaphors (ballpark, home run, low-hanging fruit) removed?",
+                "Is the date format unambiguous for global users (e.g., 05-Mar-2026)?",
+                "Are color-only instructions avoided (e.g., 'click the red icon')?",
+                "Are non-breaking spaces used between values and units (e.g., 10 MB)?",
+                "Is the text contrast sufficient for readability standards?",
+                "Are complex diagrams accompanied by a text-based summary?"
+            ]
+        },
+        {
+            title: "6. Legal, Compliance & Media", weight: 1,
+            items: [
+                "Are copyright dates and legal disclaimers current?",
+                "Are third-party trademarks acknowledged where necessary?",
+                "Are screenshots cropped to eliminate irrelevant UI noise?",
+                "Are callouts (arrows, boxes) used to highlight specific UI areas?",
+                "Is the URL slug descriptive, lowercase, and hyphenated?",
+                "Is the meta description unique and within 160 characters?",
+                "Are external links set to open in a new tab?",
+                "Are high-res SVGs used for technical diagrams where possible?",
+                "Is the page size/image weight optimized for slow connections?",
+                "Are internal cross-references verified (no 404s/broken anchors)?"
+            ]
+        }
+    ];
+
+    const auditContent = document.getElementById('audit-content');
+    let rowCounter = 0;
+    let hasUnsavedChanges = false;
+
+    sections.forEach(sec => {
+        let sectionHtml = `<section><h2>${sec.title}</h2>`;
+        sectionHtml += `<div class="row-head"><div>Checkpoint</div><div style="text-align:center">Yes / No / N/A</div><div>Reviewer Remarks</div><div>Impact</div></div>`;
+        sec.items.forEach(item => {
+            const impact = sec.weight === 3 ? 'Blocker' : sec.weight === 2 ? 'Important' : 'Minor';
+            sectionHtml += `
+                <div class="review-row" id="row-${rowCounter}">
+                    <div class="q-text">${item}</div>
+                    <div class="q-actions">
+                        <label style="font-size:10px; display:flex; flex-direction:column; align-items:center;">
+                            <input type="radio" name="rad-${rowCounter}" class="rb-yes" data-weight="${sec.weight}" id="yes-${rowCounter}"> Y
+                        </label>
+                        <label style="font-size:10px; display:flex; flex-direction:column; align-items:center;">
+                            <input type="radio" name="rad-${rowCounter}" class="rb-no" id="no-${rowCounter}"> N
+                        </label>
+                        <label style="font-size:10px; display:flex; flex-direction:column; align-items:center;">
+                            <input type="radio" name="rad-${rowCounter}" class="rb-na" id="na-${rowCounter}"> N/A
+                        </label>
+                    </div>
+                    <div class="q-remarks"><input type="text" class="rem" id="rem-${rowCounter}" placeholder="Notes..."></div>
+                    <div class="weight-tag w-${sec.weight}">${impact}</div>
+                </div>
+            `;
+            rowCounter++;
+        });
+        sectionHtml += `</section>`;
+        auditContent.innerHTML += sectionHtml;
+    });
+
+    // ── Score Calculation ──
+    function calculateScore() {
+        hasUnsavedChanges = true;
+        const yesRadios = document.querySelectorAll('.rb-yes');
+        const noRadios = document.querySelectorAll('.rb-no');
+        let totalWeight = 0, earnedWeight = 0;
+        yesRadios.forEach((rb, index) => {
+            const w = parseInt(rb.getAttribute('data-weight'));
+            totalWeight += w;
+            if (rb.checked) earnedWeight += w;
+        });
+        const score = totalWeight > 0 ? Math.round((earnedWeight / totalWeight) * 100) : 0;
+        document.getElementById('p-bar').value = score;
+        document.getElementById('p-text').innerText = score + '%';
+    }
+
+    window.onload = () => {
+        document.querySelectorAll('input').forEach(input => {
+            if (input.type === 'radio') input.checked = false;
+            else if (input.type !== 'file') input.value = '';
+        });
+        calculateScore();
+        hasUnsavedChanges = false;
+        document.querySelectorAll('input:not([type=file]), textarea').forEach(el => {
+            el.addEventListener('input', calculateScore);
+            el.addEventListener('change', calculateScore);
+        });
+        // Set today's date
+        document.getElementById('m5').value = new Date().toISOString().split('T')[0];
+        // Load saved API key from localStorage
+        const savedKey = localStorage.getItem('anthropic_api_key');
+        if (savedKey) {
+            document.getElementById('api-key').value = savedKey;
+            document.getElementById('key-saved-msg').textContent = '✓ Key loaded from your browser';
+        }
+    };
+
+    window.addEventListener('beforeunload', (event) => {
+        if (hasUnsavedChanges) { event.preventDefault(); event.returnValue = ''; }
+    });
+
+    function manualSave() {
+        calculateScore();
+        hasUnsavedChanges = false;
+        const ss = document.getElementById('save-status');
+        ss.style.opacity = "1";
+        setTimeout(() => ss.style.opacity = "0", 2000);
+    }
+
+    function exportJSON() {
+        const data = { author: "Sneha Pandey", rubric: "Tech Writer/Editor's Checklist", results: [] };
+        document.querySelectorAll('.review-row').forEach((row, index) => {
+            const isYes = row.querySelector('.rb-yes').checked;
+            const isNo = row.querySelector('.rb-no').checked;
+            const isNA = row.querySelector('.rb-na').checked;
+            let status = "Unmarked";
+            if (isYes) status = "Pass";
+            if (isNo) status = "Fail";
+            if (isNA) status = "N/A";
+            data.results.push({ 
+                q: row.querySelector('.q-text').innerText, 
+                status, remarks: row.querySelector('.rem').value
+            });
+        });
+        const blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
+        const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `Sneha_Pandey_Rubric.json`; a.click();
+    }
+
+    function sendEmail() {
+        const email = document.getElementById('m3').value;
+        const score = document.getElementById('p-text').innerText;
+        if (!email) { alert("Please enter the Writer Email."); return; }
+        const body = encodeURIComponent(`Audit complete via Sneha Pandey's Checklist.\nReadiness Score: ${score}`);
+        window.location.href = `mailto:${email}?subject=Review Ready&body=${body}`;
+    }
+
+    function resetForm() {
+        if (confirm("Clear all audit data including AI results?")) {
+            hasUnsavedChanges = false;
+            location.reload();
+        }
+    }
+
+    // ── Lazy-load external parser scripts ──
+    function loadScript(src) {
+        return new Promise((resolve, reject) => {
+            if (document.querySelector(`script[src="${src}"]`)) { resolve(); return; }
+            const s = document.createElement('script');
+            s.src = src; s.onload = resolve; s.onerror = reject;
+            document.head.appendChild(s);
+        });
+    }
+
+    // ── File Upload ──
+    function handleFileUpload(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+        readFile(file);
+    }
+
+    async function readFile(file) {
+        const nameEl = document.getElementById('file-name-display');
+        const statusEl = document.getElementById('file-parse-status');
+        const ext = file.name.split('.').pop().toLowerCase();
+
+        nameEl.textContent = 'Reading ' + file.name + '...';
+        nameEl.style.color = 'var(--secondary)';
+        statusEl.textContent = '';
+        statusEl.style.color = 'var(--secondary)';
+
+        try {
+            let text = '';
+
+            if (ext === 'pdf') {
+                statusEl.textContent = 'Loading PDF parser...';
+                await loadScript('https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js');
+                pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+                statusEl.textContent = 'Extracting text from PDF...';
+                const arrayBuffer = await file.arrayBuffer();
+                const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+                const pages = [];
+                for (let i = 1; i <= pdf.numPages; i++) {
+                    const page = await pdf.getPage(i);
+                    const content = await page.getTextContent();
+                    pages.push(content.items.map(item => item.str).join(' '));
+                }
+                text = pages.join('\n\n');
+                statusEl.textContent = 'Extracted ' + pdf.numPages + ' page(s) from PDF';
+
+            } else if (ext === 'docx' || ext === 'doc') {
+                statusEl.textContent = 'Loading Word document parser...';
+                await loadScript('https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js');
+                statusEl.textContent = 'Extracting text from Word document...';
+                const arrayBuffer = await file.arrayBuffer();
+                const result = await mammoth.extractRawText({ arrayBuffer });
+                text = result.value;
+                statusEl.textContent = 'Word document extracted successfully';
+
+            } else {
+                text = await file.text();
+                statusEl.textContent = 'File loaded';
+            }
+
+            document.getElementById('doc-content').value = text;
+            nameEl.textContent = 'Loaded: ' + file.name;
+            nameEl.style.color = 'var(--success)';
+
+        } catch (err) {
+            nameEl.textContent = 'Failed to read: ' + file.name;
+            nameEl.style.color = 'var(--error)';
+            statusEl.textContent = 'Error: ' + err.message;
+            statusEl.style.color = 'var(--error)';
+        }
+    }
+
+    function handleDragOver(e) { e.preventDefault(); document.getElementById('upload-zone').classList.add('drag-over'); }
+    function handleDragLeave(e) { document.getElementById('upload-zone').classList.remove('drag-over'); }
+    function handleDrop(e) {
+        e.preventDefault();
+        document.getElementById('upload-zone').classList.remove('drag-over');
+        const file = e.dataTransfer.files[0];
+        if (file) readFile(file);
+    }
+
+    // ── API Key helpers ──
+    function saveKey() {
+        const key = document.getElementById('api-key').value.trim();
+        if (!key) { alert('Please enter a key first.'); return; }
+        localStorage.setItem('anthropic_api_key', key);
+        const msg = document.getElementById('key-saved-msg');
+        msg.textContent = '✓ Key saved in your browser for future visits';
+        setTimeout(() => msg.textContent = '', 4000);
+    }
+
+    function toggleKeyVisibility() {
+        const input = document.getElementById('api-key');
+        const btn = document.getElementById('key-toggle-btn');
+        if (input.type === 'password') { input.type = 'text'; btn.textContent = '🙈'; }
+        else { input.type = 'password'; btn.textContent = '👁'; }
+    }
+
+    // ── AI Review ──
+    async function runAIReview() {
+        const docContent = document.getElementById('doc-content').value.trim();
+        const apiKey = document.getElementById('api-key').value.trim();
+        const customPrompt = document.getElementById('custom-prompt').value.trim();
+
+        if (!docContent) { alert('Please paste or upload a document first.'); return; }
+        if (!apiKey) { alert('Please enter your Anthropic API key.'); return; }
+
+        const btn = document.getElementById('ai-review-btn');
+        const statusEl = document.getElementById('ai-status');
+        const statusText = document.getElementById('ai-status-text');
+        const summaryBox = document.getElementById('ai-summary-box');
+
+        btn.disabled = true;
+        statusEl.className = 'ai-status loading';
+        statusText.textContent = 'Analyzing your document against all checklist criteria…';
+        summaryBox.style.display = 'none';
+
+        // Build the checklist as JSON for the prompt
+        const checklistData = [];
+        let idx = 0;
+        sections.forEach(sec => {
+            sec.items.forEach(item => {
+                checklistData.push({ id: idx, section: sec.title, weight: sec.weight, question: item });
+                idx++;
+            });
+        });
+
+        const systemPrompt = `You are a Senior Technical Editor and Documentation Auditor. You will review a document against a structured checklist and return results as a JSON object.
+
+CHECKLIST:
+${JSON.stringify(checklistData, null, 2)}
+
+INSTRUCTIONS:
+- For each checklist item, evaluate the document and assign:
+  - "yes" if the criterion is clearly met
+  - "no" if the criterion is clearly NOT met or violated
+  - "na" if the criterion cannot be assessed from this document (e.g., screenshots, links, etc.)
+- Provide a short remark (1 sentence max) explaining your reasoning for each.
+- Also provide a brief 2-3 sentence overall_assessment of the document's quality.
+
+RESPOND ONLY WITH VALID JSON in this exact format:
+{
+  "overall_assessment": "...",
+  "results": [
+    { "id": 0, "verdict": "yes"|"no"|"na", "remark": "..." },
+    ...
+  ]
+}`;
+
+        const userMessage = `${customPrompt ? 'Additional context from reviewer: ' + customPrompt + '\n\n' : ''}Document to review:\n\n${docContent}`;
+
+        try {
+            const response = await fetch('https://api.anthropic.com/v1/messages', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-api-key': apiKey,
+                    'anthropic-version': '2023-06-01',
+                    'anthropic-dangerous-direct-browser-access': 'true'
+                },
+                body: JSON.stringify({
+                    model: 'claude-sonnet-4-20250514',
+                    max_tokens: 4000,
+                    system: systemPrompt,
+                    messages: [{ role: 'user', content: userMessage }]
+                })
+            });
+
+            if (!response.ok) {
+                const err = await response.json();
+                throw new Error(err.error?.message || 'API error ' + response.status);
+            }
+
+            const data = await response.json();
+            const rawText = data.content[0].text;
+
+            // Parse JSON safely
+            const jsonMatch = rawText.match(/\{[\s\S]*\}/);
+            if (!jsonMatch) throw new Error('Could not parse AI response.');
+            const parsed = JSON.parse(jsonMatch[0]);
+
+            // Apply results to checklist
+            parsed.results.forEach(result => {
+                const row = document.getElementById(`row-${result.id}`);
+                if (!row) return;
+                row.classList.add('ai-filled');
+                const yesRb = document.getElementById(`yes-${result.id}`);
+                const noRb = document.getElementById(`no-${result.id}`);
+                const naRb = document.getElementById(`na-${result.id}`);
+                const remInput = document.getElementById(`rem-${result.id}`);
+                // Uncheck all first
+                yesRb.checked = false; noRb.checked = false; naRb.checked = false;
+                if (result.verdict === 'yes') yesRb.checked = true;
+                else if (result.verdict === 'no') noRb.checked = true;
+                else if (result.verdict === 'na') naRb.checked = true;
+                if (result.remark) remInput.value = '🤖 ' + result.remark;
+            });
+
+            calculateScore();
+
+            // Show summary
+            if (parsed.overall_assessment) {
+                document.getElementById('ai-summary-text').textContent = parsed.overall_assessment;
+                summaryBox.style.display = 'block';
+            }
+
+            statusEl.className = 'ai-status success';
+            statusText.textContent = `✓ Review complete! ${parsed.results.length} checklist items filled. Scroll down to review results.`;
+
+        } catch (err) {
+            statusEl.className = 'ai-status error';
+            statusText.textContent = '✗ Error: ' + err.message;
+        } finally {
+            btn.disabled = false;
+        }
+    }
+
+    function clearAIResults() {
+        document.querySelectorAll('.review-row').forEach(row => {
+            row.classList.remove('ai-filled');
+        });
+        document.querySelectorAll('.rb-yes, .rb-no, .rb-na').forEach(rb => rb.checked = false);
+        document.querySelectorAll('.rem').forEach(inp => {
+            if (inp.value.startsWith('🤖')) inp.value = '';
+        });
+        document.getElementById('ai-status').className = 'ai-status';
+        document.getElementById('ai-summary-box').style.display = 'none';
+        calculateScore();
+    }
+</script>
+</body>
+</html>
