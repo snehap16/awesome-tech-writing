@@ -1,4 +1,4 @@
-# GitHub for Technical Writers
+# How to work with GitHub: Technical Writer edition
 
 ## Introduction
 

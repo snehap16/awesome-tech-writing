@@ -1,9 +1,9 @@
 
-# Working in Visual Studio and Pushing Content to GitHub
+# How to work in Visual Studio and push content to GitHub
 
 ## 1. Understanding the Workflow
 
-Technical writers often collaborate on documentation using Visual Studio and GitHub. This guide provides step-by-step instructions to set up, write, and publish content, following the Microsoft Style Guide.
+Technical writers often collaborate on documentation using Visual Studio and GitHub. This guide provides step-by-step instructions for setting up, writing, and publishing content in accordance with the Microsoft Style Guide.
 
 ## 2. Setting Up Visual Studio for Documentation
 
