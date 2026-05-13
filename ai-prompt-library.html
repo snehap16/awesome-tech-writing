@@ -757,7 +757,7 @@
         <div class="logo-text">Prompt Library for Writers</div>
       </div>
       <div class="header-right">
-        <div class="header-stat"><strong>42</strong> Prompts · <strong>7</strong> Categories</div>
+        <div class="header-stat"><strong>45</strong> Prompts · <strong>7</strong> Categories</div>
         <div class="header-platforms">
           <span class="hplat">ChatGPT</span>
           <span class="hplat">Claude</span>
@@ -790,7 +790,7 @@
       <a href="#cat-strategy" class="nav-link" data-cat="strategy">Strategy & Planning <span
           class="nav-count">3</span></a>
       <a href="#cat-apidocs" class="nav-link" data-cat="apidocs">Sample Product Documentation <span
-          class="nav-count">16</span></a>
+          class="nav-count">19</span></a>
       <div class="sidebar-divider"></div>
       <div class="filter-section">
         <div class="filter-title">Filter</div>
@@ -829,7 +829,7 @@
       </div>
 
       <div class="intro-bar">
-        This library gives you 42 ready-to-use AI prompts built specifically for technical writers. Each prompt follows
+        This library gives you 45 ready-to-use AI prompts built specifically for technical writers. Each prompt follows
         prompt engineering best practices — just copy it, fill in the bracketed placeholders with your own details, and
         paste it into any AI platform to get a strong, structured output in seconds.<br><br><strong>Pro Tip:</strong>
         For complex tasks, ask the AI to "think step-by-step" before answering. Whenever possible, paste a good example
@@ -837,7 +837,7 @@
       </div>
 
       <div class="result-bar">
-        <div class="result-count" id="resultCount">Showing <strong>42</strong> of 42 prompts</div>
+        <div class="result-count" id="resultCount">Showing <strong>45</strong> of 45 prompts</div>
         <button class="expand-all-btn" onclick="expandAll()">Expand All</button>
       </div>
 
@@ -3664,6 +3664,150 @@ Do not change the underlying code logic. Output the fully commented code block.`
               </div>
               <div class="tip"><span><strong>Pro Tip:</strong> Always have an engineer review the generated comments to
                   ensure they accurately reflect the code's intended behavior, especially regarding edge cases.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" data-cat="43" id="p43">
+            <div class="card-top">
+              <div class="card-left">
+                <span class="badge" style="background:#0369a1">43</span>
+                <div class="card-info">
+                  <h3>Draft a How-To Guide from a Demo Transcript</h3>
+                  <p class="use-case">Extract UI steps from a raw speech-to-text transcript</p>
+                </div>
+              </div>
+              <button class="chevron" onclick="toggle(this)">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="18 15 12 9 6 15" />
+                </svg>
+              </button>
+            </div>
+            <div class="card-body">
+              <div class="code-label">PROMPT</div>
+              <div class="code-wrap">
+                <pre class="code-block">You are a technical writer drafting a public how-to guide from a raw demo video transcript. Review the following transcript:
+
+&lt;transcript&gt;
+<mark>[PASTE TRANSCRIPT HERE]</mark>
+&lt;/transcript&gt;
+
+Ignore all filler words, presenter chatter, and unrelated tangents. Focus only on the actionable steps the presenter takes in the UI. 
+Write a step-by-step how-to guide with a clear title, a brief introduction, and numbered steps. Use bold text for UI elements the user needs to click or interact with. 
+Use a &lt;thinking&gt; tag to map out the core user journey before writing the steps.</pre>
+                <button class="copy-btn" onclick='copyText(`You are a technical writer drafting a public how-to guide from a raw demo video transcript. Review the following transcript:
+
+<transcript>
+[PASTE TRANSCRIPT HERE]
+</transcript>
+
+Ignore all filler words, presenter chatter, and unrelated tangents. Focus only on the actionable steps the presenter takes in the UI. 
+Write a step-by-step how-to guide with a clear title, a brief introduction, and numbered steps. Use bold text for UI elements the user needs to click or interact with. 
+Use a <thinking> tag to map out the core user journey before writing the steps.`,this)'>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" />
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                  </svg>
+                  Copy Prompt
+                </button>
+              </div>
+              <div class="tip"><span><strong>Pro Tip:</strong> Transcripts often lack visual context. Always review the generated steps against the actual video to ensure no crucial clicks were missed because the presenter failed to narrate them.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" data-cat="44" id="p44">
+            <div class="card-top">
+              <div class="card-left">
+                <span class="badge" style="background:#0369a1">44</span>
+                <div class="card-info">
+                  <h3>Convert Internal Wiki to External Guide</h3>
+                  <p class="use-case">Strip internal jargon and reformat for a public audience</p>
+                </div>
+              </div>
+              <button class="chevron" onclick="toggle(this)">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="18 15 12 9 6 15" />
+                </svg>
+              </button>
+            </div>
+            <div class="card-body">
+              <div class="code-label">PROMPT</div>
+              <div class="code-wrap">
+                <pre class="code-block">You are a technical writer migrating internal documentation to an external user-facing knowledge base. Review the following raw text from an internal Confluence page:
+
+&lt;source_content&gt;
+<mark>[PASTE INTERNAL WIKI TEXT HERE]</mark>
+&lt;/source_content&gt;
+
+Your task is to convert this into a clean, professional user guide for external customers. Follow these rules:
+1. Remove all internal jargon, project codenames, and references to internal teams (e.g., "ask the dev team on Slack").
+2. Remove any placeholders for internal links (e.g., "go to go/project-dashboard").
+3. Reformat the content into a standard user guide structure: Title, Overview, Prerequisites, and Step-by-Step Instructions.
+4. Ensure the tone is helpful, professional, and customer-centric.</pre>
+                <button class="copy-btn" onclick='copyText(`You are a technical writer migrating internal documentation to an external user-facing knowledge base. Review the following raw text from an internal Confluence page:
+
+<source_content>
+[PASTE INTERNAL WIKI TEXT HERE]
+</source_content>
+
+Your task is to convert this into a clean, professional user guide for external customers. Follow these rules:
+1. Remove all internal jargon, project codenames, and references to internal teams (e.g., "ask the dev team on Slack").
+2. Remove any placeholders for internal links (e.g., "go to go/project-dashboard").
+3. Reformat the content into a standard user guide structure: Title, Overview, Prerequisites, and Step-by-Step Instructions.
+4. Ensure the tone is helpful, professional, and customer-centric.`,this)'>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" />
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                  </svg>
+                  Copy Prompt
+                </button>
+              </div>
+              <div class="tip"><span><strong>Pro Tip:</strong> AI models might accidentally leave in subtle internal terminology. Always do a quick visual scan for internal system names or team acronyms before publishing.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" data-cat="45" id="p45">
+            <div class="card-top">
+              <div class="card-left">
+                <span class="badge" style="background:#0369a1">45</span>
+                <div class="card-info">
+                  <h3>Generate UI Screenshot Alt Text</h3>
+                  <p class="use-case">Write functional, accessibility-focused descriptions for interfaces</p>
+                </div>
+              </div>
+              <button class="chevron" onclick="toggle(this)">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="18 15 12 9 6 15" />
+                </svg>
+              </button>
+            </div>
+            <div class="card-body">
+              <div class="code-label">PROMPT</div>
+              <div class="code-wrap">
+                <pre class="code-block">You are an accessibility expert and technical writer. I am providing you with an image of a software user interface <mark>[UPLOAD IMAGE]</mark>.
+
+Write alternative text (alt text) for this image that is optimized for screen readers. Follow these guidelines:
+1. Do not start with "Image of" or "Screenshot of".
+2. Focus on the functional purpose of the UI rather than describing every visual detail.
+3. If there is a key action the user is supposed to take (e.g., clicking a specific "Save" button), make sure that action and button are clearly described.
+4. Keep the alt text under 125 characters if possible, but prioritize clarity over length if the UI is complex.</pre>
+                <button class="copy-btn" onclick='copyText(`You are an accessibility expert and technical writer. I am providing you with an image of a software user interface [UPLOAD IMAGE].
+
+Write alternative text (alt text) for this image that is optimized for screen readers. Follow these guidelines:
+1. Do not start with "Image of" or "Screenshot of".
+2. Focus on the functional purpose of the UI rather than describing every visual detail.
+3. If there is a key action the user is supposed to take (e.g., clicking a specific "Save" button), make sure that action and button are clearly described.
+4. Keep the alt text under 125 characters if possible, but prioritize clarity over length if the UI is complex.`,this)'>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" />
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                  </svg>
+                  Copy Prompt
+                </button>
+              </div>
+              <div class="tip"><span><strong>Pro Tip:</strong> For extremely complex UI screenshots (like full dashboards), it is often better to use a short alt text summarizing the view, accompanied by a detailed description in the main body text.</span>
               </div>
             </div>
           </div>
