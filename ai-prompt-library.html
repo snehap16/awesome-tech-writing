@@ -11,6 +11,44 @@
     rel="stylesheet">
   <style>
     /* ── RESET & BASE ── */
+
+    :root {
+      --bg-body: #f8f9fc;
+      --bg-header: rgba(15, 23, 42, 0.85);
+      /* Glassmorphism */
+      --bg-card: #fff;
+      --text-main: #1e2535;
+      --text-muted: #475569;
+      --text-lighter: #64748b;
+      --text-lightest: #94a3b8;
+      --border-color: #e5e9f0;
+      --bg-hover: #f1f5f9;
+      --bg-active: #eff6ff;
+      --text-active: #2563eb;
+      --accent: #0d9488;
+      --bg-accent: #f0fdf4;
+      --code-bg: #1e1e1e;
+      --code-text: #d4d4d4;
+    }
+
+    [data-theme="dark"] {
+      --bg-body: #0f172a;
+      --bg-header: rgba(15, 23, 42, 0.85);
+      --bg-card: #1e293b;
+      --text-main: #f1f5f9;
+      --text-muted: #cbd5e1;
+      --text-lighter: #94a3b8;
+      --text-lightest: #64748b;
+      --border-color: #334155;
+      --bg-hover: #334155;
+      --bg-active: #1e3a8a;
+      --text-active: #60a5fa;
+      --accent: #2dd4bf;
+      --bg-accent: rgba(45, 212, 191, 0.1);
+      --code-bg: #0b0f19;
+      --code-text: #e2e8f0;
+    }
+
     *,
     *::before,
     *::after {
@@ -26,8 +64,8 @@
 
     body {
       font-family: 'Sora', sans-serif;
-      background: #f8f9fc;
-      color: #1e2535;
+      background: var(--bg-body);
+      color: var(--text-main);
       line-height: 1.6;
       min-height: 100vh;
     }
@@ -49,10 +87,44 @@
     }
 
     /* ── HEADER ── */
+
+    .theme-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.7);
+      border-radius: 8px;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .theme-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+    }
+
+    .theme-btn .moon-icon {
+      display: none;
+    }
+
+    [data-theme="dark"] .theme-btn .sun-icon {
+      display: none;
+    }
+
+    [data-theme="dark"] .theme-btn .moon-icon {
+      display: block;
+    }
+
     .site-header {
       grid-area: header;
-      background: #0f172a;
-      color: #fff;
+      background: var(--bg-header);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      color: var(--bg-card);
       padding: 0 32px;
       display: flex;
       align-items: center;
@@ -73,7 +145,7 @@
     .logo-text {
       font-size: 16px;
       font-weight: 700;
-      color: #fff;
+      color: var(--bg-card);
       letter-spacing: -0.01em;
     }
 
@@ -129,7 +201,7 @@
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 8px;
       padding: 7px 12px 7px 32px;
-      color: #fff;
+      color: var(--bg-card);
       font-family: 'Sora', sans-serif;
       font-size: 13px;
       width: 220px;
@@ -138,7 +210,7 @@
     }
 
     #searchInput:focus {
-      border-color: #0d9488;
+      border-color: var(--accent);
       background: rgba(255, 255, 255, 0.1);
     }
 
@@ -149,8 +221,8 @@
     /* ── SIDEBAR ── */
     .sidebar {
       grid-area: sidebar;
-      background: #fff;
-      border-right: 1px solid #e5e9f0;
+      background: var(--bg-card);
+      border-right: 1px solid var(--border-color);
       position: sticky;
       top: 64px;
       height: calc(100vh - 64px);
@@ -163,7 +235,7 @@
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: #94a3b8;
+      color: var(--text-lightest);
       padding: 0 8px;
       margin-bottom: 10px;
     }
@@ -176,7 +248,7 @@
       border-radius: 8px;
       font-size: 13px;
       font-weight: 500;
-      color: #475569;
+      color: var(--text-muted);
       cursor: pointer;
       transition: all 0.12s;
       margin-bottom: 2px;
@@ -186,20 +258,20 @@
     }
 
     .nav-link:hover {
-      background: #f1f5f9;
-      color: #1e2535;
+      background: var(--bg-hover);
+      color: var(--text-main);
     }
 
     .nav-link.active {
-      background: #f0fdf4;
-      color: #0d9488;
+      background: var(--bg-accent);
+      color: var(--accent);
     }
 
     .nav-count {
       margin-left: auto;
       flex-shrink: 0;
-      background: #f1f5f9;
-      color: #64748b;
+      background: var(--bg-hover);
+      color: var(--text-lighter);
       font-size: 11px;
       font-weight: 600;
       padding: 1px 7px;
@@ -208,7 +280,7 @@
 
     .sidebar-divider {
       height: 1px;
-      background: #f1f5f9;
+      background: var(--bg-hover);
       margin: 16px 8px;
     }
 
@@ -221,7 +293,7 @@
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: #94a3b8;
+      color: var(--text-lightest);
       padding: 0 8px;
       margin-bottom: 10px;
     }
@@ -237,31 +309,31 @@
       font-family: 'Sora', sans-serif;
       font-size: 13px;
       font-weight: 500;
-      color: #64748b;
+      color: var(--text-lighter);
       cursor: pointer;
       transition: all 0.12s;
       margin-bottom: 1px;
     }
 
     .filter-btn:hover {
-      background: #f1f5f9;
-      color: #1e2535;
+      background: var(--bg-hover);
+      color: var(--text-main);
     }
 
     .filter-btn.active {
-      background: #eff6ff;
-      color: #2563eb;
+      background: var(--bg-active);
+      color: var(--text-active);
     }
 
     .sidebar-credit {
       padding: 12px 10px;
       font-size: 12px;
-      color: #94a3b8;
+      color: var(--text-lightest);
       line-height: 1.5;
     }
 
     .sidebar-credit strong {
-      color: #475569;
+      color: var(--text-muted);
       font-weight: 600;
     }
 
@@ -274,8 +346,8 @@
 
     /* ── HOW-TO BANNER ── */
     .how-to-bar {
-      background: #fff;
-      border: 1px solid #e5e9f0;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
       border-radius: 12px;
       padding: 18px 24px;
       margin-bottom: 32px;
@@ -302,7 +374,7 @@
     .step-num {
       font-size: 13px;
       font-weight: 700;
-      color: #0d9488;
+      color: var(--accent);
       flex-shrink: 0;
       margin-top: 1px;
       min-width: 18px;
@@ -310,12 +382,12 @@
 
     .step p {
       font-size: 12.5px;
-      color: #475569;
+      color: var(--text-muted);
       line-height: 1.45;
     }
 
     .step p strong {
-      color: #0d9488;
+      color: var(--accent);
     }
 
     /* ── RESULT COUNT ── */
@@ -328,31 +400,31 @@
 
     .result-count {
       font-size: 13px;
-      color: #64748b;
+      color: var(--text-lighter);
       font-weight: 500;
     }
 
     .result-count strong {
-      color: #0d9488;
+      color: var(--accent);
     }
 
     .expand-all-btn {
       background: none;
-      border: 1px solid #e5e9f0;
+      border: 1px solid var(--border-color);
       border-radius: 6px;
       padding: 5px 12px;
       font-family: 'Sora', sans-serif;
       font-size: 12px;
       font-weight: 500;
-      color: #64748b;
+      color: var(--text-lighter);
       cursor: pointer;
       transition: all 0.12s;
     }
 
     .expand-all-btn:hover {
-      background: #f8f9fc;
+      background: var(--bg-body);
       border-color: #cbd5e1;
-      color: #1e2535;
+      color: var(--text-main);
     }
 
     /* ── CATEGORY SECTION ── */
@@ -366,13 +438,13 @@
       gap: 10px;
       margin-bottom: 14px;
       padding-bottom: 12px;
-      border-bottom: 2px solid #f1f5f9;
+      border-bottom: 2px solid var(--bg-hover);
     }
 
     .cat-title {
       font-size: 16px;
       font-weight: 700;
-      color: #1e2535;
+      color: var(--text-main);
       letter-spacing: -0.01em;
     }
 
@@ -380,8 +452,8 @@
       margin-left: auto;
       font-size: 11px;
       font-weight: 600;
-      color: #64748b;
-      background: #f1f5f9;
+      color: var(--text-lighter);
+      background: var(--bg-hover);
       padding: 2px 8px;
       border-radius: 10px;
     }
@@ -394,10 +466,17 @@
 
     /* ── CARD ── */
     .card {
-      background: #fff;
-      border: 1px solid #e5e9f0;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
       border-radius: 12px;
       overflow: hidden;
+      transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+
       transition: box-shadow 0.15s, border-color 0.15s;
     }
 
@@ -432,7 +511,7 @@
       width: 28px;
       height: 28px;
       border-radius: 7px;
-      color: #fff;
+      color: var(--bg-card);
       font-family: 'JetBrains Mono', monospace;
       font-size: 11px;
       font-weight: 500;
@@ -450,7 +529,7 @@
     .card-info h3 {
       font-size: 14px;
       font-weight: 600;
-      color: #1e2535;
+      color: var(--text-main);
       line-height: 1.3;
       white-space: nowrap;
       overflow: hidden;
@@ -459,7 +538,7 @@
 
     .use-case {
       font-size: 12px;
-      color: #94a3b8;
+      color: var(--text-lightest);
       margin-top: 2px;
       white-space: nowrap;
       overflow: hidden;
@@ -469,7 +548,7 @@
     .chevron {
       background: none;
       border: none;
-      color: #94a3b8;
+      color: var(--text-lightest);
       cursor: pointer;
       padding: 4px;
       flex-shrink: 0;
@@ -481,8 +560,8 @@
     }
 
     .chevron:hover {
-      color: #475569;
-      background: #f1f5f9;
+      color: var(--text-muted);
+      background: var(--bg-hover);
     }
 
     .card.collapsed .chevron {
@@ -491,7 +570,7 @@
 
     .card-body {
       padding: 0 18px 18px;
-      border-top: 1px solid #f1f5f9;
+      border-top: 1px solid var(--bg-hover);
     }
 
     .code-label {
@@ -499,14 +578,16 @@
       font-size: 9px;
       font-weight: 500;
       letter-spacing: 0.12em;
-      color: #94a3b8;
+      color: var(--text-lightest);
       margin-top: 14px;
       margin-bottom: 6px;
     }
 
     .code-wrap {
       position: relative;
-      background: #0f172a;
+      background: var(--bg-header);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border-radius: 8px;
       overflow: hidden;
     }
@@ -515,7 +596,7 @@
       font-family: 'JetBrains Mono', monospace;
       font-size: 12.5px;
       line-height: 1.75;
-      color: #94a3b8;
+      color: var(--text-lightest);
       padding: 16px 16px 52px;
       white-space: pre-wrap;
       word-break: break-word;
@@ -550,15 +631,15 @@
     }
 
     .copy-btn:hover {
-      background: #0d9488;
-      border-color: #0d9488;
-      color: #fff;
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--bg-card);
     }
 
     .copy-btn.copied {
       background: #16a34a;
       border-color: #16a34a;
-      color: #fff;
+      color: var(--bg-card);
     }
 
     .tip {
@@ -595,33 +676,33 @@
     .no-results {
       text-align: center;
       padding: 60px 20px;
-      color: #94a3b8;
+      color: var(--text-lightest);
       display: none;
     }
 
     .no-results h3 {
       font-size: 16px;
-      color: #475569;
+      color: var(--text-muted);
       margin-bottom: 8px;
     }
 
     /* ── INTRO BAR ── */
     .intro-bar {
-      background: #fff;
-      border: 1px solid #e5e9f0;
-      border-left: 4px solid #0d9488;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent);
       border-radius: 8px;
       padding: 14px 18px;
       font-size: 13.5px;
-      color: #475569;
+      color: var(--text-muted);
       line-height: 1.65;
       margin-bottom: 24px;
     }
 
     /* ── NOTES SECTION ── */
     .notes-section {
-      background: #fff;
-      border: 1px solid #e5e9f0;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
       border-radius: 12px;
       padding: 28px;
       margin-top: 8px;
@@ -630,13 +711,13 @@
     .notes-section h2 {
       font-size: 16px;
       font-weight: 700;
-      color: #1e2535;
+      color: var(--text-main);
       margin-bottom: 4px;
     }
 
     .notes-section>p {
       font-size: 13px;
-      color: #64748b;
+      color: var(--text-lighter);
       margin-bottom: 20px;
     }
 
@@ -647,8 +728,8 @@
     }
 
     .principle {
-      background: #f8f9fc;
-      border: 1px solid #e5e9f0;
+      background: var(--bg-body);
+      border: 1px solid var(--border-color);
       border-radius: 9px;
       padding: 14px 16px;
     }
@@ -656,7 +737,7 @@
     .principle-name {
       font-size: 13px;
       font-weight: 600;
-      color: #0d9488;
+      color: var(--accent);
       margin-bottom: 4px;
       display: flex;
       align-items: center;
@@ -667,14 +748,14 @@
       content: '';
       width: 5px;
       height: 5px;
-      background: #0d9488;
+      background: var(--accent);
       border-radius: 50%;
       flex-shrink: 0;
     }
 
     .principle p {
       font-size: 12.5px;
-      color: #64748b;
+      color: var(--text-lighter);
       line-height: 1.5;
     }
 
@@ -757,6 +838,24 @@
         <div class="logo-text">Prompt Library for Writers</div>
       </div>
       <div class="header-right">
+        <button id="themeToggle" class="theme-btn" aria-label="Toggle Dark Mode">
+          <svg class="sun-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </svg>
+          <svg class="moon-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        </button>
         <div class="header-stat"><strong>45</strong> Prompts · <strong>7</strong> Categories</div>
         <div class="header-platforms">
           <span class="hplat">ChatGPT</span>
@@ -857,7 +956,7 @@
           <div class="card" data-cat="01" id="p01">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#0d9488">01</span>
+                <span class="badge" style="--badge-color: #0d9488">01</span>
                 <div class="card-info">
                   <h3>Generate a First Draft</h3>
                   <p class="use-case">Scaffold docs for a new feature or product from scratch</p>
@@ -913,7 +1012,7 @@ Write a complete first draft including: an overview section, step-by-step instru
           <div class="card" data-cat="02" id="p02">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#0d9488">02</span>
+                <span class="badge" style="--badge-color: #0d9488">02</span>
                 <div class="card-info">
                   <h3>Simplify Complex Technical Content</h3>
                   <p class="use-case">Rewrite jargon-heavy content for a general audience</p>
@@ -973,7 +1072,7 @@ Output the rewritten version followed by a short glossary defining any technical
           <div class="card" data-cat="03" id="p03">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#0d9488">03</span>
+                <span class="badge" style="--badge-color: #0d9488">03</span>
                 <div class="card-info">
                   <h3>Write an API Reference Entry</h3>
                   <p class="use-case">Document a REST endpoint with curl examples and schemas</p>
@@ -1031,7 +1130,7 @@ Format the output using standard API documentation structure with clearly labele
           <div class="card" data-cat="04" id="p04">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#0d9488">04</span>
+                <span class="badge" style="--badge-color: #0d9488">04</span>
                 <div class="card-info">
                   <h3>Create a Feature Documentation Section</h3>
                   <p class="use-case">Write one focused section for a newly shipped feature</p>
@@ -1099,7 +1198,7 @@ Use clear headings, active voice, and second-person ("you") throughout.`,this)'>
           <div class="card" data-cat="05" id="p05">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#0d9488">05</span>
+                <span class="badge" style="--badge-color: #0d9488">05</span>
                 <div class="card-info">
                   <h3>Write UI Microcopy</h3>
                   <p class="use-case">Buttons, tooltips, error messages, and onboarding text</p>
@@ -1163,7 +1262,7 @@ For each item: provide the copy, a one-line rationale, and one alternative optio
           <div class="card" data-cat="06" id="p06">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#0d9488">06</span>
+                <span class="badge" style="--badge-color: #0d9488">06</span>
                 <div class="card-info">
                   <h3>Generate Release Notes</h3>
                   <p class="use-case">Consistent, user-friendly notes for any software update</p>
@@ -1233,7 +1332,7 @@ Format requirements:
           <div class="card" data-cat="39" id="p39">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#0d9488">39</span>
+                <span class="badge" style="--badge-color: #0d9488">39</span>
                 <div class="card-info">
                   <h3>Release Notes from Raw Commits / Tickets</h3>
                   <p class="use-case">Translate messy developer logs into user-facing release notes</p>
@@ -1290,7 +1389,7 @@ Translate the developer jargon into plain English focused on user value. Ignore 
           <div class="card" data-cat="40" id="p40">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#0d9488">40</span>
+                <span class="badge" style="--badge-color: #0d9488">40</span>
                 <div class="card-info">
                   <h3>SEO Metadata & Title Generation</h3>
                   <p class="use-case">Generate highly clickable titles and meta descriptions for public docs</p>
@@ -1352,7 +1451,7 @@ Generate the following:
           <div class="card" data-cat="07" id="p07">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#6366f1">07</span>
+                <span class="badge" style="--badge-color: #6366f1">07</span>
                 <div class="card-info">
                   <h3>Style Guide Compliance Report</h3>
                   <p class="use-case">Audit a doc against your style guide with a scored report</p>
@@ -1426,7 +1525,7 @@ Produce:
           <div class="card" data-cat="08" id="p08">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#6366f1">08</span>
+                <span class="badge" style="--badge-color: #6366f1">08</span>
                 <div class="card-info">
                   <h3>Peer Review Feedback Generator</h3>
                   <p class="use-case">Get structured, actionable feedback on any draft</p>
@@ -1493,7 +1592,7 @@ Be direct and specific. Avoid vague praise. Every piece of feedback should be ac
           <div class="card" data-cat="09" id="p09">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#6366f1">09</span>
+                <span class="badge" style="--badge-color: #6366f1">09</span>
                 <div class="card-info">
                   <h3>Readability & Accessibility Audit</h3>
                   <p class="use-case">Check plain language, accessibility, and global English</p>
@@ -1555,7 +1654,7 @@ End with a summary of the 3 highest-priority improvements.`,this)'>
           <div class="card" data-cat="10" id="p10">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#6366f1">10</span>
+                <span class="badge" style="--badge-color: #6366f1">10</span>
                 <div class="card-info">
                   <h3>Consistency Check Across Documents</h3>
                   <p class="use-case">Find terminology and formatting inconsistencies in a doc set</p>
@@ -1630,7 +1729,7 @@ Output a table: Inconsistency | Document 1 usage | Document 2 usage | Recommende
           <div class="card" data-cat="11" id="p11">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#f59e0b">11</span>
+                <span class="badge" style="--badge-color: #f59e0b">11</span>
                 <div class="card-info">
                   <h3>Turn a Transcript into Documentation</h3>
                   <p class="use-case">Convert a meeting or interview recording into structured docs</p>
@@ -1688,7 +1787,7 @@ Audience: [e.g., developers, end users, internal team]`,this)'>
           <div class="card" data-cat="12" id="p12">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#f59e0b">12</span>
+                <span class="badge" style="--badge-color: #f59e0b">12</span>
                 <div class="card-info">
                   <h3>Write a Video Script</h3>
                   <p class="use-case">Narration script for a product walkthrough or tutorial video</p>
@@ -1745,7 +1844,7 @@ Include opening hook and closing CTA. ~130 words per minute pacing.`,this)'>
           <div class="card" data-cat="13" id="p13">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#f59e0b">13</span>
+                <span class="badge" style="--badge-color: #f59e0b">13</span>
                 <div class="card-info">
                   <h3>Generate Video Captions and Alt Text</h3>
                   <p class="use-case">Accessibility-ready captions and image descriptions at scale</p>
@@ -1814,7 +1913,7 @@ For alt text: functional description of what is shown and why it matters in cont
           <div class="card" data-cat="14" id="p14">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#ec4899">14</span>
+                <span class="badge" style="--badge-color: #ec4899">14</span>
                 <div class="card-info">
                   <h3>Convert Prose to Structured Docs</h3>
                   <p class="use-case">Transform unstructured notes or emails into polished docs</p>
@@ -1876,7 +1975,7 @@ Add title, introduction, H2 headings, numbered steps for instructions, bullet po
           <div class="card" data-cat="15" id="p15">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#ec4899">15</span>
+                <span class="badge" style="--badge-color: #ec4899">15</span>
                 <div class="card-info">
                   <h3>Reformat for a Different Channel</h3>
                   <p class="use-case">Adapt one doc for web, PDF, in-app help, and email</p>
@@ -1938,7 +2037,7 @@ Do not add information beyond the source.`,this)'>
           <div class="card" data-cat="16" id="p16">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#ec4899">16</span>
+                <span class="badge" style="--badge-color: #ec4899">16</span>
                 <div class="card-info">
                   <h3>Convert Markdown to Structured HTML</h3>
                   <p class="use-case">Output publication-ready HTML with semantic markup</p>
@@ -1989,7 +2088,7 @@ Add aria-label to tables. No inline styles. No html/head/body tags.`,this)'>
           <div class="card" data-cat="17" id="p17">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#ec4899">17</span>
+                <span class="badge" style="--badge-color: #ec4899">17</span>
                 <div class="card-info">
                   <h3>Localization Prep: Simplify for Translation</h3>
                   <p class="use-case">Prepare English source text to reduce translation costs</p>
@@ -2049,7 +2148,7 @@ Output revised doc + list of no-translate terms.`,this)'>
           <div class="card" data-cat="41" id="p41">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#ec4899">41</span>
+                <span class="badge" style="--badge-color: #ec4899">41</span>
                 <div class="card-info">
                   <h3>Raw Data to Markdown Table</h3>
                   <p class="use-case">Convert unstructured lists or CSVs into clean Markdown tables</p>
@@ -2107,7 +2206,7 @@ Ensure the columns are logically ordered. If a header row is not obvious, create
           <div class="card" data-cat="18" id="p18">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#14b8a6">18</span>
+                <span class="badge" style="--badge-color: #14b8a6">18</span>
                 <div class="card-info">
                   <h3>Build a Style Guide from Scratch</h3>
                   <p class="use-case">Create a team style guide tailored to your product and audience</p>
@@ -2169,7 +2268,7 @@ Sections:
           <div class="card" data-cat="19" id="p19">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#14b8a6">19</span>
+                <span class="badge" style="--badge-color: #14b8a6">19</span>
                 <div class="card-info">
                   <h3>Create a Documentation Template</h3>
                   <p class="use-case">Reusable templates that enforce structure across your doc set</p>
@@ -2222,7 +2321,7 @@ Include a metadata block at the top: Title, Author, Last updated, Status, Audien
           <div class="card" data-cat="20" id="p20">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#14b8a6">20</span>
+                <span class="badge" style="--badge-color: #14b8a6">20</span>
                 <div class="card-info">
                   <h3>Improve Sentence-Level Clarity</h3>
                   <p class="use-case">Line-edit a passage for tightness, voice, and precision</p>
@@ -2292,7 +2391,7 @@ One row per changed sentence only.`,this)'>
           <div class="card" data-cat="21" id="p21">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#8b5cf6">21</span>
+                <span class="badge" style="--badge-color: #8b5cf6">21</span>
                 <div class="card-info">
                   <h3>Build a Documentation Plan</h3>
                   <p class="use-case">Scoped, prioritized plan for a new product launch or release</p>
@@ -2356,7 +2455,7 @@ Include:
           <div class="card" data-cat="22" id="p22">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#8b5cf6">22</span>
+                <span class="badge" style="--badge-color: #8b5cf6">22</span>
                 <div class="card-info">
                   <h3>Content Audit: Gap Analysis</h3>
                   <p class="use-case">Find what's missing, outdated, or redundant in your doc set</p>
@@ -2426,7 +2525,7 @@ Before providing your final analysis, use a <thinking> tag to briefly brainstorm
           <div class="card" data-cat="23" id="p23">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#8b5cf6">23</span>
+                <span class="badge" style="--badge-color: #8b5cf6">23</span>
                 <div class="card-info">
                   <h3>Write a Docs-as-Code Proposal</h3>
                   <p class="use-case">Make the business case for migrating to a docs-as-code workflow</p>
@@ -2503,7 +2602,7 @@ Include:
           <div class="card" data-cat="24" id="p24">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#0369a1">24</span>
+                <span class="badge" style="--badge-color: #0369a1">24</span>
                 <div class="card-info">
                   <h3>Getting Started Guide</h3>
                   <p class="use-case">Take a developer from zero to their first successful API call</p>
@@ -2576,7 +2675,7 @@ Use second person, active voice, sentences under 20 words, numbered steps, [SCRE
           <div class="card" data-cat="25" id="p25">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#0369a1">25</span>
+                <span class="badge" style="--badge-color: #0369a1">25</span>
                 <div class="card-info">
                   <h3>GET Endpoint Reference Page</h3>
                   <p class="use-case">Document a read endpoint with parameters, examples, and error codes</p>
@@ -2647,7 +2746,7 @@ Use code blocks, tables, active voice, second person. No em dashes.`,this)'>
           <div class="card" data-cat="26" id="p26">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#0369a1">26</span>
+                <span class="badge" style="--badge-color: #0369a1">26</span>
                 <div class="card-info">
                   <h3>POST Endpoint Reference Page</h3>
                   <p class="use-case">Document a write endpoint with request body, validation, and errors</p>
@@ -2720,7 +2819,7 @@ Clearly distinguish required vs optional. Active voice. Second person. No em das
           <div class="card" data-cat="27" id="p27">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#0369a1">27</span>
+                <span class="badge" style="--badge-color: #0369a1">27</span>
                 <div class="card-info">
                   <h3>Glossary</h3>
                   <p class="use-case">Plain-language definitions for key API and product terms</p>
@@ -2787,7 +2886,7 @@ Format as definition list, sorted alphabetically. Under 40 words per definition.
           <div class="card" data-cat="28" id="p28">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#0369a1">28</span>
+                <span class="badge" style="--badge-color: #0369a1">28</span>
                 <div class="card-info">
                   <h3>GitHub README</h3>
                   <p class="use-case">Professional open-source README for an API or developer tool</p>
@@ -2857,7 +2956,7 @@ Second person. Active voice. GitHub Flavored Markdown.`,this)'>
           <div class="card" data-cat="29" id="p29">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#0369a1">29</span>
+                <span class="badge" style="--badge-color: #0369a1">29</span>
                 <div class="card-info">
                   <h3>Error Code Reference</h3>
                   <p class="use-case">Explain every HTTP error with causes, fixes, and example responses</p>
@@ -2931,7 +3030,7 @@ Write for a developer actively debugging. Specific. Active voice. No em dashes.`
           <div class="card" data-cat="30" id="p30">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#0369a1">30</span>
+                <span class="badge" style="--badge-color: #0369a1">30</span>
                 <div class="card-info">
                   <h3>FAQ Page</h3>
                   <p class="use-case">10 questions developers actually ask, with direct answers</p>
@@ -3002,7 +3101,7 @@ Under 80 words per answer. No filler phrases. Active voice. Second person. No em
           <div class="card" data-cat="31" id="p31">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#0369a1">31</span>
+                <span class="badge" style="--badge-color: #0369a1">31</span>
                 <div class="card-info">
                   <h3>Conceptual Overview</h3>
                   <p class="use-case">Explain how your product works without code — for non-technical readers</p>
@@ -3079,7 +3178,7 @@ No code, no jargon without explanation. Second person. Active voice. Under 400 w
           <div class="card" data-cat="32" id="p32">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#0369a1">32</span>
+                <span class="badge" style="--badge-color: #0369a1">32</span>
                 <div class="card-info">
                   <h3>Quickstart Guide</h3>
                   <p class="use-case">Get developers to a working result in under 5 minutes</p>
@@ -3157,7 +3256,7 @@ Max 300 words. Code block in every step. No concept explanations — link instea
           <div class="card" data-cat="33" id="p33">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#0369a1">33</span>
+                <span class="badge" style="--badge-color: #0369a1">33</span>
                 <div class="card-info">
                   <h3>Product Release Notes</h3>
                   <p class="use-case">Developer-facing release notes with new features, fixes, and deprecations</p>
@@ -3232,7 +3331,7 @@ Frame changes as "You can now..." — not "We added...". Active voice. Code bloc
           <div class="card" data-cat="34" id="p34">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#0369a1">34</span>
+                <span class="badge" style="--badge-color: #0369a1">34</span>
                 <div class="card-info">
                   <h3>Authentication Guide</h3>
                   <p class="use-case">Complete auth guide with security best practices and error handling</p>
@@ -3302,7 +3401,7 @@ Under 500 words. Code blocks for all examples. Specific security advice. Second 
           <div class="card" data-cat="35" id="p35">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#0369a1">35</span>
+                <span class="badge" style="--badge-color: #0369a1">35</span>
                 <div class="card-info">
                   <h3>PUT Endpoint Reference Page</h3>
                   <p class="use-case">Document an update endpoint with partial updates and validation rules</p>
@@ -3375,7 +3474,7 @@ No em dashes.`,this)'>
           <div class="card" data-cat="36" id="p36">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#0369a1">36</span>
+                <span class="badge" style="--badge-color: #0369a1">36</span>
                 <div class="card-info">
                   <h3>Pagination Guide</h3>
                   <p class="use-case">Explain cursor-based or page-based pagination with edge cases</p>
@@ -3459,7 +3558,7 @@ Code blocks throughout. Second person. Active voice. No em dashes.`,this)'>
           <div class="card" data-cat="37" id="p37">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#0369a1">37</span>
+                <span class="badge" style="--badge-color: #0369a1">37</span>
                 <div class="card-info">
                   <h3>Audit and Rewrite a Poor API Doc</h3>
                   <p class="use-case">Identify every issue in a bad doc, then produce a professional rewrite</p>
@@ -3541,7 +3640,7 @@ Active voice. Second person. No em dashes.`,this)'>
           <div class="card" data-cat="38" id="p38">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#0369a1">38</span>
+                <span class="badge" style="--badge-color: #0369a1">38</span>
                 <div class="card-info">
                   <h3>Documentation Information Architecture</h3>
                   <p class="use-case">Design a complete doc site structure with user journeys and gap analysis</p>
@@ -3624,7 +3723,7 @@ User-goal focus, not API structure. Plain language. No em dashes. Before providi
           <div class="card" data-cat="42" id="p42">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#0369a1">42</span>
+                <span class="badge" style="--badge-color: #0369a1">42</span>
                 <div class="card-info">
                   <h3>Auto-Generate Code Comments</h3>
                   <p class="use-case">Add JSDoc or Python Docstrings to undocumented code snippets</p>
@@ -3671,7 +3770,7 @@ Do not change the underlying code logic. Output the fully commented code block.`
           <div class="card" data-cat="43" id="p43">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#0369a1">43</span>
+                <span class="badge" style="--badge-color: #0369a1">43</span>
                 <div class="card-info">
                   <h3>Draft a How-To Guide from a Demo Transcript</h3>
                   <p class="use-case">Extract UI steps from a raw speech-to-text transcript</p>
@@ -3711,7 +3810,9 @@ Use a <thinking> tag to map out the core user journey before writing the steps.`
                   Copy Prompt
                 </button>
               </div>
-              <div class="tip"><span><strong>Pro Tip:</strong> Transcripts often lack visual context. Always review the generated steps against the actual video to ensure no crucial clicks were missed because the presenter failed to narrate them.</span>
+              <div class="tip"><span><strong>Pro Tip:</strong> Transcripts often lack visual context. Always review the
+                  generated steps against the actual video to ensure no crucial clicks were missed because the presenter
+                  failed to narrate them.</span>
               </div>
             </div>
           </div>
@@ -3719,7 +3820,7 @@ Use a <thinking> tag to map out the core user journey before writing the steps.`
           <div class="card" data-cat="44" id="p44">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#0369a1">44</span>
+                <span class="badge" style="--badge-color: #0369a1">44</span>
                 <div class="card-info">
                   <h3>Convert Internal Wiki to External Guide</h3>
                   <p class="use-case">Strip internal jargon and reformat for a public audience</p>
@@ -3763,7 +3864,9 @@ Your task is to convert this into a clean, professional user guide for external 
                   Copy Prompt
                 </button>
               </div>
-              <div class="tip"><span><strong>Pro Tip:</strong> AI models might accidentally leave in subtle internal terminology. Always do a quick visual scan for internal system names or team acronyms before publishing.</span>
+              <div class="tip"><span><strong>Pro Tip:</strong> AI models might accidentally leave in subtle internal
+                  terminology. Always do a quick visual scan for internal system names or team acronyms before
+                  publishing.</span>
               </div>
             </div>
           </div>
@@ -3771,7 +3874,7 @@ Your task is to convert this into a clean, professional user guide for external 
           <div class="card" data-cat="45" id="p45">
             <div class="card-top">
               <div class="card-left">
-                <span class="badge" style="background:#0369a1">45</span>
+                <span class="badge" style="--badge-color: #0369a1">45</span>
                 <div class="card-info">
                   <h3>Generate UI Screenshot Alt Text</h3>
                   <p class="use-case">Write functional, accessibility-focused descriptions for interfaces</p>
@@ -3793,7 +3896,8 @@ Write alternative text (alt text) for this image that is optimized for screen re
 2. Focus on the functional purpose of the UI rather than describing every visual detail.
 3. If there is a key action the user is supposed to take (e.g., clicking a specific "Save" button), make sure that action and button are clearly described.
 4. Keep the alt text under 125 characters if possible, but prioritize clarity over length if the UI is complex.</pre>
-                <button class="copy-btn" onclick='copyText(`You are an accessibility expert and technical writer. I am providing you with an image of a software user interface [UPLOAD IMAGE].
+                <button class="copy-btn"
+                  onclick='copyText(`You are an accessibility expert and technical writer. I am providing you with an image of a software user interface [UPLOAD IMAGE].
 
 Write alternative text (alt text) for this image that is optimized for screen readers. Follow these guidelines:
 1. Do not start with "Image of" or "Screenshot of".
@@ -3807,7 +3911,9 @@ Write alternative text (alt text) for this image that is optimized for screen re
                   Copy Prompt
                 </button>
               </div>
-              <div class="tip"><span><strong>Pro Tip:</strong> For extremely complex UI screenshots (like full dashboards), it is often better to use a short alt text summarizing the view, accompanied by a detailed description in the main body text.</span>
+              <div class="tip"><span><strong>Pro Tip:</strong> For extremely complex UI screenshots (like full
+                  dashboards), it is often better to use a short alt text summarizing the view, accompanied by a
+                  detailed description in the main body text.</span>
               </div>
             </div>
           </div>
@@ -3819,7 +3925,25 @@ Write alternative text (alt text) for this image that is optimized for screen re
   </div>
 
   <script>
+
+    // ── Dark Mode Toggle ──
+    const themeBtn = document.getElementById('themeToggle');
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    if (currentTheme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+
+    themeBtn.addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if (isDark) {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+
     // ── Toggle card ──
+
     function toggle(btn) {
       const card = btn.closest('.card');
       card.classList.toggle('collapsed');
