@@ -6,7 +6,7 @@ This is a sample technical writing portfolio built around a fictional product ca
 
 ---
 
-## Why we created this
+## Why I created this
 
 Breaking into technical writing is hard when every job asks for a portfolio and every portfolio requires experience. This sample portfolio solves that problem.
 
@@ -44,10 +44,10 @@ WorkIt is not a real product. It exists solely as a practice subject for this po
 
 | Document | Description |
 |---|---|
-| [Product User Guide](#) | End-to-end guide for using WorkIt, written for both end users and developers |
-| [Design Document](#) | Technical design document describing WorkIt's architecture and system design |
-| [Developer's Guide](#) | Guide for developers integrating with or building on top of WorkIt |
-| [Installation Guide](#) | Step-by-step instructions for setting up and deploying WorkIt |
-| [API Documentation](#) | Complete API reference covering all WorkIt endpoints, parameters, and responses |
+| [WorkIT User Guide](#) | End-to-end guide for using WorkIt, written for both end users and developers |
+| [WorkIT Design Document](#) | Technical design document describing WorkIt's architecture and system design |
+| [WorkIT Developer's Guide](#) | Guide for developers integrating with or building on top of WorkIt |
+| [WorkIT Installation Guide](#) | Step-by-step instructions for setting up and deploying WorkIt |
+| [WorkIT API Documentation](#) | Complete API reference covering all WorkIt endpoints, parameters, and responses |
 
 > **Note:** Links will be updated as each document is added to this portfolio.
