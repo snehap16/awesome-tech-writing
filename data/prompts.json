@@ -1,0 +1,973 @@
+[
+  {
+    "id": "p01",
+    "number": "01",
+    "categoryId": "drafting",
+    "categoryName": "Drafting & Content Creation",
+    "title": "Generate a First Draft",
+    "useCase": "Scaffold docs for a new feature or product from scratch",
+    "level": "Beginner",
+    "badgeColor": "#0d9488",
+    "promptText": "Act as an experienced technical writer with expertise in <mark>[INDUSTRY/DOMAIN]</mark>.\n\nI need to create documentation for <mark>[PRODUCT/FEATURE NAME]</mark>.\n\nHere is the context:\n\n- Target audience: <mark>[e.g., developers, end users, IT admins]</mark>\n- Documentation type: <mark>[e.g., user guide, API reference, release notes]</mark>\n- Key functionality to cover: <mark>[LIST 3: 5 BULLET POINTS]</mark>\n- Tone: <mark>[e.g., formal, conversational, instructional]</mark>\n\nWrite a complete first draft including: an overview section, step-by-step instructions, and a troubleshooting section. Use clear headings, numbered steps for procedures, and plain language appropriate for the audience.",
+    "copyPrompt": "Act as an experienced technical writer with expertise in [INDUSTRY/DOMAIN].\n\nI need to create documentation for [PRODUCT/FEATURE NAME].\n\nHere is the context:\n\n- Target audience: [e.g., developers, end users, IT admins]\n- Documentation type: [e.g., user guide, API reference, release notes]\n- Key functionality to cover: [LIST 3: 5 BULLET POINTS]\n- Tone: [e.g., formal, conversational, instructional]\n\nWrite a complete first draft including: an overview section, step-by-step instructions, and a troubleshooting section. Use clear headings, numbered steps for procedures, and plain language appropriate for the audience.",
+    "proTip": "",
+    "tags": [
+      "scaffold",
+      "first",
+      "feature",
+      "draft",
+      "product"
+    ]
+  },
+  {
+    "id": "p02",
+    "number": "02",
+    "categoryId": "drafting",
+    "categoryName": "Drafting & Content Creation",
+    "title": "Simplify Complex Technical Content",
+    "useCase": "Rewrite jargon-heavy content for a general audience",
+    "level": "Beginner",
+    "badgeColor": "#0d9488",
+    "promptText": "You are a technical writer specializing in plain language. Below is a piece of technical content written for expert-level readers. Rewrite it for <mark>[TARGET AUDIENCE, e.g., non-technical business users / beginners / customers]</mark>.\n\nOriginal content:\n\n<mark>[PASTE YOUR CONTENT HERE]</mark>\n\nGuidelines:\n- Replace all jargon with plain-language equivalents\n- Keep sentences under 20 words where possible\n- Use active voice throughout\n- Preserve all factual accuracy: do not omit critical information\n- Maintain the same structure (headings, lists, steps) as the original\n\nOutput the rewritten version followed by a short glossary defining any technical terms that could not be fully avoided.",
+    "copyPrompt": "You are a technical writer specializing in plain language. Below is a piece of technical content written for expert-level readers. Rewrite it for [TARGET AUDIENCE, e.g., non-technical business users / beginners / customers].\n\nOriginal content:\n\n[PASTE YOUR CONTENT HERE]\n\nGuidelines:\n- Replace all jargon with plain-language equivalents\n- Keep sentences under 20 words where possible\n- Use active voice throughout\n- Preserve all factual accuracy: do not omit critical information\n- Maintain the same structure (headings, lists, steps) as the original\n\nOutput the rewritten version followed by a short glossary defining any technical terms that could not be fully avoided.",
+    "proTip": "Describe the audience's exact technical level\n                  (for example, 'someone with no IT background') to improve results.",
+    "tags": [
+      "technical",
+      "audience",
+      "simplify",
+      "jargon",
+      "content"
+    ]
+  },
+  {
+    "id": "p03",
+    "number": "03",
+    "categoryId": "drafting",
+    "categoryName": "Drafting & Content Creation",
+    "title": "Write an API Reference Entry",
+    "useCase": "Document a REST endpoint with curl examples and schemas",
+    "level": "Intermediate",
+    "badgeColor": "#0d9488",
+    "promptText": "You are a technical writer documenting a REST API. Write a reference entry for the following endpoint.\n\nEndpoint details:\n- Method: <mark>[GET / POST / PUT / DELETE]</mark>\n- Endpoint URL: <mark>[e.g., /api/v1/users/{id}]</mark>\n- Description: <mark>[WHAT THIS ENDPOINT DOES]</mark>\n- Authentication: <mark>[e.g., Bearer token, API key]</mark>\n- Request parameters: <mark>[LIST NAME, TYPE, REQUIRED/OPTIONAL, DESCRIPTION]</mark>\n- Request body (if applicable): <mark>[PASTE SCHEMA OR EXAMPLE]</mark>\n- Response codes and meanings: <mark>[e.g., 200, 400, 404, 500]</mark>\n- Example response: <mark>[PASTE SAMPLE JSON]</mark>\n\nFormat the output using standard API documentation structure with clearly labeled sections. Include a working curl example. Flag any parameters with constraints (e.g., max length, allowed values).",
+    "copyPrompt": "You are a technical writer documenting a REST API. Write a reference entry for the following endpoint.\n\nEndpoint details:\n- Method: [GET / POST / PUT / DELETE]\n- Endpoint URL: [e.g., /api/v1/users/{id}]\n- Description: [WHAT THIS ENDPOINT DOES]\n- Authentication: [e.g., Bearer token, API key]\n- Request parameters: [LIST NAME, TYPE, REQUIRED/OPTIONAL, DESCRIPTION]\n- Request body (if applicable): [PASTE SCHEMA OR EXAMPLE]\n- Response codes and meanings: [e.g., 200, 400, 404, 500]\n- Example response: [PASTE SAMPLE JSON]\n\nFormat the output using standard API documentation structure with clearly labeled sections. Include a working curl example. Flag any parameters with constraints (e.g., max length, allowed values).",
+    "proTip": "Paste actual schema or JSON examples to ensure\n                  accuracy. Use consistent formatting across all library entries.",
+    "tags": [
+      "write",
+      "api",
+      "schemas",
+      "reference",
+      "endpoint"
+    ]
+  },
+  {
+    "id": "p04",
+    "number": "04",
+    "categoryId": "drafting",
+    "categoryName": "Drafting & Content Creation",
+    "title": "Create a Feature Documentation Section",
+    "useCase": "Write one focused section for a newly shipped feature",
+    "level": "Beginner",
+    "badgeColor": "#0d9488",
+    "promptText": "Act as a senior technical writer. Write a documentation section for a newly released product feature.\n\nFeature name: <mark>[FEATURE NAME]</mark>\nProduct: <mark>[PRODUCT NAME]</mark>\nTarget audience: <mark>[e.g., end users, administrators, developers]</mark>\nSection type: <mark>[e.g., Overview, How It Works, Getting Started, Configuration, Best Practices]</mark>\nWhere this section lives: <mark>[e.g., in a user guide, help center article, in-app tooltip, README]</mark>\n\nFeature description (your notes):\n<mark>[PASTE YOUR RAW NOTES, TICKET DESCRIPTION, OR FEATURE BRIEF HERE]</mark>\n\nWrite the section with:\n- A one-paragraph feature overview (what it is and why it matters to the user)\n- Prerequisites or requirements (if any)\n- Step-by-step instructions to use the feature\n- A note on any limitations, known issues, or edge cases\n- One concrete example showing a real-world use case\n\nUse clear headings, active voice, and second-person (\"you\") throughout.",
+    "copyPrompt": "Act as a senior technical writer. Write a documentation section for a newly released product feature.\n\nFeature name: [FEATURE NAME]\nProduct: [PRODUCT NAME]\nTarget audience: [e.g., end users, administrators, developers]\nSection type: [e.g., Overview, How It Works, Getting Started, Configuration, Best Practices]\nWhere this section lives: [e.g., in a user guide, help center article, in-app tooltip, README]\n\nFeature description (your notes):\n[PASTE YOUR RAW NOTES, TICKET DESCRIPTION, OR FEATURE BRIEF HERE]\n\nWrite the section with:\n- A one-paragraph feature overview (what it is and why it matters to the user)\n- Prerequisites or requirements (if any)\n- Step-by-step instructions to use the feature\n- A note on any limitations, known issues, or edge cases\n- One concrete example showing a real-world use case\n\nUse clear headings, active voice, and second-person (\"you\") throughout.",
+    "proTip": "Paste the Jira or GitHub ticket directly as the\n                  feature description. The AI extracts the relevant details automatically.",
+    "tags": [
+      "feature",
+      "write",
+      "newly",
+      "one",
+      "documentation"
+    ]
+  },
+  {
+    "id": "p05",
+    "number": "05",
+    "categoryId": "drafting",
+    "categoryName": "Drafting & Content Creation",
+    "title": "Write UI Microcopy",
+    "useCase": "Buttons, tooltips, error messages, and onboarding text",
+    "level": "Intermediate",
+    "badgeColor": "#0d9488",
+    "promptText": "You are a UX writer and technical writer specializing in UI microcopy. Write copy for the following UI elements in <mark>[PRODUCT NAME]</mark>.\n\nProduct context: <mark>[BRIEFLY DESCRIBE WHAT THE PRODUCT DOES]</mark>\nTone of voice: <mark>[e.g., professional and direct / friendly and approachable / minimal and technical]</mark>\nTarget user: <mark>[DESCRIBE USER]</mark>\n\nUI elements needed (complete the applicable items):\n- Page/screen title: <mark>[DESCRIBE SCREEN PURPOSE]</mark>\n- Primary button label: <mark>[DESCRIBE ACTION]</mark>\n- Secondary button label: <mark>[DESCRIBE ACTION]</mark>\n- Empty state message: <mark>[DESCRIBE CONTEXT: what is empty and why]</mark>\n- Error message for: <mark>[DESCRIBE ERROR SCENARIO]</mark>\n- Success message for: <mark>[DESCRIBE COMPLETION ACTION]</mark>\n- Tooltip for: <mark>[DESCRIBE FIELD OR ICON]</mark>\n- Onboarding tip: <mark>[DESCRIBE FEATURE OR STEP]</mark>\n\nFor each item: provide the copy, a one-line rationale, and one alternative option.",
+    "copyPrompt": "You are a UX writer and technical writer specializing in UI microcopy. Write copy for the following UI elements in [PRODUCT NAME].\n\nProduct context: [BRIEFLY DESCRIBE WHAT THE PRODUCT DOES]\nTone of voice: [e.g., professional and direct / friendly and approachable / minimal and technical]\nTarget user: [DESCRIBE USER]\n\nUI elements needed (complete the applicable items):\n- Page/screen title: [DESCRIBE SCREEN PURPOSE]\n- Primary button label: [DESCRIBE ACTION]\n- Secondary button label: [DESCRIBE ACTION]\n- Empty state message: [DESCRIBE CONTEXT: what is empty and why]\n- Error message for: [DESCRIBE ERROR SCENARIO]\n- Success message for: [DESCRIBE COMPLETION ACTION]\n- Tooltip for: [DESCRIBE FIELD OR ICON]\n- Onboarding tip: [DESCRIBE FEATURE OR STEP]\n\nFor each item: provide the copy, a one-line rationale, and one alternative option.",
+    "proTip": "Keep all copy within the UI framework character\n                  limits. Include rationale to help stakeholders approve with confidence.",
+    "tags": [
+      "messages",
+      "write",
+      "tooltips",
+      "microcopy",
+      "buttons"
+    ]
+  },
+  {
+    "id": "p06",
+    "number": "06",
+    "categoryId": "drafting",
+    "categoryName": "Drafting & Content Creation",
+    "title": "Generate Release Notes",
+    "useCase": "Consistent, user-friendly notes for any software update",
+    "level": "Intermediate",
+    "badgeColor": "#0d9488",
+    "promptText": "You are a technical writer responsible for software release communications. Write professional release notes for the following update.\n\nProduct: <mark>[PRODUCT NAME]</mark>\nVersion: <mark>[VERSION NUMBER]</mark>\nRelease date: <mark>[DATE]</mark>\nAudience: <mark>[e.g., end users, developers, IT teams]</mark>\n\nChanges to document:\n- New features: <mark>[LIST]</mark>\n- Improvements/enhancements: <mark>[LIST]</mark>\n- Bug fixes: <mark>[LIST]</mark>\n- Deprecations or breaking changes: <mark>[LIST, OR \"None\"]</mark>\n- Known issues: <mark>[LIST, OR \"None\"]</mark>\n\nFormat requirements:\n- Lead with a one-paragraph summary of the most impactful changes\n- Use clear category headings\n- For each item: one sentence describing what changed and why it matters to the user\n- Flag any breaking changes prominently with a warning label\n- Close with upgrade instructions or a link placeholder",
+    "copyPrompt": "You are a technical writer responsible for software release communications. Write professional release notes for the following update.\n\nProduct: [PRODUCT NAME]\nVersion: [VERSION NUMBER]\nRelease date: [DATE]\nAudience: [e.g., end users, developers, IT teams]\n\nChanges to document:\n- New features: [LIST]\n- Improvements/enhancements: [LIST]\n- Bug fixes: [LIST]\n- Deprecations or breaking changes: [LIST, OR \"None\"]\n- Known issues: [LIST, OR \"None\"]\n\nFormat requirements:\n- Lead with a one-paragraph summary of the most impactful changes\n- Use clear category headings\n- For each item: one sentence describing what changed and why it matters to the user\n- Flag any breaking changes prominently with a warning label\n- Close with upgrade instructions or a link placeholder",
+    "proTip": "Frame every change from the user perspective\n                  ('You can now...' rather than 'We added...').",
+    "tags": [
+      "friendly",
+      "any",
+      "user",
+      "update",
+      "software"
+    ]
+  },
+  {
+    "id": "p39",
+    "number": "39",
+    "categoryId": "drafting",
+    "categoryName": "Drafting & Content Creation",
+    "title": "Release Notes from Raw Commits / Tickets",
+    "useCase": "Translate messy developer logs into user-facing release notes",
+    "level": "Intermediate",
+    "badgeColor": "#0d9488",
+    "promptText": "You are a technical writer translating raw developer logs into user-facing release notes. Review the following list of <mark>[Git commits / Jira tickets]</mark>: \n\n&lt;logs&gt;\n<mark>[PASTE LOGS HERE]</mark>\n&lt;/logs&gt;\n\nGroup them logically into:\n- New Features\n- Bug Fixes\n- Under the Hood (performance and infrastructure)\n\nTranslate the developer jargon into plain English focused on user value. Ignore minor typo fixes or internal CI/CD commits. Use active voice and bullet points.",
+    "copyPrompt": "You are a technical writer translating raw developer logs into user-facing release notes. Review the following list of [Git commits / Jira tickets]: \n\n<logs>\n[PASTE LOGS HERE]\n</logs>\n\nGroup them logically into:\n- New Features\n- Bug Fixes\n- Under the Hood (performance and infrastructure)\n\nTranslate the developer jargon into plain English focused on user value. Ignore minor typo fixes or internal CI/CD commits. Use active voice and bullet points.",
+    "proTip": "Review the final output carefully to ensure no\n                  critical security fixes were accidentally grouped as \"Under the hood.\"",
+    "tags": [
+      "logs",
+      "messy",
+      "developer",
+      "facing",
+      "raw"
+    ]
+  },
+  {
+    "id": "p40",
+    "number": "40",
+    "categoryId": "drafting",
+    "categoryName": "Drafting & Content Creation",
+    "title": "SEO Metadata & Title Generation",
+    "useCase": "",
+    "level": "Intermediate",
+    "badgeColor": "#0d9488",
+    "promptText": "You are an SEO specialist and technical writer. Review the following documentation article:\n\n&lt;article&gt;\n<mark>[PASTE ARTICLE HERE]</mark>\n&lt;/article&gt;\n\nGenerate the following:\n1. 5 highly clickable, SEO-optimized H1 title options\n2. A meta description (maximum 155 characters) that accurately summarizes the article and encourages users to click\n3. A list of 3-5 primary keywords that this article should target.",
+    "copyPrompt": "You are an SEO specialist and technical writer. Review the following documentation article:\n\n<article>\n[PASTE ARTICLE HERE]\n</article>\n\nGenerate the following:\n1. 5 highly clickable, SEO-optimized H1 title options\n2. A meta description (maximum 155 characters) that accurately summarizes the article and encourages users to click\n3. A list of 3-5 primary keywords that this article should target.",
+    "proTip": "",
+    "tags": [
+      "metadata",
+      "seo",
+      "title",
+      "generation"
+    ]
+  },
+  {
+    "id": "p46",
+    "number": "46",
+    "categoryId": "drafting",
+    "categoryName": "Drafting & Content Creation",
+    "title": "Write a Release Summary",
+    "useCase": "Create concise release notes or changelog entries",
+    "level": "Intermediate",
+    "badgeColor": "#0d9488",
+    "promptText": "You are a technical writer creating release communications. Write a concise release summary for the following update.\n\nProduct or feature: <mark>[PRODUCT/FEATURE]</mark>\nVersion: <mark>[VERSION]</mark>\nRelease date: <mark>[DATE]</mark>\nAudience: <mark>[e.g., external developers / customer success / internal teams]</mark>\nKey updates: <mark>[LIST 3: 5 BULLET POINTS]</mark>\nRequired action: <mark>[e.g., upgrade, change configuration, no action needed]</mark>\n\nFormat the output as a short release summary followed by a bullet list of what changed, why it matters, and any action the reader should take.",
+    "copyPrompt": "You are a technical writer creating release communications. Write a concise release summary for the following update.\n\nProduct or feature: [PRODUCT/FEATURE]\nVersion: [VERSION]\nRelease date: [DATE]\nAudience: [e.g., external developers / customer success / internal teams]\nKey updates: [LIST 3: 5 BULLET POINTS]\nRequired action: [e.g., upgrade, change configuration, no action needed]\n\nFormat the output as a short release summary followed by a bullet list of what changed, why it matters, and any action the reader should take.",
+    "proTip": "Keep the summary short enough for a release note section or\n                internal status update.",
+    "tags": [
+      "summary",
+      "write",
+      "entries",
+      "notes",
+      "changelog"
+    ]
+  },
+  {
+    "id": "p07",
+    "number": "07",
+    "categoryId": "review",
+    "categoryName": "Review & Quality Assurance",
+    "title": "Style Guide Compliance Report",
+    "useCase": "Audit a doc against your style guide with a scored report",
+    "level": "Intermediate",
+    "badgeColor": "#6366f1",
+    "promptText": "You are a documentation quality reviewer. I am giving you two inputs: (1) my team's style guide, and (2) a document I have written. Your task is to audit the document against the style guide and produce a detailed compliance report.\n\nSTYLE GUIDE:\n&lt;style_guide&gt;\n<mark>[PASTE FULL STYLE GUIDE OR RELEVANT SECTIONS HERE]</mark>\n&lt;/style_guide&gt;\n\nDOCUMENT TO REVIEW:\n&lt;document&gt;\n<mark>[PASTE YOUR DOCUMENT HERE]</mark>\n&lt;/document&gt;\n\nProduce a report structured as follows:\n\n## Compliance Report: [Document Title]\n\n### 1. Overall Score\nGive an overall compliance score out of 100, with a 2-sentence summary.\n\n### 2. Violations Found\nFor each violation: quote the original text, name the rule broken, and provide a corrected version.\n\n### 3. Areas of Strength\nList 3 things the document does well.\n\n### 4. Priority Fixes\nList the top 5 changes that would most improve this document's compliance score.",
+    "copyPrompt": "You are a documentation quality reviewer. Audit the document against the style guide and produce a compliance report.\n\nSTYLE GUIDE:\n<style_guide>\n[PASTE YOUR FULL STYLE GUIDE HERE]\n</style_guide>\n\nDOCUMENT TO REVIEW:\n<document>\n[PASTE YOUR DOCUMENT HERE]\n</document>\n\nProduce:\n1. Overall Score (out of 100) with 2-sentence summary\n2. Violations Found: quote original, name rule broken, provide corrected version\n3. Areas of Strength: 3 things done well\n4. Priority Fixes: top 5 changes to improve compliance score",
+    "proTip": "",
+    "tags": [
+      "compliance",
+      "style",
+      "against",
+      "report",
+      "scored"
+    ]
+  },
+  {
+    "id": "p08",
+    "number": "08",
+    "categoryId": "video",
+    "categoryName": "Video, Audio & Transcripts",
+    "title": "Peer Review Feedback Generator",
+    "useCase": "Get structured, actionable feedback on any draft",
+    "level": "Intermediate",
+    "badgeColor": "#6366f1",
+    "promptText": "Act as a senior technical editor. Review the document below and provide structured peer review feedback.\n\nDocument type: <mark>[e.g., API guide, user manual, release notes, README]</mark>\nIntended audience: <mark>[DESCRIBE]</mark>\nPublishing context: <mark>[e.g., public developer portal, internal wiki, help center]</mark>\n\nDocument:\n<mark>[PASTE DOCUMENT HERE]</mark>\n\nProvide feedback under these headings:\n1. Clarity: are instructions clear and unambiguous?\n2. Completeness: is anything missing that the reader will need?\n3. Accuracy: flag any statements that appear incorrect or need verification\n4. Structure: is the information organized in the right order?\n5. Voice and tone: does it match the intended audience?\n6. Specific rewrites: quote 3-5 sentences and provide improved versions\n\nBe direct and specific. Avoid vague praise. Every piece of feedback should be actionable.",
+    "copyPrompt": "Act as a senior technical editor. Review the document below and provide structured peer review feedback.\n\nDocument type: [e.g., API guide, user manual, release notes, README]\nIntended audience: [DESCRIBE]\nPublishing context: [e.g., public developer portal, internal wiki, help center]\n\nDocument:\n[PASTE DOCUMENT HERE]\n\nProvide feedback under these headings:\n1. Clarity\n2. Completeness\n3. Accuracy\n4. Structure\n5. Voice and tone\n6. Specific rewrites: quote 3-5 sentences and provide improved versions\n\nBe direct and specific. Avoid vague praise. Every piece of feedback should be actionable.",
+    "proTip": "",
+    "tags": [
+      "generator",
+      "review",
+      "any",
+      "actionable",
+      "peer"
+    ]
+  },
+  {
+    "id": "p09",
+    "number": "09",
+    "categoryId": "video",
+    "categoryName": "Video, Audio & Transcripts",
+    "title": "Readability & Accessibility Audit",
+    "useCase": "Check plain language, accessibility, and global English",
+    "level": "Intermediate",
+    "badgeColor": "#6366f1",
+    "promptText": "You are a technical editor specializing in plain language and accessibility. Audit the document below against these criteria:\n\nDocument:\n&lt;document&gt;\n<mark>[PASTE DOCUMENT HERE]</mark>\n&lt;/document&gt;\n\nAudit criteria:\n- Readability: flag sentences over 25 words; identify passive voice; highlight unnecessary jargon\n- Global English: flag idioms, metaphors, and culturally specific references that will not translate well\n- Accessibility: identify spatial language (\"see above\", \"click the icon on the left\"), color-only instructions, and non-descriptive links (\"click here\")\n- Inclusivity: flag gendered language; suggest gender-neutral alternatives\n\nOutput format:\n- One table per criterion\n- Columns: Original text | Issue | Suggested fix\n- End with a summary paragraph of the 3 highest-priority improvements",
+    "copyPrompt": "You are a technical editor specializing in plain language and accessibility. Audit the document below.\n\nDocument:\n<document>\n[PASTE DOCUMENT HERE]\n</document>\n\nAudit for:\n- Readability: sentences over 25 words, passive voice, jargon\n- Global English: idioms, metaphors, culturally specific references\n- Accessibility: spatial language, color-only instructions, non-descriptive links\n- Inclusivity: gendered language\n\nOutput one table per criterion. Columns: Original text | Issue | Suggested fix.\nEnd with a summary of the 3 highest-priority improvements.",
+    "proTip": "Run this prompt before every external publish\n                  to catch easily overlooked accessibility issues.",
+    "tags": [
+      "language",
+      "check",
+      "audit",
+      "accessibility",
+      "global"
+    ]
+  },
+  {
+    "id": "p10",
+    "number": "10",
+    "categoryId": "video",
+    "categoryName": "Video, Audio & Transcripts",
+    "title": "Consistency Check Across Documents",
+    "useCase": "Find terminology and formatting inconsistencies in a doc set",
+    "level": "Intermediate",
+    "badgeColor": "#6366f1",
+    "promptText": "You are a technical editor performing a consistency audit across multiple documents. I am providing two or more documents below. Identify all inconsistencies between them.\n\nDocument 1: <mark>[TITLE/TYPE]</mark>:\n&lt;document_1&gt;\n<mark>[PASTE DOCUMENT 1 HERE]</mark>\n&lt;/document_1&gt;\n\nDocument 2: <mark>[TITLE/TYPE]</mark>:\n&lt;document_2&gt;\n<mark>[PASTE DOCUMENT 2 HERE]</mark>\n&lt;/document_2&gt;\n\nCheck for inconsistencies in:\n1. Terminology: the same concept referred to by different names\n2. UI labels: product names, button names, or field names that differ\n3. Formatting: date formats, code style, heading capitalization\n4. Tone: shifts between formal and casual registers\n5. Instructions: conflicting steps or contradictory information\n\nOutput a table: Inconsistency | Document 1 usage | Document 2 usage | Recommended standard",
+    "copyPrompt": "You are a technical editor performing a consistency audit. Identify all inconsistencies between the documents below.\n\nDocument 1: [TITLE/TYPE]\n<document_1>\n[PASTE DOCUMENT 1]\n</document_1>\n\nDocument 2: [TITLE/TYPE]\n<document_2>\n[PASTE DOCUMENT 2]\n</document_2>\n\nCheck for: terminology, UI labels, formatting, tone, conflicting instructions.\nOutput a table: Inconsistency | Document 1 usage | Document 2 usage | Recommended standard",
+    "proTip": "Paste existing documentation to understand\n                  the terminology landscape quickly when onboarding to a new team.",
+    "tags": [
+      "find",
+      "documents",
+      "formatting",
+      "check",
+      "set"
+    ]
+  },
+  {
+    "id": "p47",
+    "number": "47",
+    "categoryId": "format",
+    "categoryName": "Format & Convert",
+    "title": "Inclusive Language Audit",
+    "useCase": "Review documentation for bias and exclusion",
+    "level": "Intermediate",
+    "badgeColor": "#6366f1",
+    "promptText": "You are a documentation quality reviewer. Review the content below for inclusive, bias-free language and accessibility.\n\nDocument: <mark>[PASTE YOUR DOCUMENT HERE]</mark>\nAudience: <mark>[e.g., developers, end users, managers]</mark>\n\nProvide a report with these sections:\n1. Terms or phrases to replace and why\n2. Suggested inclusive alternatives\n3. Any wording that may exclude or confuse readers\n4. A short summary of the document's overall tone and inclusivity",
+    "copyPrompt": "You are a documentation quality reviewer. Review the content below for inclusive, bias-free language and accessibility.\n\nDocument: [PASTE YOUR DOCUMENT HERE]\nAudience: [e.g., developers, end users, managers]\n\nProvide a report with these sections:\n1. Terms or phrases to replace and why\n2. Suggested inclusive alternatives\n3. Any wording that may exclude or confuse readers\n4. A short summary of the document\u2019s overall tone and inclusivity",
+    "proTip": "Add the audience description to help the AI tailor tone and\n                terminology.",
+    "tags": [
+      "review",
+      "bias",
+      "documentation",
+      "exclusion",
+      "inclusive"
+    ]
+  },
+  {
+    "id": "p11",
+    "number": "11",
+    "categoryId": "format",
+    "categoryName": "Format & Convert",
+    "title": "Turn a Transcript into Documentation",
+    "useCase": "Convert a meeting or interview recording into structured docs",
+    "level": "Intermediate",
+    "badgeColor": "#f59e0b",
+    "promptText": "You are a technical writer. Below is a raw transcript from a <mark>[meeting / interview / demo / walkthrough]</mark>. Extract and organize the information into structured documentation.\n\nTranscript:\n&lt;transcript&gt;\n<mark>[PASTE TRANSCRIPT HERE]</mark>\n&lt;/transcript&gt;\n\nOutput the following:\n1. Summary: 3-5 bullet points of the key information covered\n2. Decisions made: any explicit decisions or agreements reached\n3. Action items: who is responsible for what (if mentioned)\n4. Draft documentation section: organize the technical content from this transcript into a clean, publishable doc section with headings and plain language. Remove filler words, repetition, and conversational noise\n\nAudience for the doc section: <mark>[e.g., developers, end users, internal team]</mark>",
+    "copyPrompt": "You Te a technical writer. Below is a raw transcript. Extract and organize the information into structured documentation.\n\nTranscript:\n<transcript>\n[PASTE TRANSCRIPT HERE]\n</transcript>\n\nOutput:\n1. Summary: 3-5 bullet points\n2. Decisions made\n3. Action items (who, what)\n4. Draft documentation section: clean, publishable, plain language\n\nAudience: [e.g., developers, end users, internal team]",
+    "proTip": "Use auto-generated captions from Zoom,\n                  Teams, or Google Meet as raw input. Imperfect transcripts still produce usable\n                  outputs.",
+    "tags": [
+      "recording",
+      "interview",
+      "turn",
+      "transcript",
+      "documentation"
+    ]
+  },
+  {
+    "id": "p12",
+    "number": "12",
+    "categoryId": "format",
+    "categoryName": "Format & Convert",
+    "title": "Write a Video Script",
+    "useCase": "Narration script for a product walkthrough or tutorial video",
+    "level": "Intermediate",
+    "badgeColor": "#f59e0b",
+    "promptText": "You are a technical writer creating a narration script for a product video. Write a voiceover script for the following video.\n\nVideo details:\n- Product: <mark>[PRODUCT NAME]</mark>\n- Video type: <mark>[e.g., product walkthrough, feature demo, onboarding tutorial, explainer]</mark>\n- Target length: <mark>[e.g., 2 minutes / 90 seconds]</mark>\n- Audience: <mark>[DESCRIBE]</mark>\n- Tone: <mark>[e.g., warm and encouraging / professional and direct]</mark>\n- Key steps or scenes to cover: <mark>[LIST IN ORDER]</mark>\n\nFormat the script as a two-column table:\n| Visual / On-screen action | Narration (voiceover text) |\n\nInclude an opening hook (first 10 seconds) and a clear call to action at the end. Keep sentences short: voiceover reads at roughly 130 words per minute.",
+    "copyPrompt": "You are a technical writer creating a narration script for a product video.\n\nVideo details:\n- Product: [PRODUCT NAME]\n- Video type: [e.g., walkthrough, demo, tutorial]\n- Target length: [e.g., 2 minutes]\n- Audience: [DESCRIBE]\n- Tone: [e.g., warm / professional]\n- Key steps to cover: [LIST IN ORDER]\n\nFormat as two-column table: Visual / On-screen action | Narration (voiceover text)\nInclude opening hook and closing CTA. ~130 words per minute pacing.",
+    "proTip": "Read the script aloud before recording to\n                  ensure it sounds natural.",
+    "tags": [
+      "narration",
+      "write",
+      "tutorial",
+      "video",
+      "script"
+    ]
+  },
+  {
+    "id": "p13",
+    "number": "13",
+    "categoryId": "format",
+    "categoryName": "Format & Convert",
+    "title": "Generate Video Captions and Alt Text",
+    "useCase": "Accessibility-ready captions and image descriptions at scale",
+    "level": "Intermediate",
+    "badgeColor": "#f59e0b",
+    "promptText": "You are a technical writer specializing in accessibility. I need two things: cleaned-up captions for a video, and alt text for the screenshots used in associated documentation.\n\nRaw auto-generated captions (unedited):\n<mark>[PASTE RAW CAPTIONS HERE]</mark>\n\nScreenshots to describe (list them in order):\n<mark>[DESCRIBE EACH SCREENSHOT BRIEFLY, e.g., \"Screenshot 1: the login screen with an email field and a blue Sign In button\"]</mark>\n\nFor the captions:\n- Correct spelling, punctuation, and speaker identification errors\n- Keep timing markers if present\n- Do not change the meaning or add information not in the original\n\nFor the alt text:\n- Write functional alt text that describes what the image shows and why it matters in context\n- Keep each description under 125 characters\n- Do not start with \"Image of\" or \"Screenshot of\"",
+    "copyPrompt": "You are a technical writer specializing in accessibility.\n\nRaw captions:\n[PASTE RAW CAPTIONS HERE]\n\nScreenshots to describe:\n[DESCRIBE EACH SCREENSHOT BRIEFLY]\n\nFor captions: correct errors, keep timing markers, do not change meaning.\nFor alt text: functional description of what is shown and why it matters in context. Under 125 characters. Do not start with \"Image of\" or \"Screenshot of\".",
+    "proTip": "Describe the function, not the appearance.\n                  Use \"Submit button\" rather than \"blue rounded button.\"",
+    "tags": [
+      "captions",
+      "scale",
+      "alt",
+      "video",
+      "ready"
+    ]
+  },
+  {
+    "id": "p14",
+    "number": "14",
+    "categoryId": "format",
+    "categoryName": "Format & Convert",
+    "title": "Convert Prose to Structured Docs",
+    "useCase": "Transform unstructured notes or emails into polished docs",
+    "level": "Beginner",
+    "badgeColor": "#ec4899",
+    "promptText": "You are a technical writer. Below is unstructured content: it may be raw notes, an email thread, a Slack conversation, or an informal write-up. Convert it into a structured technical document. Source content:\n&lt;source_content&gt;\n<mark>[PASTE CONTENT HERE]</mark>\n&lt;/source_content&gt;\n\nTarget document type: <mark>[e.g., how-to guide, reference doc, FAQ, process overview]</mark>\nTarget audience: <mark>[DESCRIBE]</mark>\n\nRestructure the content as follows:\n- Add a clear title\n- Add a brief introduction (2: 3 sentences)\n- Organize the content under logical H2 headings\n- Convert any instructions into numbered steps\n- Convert any lists into formatted bullet points\n- Remove filler, repetition, and conversational language\n- Preserve all factual information: do not drop details\n\nOutput in Markdown format.",
+    "copyPrompt": "You are a technical writer converting unstructured content into a structured technical document.\n\nSource content:\n<source_content>\n[PASTE CONTENT HERE]\n</source_content>\n\nTarget type: [e.g., how-to guide, reference doc, FAQ]\nTarget audience: [DESCRIBE]\n\nAdd title, introduction, H2 headings, numbered steps for instructions, bullet points for lists. Remove filler. Preserve all facts. Output in Markdown.",
+    "proTip": "Paste a Slack thread or email chain\n                  directly to let the AI filter the noise.",
+    "tags": [
+      "unstructured",
+      "transform",
+      "structured",
+      "prose",
+      "convert"
+    ]
+  },
+  {
+    "id": "p15",
+    "number": "15",
+    "categoryId": "format",
+    "categoryName": "Format & Convert",
+    "title": "Reformat for a Different Channel",
+    "useCase": "Adapt one doc for web, PDF, in-app help, and email",
+    "level": "Intermediate",
+    "badgeColor": "#ec4899",
+    "promptText": "You are a technical writer adapting content for multiple delivery channels. I have one source document and need versions formatted for different outputs.\n\nSource document:\n&lt;source_doc&gt;\n<mark>[PASTE SOURCE DOC HERE]</mark>\n&lt;/source_doc&gt;\n\nProduce the following versions:\n\n1. Web help article: full version with H2/H3 headings, numbered steps, scannable layout. Suitable for a help center or developer portal\n\n2. In-app tooltip / contextual help: max 40 words per tooltip. Extract the 3 most important tips as standalone tooltip text\n\n3. Email: a short plain-text version summarizing the key action the user needs to take. Max 150 words. No markdown\n\n4. PDF/print: a clean version with a title, intro paragraph, and numbered steps. Remove all hyperlink references and replace with plain text\n\nDo not add information beyond what is in the source document.",
+    "copyPrompt": "You are a technical writer adapting content for multiple channels.\n\nSource document:\n<source_doc>\n[PASTE SOURCE DOC HERE]\n</source_doc>\n\nProduce:\n1. Web help article: headings, numbered steps, scannable\n2. In-app tooltips: max 40 words each, 3 most important tips\n3. Email: plain text, max 150 words, key action only\n4. PDF/print: title, intro, numbered steps, no hyperlinks\n\nDo not add information beyond the source.",
+    "proTip": "Use this prompt to practice single-source\n                  publishing and mirror content management system workflows.",
+    "tags": [
+      "web",
+      "reformat",
+      "pdf",
+      "app",
+      "adapt"
+    ]
+  },
+  {
+    "id": "p16",
+    "number": "16",
+    "categoryId": "structure",
+    "categoryName": "Structure & Style",
+    "title": "Convert Markdown to Structured HTML",
+    "useCase": "Output publication-ready HTML with semantic markup",
+    "level": "Intermediate",
+    "badgeColor": "#ec4899",
+    "promptText": "You are a technical writer and web developer. Convert the Markdown document below into semantic, accessible HTML.\n\nMarkdown source:\n<mark>[PASTE MARKDOWN HERE]</mark>\n\nRequirements:\n- Use semantic HTML5 elements: article, section, h1: h4, p, ol, ul, li, code, pre, blockquote\n- Wrap code samples in pre + code tags with a data-language attribute\n- Convert note/tip/warning callouts into aside elements with a class attribute (class=\"note\", class=\"tip\", class=\"warning\")\n- Add aria-label to all tables\n- Do not add inline styles or classes beyond those specified above\n- Output only the HTML body content: no html, head, or body tags",
+    "copyPrompt": "Convert the Markdown below into semantic, accessible HTML5 body content.\n\nMarkdown:\n[PASTE MARKDOWN HERE]\n\nUse: article, section, h1: h4, p, ol, ul, li, code, pre, blockquote.\nCode blocks: pre + code with data-language attribute.\nCallouts: aside with class=\"note/tip/warning\".\nAdd aria-label to tables. No inline styles. No html/head/body tags.",
+    "proTip": "Use semantic HTML to improve SEO and\n                  screen reader compatibility for web-published developer documentation.",
+    "tags": [
+      "publication",
+      "markup",
+      "markdown",
+      "html",
+      "structured"
+    ]
+  },
+  {
+    "id": "p17",
+    "number": "17",
+    "categoryId": "strategy",
+    "categoryName": "Strategy & Planning",
+    "title": "Localization Prep: Simplify for Translation",
+    "useCase": "Prepare English source text to reduce translation costs",
+    "level": "Intermediate",
+    "badgeColor": "#ec4899",
+    "promptText": "You are a technical writer preparing documentation for translation. Rewrite the document below to minimize localization costs and improve translation accuracy.\n\nDocument:\n<mark>[PASTE DOCUMENT HERE]</mark>\n\nApply these rules:\n1. Break all sentences over 20 words into two shorter sentences\n2. Remove all idioms, metaphors, and culturally specific expressions. Replace with literal equivalents\n3. Replace pronouns where the referent is ambiguous (e.g., replace \"it\" with the noun it refers to)\n4. Use consistent terminology: the same concept must always use the same word\n5. Remove contractions (replace \"don't\" with \"do not\", \"can't\" with \"cannot\")\n6. Use the active voice throughout\n7. Flag any terms that should NOT be translated (product names, code strings, UI labels) by wrapping them in [NOTRANSLATE]...[/NOTRANSLATE]\n\nOutput the revised document followed by a list of flagged no-translate terms.",
+    "copyPrompt": "Rewrite the document below to prepare it for translation.\n\nDocument:\n[PASTE DOCUMENT HERE]\n\nApply:\n1. Sentences under 20 words\n2. No idioms or metaphors: use literal equivalents\n3. Replace ambiguous pronouns with explicit nouns\n4. Consistent terminology throughout\n5. No contractions\n6. Active voice\n7. Wrap untranslatable terms: [NOTRANSLATE]...[/NOTRANSLATE]\n\nOutput revised doc + list of no-translate terms.",
+    "proTip": "Write shorter, clearer source text to\n                  reduce translation costs and improve translated quality.",
+    "tags": [
+      "costs",
+      "simplify",
+      "prep",
+      "prepare",
+      "text"
+    ]
+  },
+  {
+    "id": "p41",
+    "number": "41",
+    "categoryId": "strategy",
+    "categoryName": "Strategy & Planning",
+    "title": "Raw Data to Markdown Table",
+    "useCase": "Convert unstructured lists or CSVs into clean Markdown tables",
+    "level": "Intermediate",
+    "badgeColor": "#ec4899",
+    "promptText": "Convert the following unstructured data into a formatted Markdown table:\n\n&lt;data&gt;\n<mark>[PASTE RAW DATA OR CSV HERE]</mark>\n&lt;/data&gt;\n\nEnsure the columns are logically ordered. If a header row is not obvious, create one based on the context. Align numerical columns to the right and text columns to the left.",
+    "copyPrompt": "Convert the following unstructured data into a formatted Markdown table:\n\n<data>\n[PASTE RAW DATA OR CSV HERE]\n</data>\n\nEnsure the columns are logically ordered. If a header row is not obvious, create one based on the context. Align numerical columns to the right and text columns to the left.",
+    "proTip": "Use this prompt to migrate legacy\n                  documentation quickly. Ask the AI to sort the table alphabetically by a specific\n                  column during the conversion.",
+    "tags": [
+      "tables",
+      "data",
+      "unstructured",
+      "lists",
+      "clean"
+    ]
+  },
+  {
+    "id": "p48",
+    "number": "48",
+    "categoryId": "strategy",
+    "categoryName": "Strategy & Planning",
+    "title": "Prepare Docs for Static Site Publishing",
+    "useCase": "Convert Markdown into docs-site ready pages",
+    "level": "Beginner",
+    "badgeColor": "#ec4899",
+    "promptText": "You are a technical writer preparing documentation for a static documentation site. Convert the Markdown below into a page with YAML frontmatter suitable for [PLATFORM].\n\nMarkdown source: <mark>[PASTE MARKDOWN HERE]</mark>\n\nInclude frontmatter fields: title, description, sidebar_position, tags, draft (true/false).\n\nOutput only valid Markdown with YAML frontmatter at the top. Preserve headings, lists, code blocks, and links. Do not add extra sections beyond the source content.",
+    "copyPrompt": "You are a technical writer preparing documentation for a static documentation site. Convert the Markdown below into a page with YAML frontmatter suitable for [PLATFORM].\n\nMarkdown source: [PASTE MARKDOWN HERE]\n\nInclude frontmatter fields: title, description, sidebar_position, tags, draft (true/false).\n\nOutput only valid Markdown with YAML frontmatter at the top. Preserve headings, lists, code blocks, and links. Do not add extra sections beyond the source content.",
+    "proTip": "Specify the platform when using this for Docusaurus, Hugo,\n                or MkDocs.",
+    "tags": [
+      "markdown",
+      "pages",
+      "publishing",
+      "prepare",
+      "ready"
+    ]
+  },
+  {
+    "id": "p18",
+    "number": "18",
+    "categoryId": "strategy",
+    "categoryName": "Strategy & Planning",
+    "title": "Build a Style Guide from Scratch",
+    "useCase": "",
+    "level": "Intermediate",
+    "badgeColor": "#14b8a6",
+    "promptText": "You are a senior technical writer. Create a practical style guide for a documentation team.\n\nContext:\n- Company/product: <mark>[NAME]</mark>\n- Documentation types produced: <mark>[e.g., API docs, user guides, release notes, in-app help]</mark>\n- Primary audience: <mark>[e.g., developers, enterprise IT admins, general consumers]</mark>\n- Existing style references to follow: <mark>[e.g., Microsoft Writing Style Guide / Google Developer Docs / none]</mark>\n\nInclude these sections:\n1. Voice and tone: 3 defining principles with before/after examples\n2. Formatting rules: headings, lists, tables, code blocks\n3. Grammar and mechanics: punctuation, capitalization, numbers, dates\n4. Terminology: a starter glossary of 10 product-specific terms with approved usage\n5. What to avoid: 10 common mistakes with corrections\n6. Accessibility standards: plain language, alt text, link text\n\nKeep each section concise and practical. Use examples throughout.",
+    "copyPrompt": "Create a practical style guide for a documentation team.\n\nContext:\n- Company/product: [NAME]\n- Docs produced: [e.g., API docs, user guides, release notes]\n- Primary audience: [DESCRIBE]\n- Style references: [e.g., Microsoft / Google / none]\n\nSections:\n1. Voice and tone: 3 principles with before/after examples\n2. Formatting rules: headings, lists, tables, code\n3. Grammar and mechanics\n4. Terminology: 10 product terms with approved usage\n5. What to avoid: 10 common mistakes with corrections\n6. Accessibility standards",
+    "proTip": "Use the output as a starting draft.\n                  Build the best style guides through team discussion rather than top-down\n                  mandates.",
+    "tags": [
+      "style",
+      "scratch",
+      "guide",
+      "build"
+    ]
+  },
+  {
+    "id": "p19",
+    "number": "19",
+    "categoryId": "apidocs",
+    "categoryName": "Sample Product Documentation Prompts",
+    "title": "Create a Documentation Template",
+    "useCase": "",
+    "level": "Intermediate",
+    "badgeColor": "#14b8a6",
+    "promptText": "You are a technical writer creating reusable documentation templates. Create a template for the following document type.\n\nDocument type: <mark>[e.g., how-to guide / API endpoint reference / concept overview / release notes / runbook / troubleshooting guide]</mark>\n\nThe template must:\n- Include every section a complete document of this type should have\n- Use placeholder text in [SQUARE BRACKETS] to indicate what each section should contain\n- Include inline writing guidance as HTML comments (<!-- like this -->) explaining how to fill in each section\n- Show the recommended length or scope for each section\n- Be formatted in Markdown\n\nAlso include at the top: a metadata block with fields for Title, Author, Last updated, Status (draft/review/published), and Audience.",
+    "copyPrompt": "Create a reusable Markdown template for: [DOCUMENT TYPE]\n\nThe template must:\n- Include all sections a complete document of this type needs\n- Use [SQUARE BRACKETS] for placeholder text\n- Include inline guidance as HTML comments <!-- like this -->\n- Show recommended length per section\n\nInclude a metadata block at the top: Title, Author, Last updated, Status, Audience.",
+    "proTip": "Store approved templates in the team\n                  shared workspace to maintain consistent document structure.",
+    "tags": [
+      "template",
+      "create",
+      "documentation"
+    ]
+  },
+  {
+    "id": "p20",
+    "number": "20",
+    "categoryId": "apidocs",
+    "categoryName": "Sample Product Documentation Prompts",
+    "title": "Improve Sentence-Level Clarity",
+    "useCase": "Line-edit a passage for tightness, voice, and precision",
+    "level": "Intermediate",
+    "badgeColor": "#14b8a6",
+    "promptText": "You are a technical editor performing a line edit. Rewrite each sentence in the passage below to improve clarity, directness, and readability. Do not change the meaning or remove factual content.\n\nPassage:\n<mark>[PASTE PASSAGE HERE]</mark>\n\nApply these rules sentence by sentence:\n- Remove unnecessary words (e.g., \"in order to\" -> \"to\"; \"due to the fact that\" -> \"because\")\n- Convert passive voice to active voice\n- Break sentences over 25 words into two\n- Replace vague nouns with specific ones (e.g., \"the system\" -> name the system)\n- Remove hedging language where it is not needed (e.g., \"it should be noted that\")\n\nOutput format:\n| Original | Revised | Change made |\n(One row per sentence changed. Skip unchanged sentences.)",
+    "copyPrompt": "Line-edit the passage below. Do not change meaning or remove facts.\n\nPassage:\n[PASTE PASSAGE HERE]\n\nApply:\n- Remove unnecessary words\n- Active voice\n- Break sentences over 25 words\n- Replace vague nouns with specific ones\n- Remove unneeded hedging language\n\nOutput as table: Original | Revised | Change made\nOne row per changed sentence only.",
+    "proTip": "Apply this prompt to personal writing.\n                  Compare the original and revised columns to train your editing skills.",
+    "tags": [
+      "voice",
+      "passage",
+      "precision",
+      "edit",
+      "tightness"
+    ]
+  },
+  {
+    "id": "p49",
+    "number": "49",
+    "categoryId": "apidocs",
+    "categoryName": "Sample Product Documentation Prompts",
+    "title": "Create a Documentation Taxonomy",
+    "useCase": "Organize docs by tasks, audience, and page type",
+    "level": "Intermediate",
+    "badgeColor": "#14b8a6",
+    "promptText": "You are a technical writer designing documentation taxonomy. Create a structured doc organization for [YOUR_PRODUCT].\n\nProduct description: <mark>[ONE-SENTENCE DESCRIPTION]</mark>\nPrimary audiences: <mark>[e.g., new developers, experienced developers, non-technical stakeholders]</mark>\nMain user tasks: <mark>[LIST 3: 4 KEY TASKS]</mark>\n\nOutput an indented site map with top-level sections and page names. Then provide 3 recommended reading paths for different audiences. Finally, identify 2 content gaps and explain why they matter.",
+    "copyPrompt": "You are a technical writer designing documentation taxonomy. Create a structured doc organization for [YOUR_PRODUCT].\n\nProduct description: [ONE-SENTENCE DESCRIPTION]\nPrimary audiences: [e.g., new developers, experienced developers, non-technical stakeholders]\nMain user tasks: [LIST 3: 4 KEY TASKS]\n\nOutput an indented site map with top-level sections and page names. Then provide 3 recommended reading paths for different audiences. Finally, identify 2 content gaps and explain why they matter.",
+    "proTip": "Use the output as the basis for your docs site navigation\n                and page naming conventions.",
+    "tags": [
+      "audience",
+      "taxonomy",
+      "tasks",
+      "organize",
+      "page"
+    ]
+  },
+  {
+    "id": "p21",
+    "number": "21",
+    "categoryId": "apidocs",
+    "categoryName": "Sample Product Documentation Prompts",
+    "title": "Build a Documentation Plan",
+    "useCase": "",
+    "level": "Intermediate",
+    "badgeColor": "#8b5cf6",
+    "promptText": "You are a senior technical writer creating a documentation plan for a product launch.\n\nProduct/release details:\n- Product: <mark>[NAME]</mark>\n- Launch date: <mark>[DATE OR TIMEFRAME]</mark>\n- What is being released: <mark>[DESCRIBE THE FEATURES OR PRODUCT]</mark>\n- Audiences to document for: <mark>[LIST]</mark>\n- Team size: <mark>[e.g., solo writer / 2-person team]</mark>\n- Known constraints: <mark>[e.g., no SME access until week 3 / must use existing templates]</mark>\n\nProduce a documentation plan that includes:\n1. Deliverables list: every document needed, with doc type, audience, and priority (P1/P2/P3)\n2. Effort estimates: rough hours per deliverable\n3. Dependencies: what information or approvals each doc needs before it can be written\n4. Risks: 3 risks that could delay delivery, with mitigations\n5. Review process: suggested review stages and owners\n6. Timeline: a week-by-week schedule from kickoff to launch",
+    "copyPrompt": "Create a documentation plan for a product launch.\n\nDetails:\n- Product: [NAME]\n- Launch date: [DATE]\n- What is being released: [DESCRIBE]\n- Audiences: [LIST]\n- Team size: [e.g., solo / 2-person]\n- Constraints: [LIST]\n\nInclude:\n1. Deliverables list: doc type, audience, priority (P1/P2/P3)\n2. Effort estimates\n3. Dependencies\n4. Risks + mitigations\n5. Review process\n6. Week-by-week timeline",
+    "proTip": "Share this plan with the engineering\n                  lead before writing to align on scope and prevent rework.",
+    "tags": [
+      "documentation",
+      "plan",
+      "build"
+    ]
+  },
+  {
+    "id": "p22",
+    "number": "22",
+    "categoryId": "apidocs",
+    "categoryName": "Sample Product Documentation Prompts",
+    "title": "Content Audit: Gap Analysis",
+    "useCase": "",
+    "level": "Advanced",
+    "badgeColor": "#8b5cf6",
+    "promptText": "You are a senior technical writer performing a content audit. I am giving you a list of documents that currently exist in our documentation set.\n\nExisting documents (list titles and brief descriptions):\n<mark>[PASTE YOUR DOC INVENTORY HERE]</mark>\n\nProduct overview (what the product does):\n<mark>[BRIEF DESCRIPTION]</mark>\n\nTarget audiences:\n<mark>[LIST]</mark>\n\nPerform a gap analysis:\n1. Coverage gaps: what topics or user tasks are not covered by any existing document?\n2. Redundancy: which documents cover overlapping content that could be merged?\n3. Outdated content: which documents are likely to contain stale information based on their titles and descriptions?\n4. Priority recommendations: rank the top 5 new documents to create, with justification\n5. Quick wins: list 3 improvements that could be made to existing docs with minimal effort\n\nBefore providing your final analysis, use a &lt;thinking&gt; tag to briefly brainstorm the user journeys and identify potential gaps.",
+    "copyPrompt": "Perform a content audit gap analysis.\n\nExisting documents:\n[PASTE DOC INVENTORY HERE]\n\nProduct overview:\n[BRIEF DESCRIPTION]\n\nTarget audiences:\n[LIST]\n\nAnalyze:\n1. Coverage gaps: what topics or tasks are missing?\n2. Redundancy: documents to merge\n3. Outdated content: likely stale docs\n4. Top 5 new docs to create (ranked, with justification)\n5. Quick wins: 3 improvements with minimal effort\n\nBefore providing your final analysis, use a <thinking> tag to briefly brainstorm the user journeys and identify potential gaps.",
+    "proTip": "Export a sitemap or Confluence page\n                  tree as the documentation inventory. A rough list provides enough context for the\n                  AI.",
+    "tags": [
+      "gap",
+      "audit",
+      "content",
+      "analysis"
+    ]
+  },
+  {
+    "id": "p23",
+    "number": "23",
+    "categoryId": "apidocs",
+    "categoryName": "Sample Product Documentation Prompts",
+    "title": "Write a Docs-as-Code Proposal",
+    "useCase": "",
+    "level": "Advanced",
+    "badgeColor": "#8b5cf6",
+    "promptText": "You are a senior technical writer writing an internal proposal. Write a business case for adopting a docs-as-code workflow.\n\nContext:\n- Company type: <mark>[e.g., SaaS startup / enterprise / agency]</mark>\n- Current documentation tool: <mark>[e.g., Confluence / Google Docs / SharePoint / Word]</mark>\n- Target audience for this proposal: <mark>[e.g., VP of Engineering / CTO / Documentation manager]</mark>\n- Main pain points with the current setup: <mark>[LIST 2: 3]</mark>\n\nWrite the proposal with:\n1. Executive summary: 3 sentences: the problem, the solution, the expected outcome\n2. Current state: what is broken or inefficient today\n3. Proposed solution: what docs-as-code means in practice (Markdown, Git, static site generator, CI/CD pipeline)\n4. Benefits: 5 concrete, business-relevant benefits (not just technical wins)\n5. Implementation steps: a high-level 4-phase rollout plan\n6. Risks and mitigations\n7. Recommended tools: suggest a specific toolchain with brief justification\n8. Ask: what you need to proceed (headcount, budget, time)",
+    "copyPrompt": "Write an internal business case for adopting docs-as-code.\n\nContext:\n- Company type: [e.g., SaaS startup / enterprise]\n- Current tool: [e.g., Confluence / Google Docs]\n- Audience: [e.g., VP Engineering / CTO]\n- Pain points: [LIST 2: 3]\n\nInclude:\n1. Executive summary (problem, solution, outcome)\n2. Current state: what is inefficient\n3. Proposed solution: Markdown, Git, static site, CI/CD\n4. 5 business benefits\n5. 4-phase rollout plan\n6. Risks and mitigations\n7. Recommended toolchain\n8. The ask: headcount, budget, time",
+    "proTip": "Lead with business benefits.\n                  Highlight cost savings, speed, and reduced errors rather than technical\n                  details.",
+    "tags": [
+      "write",
+      "code",
+      "proposal"
+    ]
+  },
+  {
+    "id": "p50",
+    "number": "50",
+    "categoryId": "apidocs",
+    "categoryName": "Sample Product Documentation Prompts",
+    "title": "Write a Stakeholder Communication Plan",
+    "useCase": "Plan documentation review, delivery, and updates",
+    "level": "Advanced",
+    "badgeColor": "#8b5cf6",
+    "promptText": "You are a technical writer planning documentation communications. Create a stakeholder communication plan for a documentation initiative.\n\nContext:\n- Product or project: <mark>[NAME]</mark>\n- Audience: <mark>[e.g., engineering, product, support, leadership]</mark>\n- Timeline: <mark>[e.g., 6-week launch, quarterly docs refresh]</mark>\n- Key milestones: <mark>[e.g., first draft, review, publish]</mark>\n\nProduce a plan that includes:\n1. Stakeholder groups and their communication needs\n2. Messages to send at each milestone\n3. Channels and frequency (email, meetings, Slack, docs updates)\n4. Review checkpoints and decision owners\n5. Risk signals that should trigger a follow-up\n\nKeep the plan concise and actionable.",
+    "copyPrompt": "You are a technical writer planning documentation communications. Create a stakeholder communication plan for a documentation initiative.\n\nContext:\n- Product or project: [NAME]\n- Audience: [e.g., engineering, product, support, leadership]\n- Timeline: [e.g., 6-week launch, quarterly docs refresh]\n- Key milestones: [e.g., first draft, review, publish]\n\nProduce a plan that includes:\n1. Stakeholder groups and their communication needs\n2. Messages to send at each milestone\n3. Channels and frequency (email, meetings, Slack, docs updates)\n4. Review checkpoints and decision owners\n5. Risk signals that should trigger a follow-up\n\nKeep the plan concise and actionable.",
+    "proTip": "Include a concise escalation path for missed review\n                deadlines.",
+    "tags": [
+      "write",
+      "delivery",
+      "updates",
+      "review",
+      "documentation"
+    ]
+  },
+  {
+    "id": "p24",
+    "number": "24",
+    "categoryId": "apidocs",
+    "categoryName": "Sample Product Documentation Prompts",
+    "title": "Getting Started Guide",
+    "useCase": "",
+    "level": "Beginner",
+    "badgeColor": "#0369a1",
+    "promptText": "You are a technical writer specializing in developer documentation. Write a Getting Started guide for [YOUR_PRODUCT].\n\nAPI details:\n- Product name: <mark>[YOUR_PRODUCT]</mark>\n- What it does: <mark>[DESCRIBE WHAT THE API DOES IN ONE SENTENCE]</mark>\n- Base URL: <mark>[YOUR BASE URL, e.g., https://api.yourproduct.com/v1]</mark>\n- Authentication: API key passed in the Authorization header as a Bearer token\n- First task for the user: Retrieve a list of all <mark>[MAIN RESOURCE]</mark> using GET /<mark>[RESOURCE_ENDPOINT]</mark>\n\nWrite a Getting Started guide that includes:\n1. A one-paragraph introduction: what [YOUR_PRODUCT] is and what the user will achieve\n2. Prerequisites: API key, REST client, basic HTTP knowledge\n3. Step 1: Get your API key: how to generate and store it\n4. Step 2: Make your first request: curl example with Authorization header\n5. Step 3: Understand the response: sample JSON response with key fields explained\n6. Next steps: link to the full API reference\n\nGuidelines:\n- Use second person (\"you\") throughout\n- Use active voice\n- Keep sentences under 20 words where possible\n- Use numbered steps for all procedures\n- Add [SCREENSHOT: description] placeholders where a visual would help",
+    "copyPrompt": "You are a technical writer specializing in developer documentation. Write a Getting Started guide for [YOUR_PRODUCT].\n\nAPI details:\n- Product name: [YOUR_PRODUCT]\n- What it does: [DESCRIBE IN ONE SENTENCE]\n- Base URL: [YOUR BASE URL]\n- Authentication: API key as Bearer token in Authorization header\n- First task: Retrieve a list of all [MAIN RESOURCE] using GET /[RESOURCE_ENDPOINT]\n\nWrite a Getting Started guide that includes:\n1. One-paragraph introduction\n2. Prerequisites: API key, REST client, basic HTTP knowledge\n3. Step 1: Get your API key\n4. Step 2: Make your first request: curl example\n5. Step 3: Understand the response: sample JSON with key fields explained\n6. Next steps: link to full API reference\n\nUse second person, active voice, sentences under 20 words, numbered steps, [SCREENSHOT: description] placeholders.",
+    "proTip": "Rewrite the introduction and next\n                  steps manually to establish a unique voice.",
+    "tags": [
+      "started",
+      "guide",
+      "getting"
+    ]
+  },
+  {
+    "id": "p25",
+    "number": "25",
+    "categoryId": "apidocs",
+    "categoryName": "Sample Product Documentation Prompts",
+    "title": "GET Endpoint Reference Page",
+    "useCase": "",
+    "level": "Beginner",
+    "badgeColor": "#0369a1",
+    "promptText": "You are a technical writer documenting a REST API. Write a reference page for the following endpoint.\n\nEndpoint details:\n- Method: GET\n- Endpoint URL: <mark>[YOUR BASE URL]/[RESOURCE_ENDPOINT]</mark>\n- Description: Retrieves a list of all <mark>[RESOURCE NAME]</mark>. Supports optional query parameters for filtering\n- Authentication: Bearer token in the Authorization header\n- Query parameters: <mark>[LIST EACH: name (type, optional/required): description. Allowed values if applicable.]</mark>\n- Response: Returns an array of <mark>[RESOURCE]</mark> objects\n- Response codes: 200 (success), 401 (unauthorized), 500 (internal server error)\n- Example response: <mark>[PASTE SAMPLE JSON]</mark>\n\nFormat the output with these clearly labeled sections:\n1. Endpoint: method and URL\n2. Description: one sentence\n3. Authentication\n4. Query parameters: table: Parameter | Type | Required | Description | Allowed values\n5. Request example: curl command\n6. Response: sample JSON\n7. Response fields: table: Field | Type | Description\n8. Error responses: table: Code | Message | Description\n\nGuidelines:\n- Use code blocks for all URLs, parameters, and JSON\n- Use active voice and second person\n- Do not use em dashes",
+    "copyPrompt": "You are a technical writer documenting a REST API. Write a reference page for the following endpoint.\n\nEndpoint details:\n- Method: GET\n- Endpoint URL: [YOUR BASE URL]/[RESOURCE_ENDPOINT]\n- Description: Retrieves a list of all [RESOURCE NAME]. Supports optional query parameters\n- Authentication: Bearer token in Authorization header\n- Query parameters: [LIST EACH WITH TYPE, REQUIRED/OPTIONAL, DESCRIPTION, ALLOWED VALUES]\n- Response: Array of [RESOURCE] objects\n- Response codes: 200, 401, 500\n- Example response: [PASTE SAMPLE JSON]\n\nSections: Endpoint | Description | Authentication | Query parameters table | Request example (curl) | Response JSON | Response fields table | Error responses table\nUse code blocks, tables, active voice, second person. No em dashes.",
+    "proTip": "Compare field descriptions\n                  against the API overview to ensure consistency across the documentation\n                  set.",
+    "tags": [
+      "get",
+      "endpoint",
+      "reference",
+      "page"
+    ]
+  },
+  {
+    "id": "p26",
+    "number": "26",
+    "categoryId": "apidocs",
+    "categoryName": "Sample Product Documentation Prompts",
+    "title": "POST Endpoint Reference Page",
+    "useCase": "",
+    "level": "Beginner",
+    "badgeColor": "#0369a1",
+    "promptText": "You are a technical writer documenting a REST API. Write a reference page for the following POST endpoint.\n\nEndpoint details:\n- Method: POST\n- Endpoint URL: <mark>[YOUR BASE URL]/[RESOURCE_ENDPOINT]</mark>\n- Description: Creates a new <mark>[RESOURCE]</mark>\n- Authentication: Bearer token in the Authorization header\n- Request body fields: <mark>[LIST EACH: field name (type, required/optional): description, constraints, defaults]</mark>\n- Success response code: 201 Created\n- Error response codes: 400 (bad request), 401 (unauthorized), 500 (internal server error)\n- Example success response: <mark>[PASTE SAMPLE JSON]</mark>\n\nFormat with these sections:\n1. Endpoint: method and URL\n2. Description: one sentence\n3. Authentication\n4. Request body: table: Field | Type | Required | Default | Description | Constraints\n5. Request example: curl command with sample request body\n6. Response: 201 Created with sample JSON\n7. Response fields: table: Field | Type | Description\n8. Error responses: table: Code | Message | Description\n9. Example error response: 400 Bad Request JSON\n\nGuidelines:\n- Clearly distinguish required vs optional fields\n- Use code blocks for all JSON and curl examples\n- Use active voice and second person\n- Do not use em dashes",
+    "copyPrompt": "You are a technical writer documenting a REST API. Write a reference page for the following POST endpoint.\n\nEndpoint details:\n- Method: POST\n- Endpoint URL: [YOUR BASE URL]/[RESOURCE_ENDPOINT]\n- Description: Creates a new [RESOURCE]\n- Authentication: Bearer token in Authorization header\n- Request body fields: [LIST EACH WITH TYPE, REQUIRED/OPTIONAL, DEFAULTS, CONSTRAINTS]\n- Success: 201 Created\n- Errors: 400, 401, 500\n- Example success response: [PASTE SAMPLE JSON]\n\nSections: Endpoint | Description | Authentication | Request body table (Field/Type/Required/Default/Description/Constraints) | curl example | 201 response JSON | Response fields table | Error table | 400 error JSON example\nClearly distinguish required vs optional. Active voice. Second person. No em dashes.",
+    "proTip": "Compare this reference page\n                  with the GET reference to ensure structural consistency.",
+    "tags": [
+      "post",
+      "endpoint",
+      "reference",
+      "page"
+    ]
+  },
+  {
+    "id": "p27",
+    "number": "27",
+    "categoryId": "apidocs",
+    "categoryName": "Sample Product Documentation Prompts",
+    "title": "Glossary",
+    "useCase": "",
+    "level": "Beginner",
+    "badgeColor": "#0369a1",
+    "promptText": "You are a technical writer creating a glossary for [YOUR_PRODUCT] documentation.\n\nContext:\n- Product: <mark>[YOUR_PRODUCT]</mark>: <mark>[ONE-SENTENCE DESCRIPTION]</mark>\n- Audience: Technical writers and junior developers new to API documentation\n- Purpose: Define key terms so readers can refer to the glossary when they encounter unfamiliar language\n\nWrite a glossary with the following terms:\n<mark>[LIST YOUR TERMS: e.g., API key, endpoint, request body, response, HTTP status code, authentication, Bearer token, query parameter, JSON, plus any product-specific terms]</mark>\n\nFor each term:\n1. Term: use title case\n2. Definition: 1 to 2 plain-language sentences. Do not define a term using the term itself\n3. Example: one sentence showing how the term applies in the context of [YOUR_PRODUCT]. Include a short code snippet where relevant\n\nFormat as a definition list. Sort alphabetically.\n\nGuidelines:\n- Write for someone with no prior API experience\n- Keep each definition under 40 words\n- Do not use em dashes",
+    "copyPrompt": "You are a technical writer creating a glossary for [YOUR_PRODUCT] documentation.\n\nContext:\n- Product: [YOUR_PRODUCT]: [ONE-SENTENCE DESCRIPTION]\n- Audience: Technical writers and junior developers\n- Purpose: Define key terms for readers unfamiliar with API documentation\n\nTerms to define: [LIST YOUR TERMS]\n\nFor each term:\n1. Term: title case\n2. Definition: 1-2 plain-language sentences. Do not define using the term itself\n3. Example: one sentence in the context of [YOUR_PRODUCT], with code snippet where relevant\n\nFormat as definition list, sorted alphabetically. Under 40 words per definition. No em dashes.",
+    "proTip": "",
+    "tags": [
+      "glossary"
+    ]
+  },
+  {
+    "id": "p28",
+    "number": "28",
+    "categoryId": "apidocs",
+    "categoryName": "Sample Product Documentation Prompts",
+    "title": "GitHub README",
+    "useCase": "",
+    "level": "Beginner",
+    "badgeColor": "#0369a1",
+    "promptText": "You are a technical writer. Write a README.md for [YOUR_PRODUCT] as if it were a real open-source project on GitHub.\n\nProject details:\n- Project name: <mark>[YOUR_PRODUCT]</mark>\n- Project type: <mark>[e.g., REST API, SDK, CLI tool]</mark>\n- What it does: <mark>[DESCRIBE IN ONE SENTENCE]</mark>\n- Primary audience: <mark>[e.g., developers integrating a task management system]</mark>\n- Base URL or install command: <mark>[e.g., https://api.yourproduct.com/v1 or npm install yourproduct]</mark>\n- Authentication: <mark>[e.g., API key as Bearer token]</mark>\n- Key endpoints or commands: <mark>[LIST 4: 6]</mark>\n- License: <mark>[e.g., MIT]</mark>\n\nWrite the README.md in GitHub Flavored Markdown with these sections:\n1. Project name and one-line description\n2. Badges row: placeholders for build status, version, and license\n3. Overview: 2 to 3 sentences on what [YOUR_PRODUCT] does and who it is for\n4. Features: 5 key capabilities as a bulleted list\n5. Prerequisites: what the developer needs before starting\n6. Quick start: first API call in under 5 steps, with example\n7. Endpoints/Commands: summary table: Method | Endpoint | Description\n8. Authentication: how to pass credentials\n9. Contributing: one sentence pointing to CONTRIBUTING.md\n10. License\n\nUse second person and active voice. Keep Quick Start under 150 words.",
+    "copyPrompt": "You are a technical writer. Write a README.md for [YOUR_PRODUCT] as if it were a real open-source project on GitHub.\n\nProject details:\n- Project name: [YOUR_PRODUCT]\n- Project type: [e.g., REST API, SDK, CLI tool]\n- What it does: [ONE SENTENCE]\n- Primary audience: [DESCRIBE]\n- Base URL or install command: [YOUR URL OR COMMAND]\n- Authentication: [e.g., API key as Bearer token]\n- Key endpoints or commands: [LIST 4: 6]\n- License: [e.g., MIT]\n\nSections: Project name + description | Badges (placeholders) | Overview | Features (5 bullets) | Prerequisites | Quick start (under 150 words, with example) | Endpoints table (Method/Endpoint/Description) | Authentication | Contributing | License\nSecond person. Active voice. GitHub Flavored Markdown.",
+    "proTip": "Write the Overview and\n                  Features sections manually before reviewing the AI output to compare\n                  approaches.",
+    "tags": [
+      "readme",
+      "github"
+    ]
+  },
+  {
+    "id": "p29",
+    "number": "29",
+    "categoryId": "apidocs",
+    "categoryName": "Sample Product Documentation Prompts",
+    "title": "Error Code Reference",
+    "useCase": "",
+    "level": "Beginner",
+    "badgeColor": "#0369a1",
+    "promptText": "You are a technical writer creating an error reference page for [YOUR_PRODUCT].\n\nContext:\n- Product: <mark>[YOUR_PRODUCT]</mark>\n- Base URL: <mark>[YOUR BASE URL]</mark>\n- Audience: Developers integrating with [YOUR_PRODUCT]\n- Purpose: Help developers understand what each error means and how to fix it\n\nWrite a complete error reference page covering these HTTP status codes:\n200 OK, 201 Created, 400 Bad Request, 401 Unauthorized, 403 Forbidden, 404 Not Found, 409 Conflict, 422 Unprocessable Entity, 429 Too Many Requests, 500 Internal Server Error\n\nFor each status code:\n1. Code and name: formatted as a heading (e.g., ### 400 Bad Request)\n2. Description: one sentence explaining what this code means in the context of [YOUR_PRODUCT]\n3. Common causes: 2 to 3 bulleted reasons this error occurs\n4. How to resolve: numbered steps the developer should take\n5. Example error response: JSON code block in this format:\n{\n  \"error\": {\n    \"code\": [STATUS CODE],\n    \"message\": \"[SHORT ERROR MESSAGE]\",\n    \"details\": \"[SPECIFIC DESCRIPTION]\"\n  }\n}\n\nWrite for a developer who is actively debugging. Be specific. Use active voice. Do not use em dashes.",
+    "copyPrompt": "You are a technical writer creating an error reference page for [YOUR_PRODUCT].\n\nContext:\n- Product: [YOUR_PRODUCT]\n- Base URL: [YOUR BASE URL]\n- Audience: Developers integrating with [YOUR_PRODUCT]\n\nCover: 200, 201, 400, 401, 403, 404, 409, 422, 429, 500\n\nFor each code:\n1. Heading (### CODE Name)\n2. Description: one sentence for [YOUR_PRODUCT] context\n3. Common causes: 2-3 bullets\n4. How to resolve: numbered steps\n5. Example JSON: { \"error\": { \"code\": N, \"message\": \"...\", \"details\": \"...\" } }\n\nWrite for a developer actively debugging. Specific. Active voice. No em dashes.",
+    "proTip": "Prioritize error\n                  documentation accuracy, as developers rely on it heavily when\n                  troubleshooting.",
+    "tags": [
+      "error",
+      "code",
+      "reference"
+    ]
+  },
+  {
+    "id": "p30",
+    "number": "30",
+    "categoryId": "apidocs",
+    "categoryName": "Sample Product Documentation Prompts",
+    "title": "FAQ Page",
+    "useCase": "",
+    "level": "Beginner",
+    "badgeColor": "#0369a1",
+    "promptText": "You are a technical writer creating a FAQ page for [YOUR_PRODUCT].\n\nContext:\n- Product: <mark>[YOUR_PRODUCT]</mark>\n- Audience: Developers who have read the Getting Started guide and are now integrating [YOUR_PRODUCT]\n- Purpose: Answer the most common questions developers ask when using [YOUR_PRODUCT] for the first time\n\nWrite a FAQ with 10 questions covering:\n- Authentication (2 questions)\n- Making requests (2 questions)\n- Handling errors (2 questions)\n- <mark>[YOUR MAIN RESOURCE, e.g., tasks, orders, users]</mark> and <mark>[SECOND RESOURCE]</mark> (2 questions)\n- Rate limits and data (2 questions)\n\nFor each question:\n1. Question: write it the way a developer would actually ask it\n2. Answer: 2 to 4 sentences. Lead with the answer, then explain\n3. Code example: include a curl snippet or JSON example where it adds clarity. Skip where it does not\n\nGuidelines:\n- Do not start answers with filler phrases\n- Use second person and active voice\n- Keep answers under 80 words each\n- Use code blocks for all code\n- Do not use em dashes",
+    "copyPrompt": "You are a technical writer creating a FAQ page for [YOUR_PRODUCT].\n\nContext:\n- Product: [YOUR_PRODUCT]\n- Audience: Developers integrating [YOUR_PRODUCT] for the first time\n\n10 questions covering:\n- Authentication (2)\n- Making requests (2)\n- Handling errors (2)\n- [YOUR MAIN RESOURCES] (2)\n- Rate limits and data (2)\n\nFor each: natural developer question | 2-4 sentence answer (lead with the answer) | curl or JSON example where helpful\nUnder 80 words per answer. No filler phrases. Active voice. Second person. No em dashes.",
+    "proTip": "Rewrite the three\n                  most useful answers manually to match a natural explanatory\n                  style.",
+    "tags": [
+      "faq",
+      "page"
+    ]
+  },
+  {
+    "id": "p31",
+    "number": "31",
+    "categoryId": "apidocs",
+    "categoryName": "Sample Product Documentation Prompts",
+    "title": "Conceptual Overview",
+    "useCase": "",
+    "level": "Beginner",
+    "badgeColor": "#0369a1",
+    "promptText": "You are a technical writer creating a conceptual overview for [YOUR_PRODUCT].\n\nContext:\n- Product: <mark>[YOUR_PRODUCT]</mark>: <mark>[ONE-SENTENCE DESCRIPTION]</mark>\n- Audience: Non-technical stakeholders: product managers, business analysts, team leads\n- Purpose: Explain how [YOUR_PRODUCT] works without code\n\nCore resources to explain:\n- <mark>[RESOURCE 1, e.g., Users]</mark>: <mark>[BRIEF DESCRIPTION]</mark>\n- <mark>[RESOURCE 2, e.g., Projects]</mark>: <mark>[BRIEF DESCRIPTION]</mark>\n- <mark>[RESOURCE 3, e.g., Tasks]</mark>: <mark>[BRIEF DESCRIPTION]</mark>\n\nWrite a conceptual overview titled \"How [YOUR_PRODUCT] works\" that includes:\n1. Introduction: 2 sentences explaining what [YOUR_PRODUCT] does at a high level\n2. Core concepts: explain each resource in 2 to 3 plain-language sentences. No code\n3. How the resources relate: explain how these resources connect to each other. Use an analogy if it helps\n4. A real-world example: a realistic scenario showing all three resources working together\n5. Key terms: 5 terms the reader should know, with one-sentence definitions\n\nGuidelines:\n- No code blocks or technical syntax\n- No jargon without explanation\n- Second person and active voice\n- Under 400 words total\n- Do not use em dashes",
+    "copyPrompt": "You are a technical writer creating a conceptual overview for [YOUR_PRODUCT].\n\nContext:\n- Product: [YOUR_PRODUCT]: [ONE-SENTENCE DESCRIPTION]\n- Audience: Non-technical stakeholders (PMs, BAs, team leads)\n- Purpose: Explain how [YOUR_PRODUCT] works without code\n\nCore resources:\n- [RESOURCE 1]: [BRIEF DESCRIPTION]\n- [RESOURCE 2]: [BRIEF DESCRIPTION]\n- [RESOURCE 3]: [BRIEF DESCRIPTION]\n\nWrite \"How [YOUR_PRODUCT] works\" with:\n1. 2-sentence introduction\n2. Core concepts: 2-3 plain sentences per resource, no code\n3. How resources relate: with analogy if helpful\n4. Real-world example: all three resources working together\n5. Key terms: 5 terms, one-sentence definitions each\n\nNo code, no jargon without explanation. Second person. Active voice. Under 400 words. No em dashes.",
+    "proTip": "",
+    "tags": [
+      "conceptual",
+      "overview"
+    ]
+  },
+  {
+    "id": "p32",
+    "number": "32",
+    "categoryId": "apidocs",
+    "categoryName": "Sample Product Documentation Prompts",
+    "title": "Quickstart Guide",
+    "useCase": "",
+    "level": "Beginner",
+    "badgeColor": "#0369a1",
+    "promptText": "You are a technical writer specializing in developer onboarding. Write a quickstart guide for [YOUR_PRODUCT].\n\nContext:\n- Product: <mark>[YOUR_PRODUCT]</mark>\n- Task to complete: <mark>[DESCRIBE THE FIRST ACTION, e.g., \"Create a new task using POST /tasks\"]</mark>\n- Time target: Under 5 minutes\n- Audience: A developer who has their API key and knows how to use a REST client\n- Base URL: <mark>[YOUR BASE URL]</mark>\n\nWrite a quickstart guide with this structure:\n1. Title: \"Quickstart: <mark>[TASK NAME]</mark>\"\n2. What you will do: one sentence\n3. Before you begin: 2-item checklist (API key, REST client)\n4. Step 1: Set up your request: endpoint and required headers\n5. Step 2: Write your request body: minimum required fields only\n6. Step 3: Send the request: full curl command\n7. Step 4: Check the response: expected response with the key field to note\n8. What is next: 2 bullet points for next actions\n\nGuidelines:\n- Maximum 300 words total\n- Every step must have a code block\n- Use numbered steps, not paragraphs\n- Do not explain concepts: link to them instead\n- Use second person and active voice\n- Do not use em dashes",
+    "copyPrompt": "You are a technical writer. Write a quickstart guide for [YOUR_PRODUCT].\n\nContext:\n- Product: [YOUR_PRODUCT]\n- Task: [DESCRIBE THE FIRST ACTION]\n- Audience: Developer with API key and REST client\n- Base URL: [YOUR BASE URL]\n\nStructure:\n1. Title: \"Quickstart: [TASK NAME]\"\n2. What you will do: one sentence\n3. Before you begin: 2-item checklist\n4. Step 1: Set up request (endpoint + headers)\n5. Step 2: Write request body (minimum fields)\n6. Step 3: Send request (full curl)\n7. Step 4: Check response (key field to note)\n8. What is next: 2 bullets\n\nMax 300 words. Code block in every step. No concept explanations: link instead. Second person. Active voice. No em dashes.",
+    "proTip": "Try cutting 20%\n                  of the AI output without losing information to keep the\n                  quickstart guide concise.",
+    "tags": [
+      "quickstart",
+      "guide"
+    ]
+  },
+  {
+    "id": "p33",
+    "number": "33",
+    "categoryId": "apidocs",
+    "categoryName": "Sample Product Documentation Prompts",
+    "title": "Product Release Notes",
+    "useCase": "",
+    "level": "Intermediate",
+    "badgeColor": "#0369a1",
+    "promptText": "You are a technical writer responsible for software release communications. Write release notes for [YOUR_PRODUCT] <mark>[VERSION]</mark>.\n\nRelease details:\n- Product: <mark>[YOUR_PRODUCT]</mark>\n- Version: <mark>[VERSION NUMBER]</mark>\n- Release date: <mark>[DATE]</mark>\n- Audience: Developers already using [YOUR_PRODUCT]\n\nChanges to document:\n- New features: <mark>[LIST]</mark>\n- Bug fixes: <mark>[LIST]</mark>\n- Deprecations: <mark>[LIST: include what to use instead and when it will be removed. Or \"None\"]</mark>\n- Breaking changes: <mark>[LIST or \"None\"]</mark>\n\nFormat with these sections:\n1. Overview: 2-sentence summary of the most important changes\n2. New features: one entry per feature with heading, description, and code example where relevant\n3. Bug fixes: what was broken, what it does now, any action required\n4. Deprecations: what is deprecated, replacement, removal timeline, migration example\n5. Upgrade notes: any action required before or after upgrading\n\nGuidelines:\n- Frame every change from the developer's perspective (\"You can now...\" not \"We added...\")\n- Flag deprecations with a warning callout\n- Use code blocks for all endpoint and field references\n- Use active voice\n- Do not use em dashes",
+    "copyPrompt": "You are a technical writer writing release notes for [YOUR_PRODUCT] [VERSION].\n\nDetails:\n- Product: [YOUR_PRODUCT]\n- Version: [VERSION NUMBER]\n- Release date: [DATE]\n- Audience: Existing developers\n\nChanges:\n- New features: [LIST]\n- Bug fixes: [LIST]\n- Deprecations: [LIST with replacement and removal date]\n- Breaking changes: [LIST or \"None\"]\n\nSections: Overview (2 sentences) | New features (with code examples) | Bug fixes | Deprecations (with warning callout + migration example) | Upgrade notes\nFrame changes as \"You can now...\": not \"We added...\". Active voice. Code blocks for all references. No em dashes.",
+    "proTip": "Balance urgency\n                  with clear migration guidance in the deprecation\n                  notice.",
+    "tags": [
+      "product",
+      "notes",
+      "release"
+    ]
+  },
+  {
+    "id": "p34",
+    "number": "34",
+    "categoryId": "apidocs",
+    "categoryName": "Sample Product Documentation Prompts",
+    "title": "Authentication Guide",
+    "useCase": "",
+    "level": "Intermediate",
+    "badgeColor": "#0369a1",
+    "promptText": "You are a technical writer creating an authentication guide for [YOUR_PRODUCT].\n\nContext:\n- Product: <mark>[YOUR_PRODUCT]</mark>\n- Authentication method: <mark>[e.g., API key as Bearer token / OAuth 2.0 / JWT]</mark>\n- Audience: Developers integrating with [YOUR_PRODUCT] for the first time\n- Purpose: Explain how authentication works, how to use credentials correctly, and what to do when authentication fails\n\nWrite a complete authentication guide that includes:\n1. Overview: 2 sentences on how [YOUR_PRODUCT] handles authentication and why it matters\n2. How to get credentials: step-by-step (use placeholder steps appropriate to your product)\n3. How to authenticate requests: required header format and curl example\n4. What happens when authentication fails: 401 error response and the 3 most common causes\n5. Security best practices: 5 specific, actionable recommendations for API key or token security\n6. Revoking and regenerating credentials: when and how to do this\n\nGuidelines:\n- Use second person and active voice\n- Code blocks for all headers, curl examples, and JSON responses\n- Security best practices must be specific (e.g., \"Store your API key in an environment variable\" is better than \"Keep your key safe\")\n- Under 500 words total\n- Do not use em dashes",
+    "copyPrompt": "You are a technical writer creating an authentication guide for [YOUR_PRODUCT].\n\nContext:\n- Product: [YOUR_PRODUCT]\n- Auth method: [e.g., API key as Bearer token / OAuth 2.0]\n- Audience: Developers integrating for the first time\n\nSections:\n1. Overview: 2 sentences\n2. How to get credentials: step-by-step\n3. How to authenticate requests: header format + curl example\n4. What happens when auth fails: 401 response + 3 common causes\n5. Security best practices: 5 specific, actionable recommendations\n6. Revoking and regenerating credentials\n\nUnder 500 words. Code blocks for all examples. Specific security advice. Second person. Active voice. No em dashes.",
+    "proTip": "Provide\n                  specific details in the security best practices section\n                  rather than vague recommendations.",
+    "tags": [
+      "guide",
+      "authentication"
+    ]
+  },
+  {
+    "id": "p35",
+    "number": "35",
+    "categoryId": "apidocs",
+    "categoryName": "Sample Product Documentation Prompts",
+    "title": "PUT Endpoint Reference Page",
+    "useCase": "",
+    "level": "Intermediate",
+    "badgeColor": "#0369a1",
+    "promptText": "You are a technical writer documenting a REST API. Write a reference page for the following PUT endpoint.\n\nEndpoint details:\n- Method: PUT\n- Endpoint URL: <mark>[YOUR BASE URL]/[RESOURCE_ENDPOINT]/{id}</mark>\n- Description: Updates an existing <mark>[RESOURCE]</mark>. Supports partial updates: only fields included in the request body will be updated\n- Authentication: Bearer token in the Authorization header\n- Path parameter: id (string, required): the unique identifier of the <mark>[RESOURCE]</mark> to update\n- Updatable fields: <mark>[LIST EACH: field name (type): description, allowed values, constraints]</mark>\n- Success response: 200 OK: returns the full updated <mark>[RESOURCE]</mark> object\n- Error codes: 400 (validation error), 401 (unauthorized), 404 (not found), 500 (internal server error)\n\nFormat with these sections:\n1. Endpoint: method and URL\n2. Description: note that partial updates are supported\n3. Authentication\n4. Path parameters: table: Parameter | Type | Required | Description\n5. Request body: table: Field | Type | Required | Description | Constraints\n6. Request example: curl command updating only 2: 3 fields\n7. Response: 200 OK with full object\n8. Validation rules: all field-level validation rules listed explicitly\n9. Error responses: table: Code | Message | Description\n10. Example error responses: show both 400 and 404\n\nGuidelines:\n- Make partial update behavior clear and prominent\n- Validation rules section is required: developers depend on it for debugging 400 errors\n- Do not use em dashes",
+    "copyPrompt": "You are a technical writer documenting a REST API. Write a reference page for the following PUT endpoint.\n\nEndpoint details:\n- Method: PUT\n- Endpoint URL: [YOUR BASE URL]/[RESOURCE_ENDPOINT]/{id}\n- Description: Updates an existing [RESOURCE]. Supports partial updates\n- Authentication: Bearer token\n- Path parameter: id (string, required)\n- Updatable fields: [LIST EACH WITH TYPE, DESCRIPTION, ALLOWED VALUES, CONSTRAINTS]\n- Success: 200 OK: full updated object\n- Errors: 400, 401, 404, 500\n\nSections: Endpoint | Description (note partial updates) | Authentication | Path parameters table | Request body table | curl example (2-3 fields) | 200 response | Validation rules (explicit, all fields) | Error table | 400 + 404 examples\nNo em dashes.",
+    "proTip": "Document\n                  validation rules thoroughly to help developers debug 400\n                  errors.",
+    "tags": [
+      "put",
+      "endpoint",
+      "reference",
+      "page"
+    ]
+  },
+  {
+    "id": "p36",
+    "number": "36",
+    "categoryId": "apidocs",
+    "categoryName": "Sample Product Documentation Prompts",
+    "title": "Pagination Guide",
+    "useCase": "",
+    "level": "Intermediate",
+    "badgeColor": "#0369a1",
+    "promptText": "You are a technical writer creating a pagination guide for [YOUR_PRODUCT].\n\nContext:\n- Product: <mark>[YOUR_PRODUCT]</mark>\n- Feature: Pagination on all list endpoints\n- Audience: Developers who need to handle large data sets\n- Pagination type: <mark>[e.g., page-based (page + limit parameters) / cursor-based]</mark>\n\nWrite a pagination guide that includes:\n1. Overview: why pagination exists and what it prevents\n2. How pagination works in [YOUR_PRODUCT]: the approach and parameters\n3. Query parameters: table: Parameter | Type | Default | Maximum | Description\n   - page or cursor (as appropriate)\n   - limit (defaults and maximum)\n4. A paginated request example: curl command\n5. Understanding the response: full paginated response example with this envelope:\n{\n  \"data\": [...],\n  \"pagination\": {\n    \"total\": [NUMBER],\n    \"page\": [NUMBER],\n    \"limit\": [NUMBER],\n    \"total_pages\": [NUMBER],\n    \"next_page\": [NUMBER or null],\n    \"prev_page\": [NUMBER or null]\n  }\n}\nTable explaining each pagination field.\n6. How to retrieve all pages: pseudocode loop with plain-language explanation before the code\n7. Edge cases: page out of range, limit above maximum\n\nGuidelines:\n- Use code blocks for all examples\n- Explain the pseudocode loop in plain language first\n- Use second person and active voice\n- Do not use em dashes",
+    "copyPrompt": "You are a technical writer creating a pagination guide for [YOUR_PRODUCT].\n\nContext:\n- Product: [YOUR_PRODUCT]\n- Feature: Pagination on all list endpoints\n- Pagination type: [e.g., page-based / cursor-based]\n\nSections:\n1. Overview: why pagination exists\n2. How it works in [YOUR_PRODUCT]\n3. Query parameters table (page/cursor, limit with defaults + max)\n4. Paginated request example (curl)\n5. Response envelope example with pagination object + field table\n6. How to retrieve all pages: plain-language explanation + pseudocode loop\n7. Edge cases: out-of-range page, limit above maximum\n\nCode blocks throughout. Second person. Active voice. No em dashes.",
+    "proTip": "Document\n                  edge cases thoroughly to help developers test API\n                  boundaries.",
+    "tags": [
+      "guide",
+      "pagination"
+    ]
+  },
+  {
+    "id": "p37",
+    "number": "37",
+    "categoryId": "apidocs",
+    "categoryName": "Sample Product Documentation Prompts",
+    "title": "Audit and Rewrite a Poor API Doc",
+    "useCase": "",
+    "level": "Senior",
+    "badgeColor": "#0369a1",
+    "promptText": "You are a senior technical writer and documentation reviewer. I am giving you a poorly written API reference page. Audit it, identify all issues, and produce a professional rewrite.\n\nDocument to review:\n<mark>[PASTE THE POORLY WRITTEN DOCUMENT HERE]</mark>\n\nEndpoint details to use in your rewrite:\n- Method: <mark>[METHOD]</mark>\n- Endpoint URL: <mark>[YOUR BASE URL]/[ENDPOINT]</mark>\n- Description: <mark>[DESCRIPTION]</mark>\n- Authentication: <mark>[AUTH METHOD]</mark>\n- Path parameter (if applicable): <mark>[NAME, TYPE, DESCRIPTION]</mark>\n- Success response: <mark>[CODE AND DESCRIPTION]</mark>\n- Error codes: <mark>[LIST]</mark>\n\nProduce two outputs:\n\nOutput 1: Audit report\nFor each issue: quote the original text, name the problem (e.g., missing information, passive voice, no code example, inconsistent formatting), and explain the impact on the developer.\n\nOutput 2: Rewritten reference page\nUse the endpoint details above. Follow this structure:\n1. Endpoint: method and URL\n2. Description: include any critical warnings (e.g., irreversible actions)\n3. Authentication\n4. Path parameters: table (if applicable)\n5. Request example: curl command\n6. Response: explain the success response\n7. Error responses: table: Code | Message | Description\n8. Example error responses\n\nGuidelines:\n- Use code blocks for all examples\n- Use active voice and second person\n- Do not use em dashes",
+    "copyPrompt": "You are a senior technical writer. Audit the poorly written document below and produce a professional rewrite.\n\nDocument to review:\n[PASTE POORLY WRITTEN DOCUMENT HERE]\n\nEndpoint details for rewrite:\n- Method: [METHOD]\n- Endpoint URL: [YOUR BASE URL]/[ENDPOINT]\n- Description: [DESCRIPTION]\n- Authentication: [AUTH METHOD]\n- Path parameter: [NAME, TYPE, DESCRIPTION: if applicable]\n- Success response: [CODE AND DESCRIPTION]\n- Error codes: [LIST]\n\nOutput 1: Audit report: for each issue: quote original | name the problem | explain impact on developer\nOutput 2: Rewritten reference page: Endpoint | Description | Authentication | Path parameters | curl example | Response | Error table | Error JSON examples\nActive voice. Second person. No em dashes.",
+    "proTip": "",
+    "tags": [
+      "poor",
+      "rewrite",
+      "audit",
+      "api"
+    ]
+  },
+  {
+    "id": "p38",
+    "number": "38",
+    "categoryId": "apidocs",
+    "categoryName": "Sample Product Documentation Prompts",
+    "title": "Documentation Information Architecture",
+    "useCase": "",
+    "level": "Senior",
+    "badgeColor": "#0369a1",
+    "promptText": "You are a senior technical writer and documentation strategist. Design the complete information architecture for [YOUR_PRODUCT] documentation.\n\nContext:\n- Product: <mark>[YOUR_PRODUCT]</mark>: <mark>[ONE-SENTENCE DESCRIPTION]</mark>\n- Audiences: New developers (onboarding), experienced developers (reference lookup), non-technical stakeholders (product evaluation)\n- Documentation types needed: Conceptual overviews, how-to guides, API reference, quickstart guides, release notes, FAQ\n- Publishing platform: <mark>[e.g., developer portal / docs site / Confluence / GitHub Pages]</mark>\n\nProduce a complete information architecture document with:\n\n1. Site map\nPresent the full navigation structure as an indented list. Include every page.\n\n2. Section descriptions\nFor each top-level section: 2 sentences explaining what it contains and who it is for.\n\n3. Reading paths\nDefine 3 recommended paths:\n- Path A: A developer integrating [YOUR_PRODUCT] for the first time\n- Path B: An experienced developer looking up a specific endpoint\n- Path C: A non-technical stakeholder evaluating [YOUR_PRODUCT]\n\n4. Page dependency map\nList 5 pages that must be written before others can reference them. Explain why each is a dependency.\n\n5. Content gaps\nIdentify 3 documentation types not yet covered and explain why they would be valuable.\n\nGuidelines:\n- Think about the user's goal at each step, not just the document type\n- The site map should reflect how a user navigates, not how the API is structured\n- Use plain language in all section descriptions\n- Do not use em dashes\n- Before providing your final output, use a &lt;thinking&gt; tag to briefly brainstorm the user goals and reading paths.",
+    "copyPrompt": "You are a senior technical writer and documentation strategist. Design the complete information architecture for [YOUR_PRODUCT] documentation.\n\nContext:\n- Product: [YOUR_PRODUCT]: [ONE-SENTENCE DESCRIPTION]\n- Audiences: New developers, experienced developers, non-technical stakeholders\n- Doc types needed: Conceptual overviews, how-to guides, API reference, quickstart, release notes, FAQ\n- Publishing platform: [e.g., developer portal / GitHub Pages]\n\nProduce:\n1. Site map: full navigation as indented list\n2. Section descriptions: 2 sentences per top-level section (what + who)\n3. Reading paths: 3 paths: new developer / experienced developer / non-technical stakeholder\n4. Page dependency map: 5 pages that must exist first, with reasons\n5. Content gaps: 3 missing doc types with justification\n\nUser-goal focus, not API structure. Plain language. No em dashes. Before providing your final output, use a <thinking> tag to briefly brainstorm the user goals and reading paths.",
+    "proTip": "Document the information architecture to\n                  demonstrate systems thinking to\n                  stakeholders.",
+    "tags": [
+      "information",
+      "architecture",
+      "documentation"
+    ]
+  },
+  {
+    "id": "p42",
+    "number": "42",
+    "categoryId": "apidocs",
+    "categoryName": "Sample Product Documentation Prompts",
+    "title": "Auto-Generate Code Comments",
+    "useCase": "",
+    "level": "Intermediate",
+    "badgeColor": "#0369a1",
+    "promptText": "You are a technical writer documenting source code. Review the following <mark>[LANGUAGE]</mark> code snippet:\n\n&lt;code&gt;\n<mark>[PASTE CODE HERE]</mark>\n&lt;/code&gt;\n\nAdd comprehensive inline documentation comments (e.g., JSDoc or Python Docstrings) explaining what the function does, its parameters, return types, and potential errors. \nDo not change the underlying code logic. Output the fully commented code block.",
+    "copyPrompt": "You are a technical writer documenting source code. Review the following [LANGUAGE] code snippet:\n\n<code>\n[PASTE CODE HERE]\n</code>\n\nAdd comprehensive inline documentation comments (e.g., JSDoc or Python Docstrings) explaining what the function does, its parameters, return types, and potential errors. \nDo not change the underlying code logic. Output the fully commented code block.",
+    "proTip": "",
+    "tags": [
+      "auto",
+      "code",
+      "comments",
+      "generate"
+    ]
+  },
+  {
+    "id": "p43",
+    "number": "43",
+    "categoryId": "apidocs",
+    "categoryName": "Sample Product Documentation Prompts",
+    "title": "Prompt 43",
+    "useCase": "",
+    "level": "Intermediate",
+    "badgeColor": "#0369a1",
+    "promptText": "You are a technical writer drafting a public how-to guide from a raw demo video transcript. Review the following transcript:\n\n&lt;transcript&gt;\n<mark>[PASTE TRANSCRIPT HERE]</mark>\n&lt;/transcript&gt;\n\nIgnore all filler words, presenter chatter, and unrelated tangents. Focus only on the actionable steps the presenter takes in the UI. \nWrite a step-by-step how-to guide with a clear title, a brief introduction, and numbered steps. Use bold text for UI elements the user needs to click or interact with. \nUse a &lt;thinking&gt; tag to map out the core user journey before writing the steps.",
+    "copyPrompt": "You are a technical writer drafting a public how-to guide from a raw demo video transcript. Review the following transcript:\n\n<transcript>\n[PASTE TRANSCRIPT HERE]\n</transcript>\n\nIgnore all filler words, presenter chatter, and unrelated tangents. Focus only on the actionable steps the presenter takes in the UI. \nWrite a step-by-step how-to guide with a clear title, a brief introduction, and numbered steps. Use bold text for UI elements the user needs to click or interact with. \nUse a <thinking> tag to map out the core user journey before writing the steps.",
+    "proTip": "",
+    "tags": [
+      "prompt"
+    ]
+  },
+  {
+    "id": "p44",
+    "number": "44",
+    "categoryId": "apidocs",
+    "categoryName": "Sample Product Documentation Prompts",
+    "title": "Convert Internal Wiki to External Guide",
+    "useCase": "",
+    "level": "Intermediate",
+    "badgeColor": "#0369a1",
+    "promptText": "You are a technical writer migrating internal documentation to an external user-facing knowledge base. Review the following raw text from an internal Confluence page:\n\n&lt;source_content&gt;\n<mark>[PASTE INTERNAL WIKI TEXT HERE]</mark>\n&lt;/source_content&gt;\n\nYour task is to convert this into a clean, professional user guide for external customers. Follow these rules:\n1. Remove all internal jargon, project codenames, and references to internal teams (e.g., \"ask the dev team on Slack\")\n2. Remove any placeholders for internal links (e.g., \"go to go/project-dashboard\")\n3. Reformat the content into a standard user guide structure: Title, Overview, Prerequisites, and Step-by-Step Instructions\n4. Ensure the tone is helpful, professional, and customer-centric.",
+    "copyPrompt": "You are a technical writer migrating internal documentation to an external user-facing knowledge base. Review the following raw text from an internal Confluence page:\n\n<source_content>\n[PASTE INTERNAL WIKI TEXT HERE]\n</source_content>\n\nYour task is to convert this into a clean, professional user guide for external customers. Follow these rules:\n1. Remove all internal jargon, project codenames, and references to internal teams (e.g., \"ask the dev team on Slack\")\n2. Remove any placeholders for internal links (e.g., \"go to go/project-dashboard\")\n3. Reformat the content into a standard user guide structure: Title, Overview, Prerequisites, and Step-by-Step Instructions\n4. Ensure the tone is helpful, professional, and customer-centric.",
+    "proTip": "",
+    "tags": [
+      "internal",
+      "wiki",
+      "external",
+      "convert",
+      "guide"
+    ]
+  },
+  {
+    "id": "p45",
+    "number": "45",
+    "categoryId": "apidocs",
+    "categoryName": "Sample Product Documentation Prompts",
+    "title": "Generate UI Screenshot Alt Text",
+    "useCase": "",
+    "level": "Intermediate",
+    "badgeColor": "#0369a1",
+    "promptText": "You are an accessibility expert and technical writer. I am providing you with an image of a software user interface <mark>[UPLOAD IMAGE]</mark>.\n\nWrite alternative text (alt text) for this image that is optimized for screen readers. Follow these guidelines:\n1. Do not start with \"Image of\" or \"Screenshot of\"\n2. Focus on the functional purpose of the UI rather than describing every visual detail\n3. If there is a key action the user is supposed to take (e.g., clicking a specific \"Save\" button), make sure that action and button are clearly described\n4. Keep the alt text under 125 characters if possible, but prioritize clarity over length if the UI is complex.",
+    "copyPrompt": "You are an accessibility expert and technical writer. I am providing you with an image of a software user interface [UPLOAD IMAGE].\n\nWrite alternative text (alt text) for this image that is optimized for screen readers. Follow these guidelines:\n1. Do not start with \"Image of\" or \"Screenshot of\"\n2. Focus on the functional purpose of the UI rather than describing every visual detail\n3. If there is a key action the user is supposed to take (e.g., clicking a specific \"Save\" button), make sure that action and button are clearly described\n4. Keep the alt text under 125 characters if possible, but prioritize clarity over length if the UI is complex.",
+    "proTip": "",
+    "tags": [
+      "screenshot",
+      "text",
+      "alt",
+      "generate"
+    ]
+  },
+  {
+    "id": "p51",
+    "number": "51",
+    "categoryId": "apidocs",
+    "categoryName": "Sample Product Documentation Prompts",
+    "title": "Write a CLI Reference Page",
+    "useCase": "Document a command, flags, and examples",
+    "level": "Beginner",
+    "badgeColor": "#0369a1",
+    "promptText": "You are a technical writer documenting a CLI tool. Write a reference page for the following command.\n                Command name: <mark>[COMMAND]</mark>\n                Description: <mark>[WHAT THIS COMMAND DOES]</mark>\n                Usage: <mark>[e.g., yourtool [command] [options]</mark>\n                Options: <mark>[LIST EACH FLAG/OPTION: name, type, default, description]</mark>\n                Examples: <mark>[LIST 2: 3 EXAMPLES]</mark>\n\n                Structure the page with:\n                1. Command synopsis\n                2. Description\n                3. Options table\n                4. Examples\n                5. Notes or warnings\n\n                Use code blocks for commands and note any required arguments.",
+    "copyPrompt": "You are a technical writer documenting a CLI tool. Write a reference page for the following command.\n\n                Command name: [COMMAND]\n                Description: [WHAT THIS COMMAND DOES]\n                Usage: [e.g., yourtool [command] [options]]\n                Options: [LIST EACH FLAG/OPTION: name, type, default, description]\n                Examples: [LIST 2: 3 EXAMPLES]\n\n                Structure the page with:\n                1. Command synopsis\n                2. Description\n                3. Options table\n                4. Examples\n                5. Notes or warnings\n\n                Use code blocks for commands and note any required arguments.",
+    "proTip": "Use this prompt for CLI tools, deployment scripts, or\n                command reference pages.",
+    "tags": [
+      "write",
+      "cli",
+      "page",
+      "reference",
+      "command"
+    ]
+  }
+]
