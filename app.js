@@ -240,7 +240,6 @@
     card.innerHTML = `
       <div class="card-header">
         <div class="card-title-group">
-          <span class="num-badge" style="background-color: ${prompt.badgeColor || '#6366f1'}">${prompt.number}</span>
           <div>
             <h3 class="card-title">${escapeHtml(prompt.title)}</h3>
             <p class="card-usecase">${escapeHtml(prompt.useCase)}</p>
@@ -383,7 +382,6 @@
     modalContainer.innerHTML = `
       <div class="modal-header">
         <div class="card-title-group">
-          <span class="num-badge" style="background-color: ${prompt.badgeColor || '#6366f1'}">${prompt.number}</span>
           <div>
             <h3 class="card-title" style="font-size: 1.25rem;">${escapeHtml(prompt.title)}</h3>
             <p class="card-usecase">${escapeHtml(prompt.useCase)}</p>
@@ -535,7 +533,7 @@
     let md = `# AI Prompt Library Export\n\nGenerated on: ${new Date().toLocaleDateString()}\nTotal Prompts: ${filtered.length}\n\n---\n\n`;
 
     filtered.forEach(p => {
-      md += `## [${p.number}] ${p.title}\n`;
+      md += `## ${p.title}\n`;
       md += `**Category:** ${p.categoryName}\n\n`;
       md += `> ${p.useCase}\n\n`;
       md += `\`\`\`text\n${p.copyPrompt}\n\`\`\`\n\n`;
