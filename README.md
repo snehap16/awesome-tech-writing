@@ -33,6 +33,7 @@ Built on **8+ years of industry experience**, this repository bridges the gap be
 ### 03. Real-World Portfolio Samples
 * 📦 [**WorkIt Installation Guide**](Sample_Portfolio/installation-guide.md) – Comprehensive Cloud & Self-Hosted deployment document sample.
 * 📘 [**WorkIt User Guide**](Sample_Portfolio/workit-user-guide.md) – End-user product documentation sample.
+* 🛠️ [**WorkIt Developer & REST API Guide**](Sample_Portfolio/developers-guide.md) – REST API reference sample covering authentication, endpoints, webhooks, and SDKs.
 * 📂 [**Portfolio Overview**](Sample_Portfolio/readme.md) – Portfolio structure and methodology.
 
 ---
