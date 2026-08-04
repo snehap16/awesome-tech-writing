@@ -161,6 +161,25 @@ body {
   color: #6366f1;
 }
 
+/* Visitor Counter Badge */
+.visitor-counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  color: var(--text-main);
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.visitor-counter svg {
+  color: #6366f1;
+}
+
 /* Search Input in Header */
 .search-box {
   position: relative;
