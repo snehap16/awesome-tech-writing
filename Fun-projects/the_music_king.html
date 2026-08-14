@@ -1,0 +1,3167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Music King 👑 | Emraan Hashmi Sing-Along Jukebox</title>
+    <meta
+      name="description"
+      content="A cute, nostalgic tribute to Emraan Hashmi. Listen to full-length Bollywood hits across Romantic, Sad, Fun, and Sufi moods with live Sing-Along Lyrics."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;1,400;1,600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg-deep: #08060f;
+        --bg-surface: #120e20;
+        --bg-card: rgba(24, 18, 38, 0.88);
+        --bg-card-hover: rgba(38, 28, 60, 0.95);
+        --crimson: #ff2a5f;
+        --crimson-glow: rgba(255, 42, 95, 0.45);
+        --gold: #ffb830;
+        --gold-glow: rgba(255, 184, 48, 0.45);
+        --cyan: #00f2fe;
+        --purple: #a855f7;
+        --text-main: #f8fafc;
+        --text-muted: #94a3b8;
+        --text-dim: #64748b;
+        --border-subtle: rgba(255, 255, 255, 0.09);
+        --border-highlight: rgba(255, 42, 95, 0.5);
+        --radius-lg: 24px;
+        --radius-md: 16px;
+        --radius-sm: 10px;
+        --font-title: "Cinzel", serif;
+        --font-body: "Outfit", sans-serif;
+        --font-quote: "Playfair Display", serif;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+        color-scheme: dark;
+      }
+
+      body {
+        background-color: var(--bg-deep);
+        color: var(--text-main);
+        font-family: var(--font-body);
+        min-height: 100vh;
+        overflow-x: hidden;
+        line-height: 1.6;
+        background-image:
+          radial-gradient(
+            circle at 15% 15%,
+            rgba(255, 42, 95, 0.16) 0%,
+            transparent 45%
+          ),
+          radial-gradient(
+            circle at 85% 60%,
+            rgba(168, 85, 247, 0.16) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 50% 90%,
+            rgba(0, 242, 254, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 50% 10%,
+            rgba(255, 184, 48, 0.1) 0%,
+            transparent 40%
+          );
+        background-attachment: fixed;
+      }
+
+      #particles-canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+        opacity: 0.65;
+      }
+
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--bg-deep);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #28203c;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--crimson);
+      }
+
+      .app-container {
+        position: relative;
+        z-index: 1;
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 1.5rem 1.5rem 5rem;
+      }
+
+      /* HEADER */
+      header {
+        text-align: center;
+        padding: 2.2rem 1rem 1.2rem;
+        position: relative;
+      }
+
+      .top-controls {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        display: flex;
+        gap: 0.5rem;
+        z-index: 10;
+      }
+
+      .icon-btn {
+        background: var(--bg-card);
+        border: 1px solid var(--border-subtle);
+        color: var(--text-muted);
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 1.05rem;
+        transition: all 0.25s ease;
+        backdrop-filter: blur(10px);
+      }
+      .icon-btn:hover {
+        color: var(--text-main);
+        border-color: var(--crimson);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px var(--crimson-glow);
+      }
+
+      .top-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 42, 95, 0.2),
+          rgba(255, 184, 48, 0.2)
+        );
+        border: 1px solid rgba(255, 184, 48, 0.45);
+        padding: 0.4rem 1.2rem;
+        border-radius: 50px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 20px rgba(255, 184, 48, 0.18);
+      }
+
+      .main-title {
+        font-family: var(--font-title);
+        font-size: clamp(2.4rem, 6vw, 4.2rem);
+        font-weight: 900;
+        letter-spacing: 2px;
+        line-height: 1.1;
+        text-transform: uppercase;
+        background: linear-gradient(
+          135deg,
+          #ffffff 10%,
+          #ffd080 40%,
+          #ff2a5f 80%,
+          #ff758c 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        filter: drop-shadow(0 4px 15px rgba(255, 42, 95, 0.4));
+        margin-bottom: 0.4rem;
+      }
+
+      .tribute-tagline {
+        font-family: var(--font-quote);
+        font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+        font-style: italic;
+        color: #ffd080;
+        margin-bottom: 0.6rem;
+      }
+
+      .subtitle {
+        font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+        color: var(--text-muted);
+        max-width: 650px;
+        margin: 0 auto 1.4rem;
+        font-weight: 400;
+      }
+
+      .quick-stats {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-top: 0.4rem;
+      }
+
+      .stat-pill {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--border-subtle);
+        border-radius: 30px;
+        padding: 0.3rem 1rem;
+        font-size: 0.82rem;
+        color: var(--text-muted);
+        backdrop-filter: blur(8px);
+      }
+      .stat-pill strong {
+        color: var(--text-main);
+        font-weight: 700;
+      }
+
+      /* 5 CUTE MOOD BUTTONS */
+      .mood-section {
+        margin: 2rem auto 3rem;
+        text-align: center;
+      }
+
+      .section-eyebrow {
+        font-size: 0.82rem;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: var(--crimson);
+        font-weight: 700;
+        margin-bottom: 0.4rem;
+      }
+
+      .section-heading {
+        font-family: var(--font-title);
+        font-size: clamp(1.5rem, 3vw, 2.2rem);
+        margin-bottom: 1.5rem;
+        color: var(--text-main);
+      }
+
+      .mood-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+        gap: 1.1rem;
+        max-width: 1020px;
+        margin: 0 auto;
+      }
+
+      .mood-card {
+        position: relative;
+        background: var(--bg-card);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-lg);
+        padding: 1.6rem 1rem;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        backdrop-filter: blur(14px);
+        overflow: hidden;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        user-select: none;
+      }
+
+      .mood-card:hover {
+        transform: translateY(-6px) scale(1.02);
+        border-color: var(--card-accent, var(--crimson));
+        box-shadow: 0 12px 30px -8px var(--card-glow, var(--crimson-glow));
+      }
+
+      .mood-card.active {
+        border-color: var(--card-accent, var(--crimson));
+        background: linear-gradient(
+          160deg,
+          rgba(42, 32, 64, 0.95),
+          rgba(20, 16, 32, 0.98)
+        );
+        box-shadow:
+          0 0 0 2px var(--card-accent, var(--crimson)),
+          0 12px 35px -8px var(--card-glow, var(--crimson-glow));
+      }
+
+      .mood-card.mood-romantic {
+        --card-accent: #ff2a5f;
+        --card-glow: rgba(255, 42, 95, 0.45);
+      }
+      .mood-card.mood-sad {
+        --card-accent: #38bdf8;
+        --card-glow: rgba(56, 189, 248, 0.45);
+      }
+      .mood-card.mood-fun {
+        --card-accent: #ffb830;
+        --card-glow: rgba(255, 184, 48, 0.45);
+      }
+      .mood-card.mood-sufi {
+        --card-accent: #a855f7;
+        --card-glow: rgba(168, 85, 247, 0.45);
+      }
+      .mood-card.mood-roulette {
+        --card-accent: #10b981;
+        --card-glow: rgba(16, 185, 129, 0.45);
+      }
+
+      .mood-emoji {
+        font-size: 2.6rem;
+        margin-bottom: 0.6rem;
+        transition: transform 0.3s ease;
+        filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+      }
+
+      .mood-card:hover .mood-emoji {
+        transform: scale(1.15) rotate(5deg);
+      }
+
+      .mood-title {
+        font-family: var(--font-title);
+        font-size: 1.2rem;
+        font-weight: 800;
+        margin-bottom: 0.25rem;
+        color: var(--text-main);
+      }
+
+      .mood-tagline {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        line-height: 1.3;
+        margin-bottom: 0.8rem;
+      }
+
+      .mood-btn-trigger {
+        margin-top: auto;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid var(--border-subtle);
+        color: var(--text-main);
+        padding: 0.4rem 1rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        transition: all 0.2s ease;
+      }
+
+      .mood-card:hover .mood-btn-trigger {
+        background: var(--card-accent, var(--crimson));
+        color: #fff;
+        border-color: transparent;
+        box-shadow: 0 4px 15px var(--card-glow, var(--crimson-glow));
+      }
+
+      /* CENTERPIECE JUKEBOX DECK */
+      .jukebox-container {
+        background: linear-gradient(
+          160deg,
+          rgba(26, 20, 40, 0.96) 0%,
+          rgba(13, 11, 22, 0.98) 100%
+        );
+        border: 1px solid var(--border-subtle);
+        border-radius: 28px;
+        padding: 2.2rem;
+        margin-bottom: 3rem;
+        box-shadow:
+          0 25px 60px -15px rgba(0, 0, 0, 0.85),
+          0 0 45px -20px var(--crimson-glow);
+        backdrop-filter: blur(25px);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .jukebox-glow-decor {
+        position: absolute;
+        width: 320px;
+        height: 320px;
+        border-radius: 50%;
+        filter: blur(90px);
+        opacity: 0.16;
+        pointer-events: none;
+      }
+      .decor-1 {
+        top: -100px;
+        left: -100px;
+        background: var(--crimson);
+      }
+      .decor-2 {
+        bottom: -100px;
+        right: -100px;
+        background: var(--gold);
+      }
+
+      .jukebox-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 1fr;
+        gap: 2.2rem;
+        align-items: center;
+      }
+
+      @media (max-width: 900px) {
+        .jukebox-grid {
+          grid-template-columns: 1fr;
+          gap: 1.8rem;
+        }
+      }
+
+      /* LEFT: EMBEDDED YOUTUBE CINEMA SCREEN */
+      .player-media-stage {
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+
+      .video-bezel-frame {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        background: #000;
+        border-radius: 18px;
+        overflow: hidden;
+        border: 2px solid rgba(255, 42, 95, 0.4);
+        box-shadow:
+          0 15px 40px rgba(0, 0, 0, 0.9),
+          0 0 30px rgba(255, 42, 95, 0.25);
+      }
+
+      #yt-player-target {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+      }
+
+      /* DUE CREDITS & STATUS BAR */
+      .credits-status-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.55);
+        border: 1px solid var(--border-subtle);
+        border-radius: 14px;
+        padding: 0.65rem 1rem;
+        flex-wrap: wrap;
+      }
+
+      .credits-info {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+      }
+
+      .yt-icon-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        background: rgba(255, 0, 0, 0.15);
+        border: 1px solid rgba(255, 0, 0, 0.4);
+        color: #ff4d4d;
+        padding: 0.15rem 0.6rem;
+        border-radius: 20px;
+        font-weight: 700;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .equalizer-container {
+        display: flex;
+        align-items: flex-end;
+        gap: 3px;
+        height: 18px;
+      }
+
+      .eq-bar {
+        width: 3px;
+        background: linear-gradient(to top, var(--crimson), var(--gold));
+        border-radius: 2px;
+        height: 4px;
+      }
+
+      .equalizer-container.active .eq-bar:nth-child(1) {
+        animation: eqBounce 0.7s infinite alternate ease-in-out;
+      }
+      .equalizer-container.active .eq-bar:nth-child(2) {
+        animation: eqBounce 0.9s infinite 0.15s alternate ease-in-out;
+      }
+      .equalizer-container.active .eq-bar:nth-child(3) {
+        animation: eqBounce 0.6s infinite 0.3s alternate ease-in-out;
+      }
+      .equalizer-container.active .eq-bar:nth-child(4) {
+        animation: eqBounce 0.85s infinite 0.1s alternate ease-in-out;
+      }
+      .equalizer-container.active .eq-bar:nth-child(5) {
+        animation: eqBounce 1.1s infinite 0.25s alternate ease-in-out;
+      }
+      .equalizer-container.active .eq-bar:nth-child(6) {
+        animation: eqBounce 0.75s infinite 0.4s alternate ease-in-out;
+      }
+
+      @keyframes eqBounce {
+        0% {
+          height: 4px;
+        }
+        100% {
+          height: 18px;
+        }
+      }
+
+      /* RIGHT: DETAILS & CONTROLS */
+      .player-details {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .song-badge-row {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin-bottom: 0.5rem;
+      }
+
+      .song-era-badge {
+        background: rgba(255, 184, 48, 0.15);
+        color: var(--gold);
+        border: 1px solid rgba(255, 184, 48, 0.35);
+        padding: 0.2rem 0.75rem;
+        border-radius: 12px;
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .song-mood-badge {
+        background: rgba(255, 42, 95, 0.18);
+        color: var(--crimson);
+        border: 1px solid rgba(255, 42, 95, 0.4);
+        padding: 0.2rem 0.75rem;
+        border-radius: 12px;
+        font-size: 0.72rem;
+        font-weight: 700;
+      }
+
+      .song-full-badge {
+        background: rgba(16, 185, 129, 0.18);
+        color: #10b981;
+        border: 1px solid rgba(16, 185, 129, 0.4);
+        padding: 0.2rem 0.75rem;
+        border-radius: 12px;
+        font-size: 0.72rem;
+        font-weight: 700;
+      }
+
+      .current-song-title {
+        font-family: var(--font-title);
+        font-size: clamp(1.8rem, 4vw, 2.4rem);
+        font-weight: 900;
+        line-height: 1.2;
+        color: #ffffff;
+        margin-bottom: 0.2rem;
+        letter-spacing: 0.5px;
+      }
+
+      .current-movie-meta {
+        font-size: 1.15rem;
+        color: #ffd080;
+        font-weight: 700;
+        margin-bottom: 0.3rem;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+
+      .current-artists-meta {
+        font-size: 0.92rem;
+        color: var(--text-muted);
+        margin-bottom: 0.9rem;
+      }
+      .current-artists-meta strong {
+        color: var(--text-main);
+        font-weight: 600;
+      }
+
+      /* LYRICS PREVIEW PUNCHBOX */
+      .lyric-punch-box {
+        background: rgba(0, 0, 0, 0.45);
+        border-left: 3.5px solid var(--crimson);
+        padding: 0.85rem 1.1rem;
+        border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        margin-bottom: 1.1rem;
+        font-family: var(--font-quote);
+        font-style: italic;
+        font-size: 1.05rem;
+        color: #f1f5f9;
+        position: relative;
+        cursor: pointer;
+        transition: background 0.2s ease;
+      }
+      .lyric-punch-box:hover {
+        background: rgba(255, 42, 95, 0.12);
+      }
+
+      .lyric-punch-box::before {
+        content: "“";
+        font-size: 2.2rem;
+        line-height: 0;
+        position: absolute;
+        top: 12px;
+        left: 6px;
+        color: var(--crimson);
+        opacity: 0.6;
+      }
+
+      /* ACTION BUTTONS (CONTROLS + SING-ALONG LYRICS TOGGLE) */
+      .player-controls-row {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+        margin-top: 0.4rem;
+      }
+
+      .ctrl-btn {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid var(--border-subtle);
+        color: var(--text-main);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.25s ease;
+      }
+
+      .ctrl-btn-sub {
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
+      }
+      .ctrl-btn-sub:hover {
+        background: rgba(255, 255, 255, 0.18);
+        border-color: var(--border-highlight);
+        transform: scale(1.08);
+      }
+
+      .sing-along-lyrics-btn {
+        background: linear-gradient(
+          135deg,
+          rgba(168, 85, 247, 0.25),
+          rgba(255, 42, 95, 0.25)
+        );
+        border: 1px solid rgba(168, 85, 247, 0.5);
+        color: #f3e8ff;
+        padding: 0.75rem 1.3rem;
+        border-radius: 30px;
+        font-size: 0.88rem;
+        font-weight: 700;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        transition: all 0.25s ease;
+        backdrop-filter: blur(10px);
+      }
+      .sing-along-lyrics-btn:hover {
+        background: linear-gradient(135deg, #a855f7, #ff2a5f);
+        color: #fff;
+        box-shadow: 0 4px 20px rgba(168, 85, 247, 0.5);
+        transform: translateY(-2px);
+      }
+
+      .next-random-mood-btn {
+        background: linear-gradient(135deg, var(--crimson), var(--gold));
+        border: none;
+        color: #fff;
+        padding: 0.8rem 1.5rem;
+        border-radius: 30px;
+        font-size: 0.92rem;
+        font-weight: 700;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.25s ease;
+        box-shadow: 0 4px 20px var(--crimson-glow);
+      }
+
+      .next-random-mood-btn:hover {
+        transform: translateY(-2px) scale(1.03);
+        box-shadow: 0 8px 30px var(--crimson-glow);
+      }
+
+      .player-footer-links {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 1.1rem;
+        font-size: 0.85rem;
+        color: var(--text-dim);
+        flex-wrap: wrap;
+        gap: 0.8rem;
+      }
+
+      .player-footer-links a {
+        color: #ff4d4d;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        font-weight: 600;
+        transition: color 0.2s;
+      }
+      .player-footer-links a:hover {
+        color: #fff;
+        text-decoration: underline;
+      }
+
+      /* SING-ALONG LYRICS DRAWER / MODAL */
+      .lyrics-modal-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(4, 3, 8, 0.85);
+        backdrop-filter: blur(15px);
+        z-index: 10000;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.35s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+      }
+      .lyrics-modal-backdrop.open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .lyrics-drawer-panel {
+        background: linear-gradient(
+          165deg,
+          rgba(28, 22, 45, 0.98) 0%,
+          rgba(13, 10, 22, 0.99) 100%
+        );
+        border: 1px solid rgba(255, 42, 95, 0.4);
+        border-radius: 28px;
+        width: 100%;
+        max-width: 680px;
+        max-height: 88vh;
+        display: flex;
+        flex-direction: column;
+        box-shadow:
+          0 25px 60px rgba(0, 0, 0, 0.9),
+          0 0 50px rgba(255, 42, 95, 0.3);
+        transform: translateY(30px) scale(0.95);
+        transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        overflow: hidden;
+      }
+      .lyrics-modal-backdrop.open .lyrics-drawer-panel {
+        transform: translateY(0) scale(1);
+      }
+
+      .lyrics-modal-header {
+        padding: 1.5rem 1.8rem 1.2rem;
+        border-bottom: 1px solid var(--border-subtle);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        background: rgba(0, 0, 0, 0.3);
+      }
+
+      .lyrics-header-title {
+        font-family: var(--font-title);
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .lyrics-header-meta {
+        font-size: 0.85rem;
+        color: #ffd080;
+      }
+
+      .close-lyrics-btn {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid var(--border-subtle);
+        color: var(--text-muted);
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 1.2rem;
+        transition: all 0.2s ease;
+      }
+      .close-lyrics-btn:hover {
+        background: var(--crimson);
+        color: #fff;
+        transform: scale(1.1);
+      }
+
+      .lyrics-scroll-body {
+        padding: 1.8rem 2rem;
+        overflow-y: auto;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 1.4rem;
+      }
+
+      .karaoke-verse-box {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .karaoke-line {
+        font-family: var(--font-quote);
+        font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+        font-weight: 600;
+        line-height: 1.5;
+        color: #cbd5e1;
+        padding: 0.5rem 0.9rem;
+        border-radius: 12px;
+        transition: all 0.25s ease;
+        cursor: pointer;
+        position: relative;
+      }
+      .karaoke-line:hover {
+        background: rgba(255, 42, 95, 0.15);
+        color: #fff;
+        transform: translateX(6px);
+      }
+      .karaoke-line.active-verse {
+        color: #ffd080;
+        background: linear-gradient(
+          90deg,
+          rgba(255, 42, 95, 0.22),
+          transparent
+        );
+        border-left: 4px solid var(--crimson);
+        font-size: clamp(1.3rem, 2.8vw, 1.65rem);
+        text-shadow: 0 0 15px rgba(255, 184, 48, 0.4);
+      }
+
+      .lyrics-meaning-card {
+        background: rgba(0, 0, 0, 0.4);
+        border: 1px dashed rgba(255, 184, 48, 0.4);
+        border-radius: 16px;
+        padding: 1.2rem 1.4rem;
+        margin-top: 0.5rem;
+      }
+
+      .lyrics-meaning-title {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: var(--gold);
+        font-weight: 800;
+        margin-bottom: 0.35rem;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+
+      .lyrics-meaning-text {
+        font-size: 0.95rem;
+        color: #f1f5f9;
+        font-style: italic;
+        line-height: 1.5;
+      }
+
+      .lyrics-modal-footer {
+        padding: 1rem 1.8rem;
+        border-top: 1px solid var(--border-subtle);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: rgba(0, 0, 0, 0.3);
+        flex-wrap: wrap;
+        gap: 0.8rem;
+      }
+
+      .copy-lyrics-btn {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid var(--border-subtle);
+        color: var(--text-main);
+        padding: 0.5rem 1.1rem;
+        border-radius: 20px;
+        font-size: 0.82rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        transition: all 0.2s ease;
+      }
+      .copy-lyrics-btn:hover {
+        background: var(--gold);
+        color: #000;
+        border-color: var(--gold);
+        transform: translateY(-2px);
+      }
+
+      /* DIALOGUE BANNER */
+      .dialogue-banner {
+        background: linear-gradient(
+          135deg,
+          rgba(28, 22, 44, 0.75),
+          rgba(18, 14, 28, 0.9)
+        );
+        border: 1px dashed rgba(255, 184, 48, 0.35);
+        border-radius: var(--radius-lg);
+        padding: 1.4rem 1.8rem;
+        margin-bottom: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.2rem;
+        flex-wrap: wrap;
+        backdrop-filter: blur(12px);
+      }
+
+      .dialogue-text-wrap {
+        flex: 1;
+        min-width: 250px;
+      }
+
+      .dialogue-badge {
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--gold);
+        font-weight: 800;
+        margin-bottom: 0.25rem;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+
+      .dialogue-quote {
+        font-family: var(--font-quote);
+        font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+        color: #ffffff;
+        font-style: italic;
+        line-height: 1.4;
+        margin-bottom: 0.25rem;
+      }
+
+      .dialogue-movie-tag {
+        font-size: 0.82rem;
+        color: var(--text-muted);
+        font-weight: 500;
+      }
+
+      .dialogue-next-btn {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid var(--border-subtle);
+        color: var(--text-main);
+        padding: 0.55rem 1.1rem;
+        border-radius: 30px;
+        font-size: 0.82rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        transition: all 0.25s ease;
+        white-space: nowrap;
+      }
+      .dialogue-next-btn:hover {
+        background: var(--gold);
+        color: #000;
+        border-color: var(--gold);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px var(--gold-glow);
+      }
+
+      /* VAULT SECTION */
+      .vault-section {
+        margin-top: 1rem;
+      }
+
+      .vault-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .vault-title-wrap h2 {
+        font-family: var(--font-title);
+        font-size: clamp(1.5rem, 3vw, 2.1rem);
+        color: var(--text-main);
+      }
+      .vault-title-wrap p {
+        color: var(--text-muted);
+        font-size: 0.92rem;
+      }
+
+      /* SEARCH & FILTER CONTROLS */
+      .vault-controls-bar {
+        background: rgba(20, 16, 32, 0.85);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-lg);
+        padding: 1.1rem;
+        margin-bottom: 1.8rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.9rem;
+        backdrop-filter: blur(14px);
+      }
+
+      .search-input-wrap {
+        position: relative;
+        width: 100%;
+      }
+
+      .search-input-wrap span {
+        position: absolute;
+        left: 1.1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.1rem;
+        color: var(--text-dim);
+      }
+
+      .vault-search-input {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid var(--border-subtle);
+        border-radius: 14px;
+        padding: 0.8rem 1rem 0.8rem 2.8rem;
+        color: #fff;
+        font-family: var(--font-body);
+        font-size: 0.92rem;
+        outline: none;
+        transition: all 0.25s ease;
+      }
+      .vault-search-input:focus {
+        border-color: var(--crimson);
+        box-shadow: 0 0 15px var(--crimson-glow);
+        background: rgba(255, 255, 255, 0.07);
+      }
+
+      .filter-pills-row {
+        display: flex;
+        align-items: center;
+        gap: 0.45rem;
+        flex-wrap: wrap;
+      }
+
+      .filter-label {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--text-dim);
+        font-weight: 700;
+        margin-right: 0.25rem;
+      }
+
+      .filter-pill {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid var(--border-subtle);
+        color: var(--text-muted);
+        padding: 0.3rem 0.85rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      .filter-pill:hover {
+        color: var(--text-main);
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+      .filter-pill.active {
+        background: var(--crimson);
+        color: #fff;
+        border-color: var(--crimson);
+        box-shadow: 0 2px 10px var(--crimson-glow);
+      }
+
+      /* SONGS GRID */
+      .songs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 1.1rem;
+      }
+
+      .song-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-md);
+        padding: 1.1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .song-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--border-highlight);
+        background: var(--bg-card-hover);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.6);
+      }
+
+      .song-card.now-playing {
+        border-color: var(--crimson);
+        background: linear-gradient(
+          145deg,
+          rgba(42, 22, 38, 0.92),
+          rgba(20, 16, 30, 0.98)
+        );
+        box-shadow: 0 0 20px -5px var(--crimson-glow);
+      }
+
+      .song-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 0.5rem;
+      }
+
+      .song-card-title {
+        font-family: var(--font-title);
+        font-size: 1.1rem;
+        font-weight: 800;
+        color: #ffffff;
+        margin-bottom: 0.2rem;
+        line-height: 1.25;
+      }
+
+      .song-card-movie {
+        font-size: 0.85rem;
+        color: #ffd080;
+        font-weight: 600;
+        margin-bottom: 0.3rem;
+      }
+
+      .song-card-singer {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        line-height: 1.3;
+        margin-bottom: 0.75rem;
+      }
+
+      .song-card-uploader {
+        font-size: 0.72rem;
+        color: #ff758c;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        margin-bottom: 0.6rem;
+      }
+
+      .song-card-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: auto;
+        padding-top: 0.75rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .song-card-mood-tag {
+        font-size: 0.72rem;
+        font-weight: 700;
+        padding: 0.2rem 0.55rem;
+        border-radius: 8px;
+      }
+      .tag-romantic {
+        background: rgba(255, 42, 95, 0.18);
+        color: #ff6584;
+      }
+      .tag-sad {
+        background: rgba(56, 189, 248, 0.18);
+        color: #38bdf8;
+      }
+      .tag-fun {
+        background: rgba(255, 184, 48, 0.18);
+        color: #ffb830;
+      }
+      .tag-sufi {
+        background: rgba(168, 85, 247, 0.18);
+        color: #c084fc;
+      }
+
+      .play-card-btn {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid var(--border-subtle);
+        color: var(--text-main);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.9rem;
+        transition: all 0.2s ease;
+      }
+
+      .song-card:hover .play-card-btn {
+        background: var(--crimson);
+        color: #fff;
+        border-color: var(--crimson);
+        transform: scale(1.1);
+        box-shadow: 0 2px 10px var(--crimson-glow);
+      }
+
+      .song-card.now-playing .play-card-btn {
+        background: var(--gold);
+        color: #000;
+        border-color: var(--gold);
+      }
+
+      .empty-vault-state {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 3.5rem 1rem;
+        color: var(--text-dim);
+      }
+      .empty-vault-state span {
+        font-size: 2.8rem;
+        display: block;
+        margin-bottom: 0.6rem;
+      }
+
+      footer {
+        text-align: center;
+        margin-top: 4.5rem;
+        padding-top: 1.8rem;
+        border-top: 1px solid var(--border-subtle);
+        color: var(--text-dim);
+        font-size: 0.85rem;
+      }
+      footer a {
+        color: var(--crimson);
+        text-decoration: none;
+      }
+
+      #toast-msg {
+        position: fixed;
+        bottom: 25px;
+        left: 50%;
+        transform: translateX(-50%) translateY(100px);
+        background: rgba(18, 16, 27, 0.95);
+        border: 1px solid var(--crimson);
+        color: #fff;
+        padding: 0.75rem 1.4rem;
+        border-radius: 30px;
+        font-size: 0.88rem;
+        font-weight: 600;
+        box-shadow:
+          0 10px 30px rgba(0, 0, 0, 0.8),
+          0 0 20px var(--crimson-glow);
+        backdrop-filter: blur(12px);
+        z-index: 99999;
+        pointer-events: none;
+        transition:
+          transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+          opacity 0.35s ease;
+        opacity: 0;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      #toast-msg.show {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- FLOATING PARTICLES CANVAS -->
+    <canvas id="particles-canvas"></canvas>
+
+    <div class="app-container">
+      <!-- HEADER -->
+      <header>
+        <div class="top-controls">
+          <button class="icon-btn" id="sfx-toggle-btn" title="Toggle Sound FX">
+            🔊
+          </button>
+          <button class="icon-btn" id="share-btn" title="Share App">🔗</button>
+        </div>
+
+        <div class="top-badge">👑 Bollywood's Soundtrack Royalty</div>
+        <h1 class="main-title">The Music King</h1>
+        <div class="tribute-tagline">
+          “He gave an entire generation the soundtrack of their lives.”
+        </div>
+        <p class="subtitle">
+          A cute & nostalgic tribute to <span>Emraan Hashmi</span>. Choose a
+          mood below to play full songs with live sing-along lyrics.
+        </p>
+
+        <div class="quick-stats">
+          <div class="stat-pill">
+            💿 <strong>38</strong> Full Length Anthems
+          </div>
+          <div class="stat-pill">
+            🎙️ <strong>KK, Atif, Himesh & Pritam</strong> Era
+          </div>
+          <div class="stat-pill">
+            🎤 <strong>Sing-Along</strong> Karaoke Lyrics
+          </div>
+        </div>
+      </header>
+
+      <!-- 5 INSTANT MOOD BUTTONS -->
+      <section class="mood-section">
+        <div class="section-eyebrow">Instant Mood Radio</div>
+        <h2 class="section-heading">How Are You Feeling Right Now?</h2>
+
+        <div class="mood-grid">
+          <div
+            class="mood-card mood-romantic"
+            onclick="playRandomMoodSong('Romantic')"
+          >
+            <div class="mood-emoji">🌹</div>
+            <div class="mood-title">Romantic</div>
+            <div class="mood-tagline">
+              Bhatt-camp rain, slow walks & pure melody
+            </div>
+            <div class="mood-btn-trigger">Play Vibe 🎵</div>
+          </div>
+
+          <div class="mood-card mood-sad" onclick="playRandomMoodSong('Sad')">
+            <div class="mood-emoji">💔</div>
+            <div class="mood-title">Dard-e-Dil</div>
+            <div class="mood-tagline">
+              2 AM heartbreak, cigarette smoke & deep pain
+            </div>
+            <div class="mood-btn-trigger">Play Vibe 🎵</div>
+          </div>
+
+          <div class="mood-card mood-fun" onclick="playRandomMoodSong('Fun')">
+            <div class="mood-emoji">🔥</div>
+            <div class="mood-title">Party & Swag</div>
+            <div class="mood-tagline">
+              Himesh beats, inverted mic & club bangers
+            </div>
+            <div class="mood-btn-trigger">Play Vibe 🎵</div>
+          </div>
+
+          <div class="mood-card mood-sufi" onclick="playRandomMoodSong('Sufi')">
+            <div class="mood-emoji">🕊️</div>
+            <div class="mood-title">Sufi & Soul</div>
+            <div class="mood-tagline">
+              Roohani rock, Pakistani vocals & longing
+            </div>
+            <div class="mood-btn-trigger">Play Vibe 🎵</div>
+          </div>
+
+          <div
+            class="mood-card mood-roulette"
+            onclick="playRandomMoodSong('Anything')"
+          >
+            <div class="mood-emoji">🎲</div>
+            <div class="mood-title">Roulette</div>
+            <div class="mood-tagline">
+              Surprise me with any iconic Hashmi anthem!
+            </div>
+            <div class="mood-btn-trigger">Spin Wheel 🎰</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CENTERPIECE RETRO JUKEBOX DECK WITH EMBEDDED YOUTUBE PLAYER -->
+      <section class="jukebox-container" id="player-box">
+        <div class="jukebox-glow-decor decor-1"></div>
+        <div class="jukebox-glow-decor decor-2"></div>
+
+        <div class="jukebox-grid">
+          <!-- LEFT: EMBEDDED YOUTUBE CINEMA SCREEN -->
+          <div class="player-media-stage">
+            <div class="video-bezel-frame">
+              <div id="yt-player-target"></div>
+            </div>
+
+            <!-- DUE CREDITS & EQUALIZER BAR -->
+            <div class="credits-status-bar">
+              <div class="credits-info">
+                <span class="yt-icon-badge">▶ YouTube</span>
+                <span
+                  >Courtesy:
+                  <strong id="player-uploader-name"
+                    >Sony Music India</strong
+                  ></span
+                >
+              </div>
+              <div class="equalizer-container" id="eq-container">
+                <div class="eq-bar"></div>
+                <div class="eq-bar"></div>
+                <div class="eq-bar"></div>
+                <div class="eq-bar"></div>
+                <div class="eq-bar"></div>
+                <div class="eq-bar"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT: SONG DETAILS & CONTROLS -->
+          <div class="player-details">
+            <div class="song-badge-row">
+              <span class="song-era-badge" id="player-era-badge"
+                >Era: 2008</span
+              >
+              <span class="song-mood-badge" id="player-mood-badge"
+                >Mood: Romantic</span
+              >
+              <span class="song-full-badge">Full Length Song</span>
+            </div>
+
+            <h3 class="current-song-title" id="player-song-title">Zara Sa</h3>
+            <div class="current-movie-meta" id="player-movie-meta">
+              🎬 Jannat (2008)
+            </div>
+            <div class="current-artists-meta" id="player-artist-meta">
+              Singers: <strong>KK</strong> | Music: <strong>Pritam</strong>
+            </div>
+
+            <!-- LYRICS PUNCHBOX (CLICKABLE TO OPEN SING-ALONG MODAL) -->
+            <div
+              class="lyric-punch-box"
+              id="player-lyric-box"
+              onclick="openLyricsModal()"
+              title="Click to open Full Sing-Along Lyrics"
+            >
+              "Zara sa jhoom loon main... Zara sa dil mein de jagah tu..."
+            </div>
+
+            <!-- CONTROLS ROW -->
+            <div class="player-controls-row">
+              <button
+                class="ctrl-btn ctrl-btn-sub"
+                onclick="playPreviousSong()"
+                title="Previous Song"
+              >
+                ⏮️
+              </button>
+              <button
+                class="ctrl-btn ctrl-btn-sub"
+                onclick="playNextSong()"
+                title="Next Song"
+              >
+                ⏭️
+              </button>
+
+              <button class="sing-along-lyrics-btn" onclick="openLyricsModal()">
+                <span>🎤</span> Sing-Along Lyrics
+              </button>
+
+              <button
+                class="next-random-mood-btn"
+                onclick="playCurrentMoodShuffle()"
+              >
+                <span>🎲</span> Next in Mood
+              </button>
+            </div>
+
+            <div class="player-footer-links">
+              <span id="player-status-badge">🟢 Playing Full Track</span>
+              <a
+                href="https://www.youtube.com/watch?v=-8C_2BBVWk8"
+                id="yt-direct-link"
+                target="_blank"
+                rel="noopener"
+              >
+                Watch on YouTube ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DIALOGUE BANNER -->
+      <div class="dialogue-banner">
+        <div class="dialogue-text-wrap">
+          <div class="dialogue-badge">🎙️ Iconic Emraan Dialogue</div>
+          <div class="dialogue-quote" id="dialogue-quote-text">
+            "Jo haar ke jeetta hai na... use baazigar nahi, Jannat ka Arjun
+            kehte hain."
+          </div>
+          <div class="dialogue-movie-tag" id="dialogue-movie-text">
+            — Arjun Dixit in Jannat (2008)
+          </div>
+        </div>
+        <button class="dialogue-next-btn" onclick="nextRandomDialogue()">
+          Next Dialogue ⚡
+        </button>
+      </div>
+
+      <!-- FULL DISCOGRAPHY VAULT -->
+      <section class="vault-section">
+        <div class="vault-header">
+          <div class="vault-title-wrap">
+            <div class="section-eyebrow">The Complete Catalog</div>
+            <h2>Emraan Hashmi Hit Discography (38 Full Songs)</h2>
+            <p>
+              Click any track to play full songs with synchronized sing-along
+              lyrics.
+            </p>
+          </div>
+        </div>
+
+        <!-- SEARCH & FILTER BAR -->
+        <div class="vault-controls-bar">
+          <div class="search-input-wrap">
+            <span>🔍</span>
+            <input
+              type="text"
+              id="vault-search"
+              class="vault-search-input"
+              placeholder="Search by song name, movie, singer (e.g., KK, Jannat, Awarapan, Woh Lamhe, Arijit)..."
+              oninput="filterVaultSongs()"
+            />
+          </div>
+
+          <div class="filter-pills-row">
+            <span class="filter-label">Mood:</span>
+            <button
+              class="filter-pill active"
+              onclick="setMoodFilter('All', this)"
+            >
+              All (38)
+            </button>
+            <button
+              class="filter-pill"
+              onclick="setMoodFilter('Romantic', this)"
+            >
+              ❤️ Romantic
+            </button>
+            <button class="filter-pill" onclick="setMoodFilter('Sad', this)">
+              💔 Sad
+            </button>
+            <button class="filter-pill" onclick="setMoodFilter('Fun', this)">
+              🔥 Fun
+            </button>
+            <button class="filter-pill" onclick="setMoodFilter('Sufi', this)">
+              🕊️ Sufi
+            </button>
+          </div>
+
+          <div class="filter-pills-row">
+            <span class="filter-label">Artists:</span>
+            <button
+              class="filter-pill active"
+              onclick="setSingerFilter('All', this)"
+            >
+              All Artists
+            </button>
+            <button class="filter-pill" onclick="setSingerFilter('KK', this)">
+              KK Hits
+            </button>
+            <button class="filter-pill" onclick="setSingerFilter('Atif', this)">
+              Atif Aslam
+            </button>
+            <button
+              class="filter-pill"
+              onclick="setSingerFilter('Himesh', this)"
+            >
+              Himesh Reshammiya
+            </button>
+            <button
+              class="filter-pill"
+              onclick="setSingerFilter('Arijit', this)"
+            >
+              Arijit Singh
+            </button>
+            <button
+              class="filter-pill"
+              onclick="setSingerFilter('Pritam', this)"
+            >
+              Pritam Compositions
+            </button>
+          </div>
+        </div>
+
+        <!-- SONGS GRID -->
+        <div class="songs-grid" id="songs-grid-container"></div>
+      </section>
+
+      <!-- FOOTER WITH DUE CREDITS & LEGAL ATTRIBUTIONS -->
+      <footer>
+        <p>
+          Created with ❤️ for Emraan Hashmi & Bollywood Music Fans Worldwide
+        </p>
+        <p style="margin-top: 0.4rem; font-size: 0.8rem; color: #ffb830">
+          ⭐ All music and videos are streamed directly via the YouTube Embedded
+          Player. Due credit and all copyright belongs to the original creators,
+          record labels, and artists (Sony Music India, T-Series, Vishesh Films,
+          Saregama Music, Tips Official).
+        </p>
+      </footer>
+    </div>
+
+    <!-- SING-ALONG LYRICS MODAL / DRAWER -->
+    <div
+      class="lyrics-modal-backdrop"
+      id="lyrics-modal-backdrop"
+      onclick="handleBackdropClick(event)"
+    >
+      <div class="lyrics-drawer-panel" id="lyrics-drawer-panel">
+        <!-- MODAL HEADER -->
+        <div class="lyrics-modal-header">
+          <div>
+            <div class="lyrics-header-title">
+              <span>🎤</span> <span id="modal-song-title">Zara Sa</span>
+            </div>
+            <div class="lyrics-header-meta" id="modal-song-meta">
+              🎬 Jannat (2008) • KK & Pritam
+            </div>
+          </div>
+          <button
+            class="close-lyrics-btn"
+            onclick="closeLyricsModal()"
+            title="Close Lyrics"
+          >
+            ✕
+          </button>
+        </div>
+
+        <!-- MODAL BODY -->
+        <div class="lyrics-scroll-body">
+          <div class="karaoke-verse-box" id="modal-lyrics-container">
+            <!-- Lyrics lines injected dynamically -->
+          </div>
+
+          <!-- EMOTIONAL MEANING / ESSENCE -->
+          <div class="lyrics-meaning-card">
+            <div class="lyrics-meaning-title">
+              <span>✨</span> Poetic Essence & Meaning
+            </div>
+            <div class="lyrics-meaning-text" id="modal-meaning-text">
+              "Let me sway a little... give me a small corner in your heart.
+              Come close to me, for you are my final destination."
+            </div>
+          </div>
+        </div>
+
+        <!-- MODAL FOOTER -->
+        <div class="lyrics-modal-footer">
+          <button class="copy-lyrics-btn" onclick="copyCurrentLyrics()">
+            <span>📋</span> Copy Lyrics
+          </button>
+          <span style="font-size: 0.8rem; color: var(--text-dim)">
+            💡 Tip: Click any line to highlight while singing along!
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast-msg">
+      <span id="toast-icon">✨</span>
+      <span id="toast-text">Notification</span>
+    </div>
+
+    <!-- YOUTUBE IFRAME API SCRIPT -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+
+    <script>
+      const SONGS_DB = [
+        {
+          id: "saari-raat",
+          q: "Saari Raat Teri Yaad Footpath Sonu Nigam",
+          title: "Saari Raat Teri Yaad",
+          movie: "Footpath",
+          year: 2003,
+          singers: "Sonu Nigam",
+          music: "Nadeem-Shravan",
+          mood: "Sad",
+          era: "2003-2007",
+          lyric: "Saari raat teri yaad mujhe aati rahi...",
+          ytId: "nsrcPb-HfCU",
+          uploader: "90's Gaane",
+          duration: 242,
+          artwork: "https://i.ytimg.com/vi/nsrcPb-HfCU/maxresdefault.jpg",
+          lyricsLines: [
+            "Saari raat teri yaad mujhe aati rahi...",
+            "Palkon se aashkon ki barsaat jaati rahi...",
+            "Tujhe bhoolne ki koshish ki maine har ghadi,",
+            "Dil ko bas teri hi tamanna tadpaati rahi...",
+          ],
+          lyricsMeaning:
+            "All night long, memories of you kept rushing back... Tears kept raining down from my eyes as I tried in vain to forget you.",
+        },
+        {
+          id: "chain-aapko-mila",
+          q: "Chain Aapko Mila Footpath Asha Bhosle",
+          title: "Chain Aapko Mila",
+          movie: "Footpath",
+          year: 2003,
+          singers: "Asha Bhosle, SP Sailaja",
+          music: "Nadeem-Shravan",
+          mood: "Romantic",
+          era: "2003-2007",
+          lyric: "Chain aapko mila mujhe deewangi mili...",
+          ytId: "_wxm3p1zpMI",
+          uploader: "Tips Official",
+          duration: 388,
+          artwork: "https://i.ytimg.com/vi/_wxm3p1zpMI/maxresdefault.jpg",
+          lyricsLines: [
+            "Chain aapko mila, mujhe deewangi mili...",
+            "Hosh aapko mila, mujhe bekhudi mili...",
+            "Aapko toh mil gaya saara jahaan,",
+            "Mujhe bas aapki aashiqui mili...",
+          ],
+          lyricsMeaning:
+            "You found peace, while I found madness in love... You gained the world, while I only sought your devotion.",
+        },
+        {
+          id: "bheegey-hont-tere",
+          q: "Bheegey Hont Tere Murder Kunal Ganjawala full song",
+          title: "Bheegey Hont Tere",
+          movie: "Murder",
+          year: 2004,
+          singers: "Kunal Ganjawala",
+          music: "Anu Malik",
+          mood: "Romantic",
+          era: "2003-2007",
+          lyric: "Bheegey hont tere, pyaasa dil mera...",
+          ytId: "ojUTswFMjyM",
+          uploader: "Vishesh Films",
+          duration: 248,
+          artwork: "https://i.ytimg.com/vi/ojUTswFMjyM/maxresdefault.jpg",
+          lyricsLines: [
+            "Bheegey hont tere, pyaasa dil mera...",
+            "Lage abr sa, mujhe tan tera...",
+            "Kabhi mere saath, koi raat guzaar,",
+            "Tujhe subah tak main karoon pyaar...",
+          ],
+          lyricsMeaning:
+            "Your wet lips, my thirsty heart... Your body feels like a monsoon cloud. Spend a night with me and let me love you until dawn.",
+        },
+        {
+          id: "kaho-na-kaho",
+          q: "Kaho Na Kaho Murder Amir Jamal full song",
+          title: "Kaho Na Kaho",
+          movie: "Murder",
+          year: 2004,
+          singers: "Amir Jamal",
+          music: "Anu Malik",
+          mood: "Romantic",
+          era: "2003-2007",
+          lyric: "Kaho na kaho yeh aankhein bolti hain...",
+          ytId: "S-z6vyR89Ig",
+          uploader: "Vishesh Films",
+          duration: 266,
+          artwork: "https://i.ytimg.com/vi/S-z6vyR89Ig/maxresdefault.jpg",
+          lyricsLines: [
+            "Kaho na kaho yeh aankhein bolti hain,",
+            "O sanam o sanam, o mere sanam...",
+            "Mohabbat ke safar mein dil duba rehta hai,",
+            "Tamanna bas teri hi rehti hai har pal...",
+          ],
+          lyricsMeaning:
+            "Say it or not, your eyes speak volumes, my love... My heart stays drowned in this journey of passion.",
+        },
+        {
+          id: "zindagi-iss-tarah",
+          q: "Zindagi Iss Tarah Murder Sonu Nigam full song",
+          title: "Zindagi Iss Tarah",
+          movie: "Murder",
+          year: 2004,
+          singers: "Sonu Nigam",
+          music: "Anu Malik",
+          mood: "Sad",
+          era: "2003-2007",
+          lyric: "Zindagi iss tarah se lagne lagi...",
+          ytId: "G4lByaC6KTQ",
+          uploader: "END MUZIC",
+          duration: 319,
+          artwork: "https://i.ytimg.com/vi/G4lByaC6KTQ/maxresdefault.jpg",
+          lyricsLines: [
+            "Zindagi iss tarah se lagne lagi...",
+            "Rang saare hi feeke padne lage...",
+            "Tere jaane ke baad aye humnasheen,",
+            "Hum khud apne hi saaye se darne lage...",
+          ],
+          lyricsMeaning:
+            "Life started feeling so desolate... all colors began to fade away after you left.",
+        },
+        {
+          id: "woh-humse-khafa",
+          q: "Woh Humse Khafa Hain Tumsa Nahin Dekha full song",
+          title: "Woh Humse Khafa Hain",
+          movie: "Tumsa Nahin Dekha",
+          year: 2004,
+          singers: "Udit Narayan, Shreya Ghoshal",
+          music: "Nadeem-Shravan",
+          mood: "Romantic",
+          era: "2003-2007",
+          lyric: "Woh humse khafa hain hum unse khafa hain...",
+          ytId: "E8A5357genE",
+          uploader: "Saregama Music",
+          duration: 324,
+          artwork: "https://i.ytimg.com/vi/E8A5357genE/maxresdefault.jpg",
+          lyricsLines: [
+            "Woh humse khafa hain, hum unse khafa hain...",
+            "Magar baat karne ko dil chaahta hai...",
+            "Badi ajeeb si hai yeh daastaan-e-mohabbat,",
+            "Juda hoke bhi unpe pyaar aata hai...",
+          ],
+          lyricsMeaning:
+            "She is upset with me, and I am upset with her... Yet my heart yearns desperately to talk to her.",
+        },
+        {
+          id: "bheed-mein-tanhai",
+          q: "Bheed Mein Tanhai Mein Tumsa Nahin Dekha full song",
+          title: "Bheed Mein Tanhai Mein",
+          movie: "Tumsa Nahin Dekha",
+          year: 2004,
+          singers: "Udit Narayan, Shreya Ghoshal",
+          music: "Nadeem-Shravan",
+          mood: "Sad",
+          era: "2003-2007",
+          lyric: "Bheed mein tanhai mein pyas ki gehrai mein...",
+          ytId: "Eu9LPo0gqeQ",
+          uploader: "Saregama Music",
+          duration: 325,
+          artwork: "https://i.ytimg.com/vi/Eu9LPo0gqeQ/maxresdefault.jpg",
+          lyricsLines: [
+            "Bheed mein tanhai mein, pyaas ki gehrai mein...",
+            "Dard mein ruswai mein, mujhe tum yaad aaye...",
+            "Geet mein shehnai mein, khwaab ki parchhai mein...",
+            "Har ghadi har mod pe, mujhe tum yaad aaye...",
+          ],
+          lyricsMeaning:
+            "In the crowd, in deep loneliness, in pain and dishonor—I remembered you at every twist and turn of life.",
+        },
+        {
+          id: "woh-lamhe",
+          q: "Woh Lamhe Woh Baatein Zeher Atif Aslam full song",
+          title: "Woh Lamhe Woh Baatein",
+          movie: "Zeher",
+          year: 2005,
+          singers: "Atif Aslam",
+          music: "Mithoon / Jal / Roop Kumar",
+          mood: "Sad",
+          era: "2003-2007",
+          lyric: "Woh lamhe, woh baatein... koi na jaane...",
+          ytId: "FLKxnL7KwHw",
+          uploader: "Vishesh Films",
+          duration: 318,
+          artwork: "https://i.ytimg.com/vi/FLKxnL7KwHw/maxresdefault.jpg",
+          lyricsLines: [
+            "Woh lamhe, woh baatein... koi na jaane...",
+            "Thi kaisi raatein... ho barsaatein...",
+            "Woh bheege bheege mausam...",
+            "Na main jaanu, na tu jaane...",
+            "Kahan se yeh aayi fizayein... chali gayi!",
+          ],
+          lyricsMeaning:
+            "Those moments, those deep talks... nobody knows how magical those nights and rain showers were. Where did those winds go?",
+        },
+        {
+          id: "agar-tum-mil-jao",
+          q: "Agar Tum Mil Jao Zeher Shreya Ghoshal full song",
+          title: "Agar Tum Mil Jao",
+          movie: "Zeher",
+          year: 2005,
+          singers: "Shreya Ghoshal",
+          music: "Roop Kumar Rathod",
+          mood: "Romantic",
+          era: "2003-2007",
+          lyric: "Agar tum mil jao zamana chhod denge hum...",
+          ytId: "2E2WA8_teMY",
+          uploader: "Vishesh Films",
+          duration: 274,
+          artwork: "https://i.ytimg.com/vi/2E2WA8_teMY/maxresdefault.jpg",
+          lyricsLines: [
+            "Agar tum mil jao, zamana chhod denge hum...",
+            "Agar tum mil jao, zamana chhod denge hum...",
+            "Tumhe paa kar zamane bhar se rishta tod denge hum...",
+            "Bina tere koi dilkash nazaara hum na dekhenge,",
+            "Tumhe na ho pasand jisko, dobara hum na dekhenge!",
+          ],
+          lyricsMeaning:
+            "If I find you, I will leave the entire world behind... If you dislike someone, I will never look at them again.",
+        },
+        {
+          id: "jaane-ja-jaane-ja",
+          q: "Jaane Ja Jaane Ja Zeher Udit Narayan full song",
+          title: "Jaane Ja Jaane Ja",
+          movie: "Zeher",
+          year: 2005,
+          singers: "Udit Narayan, Shreya Ghoshal",
+          music: "Roop Kumar Rathod",
+          mood: "Romantic",
+          era: "2003-2007",
+          lyric: "Jaane ja jaane ja mere dil ka tu armaan hai...",
+          ytId: "kSQoZ_JxVeQ",
+          uploader: "mazba raju",
+          duration: 392,
+          artwork:
+            "https://i.ytimg.com/vi/kSQoZ_JxVeQ/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AH-BIAC6AKKAgwIABABGGUgZShlMA8=&rs=AOn4CLB8tzjCJya8MFy4gQ3gtSLKyoJkSA",
+          lyricsLines: [
+            "Jaane ja jaane ja, mere dil ka tu armaan hai...",
+            "Tere bina yeh zindagi viraan hai...",
+            "Tu hi meri subah, tu hi meri shaam,",
+            "Har saans pe likha hai tera hi naam...",
+          ],
+          lyricsMeaning:
+            "My sweetheart, you are my heart's supreme desire... Without you, life is totally deserted.",
+        },
+        {
+          id: "aashiq-banaya-aapne",
+          q: "Aashiq Banaya Aapne title song Himesh full song",
+          title: "Aashiq Banaya Aapne",
+          movie: "Aashiq Banaya Aapne",
+          year: 2005,
+          singers: "Himesh Reshammiya, Shreya Ghoshal",
+          music: "Himesh Reshammiya",
+          mood: "Fun",
+          era: "2003-2007",
+          lyric: "Aashiq banaya aapne... Har lamha aalam tera...",
+          ytId: "19E65tOn3tI",
+          uploader: "T-Series Bollywood Classics",
+          duration: 291,
+          artwork: "https://i.ytimg.com/vi/19E65tOn3tI/maxresdefault.jpg",
+          lyricsLines: [
+            "Aashiq banaya, aashiq banaya...",
+            "Aashiq banaya aapne...",
+            "Tere bin chain na aave, tere bin dard sataave...",
+            "Har lamha aalam tera, bechaini ka samaa...",
+          ],
+          lyricsMeaning:
+            "You turned me into a mad lover... Without you I find no peace, only a sweet torment every passing second.",
+        },
+        {
+          id: "aap-ki-kashish",
+          q: "Aap Ki Kashish Aashiq Banaya Aapne full song",
+          title: "Aap Ki Kashish",
+          movie: "Aashiq Banaya Aapne",
+          year: 2005,
+          singers: "Himesh Reshammiya",
+          music: "Himesh Reshammiya",
+          mood: "Fun",
+          era: "2003-2007",
+          lyric: "Aap ki kashish sarfarosh hai...",
+          ytId: "jx0qbW_YTCs",
+          uploader: "T-Series",
+          duration: 321,
+          artwork: "https://i.ytimg.com/vi/jx0qbW_YTCs/maxresdefault.jpg",
+          lyricsLines: [
+            "Aap ki kashish sarfarosh hai...",
+            "Aap ka nasha yun madhosh hai...",
+            "Kya kahein humein kuch na hosh hai...",
+            "Zindagi pe bas tera zor hai!",
+          ],
+          lyricsMeaning:
+            "Your magnetic charm is intoxicating... Your presence leaves me completely breathless and spellbound.",
+        },
+        {
+          id: "mar-jaawan-mit-jaawan",
+          q: "Mar Jaawan Mit Jaawan Aashiq Banaya Aapne full song",
+          title: "Mar Jaawan Mit Jaawan",
+          movie: "Aashiq Banaya Aapne",
+          year: 2005,
+          singers: "Abhijeet Sawant, Sunidhi Chauhan",
+          music: "Himesh Reshammiya",
+          mood: "Romantic",
+          era: "2003-2007",
+          lyric: "Mar jaawan mit jaawan tere ishq mein...",
+          ytId: "G1rulK-BePQ",
+          uploader: "T-Series Bollywood Classics",
+          duration: 265,
+          artwork: "https://i.ytimg.com/vi/G1rulK-BePQ/maxresdefault.jpg",
+          lyricsLines: [
+            "Mar jaawan mit jaawan tere ishq mein...",
+            "Had se bhi guzar jaawan tere ishq mein...",
+            "Tu jo keh de toh duniya ko thukra doon,",
+            "Tere kadmon mein aake fanaah ho jaawan!",
+          ],
+          lyricsMeaning:
+            "I would perish and die in your love... If you say the word, I will cast the entire world away for you.",
+        },
+        {
+          id: "zahreeli-raatein",
+          q: "Zahreeli Raatein Chocolate KK full song",
+          title: "Zahreeli Raatein",
+          movie: "Chocolate",
+          year: 2005,
+          singers: "KK",
+          music: "Pritam",
+          mood: "Sad",
+          era: "2003-2007",
+          lyric: "Zahreeli raatein neend aati nahi...",
+          ytId: "ZDHNortiqIY",
+          uploader: "T-Series Bollywood Classics",
+          duration: 287,
+          artwork: "https://i.ytimg.com/vi/ZDHNortiqIY/maxresdefault.jpg",
+          lyricsLines: [
+            "Zahreeli raatein neend aati nahi...",
+            "Yaadon ki dhoop kahin jaati nahi...",
+            "Kyun toota rishta, kyun chhoota saath,",
+            "Yeh dard ki ghadi guzar paati nahi...",
+          ],
+          lyricsMeaning:
+            "These venomous sleepless nights refuse to let me rest... The blazing sun of your memories never sets.",
+        },
+        {
+          id: "jiya-dhadak-dhadak",
+          q: "Jiya Dhadak Dhadak Jaaye Kalyug Rahat full song",
+          title: "Jiya Dhadak Dhadak Jaaye",
+          movie: "Kalyug",
+          year: 2005,
+          singers: "Rahat Fateh Ali Khan",
+          music: "Rohail Hyatt / Faisal Rafi",
+          mood: "Romantic",
+          era: "2003-2007",
+          lyric: "Tujhe dekh dekh sona, tujhe dekh kar hain jagna...",
+          ytId: "iasxMdSu7Jo",
+          uploader: "Vishesh Films",
+          duration: 301,
+          artwork: "https://i.ytimg.com/vi/iasxMdSu7Jo/maxresdefault.jpg",
+          lyricsLines: [
+            "Tujhe dekh dekh sona, tujhe dekh kar hain jagna...",
+            "Maine seekha tujhse hi bas pyaar ka nibaana...",
+            "Jiya dhadak dhadak... jiya dhadak dhadak...",
+            "Jiya dhadak dhadak jaaye...",
+          ],
+          lyricsMeaning:
+            "To sleep watching you, to wake up gazing upon you... My heart thumps rapidly with pure adoration.",
+        },
+        {
+          id: "aadat-kalyug",
+          q: "Aadat Juda Hoke Bhi Kalyug Atif Aslam full song",
+          title: "Aadat (Juda Hoke Bhi)",
+          movie: "Kalyug",
+          year: 2005,
+          singers: "Atif Aslam",
+          music: "Goher Mumtaz / Jal",
+          mood: "Sad",
+          era: "2003-2007",
+          lyric: "Juda hoke bhi tu mujhmein kahin baaki hai...",
+          ytId: "AKUk1v3rBvc",
+          uploader: "𝐋𝐘𝐑𝐈𝐂𝐀𝐋 𝐌𝐔𝐒𝐈𝐂 𝐒𝐓𝐔𝐃𝐈𝐎 0.7",
+          duration: 335,
+          artwork:
+            "https://i.ytimg.com/vi/AKUk1v3rBvc/sddefault.jpg?v=67a234d7",
+          lyricsLines: [
+            "Juda hoke bhi tu mujhmein kahin baaki hai...",
+            "Palkon mein banke aansu tu chali aati hai...",
+            "Ab toh aadat si hai mujhko aise jeene mein...",
+            "Yeh jo dard hai chupa mere seene mein...",
+          ],
+          lyricsMeaning:
+            "Even separated, you still remain alive within me... Now I have grown accustomed to living with this chronic heartbreak.",
+        },
+        {
+          id: "jhalak-dikhhla-jaa",
+          q: "Jhalak Dikhhla Jaa Aksar Himesh full song",
+          title: "Jhalak Dikhhla Jaa",
+          movie: "Aksar",
+          year: 2006,
+          singers: "Himesh Reshammiya",
+          music: "Himesh Reshammiya",
+          mood: "Fun",
+          era: "2003-2007",
+          lyric: "Jhalak dikhhla jaa... Ek baar aaja aaja aaja aaja!",
+          ytId: "vnlk8V-q0oU",
+          uploader: "T-Series",
+          duration: 273,
+          artwork: "https://i.ytimg.com/vi/vnlk8V-q0oU/maxresdefault.jpg",
+          lyricsLines: [
+            "Jhalak dikhhla jaa, jhalak dikhhla jaa...",
+            "Ek baar aaja aaja aaja aaja aaaaa-ja!",
+            "Deedaar ko tarse ankhiyaan,",
+            "Bas aake dikha de jalwa!",
+          ],
+          lyricsMeaning:
+            "Show me a glimpse of your radiant face just once! My eyes are dying to catch sight of you.",
+        },
+        {
+          id: "soniye-aksar",
+          q: "Soniye Aksar KK Sunidhi full song",
+          title: "Soniye",
+          movie: "Aksar",
+          year: 2006,
+          singers: "KK, Sunidhi Chauhan",
+          music: "Himesh Reshammiya",
+          mood: "Romantic",
+          era: "2003-2007",
+          lyric: "Soniye je tere naal daga main kamava...",
+          ytId: "mK-XfCnttkE",
+          uploader: "T-Series",
+          duration: 327,
+          artwork:
+            "https://i.ytimg.com/vi/mK-XfCnttkE/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGUgVyhTMA8=&rs=AOn4CLCMfH-IGKc7AhP5IKj6dn-OhY-AHw",
+          lyricsLines: [
+            "Soniye je tere naal daga main kamavaan...",
+            "Rabb kare main mar jaavaan...",
+            "Tere bina jeena nahi, tere bina marna nahi,",
+            "Dil vich bas tu hi vasdi ae...",
+          ],
+          lyricsMeaning:
+            "My beloved, if I ever betray your trust, may the Lord strike me down. Without you I can neither live nor die.",
+        },
+        {
+          id: "lagi-lagi",
+          q: "Lagi Lagi Aksar Himesh full song",
+          title: "Lagi Lagi",
+          movie: "Aksar",
+          year: 2006,
+          singers: "Himesh Reshammiya, Sunidhi Chauhan",
+          music: "Himesh Reshammiya",
+          mood: "Fun",
+          era: "2003-2007",
+          lyric: "Lagi lagi lagi lagi prem dhun lagi...",
+          ytId: "gu2_z0AK0qc",
+          uploader: "T-Series",
+          duration: 314,
+          artwork: "https://i.ytimg.com/vi/gu2_z0AK0qc/maxresdefault.jpg",
+          lyricsLines: [
+            "Lagi lagi lagi lagi prem dhun lagi...",
+            "Pyaar ki yeh aag dono taraf jali...",
+            "Dil beqaraar hua, chain bhi kho gaya,",
+            "Ishq ka nasha ab sar chadh ke bola!",
+          ],
+          lyricsMeaning:
+            "The rhythm of romance has struck! This flame burns on both sides, robbing my heart of all calmness.",
+        },
+        {
+          id: "tu-hi-meri-shab-hai",
+          q: "Tu Hi Meri Shab Hai Gangster KK full song",
+          title: "Tu Hi Meri Shab Hai",
+          movie: "Gangster",
+          year: 2006,
+          singers: "KK",
+          music: "Pritam",
+          mood: "Romantic",
+          era: "2003-2007",
+          lyric: "Tu hi meri shab hai subah hai, tu hi din hai mera...",
+          ytId: "mWBvudKcByg",
+          uploader: "Vishesh Films",
+          duration: 402,
+          artwork: "https://i.ytimg.com/vi/mWBvudKcByg/maxresdefault.jpg",
+          lyricsLines: [
+            "Tu hi meri shab hai, subah hai...",
+            "Tu hi din hai mera...",
+            "Tu hi mera rab hai, jahaan hai...",
+            "Tu hi khwaab mera...",
+            "Tere bina har pal ajeeb hai...",
+            "Tu jo sang ho toh dil kareeb hai!",
+          ],
+          lyricsMeaning:
+            "You are my night, my morning, my day, my universe and my God. Everything feels empty without your touch.",
+        },
+        {
+          id: "ya-ali",
+          q: "Ya Ali Gangster Zubeen full song",
+          title: "Ya Ali",
+          movie: "Gangster",
+          year: 2006,
+          singers: "Zubeen Garg",
+          music: "Pritam",
+          mood: "Sufi",
+          era: "2003-2007",
+          lyric: "Ya Ali reham Ali... Ya Ali yaar pe qurban hai sabhi...",
+          ytId: "pmHnlBqjpm0",
+          uploader: "Vishesh Films",
+          duration: 249,
+          artwork: "https://i.ytimg.com/vi/pmHnlBqjpm0/maxresdefault.jpg",
+          lyricsLines: [
+            "Ya Ali reham Ali... Ya Ali yaar pe qurban hai sabhi...",
+            "Bechaini mein chain, dard mein aaraam mila...",
+            "Zindagi ka maqsad bas tera naam mila...",
+            "Ya Ali madad Ali!",
+          ],
+          lyricsMeaning:
+            "O Divine One, show mercy... I sacrifice everything for my beloved. In turmoil, I found solace in love.",
+        },
+        {
+          id: "bheegi-bheegi",
+          q: "Bheegi Bheegi Gangster James full song",
+          title: "Bheegi Bheegi",
+          movie: "Gangster",
+          year: 2006,
+          singers: "James",
+          music: "Pritam",
+          mood: "Sufi",
+          era: "2003-2007",
+          lyric: "Bheegi bheegi si hain raatein... Bheegi bheegi yaadein...",
+          ytId: "WeY9hdsmIaQ",
+          uploader: "Vishesh Films",
+          duration: 345,
+          artwork: "https://i.ytimg.com/vi/WeY9hdsmIaQ/maxresdefault.jpg",
+          lyricsLines: [
+            "Bheegi bheegi si hain raatein... Bheegi bheegi yaadein...",
+            "Bheegi bheegi baatein... Bheegi bheegi aakhon mein...",
+            "Kaisi nami hai... Yeh kaisi kami hai...",
+            "Aankhon mein ruka ek aansu ka dariya hai...",
+          ],
+          lyricsMeaning:
+            "These drenched rain nights, soaked memories, and tear-filled eyes... What kind of eternal void is this inside my soul?",
+        },
+        {
+          id: "tera-mera-rishta",
+          q: "Tera Mera Rishta Awarapan Mustafa Zahid full song",
+          title: "Tera Mera Rishta",
+          movie: "Awarapan",
+          year: 2007,
+          singers: "Mustafa Zahid",
+          music: "Pritam",
+          mood: "Sufi",
+          era: "2003-2007",
+          lyric:
+            "Tera mera rishta purana... Hai kya tadap, hai yeh kaisi saza...",
+          ytId: "P2kS3h46cIA",
+          uploader: "Mustafa Zahid",
+          duration: 343,
+          artwork: "https://i.ytimg.com/vi/P2kS3h46cIA/maxresdefault.jpg",
+          lyricsLines: [
+            "Tera mera rishta purana...",
+            "Tera mera rishta purana...",
+            "Hai kya tadap, hai yeh kaisi saza...",
+            "Tu kyun mujhe aaj yaad aa gaya...",
+            "Kaisi khala yeh dil mein basi hai,",
+            "Ab toh har saans mein teri kami hai...",
+          ],
+          lyricsMeaning:
+            "Our bond stretches across lifetimes... What is this agonizing punishment that you haunt my memories today?",
+        },
+        {
+          id: "toh-phir-aao",
+          q: "Toh Phir Aao Awarapan Mustafa Zahid full song",
+          title: "Toh Phir Aao",
+          movie: "Awarapan",
+          year: 2007,
+          singers: "Mustafa Zahid",
+          music: "Pritam",
+          mood: "Sufi",
+          era: "2003-2007",
+          lyric: "Toh phir aao, mujhko satao... Dil tod ke mujhko hasao...",
+          ytId: "h5-Kq9k3zeo",
+          uploader: "Vishesh Films",
+          duration: 339,
+          artwork: "https://i.ytimg.com/vi/h5-Kq9k3zeo/maxresdefault.jpg",
+          lyricsLines: [
+            "Toh phir aao... mujhko satao...",
+            "Toh phir aao... mujhko rulao...",
+            "Dil tod ke hanso ya gale laga lo,",
+            "Magar ek baar laut ke aao...",
+          ],
+          lyricsMeaning:
+            "Then come back and torment me, come back and make me weep... Break my heart or embrace me, but just return.",
+        },
+        {
+          id: "zara-sa",
+          q: "Zara Sa Jannat KK full song",
+          title: "Zara Sa",
+          movie: "Jannat",
+          year: 2008,
+          singers: "KK",
+          music: "Pritam",
+          mood: "Romantic",
+          era: "2008-2012",
+          lyric: "Zara sa jhoom loon main... Zara sa dil mein de jagah tu...",
+          ytId: "-8C_2BBVWk8",
+          uploader: "Sony Music India",
+          duration: 308,
+          artwork: "https://i.ytimg.com/vi/-8C_2BBVWk8/maxresdefault.jpg",
+          lyricsLines: [
+            "Zara sa jhoom loon main... Zara sa dil mein de jagah tu...",
+            "Zara sa paas aa tu... Zara sa choo le jism mera...",
+            "Main tere aage jhuka hoon,",
+            "Main tere ishq mein mita hoon...",
+            "Haan tu hi meri aakhri manzil!",
+          ],
+          lyricsMeaning:
+            "Let me sway a little... give me a small corner in your heart. Come close to me, for you are my final destination.",
+        },
+        {
+          id: "haan-tu-hain",
+          q: "Haan Tu Hain Jannat KK full song",
+          title: "Haan Tu Hain",
+          movie: "Jannat",
+          year: 2008,
+          singers: "KK",
+          music: "Pritam",
+          mood: "Romantic",
+          era: "2008-2012",
+          lyric: "Haan tu hain, haan tu hain... Meri baaton mein tu hain...",
+          ytId: "M0slFWoW-Dc",
+          uploader: "Superhit Music",
+          duration: 389,
+          artwork: "https://i.ytimg.com/vi/M0slFWoW-Dc/maxresdefault.jpg",
+          lyricsLines: [
+            "Haan tu hain, haan tu hain... Meri baaton mein tu hain...",
+            "Meri yaadon mein tu hain... Meri raahon mein tu hain...",
+            "Jo bhi chaha maine rab se,",
+            "Uss har duaa ka anjaam tu hain!",
+          ],
+          lyricsMeaning:
+            "Yes, you are the one! In my words, my memories, and my paths—you are the answer to every prayer I made.",
+        },
+        {
+          id: "judai",
+          q: "Judai Jannat Kamran Ahmed full song",
+          title: "Judai",
+          movie: "Jannat",
+          year: 2008,
+          singers: "Kamran Ahmed",
+          music: "Pritam",
+          mood: "Sad",
+          era: "2008-2012",
+          lyric: "Duniya ne humko diya kya... Aashiqui ke siwa...",
+          ytId: "sSFM_hCFgko",
+          uploader: "Sony Music India",
+          duration: 222,
+          artwork: "https://i.ytimg.com/vi/sSFM_hCFgko/maxresdefault.jpg",
+          lyricsLines: [
+            "Duniya ne humko diya kya...",
+            "Aashiqui ke siwa...",
+            "Lut gaya sab kuch mera,",
+            "Bas bachi yeh judai...",
+            "Dil cheekh cheekh ke ro raha hai,",
+            "Yeh kaisa waqt aa gaya...",
+          ],
+          lyricsMeaning:
+            "What did this world ever give us besides heartbreak? Everything is lost, leaving behind this bitter separation.",
+        },
+        {
+          id: "dil-ibadat",
+          q: "Dil Ibadat Tum Mile KK full song",
+          title: "Dil Ibadat",
+          movie: "Tum Mile",
+          year: 2009,
+          singers: "KK",
+          music: "Pritam",
+          mood: "Romantic",
+          era: "2008-2012",
+          lyric: "Dil ibadat kar raha hai, dhadkanein meri sun...",
+          ytId: "U2QNhsAgIIE",
+          uploader: "Sony Music India",
+          duration: 333,
+          artwork: "https://i.ytimg.com/vi/U2QNhsAgIIE/maxresdefault.jpg",
+          lyricsLines: [
+            "Dil ibadat kar raha hai, dhadkanein meri sun...",
+            "Tujhko main kar loon haasil lagi hai yahi dhun...",
+            "Zindagi ki raah pe chalte chalte,",
+            "Bas ek tera saath maangta hoon...",
+            "Mujhko de de tu panaah!",
+          ],
+          lyricsMeaning:
+            "My heart is worshipping you, listen to my beats... I am driven solely by the passion to make you mine forever.",
+        },
+        {
+          id: "tu-hi-haqeeqat",
+          q: "Tu Hi Haqeeqat Tum Mile Javed Ali full song",
+          title: "Tu Hi Haqeeqat",
+          movie: "Tum Mile",
+          year: 2009,
+          singers: "Javed Ali",
+          music: "Pritam",
+          mood: "Romantic",
+          era: "2008-2012",
+          lyric: "Tu hi haqeeqat, khwaab tu... Dariya tu hi, pyaas tu...",
+          ytId: "BKbnmLH8UAo",
+          uploader: "SonyMusicIndiaVEVO",
+          duration: 304,
+          artwork: "https://i.ytimg.com/vi/BKbnmLH8UAo/maxresdefault.jpg",
+          lyricsLines: [
+            "Tu hi haqeeqat, khwaab tu... Dariya tu hi, pyaas tu...",
+            "Tu hi dua, parwaaz tu... Aagaaz tu, anjaam tu...",
+            "Tere bina har pal adhura hai,",
+            "Tu jo mile toh jahaan poora hai!",
+          ],
+          lyricsMeaning:
+            "You are the truth and the dream, the river and the thirst, the beginning and the end. With you, my existence is complete.",
+        },
+        {
+          id: "pee-loon",
+          q: "Pee Loon Once Upon A Time in Mumbaai Mohit Chauhan full song",
+          title: "Pee Loon",
+          movie: "Once Upon a Time in Mumbaai",
+          year: 2010,
+          singers: "Mohit Chauhan",
+          music: "Pritam",
+          mood: "Romantic",
+          era: "2008-2012",
+          lyric: "Pee loon tere neele neele naino se shabnam...",
+          ytId: "D8XFTglfSMg",
+          uploader: "T-Series",
+          duration: 256,
+          artwork: "https://i.ytimg.com/vi/D8XFTglfSMg/maxresdefault.jpg",
+          lyricsLines: [
+            "Pee loon tere neele neele naino se shabnam...",
+            "Pee loon tere geele geele honton ki sargam...",
+            "Pee loon hai peene ka mausam,",
+            "Tere sang bitaun har ek janam!",
+            "Ishq sufiyana... Ishq mastana!",
+          ],
+          lyricsMeaning:
+            "Let me drink the dew from your blue eyes and the melody of your lips... It is the season to surrender to love.",
+        },
+        {
+          id: "hale-dil",
+          q: "Hale Dil Murder 2 Harshit Saxena full song",
+          title: "Hale Dil",
+          movie: "Murder 2",
+          year: 2011,
+          singers: "Harshit Saxena",
+          music: "Harshit Saxena",
+          mood: "Sufi",
+          era: "2008-2012",
+          lyric: "Hale dil tujhko sunata... Dil agar yeh bol pata...",
+          ytId: "acdKE2hja7w",
+          uploader: "T-Series",
+          duration: 363,
+          artwork: "https://i.ytimg.com/vi/acdKE2hja7w/maxresdefault.jpg",
+          lyricsLines: [
+            "Hale dil tujhko sunata... Dil agar yeh bol pata...",
+            "Bakhuda tujhko dikhata... Dil agar yeh khol pata...",
+            "Kitna chahta hoon tujhko,",
+            "Kash tu yeh samajh pata!",
+          ],
+          lyricsMeaning:
+            "I would express the state of my heart if only it could speak... I swear I would reveal how deeply I cherish you.",
+        },
+        {
+          id: "phir-mohabbat",
+          q: "Phir Mohabbat Murder 2 Arijit Singh full song",
+          title: "Phir Mohabbat",
+          movie: "Murder 2",
+          year: 2011,
+          singers: "Arijit Singh, Mohammad Irfan",
+          music: "Mithoon",
+          mood: "Sad",
+          era: "2008-2012",
+          lyric: "Phir mohabbat karne chala hai tu... Yeh dil bechara...",
+          ytId: "v71SiUe0KYY",
+          uploader: "T-Series",
+          duration: 317,
+          artwork: "https://i.ytimg.com/vi/v71SiUe0KYY/maxresdefault.jpg",
+          lyricsLines: [
+            "Phir mohabbat karne chala hai tu...",
+            "Dil yeh bechara...",
+            "Kyun fanaa hone chala hai tu...",
+            "Ishq mein dobara...",
+            "Samjha tha sambhal gaya hai,",
+            "Magar phir se pighal gaya hai!",
+          ],
+          lyricsMeaning:
+            "Once again, this foolish heart sets off to fall in love and be destroyed all over again.",
+        },
+        {
+          id: "tujhe-sochta-hoon",
+          q: "Tujhe Sochta Hoon Jannat 2 KK full song",
+          title: "Tujhe Sochta Hoon",
+          movie: "Jannat 2",
+          year: 2012,
+          singers: "KK",
+          music: "Pritam",
+          mood: "Sad",
+          era: "2008-2012",
+          lyric: "Tujhe sochta hoon main shaam-o-sehar...",
+          ytId: "PkhfKq9m0Uo",
+          uploader: "Sony Music India",
+          duration: 316,
+          artwork: "https://i.ytimg.com/vi/PkhfKq9m0Uo/maxresdefault.jpg",
+          lyricsLines: [
+            "Tujhe sochta hoon main shaam-o-sehar...",
+            "Iss se zyaada tujhe aur chaahun toh kya...",
+            "Tere hi khayalon mein khoya rahoon,",
+            "Tere bina ab main kahan jaaun toh kya...",
+          ],
+          lyricsMeaning:
+            "I ponder about you day and night... How could I love you any more than this? Where would I even go without you?",
+        },
+        {
+          id: "tu-hi-mera",
+          q: "Tu Hi Mera Jannat 2 Shafqat Amanat Ali full song",
+          title: "Tu Hi Mera",
+          movie: "Jannat 2",
+          year: 2012,
+          singers: "Shafqat Amanat Ali",
+          music: "Pritam",
+          mood: "Romantic",
+          era: "2008-2012",
+          lyric: "Tu hi mera mera mera... Tu hi mera yaara...",
+          ytId: "yBa3FVQKAvY",
+          uploader: "SonyMusicIndiaVEVO",
+          duration: 298,
+          artwork: "https://i.ytimg.com/vi/yBa3FVQKAvY/maxresdefault.jpg",
+          lyricsLines: [
+            "Tu hi mera mera mera... Tu hi mera yaara...",
+            "Kahin na tere jaisa mila nazaara...",
+            "Tere bina lagta nahi jiya,",
+            "Rab ne tujhe mere vaaste hi banaaya!",
+          ],
+          lyricsMeaning:
+            "You are mine, my dearest companion... Nowhere in this world have I witnessed a sight as wondrous as you.",
+        },
+        {
+          id: "hasi-ban-gaye",
+          q: "Hasi Ban Gaye Hamari Adhuri Kahani Ami Mishra full song",
+          title: "Hasi Ban Gaye",
+          movie: "Hamari Adhuri Kahani",
+          year: 2015,
+          singers: "Ami Mishra / Shreya Ghoshal",
+          music: "Ami Mishra",
+          mood: "Romantic",
+          era: "2013-Present",
+          lyric: "Haan hasi ban gaye, haan nami ban gaye...",
+          ytId: "oyaudgo5_8Y",
+          uploader: "Sony Music India",
+          duration: 157,
+          artwork: "https://i.ytimg.com/vi/oyaudgo5_8Y/maxresdefault.jpg",
+          lyricsLines: [
+            "Haan hasi ban gaye, haan nami ban gaye...",
+            "Tum mere aasmaan, meri zameen ban gaye...",
+            "Haan qabool kar liya maine har faisla,",
+            "Tum meri aakhri bandagi ban gaye!",
+          ],
+          lyricsMeaning:
+            "You became my laughter and my tears... You became my sky and my earth, my final sacred devotion.",
+        },
+        {
+          id: "hamari-adhuri-kahani",
+          q: "Hamari Adhuri Kahani title song Arijit Singh full song",
+          title: "Hamari Adhuri Kahani",
+          movie: "Hamari Adhuri Kahani",
+          year: 2015,
+          singers: "Arijit Singh",
+          music: "Jeet Gannguli",
+          mood: "Sad",
+          era: "2013-Present",
+          lyric: "Paas aaye... Dooriyaan phir bhi kam na hui...",
+          ytId: "IgYF-LjU-MI",
+          uploader: "Arijit Singh",
+          duration: 399,
+          artwork: "https://i.ytimg.com/vi/IgYF-LjU-MI/maxresdefault.jpg",
+          lyricsLines: [
+            "Paas aaye... Dooriyaan phir bhi kam na hui...",
+            "Ek adhuri si hamari kahani rahi...",
+            "Aasmaan ko zameen ye zaroori nahi,",
+            "Jaa mile... Jaa mile...",
+            "Ishq sacha wahi jisko milti nahi manzilein!",
+          ],
+          lyricsMeaning:
+            "We came close, yet distances never shrunk... Ours remained an unfinished love story. True love is that which seeks no final destination.",
+        },
+        {
+          id: "bol-do-na-zara",
+          q: "Bol Do Na Zara Azhar Armaan Malik full song",
+          title: "Bol Do Na Zara",
+          movie: "Azhar",
+          year: 2016,
+          singers: "Armaan Malik",
+          music: "Amaal Mallik",
+          mood: "Romantic",
+          era: "2013-Present",
+          lyric: "Bol do na zara dil mein jo hai chhipa...",
+          ytId: "EpEraRui1pc",
+          uploader: "T-Series",
+          duration: 245,
+          artwork: "https://i.ytimg.com/vi/EpEraRui1pc/maxresdefault.jpg",
+          lyricsLines: [
+            "Bol do na zara, dil mein jo hai chhipa...",
+            "Main kisi se kahunga nahi...",
+            "Mujhe tumse mohabbat hui hai,",
+            "Kaho na kaho bas yahi sach hai!",
+          ],
+          lyricsMeaning:
+            "Speak out what is hidden in your heart, I promise not to tell a soul... I have fallen deeply in love with you.",
+        },
+        {
+          id: "lut-gaye",
+          q: "Lut Gaye Jubin Nautiyal Emraan Hashmi full song",
+          title: "Lut Gaye",
+          movie: "Single / Mumbai Saga Era",
+          year: 2021,
+          singers: "Jubin Nautiyal",
+          music: "Tanishk Bagchi",
+          mood: "Sad",
+          era: "2013-Present",
+          lyric:
+            "Aankh uthi mohabbat ne angrai li... Lut gaye hum teri mohabbat mein!",
+          ytId: "sCbbMZ-q4-I",
+          uploader: "T-Series",
+          duration: 298,
+          artwork: "https://i.ytimg.com/vi/sCbbMZ-q4-I/maxresdefault.jpg",
+          lyricsLines: [
+            "Aankh uthi mohabbat ne angrai li...",
+            "Dil ka sauda hua chaandni raat mein...",
+            "Unki nazron ne kuch aisa jaadu kiya,",
+            "Lut gaye hum toh pehli mulaqaat mein!",
+          ],
+          lyricsMeaning:
+            "Her glance cast such an enchanting spell in the moonlight that I was completely plundered on our very first encounter!",
+        },
+      ];
+
+      const DIALOGUES_DB = [
+        {
+          quote:
+            "Jo haar ke jeetta hai na... use baazigar nahi, Jannat ka Arjun kehte hain.",
+          movie: "Arjun Dixit in Jannat (2008)",
+        },
+        {
+          quote:
+            "Zindagi toh aisi honi chahiye... ki jab maut aaye toh use bhi lage ki kisi zinda dil aadmi ko lene aayi hai.",
+          movie: "Shivam in Awarapan (2007)",
+        },
+        {
+          quote: "Raste ki parwah karunga toh manzil bura maan jayegi.",
+          movie: "Shoaib Khan in Once Upon a Time in Mumbaai (2010)",
+        },
+        {
+          quote:
+            "Main sirf paison ke liye khelta hoon... aur jeetna meri aadat hai.",
+          movie: "Arjun Dixit in Jannat (2008)",
+        },
+        {
+          quote:
+            "Mohabbat aur dhandha ek saath nahi ho sakte... ya toh dhandha sambhalo ya mohabbat.",
+          movie: "Sonu Dilli in Jannat 2 (2012)",
+        },
+        {
+          quote:
+            "Jaan sabki meethi hoti hai... lekin kuch log use kachori ki tarah chaba jaate hain.",
+          movie: "The Dirty Picture (2011)",
+        },
+        {
+          quote:
+            "Log kehte hain mere paas dil nahi hai... sach toh yeh hai ki dil toh hai, bas dukhne se darta hai.",
+          movie: "Murder 2 (2011)",
+        },
+        {
+          quote:
+            "Sawaal yeh nahi ki main kaun hoon... sawaal yeh hai ki main kya karne wala hoon.",
+          movie: "Zeher (2005)",
+        },
+      ];
+
+      let currentSongIndex = 0;
+      let isPlaying = false;
+      let currentActiveMood = "Romantic";
+      let currentFilterMood = "All";
+      let currentFilterSinger = "All";
+      let currentDialogueIndex = 0;
+      let sfxEnabled = true;
+
+      let ytPlayer = null;
+      let isYtReady = false;
+
+      // YOUTUBE IFRAME API READY HANDLER
+      window.onYouTubeIframeAPIReady = function () {
+        ytPlayer = new YT.Player("yt-player-target", {
+          height: "100%",
+          width: "100%",
+          videoId: SONGS_DB[0].ytId,
+          playerVars: {
+            autoplay: 0,
+            controls: 1,
+            rel: 0,
+            modestbranding: 1,
+            playsinline: 1,
+            enablejsapi: 1,
+          },
+          events: {
+            onReady: onPlayerReady,
+            onStateChange: onPlayerStateChange,
+          },
+        });
+      };
+
+      function onPlayerReady(event) {
+        isYtReady = true;
+        console.log("YouTube Player Ready!");
+      }
+
+      function onPlayerStateChange(event) {
+        const eq = document.getElementById("eq-container");
+        const statusBadge = document.getElementById("player-status-badge");
+
+        if (event.data === YT.PlayerState.PLAYING) {
+          isPlaying = true;
+          eq.classList.add("active");
+          statusBadge.textContent = "🟢 Playing Full Song";
+        } else if (event.data === YT.PlayerState.PAUSED) {
+          isPlaying = false;
+          eq.classList.remove("active");
+          statusBadge.textContent = "⏸️ Paused";
+        } else if (event.data === YT.PlayerState.ENDED) {
+          isPlaying = false;
+          eq.classList.remove("active");
+          statusBadge.textContent = "✨ Song Finished";
+          // Auto play next song in mood
+          playCurrentMoodShuffle();
+        }
+      }
+
+      function loadAndPlaySong(index, autoPlay = true) {
+        if (index < 0 || index >= SONGS_DB.length) index = 0;
+        currentSongIndex = index;
+        const song = SONGS_DB[index];
+
+        document.getElementById("player-song-title").textContent = song.title;
+        document.getElementById("player-movie-meta").textContent =
+          "🎬 " + song.movie + " (" + song.year + ")";
+        document.getElementById("player-artist-meta").innerHTML =
+          "Singers: <strong>" +
+          song.singers +
+          "</strong> | Music: <strong>" +
+          song.music +
+          "</strong>";
+        document.getElementById("player-era-badge").textContent =
+          "Era: " + song.era;
+        document.getElementById("player-mood-badge").textContent =
+          "Mood: " + song.mood;
+        document.getElementById("player-lyric-box").textContent =
+          '"' + song.lyric + '" (Click for Sing-Along Lyrics 🎤)';
+        document.getElementById("player-uploader-name").textContent =
+          song.uploader || "Official Label";
+        document.getElementById("yt-direct-link").href =
+          "https://www.youtube.com/watch?v=" + song.ytId;
+
+        if (isYtReady && ytPlayer && ytPlayer.loadVideoById) {
+          if (autoPlay) {
+            ytPlayer.loadVideoById({ videoId: song.ytId, startSeconds: 0 });
+            ytPlayer.playVideo();
+          } else {
+            ytPlayer.cueVideoById({ videoId: song.ytId, startSeconds: 0 });
+          }
+        }
+
+        // Update lyrics modal if open
+        updateLyricsModalContent(song);
+
+        highlightActiveCard(song.id);
+        showToast(
+          "Playing: " + song.title + " (" + (song.uploader || "YouTube") + ")",
+          "👑",
+        );
+      }
+
+      function playNextSong() {
+        sfxClick();
+        let nextIndex = (currentSongIndex + 1) % SONGS_DB.length;
+        loadAndPlaySong(nextIndex, true);
+      }
+
+      function playPreviousSong() {
+        sfxClick();
+        let prevIndex =
+          (currentSongIndex - 1 + SONGS_DB.length) % SONGS_DB.length;
+        loadAndPlaySong(prevIndex, true);
+      }
+
+      function playRandomMoodSong(mood) {
+        sfxChime();
+        currentActiveMood = mood;
+
+        let candidatePool = [];
+        if (mood === "Anything" || mood === "Roulette") {
+          candidatePool = SONGS_DB;
+        } else {
+          candidatePool = SONGS_DB.filter(
+            (s) => s.mood.toLowerCase() === mood.toLowerCase(),
+          );
+        }
+
+        if (candidatePool.length === 0) candidatePool = SONGS_DB;
+
+        let available = candidatePool.filter(
+          (s) => s.id !== SONGS_DB[currentSongIndex].id,
+        );
+        if (available.length === 0) available = candidatePool;
+
+        const randomPick =
+          available[Math.floor(Math.random() * available.length)];
+        const indexInMaster = SONGS_DB.findIndex((s) => s.id === randomPick.id);
+
+        loadAndPlaySong(indexInMaster, true);
+        document
+          .getElementById("player-box")
+          .scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+
+      function playCurrentMoodShuffle() {
+        playRandomMoodSong(currentActiveMood);
+      }
+
+      // SING-ALONG LYRICS MODAL FUNCTIONS
+      function openLyricsModal() {
+        sfxChime();
+        const song = SONGS_DB[currentSongIndex];
+        updateLyricsModalContent(song);
+        document.getElementById("lyrics-modal-backdrop").classList.add("open");
+      }
+
+      function closeLyricsModal() {
+        sfxClick();
+        document
+          .getElementById("lyrics-modal-backdrop")
+          .classList.remove("open");
+      }
+
+      function handleBackdropClick(e) {
+        if (e.target.id === "lyrics-modal-backdrop") {
+          closeLyricsModal();
+        }
+      }
+
+      function updateLyricsModalContent(song) {
+        document.getElementById("modal-song-title").textContent = song.title;
+        document.getElementById("modal-song-meta").textContent =
+          "🎬 " +
+          song.movie +
+          " (" +
+          song.year +
+          ") • " +
+          song.singers +
+          " & " +
+          song.music;
+        document.getElementById("modal-meaning-text").textContent =
+          '"' + (song.lyricsMeaning || song.lyric) + '"';
+
+        const lines = song.lyricsLines || [song.lyric];
+        const container = document.getElementById("modal-lyrics-container");
+        container.innerHTML = lines
+          .map((line, idx) => {
+            return `<div class="karaoke-line ${idx === 0 ? "active-verse" : ""}" onclick="highlightKaraokeLine(this)">${line}</div>`;
+          })
+          .join("");
+      }
+
+      function highlightKaraokeLine(element) {
+        sfxClick();
+        document
+          .querySelectorAll(".karaoke-line")
+          .forEach((l) => l.classList.remove("active-verse"));
+        element.classList.add("active-verse");
+      }
+
+      function copyCurrentLyrics() {
+        sfxClick();
+        const song = SONGS_DB[currentSongIndex];
+        const lines = (song.lyricsLines || [song.lyric]).join("\n");
+        const fullText =
+          song.title +
+          " (" +
+          song.movie +
+          ")\nSingers: " +
+          song.singers +
+          "\n\n" +
+          lines +
+          "\n\nMeaning: " +
+          song.lyricsMeaning;
+
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(fullText);
+          showToast("Lyrics copied to clipboard!", "📋");
+        } else {
+          showToast("Lyrics ready to share!", "✨");
+        }
+      }
+
+      function renderVaultSongs(songsList) {
+        const container = document.getElementById("songs-grid-container");
+        if (songsList.length === 0) {
+          container.innerHTML = `<div class="empty-vault-state"><span>📻</span><h3>No songs matched your search</h3><p>Try searching for another movie, singer, or clear filters.</p></div>`;
+          return;
+        }
+
+        container.innerHTML = songsList
+          .map((song) => {
+            const isCurrent = SONGS_DB[currentSongIndex].id === song.id;
+            const moodClass = "tag-" + song.mood.toLowerCase();
+            return `
+          <div class="song-card ${isCurrent ? "now-playing" : ""}" id="card-${song.id}" onclick="onCardClick('${song.id}')">
+            <div class="song-card-header">
+              <div>
+                <h4 class="song-card-title">${song.title}</h4>
+                <div class="song-card-movie">🎬 ${song.movie} (${song.year})</div>
+              </div>
+            </div>
+            <div class="song-card-singer">
+              🎙️ ${song.singers} <br>
+              🎼 ${song.music}
+            </div>
+            <div class="song-card-uploader">
+              ▶️ ${song.uploader || "Official YouTube"}
+            </div>
+            <div class="song-card-footer">
+              <span class="song-card-mood-tag ${moodClass}">${song.mood}</span>
+              <button class="play-card-btn" title="Play full song ${song.title}">
+                ▶️
+              </button>
+            </div>
+          </div>
+        `;
+          })
+          .join("");
+      }
+
+      function onCardClick(songId) {
+        sfxClick();
+        const index = SONGS_DB.findIndex((s) => s.id === songId);
+        if (index !== -1) {
+          loadAndPlaySong(index, true);
+          document
+            .getElementById("player-box")
+            .scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }
+
+      function highlightActiveCard(songId) {
+        document.querySelectorAll(".song-card").forEach((card) => {
+          card.classList.remove("now-playing");
+        });
+        const targetCard = document.getElementById("card-" + songId);
+        if (targetCard) {
+          targetCard.classList.add("now-playing");
+        }
+      }
+
+      function filterVaultSongs() {
+        const query = document
+          .getElementById("vault-search")
+          .value.toLowerCase()
+          .trim();
+
+        const filtered = SONGS_DB.filter((song) => {
+          const matchesQuery =
+            song.title.toLowerCase().includes(query) ||
+            song.movie.toLowerCase().includes(query) ||
+            song.singers.toLowerCase().includes(query) ||
+            song.music.toLowerCase().includes(query) ||
+            song.lyric.toLowerCase().includes(query) ||
+            song.year.toString().includes(query);
+
+          const matchesMood =
+            currentFilterMood === "All" ||
+            song.mood.toLowerCase() === currentFilterMood.toLowerCase();
+
+          let matchesSinger = true;
+          if (currentFilterSinger !== "All") {
+            if (currentFilterSinger === "KK")
+              matchesSinger = song.singers.includes("KK");
+            else if (currentFilterSinger === "Atif")
+              matchesSinger = song.singers.includes("Atif");
+            else if (currentFilterSinger === "Himesh")
+              matchesSinger =
+                song.singers.includes("Himesh") ||
+                song.music.includes("Himesh");
+            else if (currentFilterSinger === "Arijit")
+              matchesSinger = song.singers.includes("Arijit");
+            else if (currentFilterSinger === "Pritam")
+              matchesSinger = song.music.includes("Pritam");
+          }
+
+          return matchesQuery && matchesMood && matchesSinger;
+        });
+
+        renderVaultSongs(filtered);
+      }
+
+      function setMoodFilter(mood, btnElement) {
+        sfxClick();
+        currentFilterMood = mood;
+        btnElement.parentElement
+          .querySelectorAll(".filter-pill")
+          .forEach((b) => b.classList.remove("active"));
+        btnElement.classList.add("active");
+        filterVaultSongs();
+      }
+
+      function setSingerFilter(singer, btnElement) {
+        sfxClick();
+        currentFilterSinger = singer;
+        btnElement.parentElement
+          .querySelectorAll(".filter-pill")
+          .forEach((b) => b.classList.remove("active"));
+        btnElement.classList.add("active");
+        filterVaultSongs();
+      }
+
+      function nextRandomDialogue() {
+        sfxClick();
+        currentDialogueIndex = (currentDialogueIndex + 1) % DIALOGUES_DB.length;
+        const d = DIALOGUES_DB[currentDialogueIndex];
+
+        const quoteEl = document.getElementById("dialogue-quote-text");
+        const movieEl = document.getElementById("dialogue-movie-text");
+
+        quoteEl.style.opacity = 0;
+        setTimeout(() => {
+          quoteEl.textContent = '"' + d.quote + '"';
+          movieEl.textContent = "— " + d.movie;
+          quoteEl.style.opacity = 1;
+        }, 200);
+      }
+
+      let audioCtx = null;
+      function initAudioContext() {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioCtx.state === "suspended") {
+          audioCtx.resume();
+        }
+      }
+
+      function playTone(freq, type = "sine", duration = 0.1, gainVal = 0.12) {
+        if (!sfxEnabled) return;
+        try {
+          initAudioContext();
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = type;
+          osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+          gain.gain.setValueAtTime(gainVal, audioCtx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(
+            0.0001,
+            audioCtx.currentTime + duration,
+          );
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start();
+          osc.stop(audioCtx.currentTime + duration);
+        } catch (e) {}
+      }
+
+      function sfxClick() {
+        playTone(540, "triangle", 0.08, 0.09);
+      }
+      function sfxChime() {
+        playTone(620, "sine", 0.12, 0.15);
+        setTimeout(() => playTone(880, "sine", 0.2, 0.15), 80);
+      }
+
+      let toastTimeout = null;
+      function showToast(message, icon = "✨") {
+        const toast = document.getElementById("toast-msg");
+        document.getElementById("toast-text").textContent = message;
+        document.getElementById("toast-icon").textContent = icon;
+        toast.classList.add("show");
+
+        if (toastTimeout) clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => {
+          toast.classList.remove("show");
+        }, 3200);
+      }
+
+      function initParticles() {
+        const canvas = document.getElementById("particles-canvas");
+        const ctx = canvas.getContext("2d");
+        let width = (canvas.width = window.innerWidth);
+        let height = (canvas.height = window.innerHeight);
+
+        window.addEventListener("resize", () => {
+          width = canvas.width = window.innerWidth;
+          height = canvas.height = window.innerHeight;
+        });
+
+        const particles = [];
+        const particleCount = 30;
+        const colors = ["#ff2a5f", "#ffb830", "#00f2fe", "#9d4edd"];
+
+        for (let i = 0; i < particleCount; i++) {
+          particles.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            radius: Math.random() * 2.5 + 1,
+            color: colors[Math.floor(Math.random() * colors.length)],
+            vx: (Math.random() - 0.5) * 0.4,
+            vy: (Math.random() - 0.5) * 0.4 - 0.2,
+            alpha: Math.random() * 0.6 + 0.2,
+          });
+        }
+
+        function render() {
+          ctx.clearRect(0, 0, width, height);
+
+          particles.forEach((p) => {
+            p.x += p.vx;
+            p.y += p.vy;
+
+            if (p.y < 0) p.y = height;
+            if (p.x < 0) p.x = width;
+            if (p.x > width) p.x = 0;
+
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+            ctx.fillStyle = p.color;
+            ctx.globalAlpha = p.alpha;
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = p.color;
+            ctx.fill();
+          });
+
+          requestAnimationFrame(render);
+        }
+        render();
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        initParticles();
+        renderVaultSongs(SONGS_DB);
+
+        document.getElementById("sfx-toggle-btn").onclick = function () {
+          sfxEnabled = !sfxEnabled;
+          this.textContent = sfxEnabled ? "🔊" : "🔇";
+          showToast(sfxEnabled ? "Sound FX Enabled" : "Sound FX Muted", "🔉");
+        };
+
+        document.getElementById("share-btn").onclick = function () {
+          sfxClick();
+          if (navigator.clipboard) {
+            navigator.clipboard.writeText(window.location.href);
+            showToast("Link copied to clipboard!", "🔗");
+          } else {
+            showToast("Share this Emraan Hashmi Jukebox with friends!", "👑");
+          }
+        };
+
+        // Keyboard ESC to close lyrics
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") {
+            closeLyricsModal();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
