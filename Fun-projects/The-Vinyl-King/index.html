@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Vinyl King 👑 | Emraan Hashmi Authentic Turntable Experience</title>
+  <meta name="description" content="An authentic, 100% verified interactive vinyl turntable playing classic Emraan Hashmi Bollywood anthems with movable tonearm and spinning records.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,400;1,600&display=swap" rel="stylesheet">
+  
+  <!-- MODULAR STYLESHEET -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ELEGANT HEADER -->
+  <header>
+    <div class="brand-eyebrow">The Vintage Sound Experience</div>
+    <h1 class="brand-title">The Vinyl King</h1>
+    <div class="brand-tagline">“He gave an entire generation the soundtrack of their lives.”</div>
+
+    <!-- MOOD SELECTOR CHIPS -->
+    <div class="mood-pills-row">
+      <div class="mood-chip active" onclick="setVinylMood('Romantic', this)">🌹 Ishq (Romantic)</div>
+      <div class="mood-chip" onclick="setVinylMood('Sad', this)">💔 Dard (Heartbreak)</div>
+      <div class="mood-chip" onclick="setVinylMood('Fun', this)">⚡ Junoon (Energy & Swag)</div>
+      <div class="mood-chip" onclick="setVinylMood('Sufi', this)">🕊️ Rooh (Sufi & Soul)</div>
+      <div class="mood-chip" onclick="setVinylMood('Anything', this)">✨ Kismat (Surprise Me)</div>
+    </div>
+  </header>
+
+  <!-- REALISTIC TURNTABLE VINYL PLAYER STAGE -->
+  <main class="turntable-stage-wrapper">
+    <div class="turntable-chassis">
+      
+      <!-- LEFT: TURNTABLE PLATTER & ROTATING VINYL -->
+      <div class="turntable-platter-area">
+        <div class="metallic-platter">
+          <div class="vinyl-record-disc" id="turntable-vinyl" onclick="toggleTurntablePlay()" title="Click record to Play / Pause">
+            <div class="vinyl-center-art">
+              <span class="movie-label" id="vinyl-art-movie">JANNAT</span>
+              <span class="rpm-tag">33 ⅓ RPM • STEREO</span>
+              <div class="center-spindle"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MOVABLE TONEARM -->
+        <div class="tonearm-assembly">
+          <div class="tonearm-pivot-base"></div>
+          <div class="tonearm-weight"></div>
+          <div class="tonearm-wand-rod" id="tonearm-rod">
+            <div class="tonearm-cartridge-head">
+              <div class="stylus-needle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: NOW PLAYING ESSENCE & CONTROLS -->
+      <div class="turntable-info-panel">
+        <div class="turntable-led-bar">
+          <div class="status-led" id="status-led-bulb"></div>
+          <div class="status-led-text" id="status-led-label">TURNTABLE READY</div>
+        </div>
+
+        <h2 class="playing-track-title" id="player-track-name">Zara Sa</h2>
+        <div class="playing-movie-title" id="player-movie-name">🎬 Jannat (2008)</div>
+        <div class="playing-artists-text" id="player-artists-name">Composed by Pritam • Performed by KK</div>
+
+        <!-- TACTILE CONTROLS -->
+        <div class="tactile-controls-row">
+          <button class="turntable-step-btn" onclick="playPreviousRecord()" title="Previous Record">⏮</button>
+          <button class="turntable-play-btn" id="master-play-btn" onclick="toggleTurntablePlay()" title="Start / Stop Vinyl">▶</button>
+          <button class="turntable-step-btn" onclick="playNextRecord()" title="Next Record">⏭</button>
+
+          <button class="turntable-mood-shuffle" onclick="shuffleVinylMood()">
+            <span>🎲</span> Next in Mood
+          </button>
+        </div>
+
+        <!-- INTEGRATED VIDEO SCREEN -->
+        <div class="integrated-cinema-box">
+          <div id="yt-player-target"></div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- DISCOGRAPHY VAULT SECTION -->
+  <section class="vault-section">
+    <div class="vault-header">
+      <div>
+        <h3>The Verified Vinyl Collection</h3>
+        <p id="vault-count-text">Verified Anthems starring Emraan Hashmi</p>
+      </div>
+
+      <div class="vault-search-box">
+        <span>🔍</span>
+        <input 
+          type="text" 
+          id="search-vinyl-input" 
+          class="vault-search-input" 
+          placeholder="Filter verified songs, movies, artists..."
+          oninput="onSearchFilter()"
+        >
+      </div>
+    </div>
+
+    <!-- SONGS GRID -->
+    <div class="songs-shelf-grid" id="songs-shelf-grid"></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>A soulful, non-commercial vintage vinyl tribute to Emraan Hashmi & Bollywood Cinema</p>
+    <p style="margin-top: 0.35rem; font-size: 0.78rem; opacity: 0.7;">
+      Streamed via YouTube Embedded Player. All musical rights belong to original creators & record labels.
+    </p>
+  </footer>
+
+  <div id="toast-msg">Notice</div>
+
+  <!-- YOUTUBE IFRAME API -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+
+  <!-- MODULAR SONGS VAULT DATA -->
+  <script src="songs.js"></script>
+
+  <!-- MODULAR APPLICATION CONTROLLER -->
+  <script src="app.js"></script>
+
+</body>
+</html>

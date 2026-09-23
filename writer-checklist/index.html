@@ -328,7 +328,7 @@
     function sendEmail() {
         const email = document.getElementById('m3').value;
         const score = document.getElementById('p-text').innerText;
-        if (!email) { alert("Please enter the Writer Email."); return; }
+        if (!email) { alert("Enter the Writer Email."); return; }
         const body = encodeURIComponent(`Audit complete via Sneha Pandey's Checklist.\nReadiness Score: ${score}`);
         window.location.href = `mailto:${email}?subject=Review Ready&body=${body}`;
     }

@@ -78,12 +78,16 @@
 
   // --- INITIALIZATION ---
   async function init() {
-    setupEventListeners();
-    initVisitorCounter();
-    await loadPromptsData();
-    renderDomainTabs();
-    renderSubcategories();
-    renderPrompts();
+    try {
+      setupEventListeners();
+      initVisitorCounter();
+      await loadPromptsData();
+      renderDomainTabs();
+      renderSubcategories();
+      renderPrompts();
+    } catch (err) {
+      console.error('Initialization error:', err);
+    }
   }
 
   // --- VISITOR COUNTER ---
@@ -121,11 +125,14 @@
       return;
     }
     try {
-      const response = await fetch('data/prompts.json');
+      const response = await fetch('data/prompts.json?v=2.0.2');
       if (!response.ok) throw new Error('Network response failed');
       allPrompts = await response.json();
     } catch (err) {
-      console.warn('Fetch data/prompts.json failed:', err);
+      console.warn('Fetch data/prompts.json failed, falling back to window.PROMPTS_DATA:', err);
+      if (window.PROMPTS_DATA && Array.isArray(window.PROMPTS_DATA)) {
+        allPrompts = window.PROMPTS_DATA;
+      }
     }
   }
 
@@ -774,6 +781,10 @@
     });
   }
 
-  document.addEventListener('DOMContentLoaded', init);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 
 })();
