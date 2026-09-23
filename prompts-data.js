@@ -17,7 +17,11 @@ window.PROMPTS_DATA = [
       "feature",
       "draft",
       "product"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "draft_content",
+    "subcategoryName": "Draft & Content"
   },
   {
     "id": "p02",
@@ -37,7 +41,11 @@ window.PROMPTS_DATA = [
       "simplify",
       "jargon",
       "content"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "draft_content",
+    "subcategoryName": "Draft & Content"
   },
   {
     "id": "p03",
@@ -57,7 +65,11 @@ window.PROMPTS_DATA = [
       "schemas",
       "reference",
       "endpoint"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "draft_content",
+    "subcategoryName": "Draft & Content"
   },
   {
     "id": "p04",
@@ -77,7 +89,11 @@ window.PROMPTS_DATA = [
       "newly",
       "one",
       "documentation"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "draft_content",
+    "subcategoryName": "Draft & Content"
   },
   {
     "id": "p05",
@@ -97,7 +113,11 @@ window.PROMPTS_DATA = [
       "tooltips",
       "microcopy",
       "buttons"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "draft_content",
+    "subcategoryName": "Draft & Content"
   },
   {
     "id": "p06",
@@ -117,7 +137,11 @@ window.PROMPTS_DATA = [
       "user",
       "update",
       "software"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "draft_content",
+    "subcategoryName": "Draft & Content"
   },
   {
     "id": "p39",
@@ -137,7 +161,11 @@ window.PROMPTS_DATA = [
       "developer",
       "facing",
       "raw"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "draft_content",
+    "subcategoryName": "Draft & Content"
   },
   {
     "id": "p40",
@@ -156,7 +184,11 @@ window.PROMPTS_DATA = [
       "seo",
       "title",
       "generation"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "draft_content",
+    "subcategoryName": "Draft & Content"
   },
   {
     "id": "p46",
@@ -176,7 +208,11 @@ window.PROMPTS_DATA = [
       "entries",
       "notes",
       "changelog"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "draft_content",
+    "subcategoryName": "Draft & Content"
   },
   {
     "id": "p07",
@@ -186,7 +222,7 @@ window.PROMPTS_DATA = [
     "title": "Style Guide Compliance Report",
     "useCase": "Audit a doc against your style guide with a scored report",
     "level": "Intermediate",
-    "badgeColor": "#6366f1",
+    "badgeColor": "#f59e0b",
     "promptText": "You are a documentation quality reviewer. I am giving you two inputs: (1) my team's style guide, and (2) a document I have written. Your task is to audit the document against the style guide and produce a detailed compliance report.\n\nSTYLE GUIDE:\n&lt;style_guide&gt;\n<mark>[PASTE FULL STYLE GUIDE OR RELEVANT SECTIONS HERE]</mark>\n&lt;/style_guide&gt;\n\nDOCUMENT TO REVIEW:\n&lt;document&gt;\n<mark>[PASTE YOUR DOCUMENT HERE]</mark>\n&lt;/document&gt;\n\nProduce a report structured as follows:\n\n## Compliance Report: [Document Title]\n\n### 1. Overall Score\nGive an overall compliance score out of 100, with a 2-sentence summary.\n\n### 2. Violations Found\nFor each violation: quote the original text, name the rule broken, and provide a corrected version.\n\n### 3. Areas of Strength\nList 3 things the document does well.\n\n### 4. Priority Fixes\nList the top 5 changes that would most improve this document's compliance score.",
     "copyPrompt": "You are a documentation quality reviewer. Audit the document against the style guide and produce a compliance report.\n\nSTYLE GUIDE:\n<style_guide>\n[PASTE YOUR FULL STYLE GUIDE HERE]\n</style_guide>\n\nDOCUMENT TO REVIEW:\n<document>\n[PASTE YOUR DOCUMENT HERE]\n</document>\n\nProduce:\n1. Overall Score (out of 100) with 2-sentence summary\n2. Violations Found: quote original, name rule broken, provide corrected version\n3. Areas of Strength: 3 things done well\n4. Priority Fixes: top 5 changes to improve compliance score",
     "proTip": "",
@@ -196,7 +232,11 @@ window.PROMPTS_DATA = [
       "against",
       "report",
       "scored"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "format_style",
+    "subcategoryName": "Format & Style"
   },
   {
     "id": "p08",
@@ -206,7 +246,7 @@ window.PROMPTS_DATA = [
     "title": "Peer Review Feedback Generator",
     "useCase": "Get structured, actionable feedback on any draft",
     "level": "Intermediate",
-    "badgeColor": "#6366f1",
+    "badgeColor": "#ef4444",
     "promptText": "Act as a senior technical editor. Review the document below and provide structured peer review feedback.\n\nDocument type: <mark>[e.g., API guide, user manual, release notes, README]</mark>\nIntended audience: <mark>[DESCRIBE]</mark>\nPublishing context: <mark>[e.g., public developer portal, internal wiki, help center]</mark>\n\nDocument:\n<mark>[PASTE DOCUMENT HERE]</mark>\n\nProvide feedback under these headings:\n1. Clarity: are instructions clear and unambiguous?\n2. Completeness: is anything missing that the reader will need?\n3. Accuracy: flag any statements that appear incorrect or need verification\n4. Structure: is the information organized in the right order?\n5. Voice and tone: does it match the intended audience?\n6. Specific rewrites: quote 3-5 sentences and provide improved versions\n\nBe direct and specific. Avoid vague praise. Every piece of feedback should be actionable.",
     "copyPrompt": "Act as a senior technical editor. Review the document below and provide structured peer review feedback.\n\nDocument type: [e.g., API guide, user manual, release notes, README]\nIntended audience: [DESCRIBE]\nPublishing context: [e.g., public developer portal, internal wiki, help center]\n\nDocument:\n[PASTE DOCUMENT HERE]\n\nProvide feedback under these headings:\n1. Clarity\n2. Completeness\n3. Accuracy\n4. Structure\n5. Voice and tone\n6. Specific rewrites: quote 3-5 sentences and provide improved versions\n\nBe direct and specific. Avoid vague praise. Every piece of feedback should be actionable.",
     "proTip": "",
@@ -216,7 +256,11 @@ window.PROMPTS_DATA = [
       "any",
       "actionable",
       "peer"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "video",
+    "subcategoryName": "Video & Audio"
   },
   {
     "id": "p09",
@@ -226,7 +270,7 @@ window.PROMPTS_DATA = [
     "title": "Readability & Accessibility Audit",
     "useCase": "Check plain language, accessibility, and global English",
     "level": "Intermediate",
-    "badgeColor": "#6366f1",
+    "badgeColor": "#ef4444",
     "promptText": "You are a technical editor specializing in plain language and accessibility. Audit the document below against these criteria:\n\nDocument:\n&lt;document&gt;\n<mark>[PASTE DOCUMENT HERE]</mark>\n&lt;/document&gt;\n\nAudit criteria:\n- Readability: flag sentences over 25 words; identify passive voice; highlight unnecessary jargon\n- Global English: flag idioms, metaphors, and culturally specific references that will not translate well\n- Accessibility: identify spatial language (\"see above\", \"click the icon on the left\"), color-only instructions, and non-descriptive links (\"click here\")\n- Inclusivity: flag gendered language; suggest gender-neutral alternatives\n\nOutput format:\n- One table per criterion\n- Columns: Original text | Issue | Suggested fix\n- End with a summary paragraph of the 3 highest-priority improvements",
     "copyPrompt": "You are a technical editor specializing in plain language and accessibility. Audit the document below.\n\nDocument:\n<document>\n[PASTE DOCUMENT HERE]\n</document>\n\nAudit for:\n- Readability: sentences over 25 words, passive voice, jargon\n- Global English: idioms, metaphors, culturally specific references\n- Accessibility: spatial language, color-only instructions, non-descriptive links\n- Inclusivity: gendered language\n\nOutput one table per criterion. Columns: Original text | Issue | Suggested fix.\nEnd with a summary of the 3 highest-priority improvements.",
     "proTip": "Run this prompt before every external publish\n                  to catch easily overlooked accessibility issues.",
@@ -236,7 +280,11 @@ window.PROMPTS_DATA = [
       "audit",
       "accessibility",
       "global"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "video",
+    "subcategoryName": "Video & Audio"
   },
   {
     "id": "p10",
@@ -246,7 +294,7 @@ window.PROMPTS_DATA = [
     "title": "Consistency Check Across Documents",
     "useCase": "Find terminology and formatting inconsistencies in a doc set",
     "level": "Intermediate",
-    "badgeColor": "#6366f1",
+    "badgeColor": "#ef4444",
     "promptText": "You are a technical editor performing a consistency audit across multiple documents. I am providing two or more documents below. Identify all inconsistencies between them.\n\nDocument 1: <mark>[TITLE/TYPE]</mark>:\n&lt;document_1&gt;\n<mark>[PASTE DOCUMENT 1 HERE]</mark>\n&lt;/document_1&gt;\n\nDocument 2: <mark>[TITLE/TYPE]</mark>:\n&lt;document_2&gt;\n<mark>[PASTE DOCUMENT 2 HERE]</mark>\n&lt;/document_2&gt;\n\nCheck for inconsistencies in:\n1. Terminology: the same concept referred to by different names\n2. UI labels: product names, button names, or field names that differ\n3. Formatting: date formats, code style, heading capitalization\n4. Tone: shifts between formal and casual registers\n5. Instructions: conflicting steps or contradictory information\n\nOutput a table: Inconsistency | Document 1 usage | Document 2 usage | Recommended standard",
     "copyPrompt": "You are a technical editor performing a consistency audit. Identify all inconsistencies between the documents below.\n\nDocument 1: [TITLE/TYPE]\n<document_1>\n[PASTE DOCUMENT 1]\n</document_1>\n\nDocument 2: [TITLE/TYPE]\n<document_2>\n[PASTE DOCUMENT 2]\n</document_2>\n\nCheck for: terminology, UI labels, formatting, tone, conflicting instructions.\nOutput a table: Inconsistency | Document 1 usage | Document 2 usage | Recommended standard",
     "proTip": "Paste existing documentation to understand\n                  the terminology landscape quickly when onboarding to a new team.",
@@ -256,7 +304,11 @@ window.PROMPTS_DATA = [
       "formatting",
       "check",
       "set"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "video",
+    "subcategoryName": "Video & Audio"
   },
   {
     "id": "p47",
@@ -266,9 +318,9 @@ window.PROMPTS_DATA = [
     "title": "Inclusive Language Audit",
     "useCase": "Review documentation for bias and exclusion",
     "level": "Intermediate",
-    "badgeColor": "#6366f1",
+    "badgeColor": "#f59e0b",
     "promptText": "You are a documentation quality reviewer. Review the content below for inclusive, bias-free language and accessibility.\n\nDocument: <mark>[PASTE YOUR DOCUMENT HERE]</mark>\nAudience: <mark>[e.g., developers, end users, managers]</mark>\n\nProvide a report with these sections:\n1. Terms or phrases to replace and why\n2. Suggested inclusive alternatives\n3. Any wording that may exclude or confuse readers\n4. A short summary of the document's overall tone and inclusivity",
-    "copyPrompt": "You are a documentation quality reviewer. Review the content below for inclusive, bias-free language and accessibility.\n\nDocument: [PASTE YOUR DOCUMENT HERE]\nAudience: [e.g., developers, end users, managers]\n\nProvide a report with these sections:\n1. Terms or phrases to replace and why\n2. Suggested inclusive alternatives\n3. Any wording that may exclude or confuse readers\n4. A short summary of the document\u2019s overall tone and inclusivity",
+    "copyPrompt": "You are a documentation quality reviewer. Review the content below for inclusive, bias-free language and accessibility.\n\nDocument: [PASTE YOUR DOCUMENT HERE]\nAudience: [e.g., developers, end users, managers]\n\nProvide a report with these sections:\n1. Terms or phrases to replace and why\n2. Suggested inclusive alternatives\n3. Any wording that may exclude or confuse readers\n4. A short summary of the document’s overall tone and inclusivity",
     "proTip": "Add the audience description to help the AI tailor tone and\n                terminology.",
     "tags": [
       "review",
@@ -276,7 +328,11 @@ window.PROMPTS_DATA = [
       "documentation",
       "exclusion",
       "inclusive"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "format_style",
+    "subcategoryName": "Format & Style"
   },
   {
     "id": "p11",
@@ -296,7 +352,11 @@ window.PROMPTS_DATA = [
       "turn",
       "transcript",
       "documentation"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "format_style",
+    "subcategoryName": "Format & Style"
   },
   {
     "id": "p12",
@@ -316,7 +376,11 @@ window.PROMPTS_DATA = [
       "tutorial",
       "video",
       "script"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "format_style",
+    "subcategoryName": "Format & Style"
   },
   {
     "id": "p13",
@@ -336,7 +400,11 @@ window.PROMPTS_DATA = [
       "alt",
       "video",
       "ready"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "format_style",
+    "subcategoryName": "Format & Style"
   },
   {
     "id": "p14",
@@ -346,7 +414,7 @@ window.PROMPTS_DATA = [
     "title": "Convert Prose to Structured Docs",
     "useCase": "Transform unstructured notes or emails into polished docs",
     "level": "Beginner",
-    "badgeColor": "#ec4899",
+    "badgeColor": "#f59e0b",
     "promptText": "You are a technical writer. Below is unstructured content: it may be raw notes, an email thread, a Slack conversation, or an informal write-up. Convert it into a structured technical document. Source content:\n&lt;source_content&gt;\n<mark>[PASTE CONTENT HERE]</mark>\n&lt;/source_content&gt;\n\nTarget document type: <mark>[e.g., how-to guide, reference doc, FAQ, process overview]</mark>\nTarget audience: <mark>[DESCRIBE]</mark>\n\nRestructure the content as follows:\n- Add a clear title\n- Add a brief introduction (2: 3 sentences)\n- Organize the content under logical H2 headings\n- Convert any instructions into numbered steps\n- Convert any lists into formatted bullet points\n- Remove filler, repetition, and conversational language\n- Preserve all factual information: do not drop details\n\nOutput in Markdown format.",
     "copyPrompt": "You are a technical writer converting unstructured content into a structured technical document.\n\nSource content:\n<source_content>\n[PASTE CONTENT HERE]\n</source_content>\n\nTarget type: [e.g., how-to guide, reference doc, FAQ]\nTarget audience: [DESCRIBE]\n\nAdd title, introduction, H2 headings, numbered steps for instructions, bullet points for lists. Remove filler. Preserve all facts. Output in Markdown.",
     "proTip": "Paste a Slack thread or email chain\n                  directly to let the AI filter the noise.",
@@ -356,7 +424,11 @@ window.PROMPTS_DATA = [
       "structured",
       "prose",
       "convert"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "format_style",
+    "subcategoryName": "Format & Style"
   },
   {
     "id": "p15",
@@ -366,7 +438,7 @@ window.PROMPTS_DATA = [
     "title": "Reformat for a Different Channel",
     "useCase": "Adapt one doc for web, PDF, in-app help, and email",
     "level": "Intermediate",
-    "badgeColor": "#ec4899",
+    "badgeColor": "#f59e0b",
     "promptText": "You are a technical writer adapting content for multiple delivery channels. I have one source document and need versions formatted for different outputs.\n\nSource document:\n&lt;source_doc&gt;\n<mark>[PASTE SOURCE DOC HERE]</mark>\n&lt;/source_doc&gt;\n\nProduce the following versions:\n\n1. Web help article: full version with H2/H3 headings, numbered steps, scannable layout. Suitable for a help center or developer portal\n\n2. In-app tooltip / contextual help: max 40 words per tooltip. Extract the 3 most important tips as standalone tooltip text\n\n3. Email: a short plain-text version summarizing the key action the user needs to take. Max 150 words. No markdown\n\n4. PDF/print: a clean version with a title, intro paragraph, and numbered steps. Remove all hyperlink references and replace with plain text\n\nDo not add information beyond what is in the source document.",
     "copyPrompt": "You are a technical writer adapting content for multiple channels.\n\nSource document:\n<source_doc>\n[PASTE SOURCE DOC HERE]\n</source_doc>\n\nProduce:\n1. Web help article: headings, numbered steps, scannable\n2. In-app tooltips: max 40 words each, 3 most important tips\n3. Email: plain text, max 150 words, key action only\n4. PDF/print: title, intro, numbered steps, no hyperlinks\n\nDo not add information beyond the source.",
     "proTip": "Use this prompt to practice single-source\n                  publishing and mirror content management system workflows.",
@@ -376,7 +448,11 @@ window.PROMPTS_DATA = [
       "pdf",
       "app",
       "adapt"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "format_style",
+    "subcategoryName": "Format & Style"
   },
   {
     "id": "p16",
@@ -386,7 +462,7 @@ window.PROMPTS_DATA = [
     "title": "Convert Markdown to Structured HTML",
     "useCase": "Output publication-ready HTML with semantic markup",
     "level": "Intermediate",
-    "badgeColor": "#ec4899",
+    "badgeColor": "#f59e0b",
     "promptText": "You are a technical writer and web developer. Convert the Markdown document below into semantic, accessible HTML.\n\nMarkdown source:\n<mark>[PASTE MARKDOWN HERE]</mark>\n\nRequirements:\n- Use semantic HTML5 elements: article, section, h1: h4, p, ol, ul, li, code, pre, blockquote\n- Wrap code samples in pre + code tags with a data-language attribute\n- Convert note/tip/warning callouts into aside elements with a class attribute (class=\"note\", class=\"tip\", class=\"warning\")\n- Add aria-label to all tables\n- Do not add inline styles or classes beyond those specified above\n- Output only the HTML body content: no html, head, or body tags",
     "copyPrompt": "Convert the Markdown below into semantic, accessible HTML5 body content.\n\nMarkdown:\n[PASTE MARKDOWN HERE]\n\nUse: article, section, h1: h4, p, ol, ul, li, code, pre, blockquote.\nCode blocks: pre + code with data-language attribute.\nCallouts: aside with class=\"note/tip/warning\".\nAdd aria-label to tables. No inline styles. No html/head/body tags.",
     "proTip": "Use semantic HTML to improve SEO and\n                  screen reader compatibility for web-published developer documentation.",
@@ -396,7 +472,11 @@ window.PROMPTS_DATA = [
       "markdown",
       "html",
       "structured"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "format_style",
+    "subcategoryName": "Format & Style"
   },
   {
     "id": "p17",
@@ -406,7 +486,7 @@ window.PROMPTS_DATA = [
     "title": "Localization Prep: Simplify for Translation",
     "useCase": "Prepare English source text to reduce translation costs",
     "level": "Intermediate",
-    "badgeColor": "#ec4899",
+    "badgeColor": "#14b8a6",
     "promptText": "You are a technical writer preparing documentation for translation. Rewrite the document below to minimize localization costs and improve translation accuracy.\n\nDocument:\n<mark>[PASTE DOCUMENT HERE]</mark>\n\nApply these rules:\n1. Break all sentences over 20 words into two shorter sentences\n2. Remove all idioms, metaphors, and culturally specific expressions. Replace with literal equivalents\n3. Replace pronouns where the referent is ambiguous (e.g., replace \"it\" with the noun it refers to)\n4. Use consistent terminology: the same concept must always use the same word\n5. Remove contractions (replace \"don't\" with \"do not\", \"can't\" with \"cannot\")\n6. Use the active voice throughout\n7. Flag any terms that should NOT be translated (product names, code strings, UI labels) by wrapping them in [NOTRANSLATE]...[/NOTRANSLATE]\n\nOutput the revised document followed by a list of flagged no-translate terms.",
     "copyPrompt": "Rewrite the document below to prepare it for translation.\n\nDocument:\n[PASTE DOCUMENT HERE]\n\nApply:\n1. Sentences under 20 words\n2. No idioms or metaphors: use literal equivalents\n3. Replace ambiguous pronouns with explicit nouns\n4. Consistent terminology throughout\n5. No contractions\n6. Active voice\n7. Wrap untranslatable terms: [NOTRANSLATE]...[/NOTRANSLATE]\n\nOutput revised doc + list of no-translate terms.",
     "proTip": "Write shorter, clearer source text to\n                  reduce translation costs and improve translated quality.",
@@ -416,7 +496,11 @@ window.PROMPTS_DATA = [
       "prep",
       "prepare",
       "text"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "strategy",
+    "subcategoryName": "Strategy & Planning"
   },
   {
     "id": "p41",
@@ -426,7 +510,7 @@ window.PROMPTS_DATA = [
     "title": "Raw Data to Markdown Table",
     "useCase": "Convert unstructured lists or CSVs into clean Markdown tables",
     "level": "Intermediate",
-    "badgeColor": "#ec4899",
+    "badgeColor": "#14b8a6",
     "promptText": "Convert the following unstructured data into a formatted Markdown table:\n\n&lt;data&gt;\n<mark>[PASTE RAW DATA OR CSV HERE]</mark>\n&lt;/data&gt;\n\nEnsure the columns are logically ordered. If a header row is not obvious, create one based on the context. Align numerical columns to the right and text columns to the left.",
     "copyPrompt": "Convert the following unstructured data into a formatted Markdown table:\n\n<data>\n[PASTE RAW DATA OR CSV HERE]\n</data>\n\nEnsure the columns are logically ordered. If a header row is not obvious, create one based on the context. Align numerical columns to the right and text columns to the left.",
     "proTip": "Use this prompt to migrate legacy\n                  documentation quickly. Ask the AI to sort the table alphabetically by a specific\n                  column during the conversion.",
@@ -436,7 +520,11 @@ window.PROMPTS_DATA = [
       "unstructured",
       "lists",
       "clean"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "strategy",
+    "subcategoryName": "Strategy & Planning"
   },
   {
     "id": "p48",
@@ -446,7 +534,7 @@ window.PROMPTS_DATA = [
     "title": "Prepare Docs for Static Site Publishing",
     "useCase": "Convert Markdown into docs-site ready pages",
     "level": "Beginner",
-    "badgeColor": "#ec4899",
+    "badgeColor": "#14b8a6",
     "promptText": "You are a technical writer preparing documentation for a static documentation site. Convert the Markdown below into a page with YAML frontmatter suitable for [PLATFORM].\n\nMarkdown source: <mark>[PASTE MARKDOWN HERE]</mark>\n\nInclude frontmatter fields: title, description, sidebar_position, tags, draft (true/false).\n\nOutput only valid Markdown with YAML frontmatter at the top. Preserve headings, lists, code blocks, and links. Do not add extra sections beyond the source content.",
     "copyPrompt": "You are a technical writer preparing documentation for a static documentation site. Convert the Markdown below into a page with YAML frontmatter suitable for [PLATFORM].\n\nMarkdown source: [PASTE MARKDOWN HERE]\n\nInclude frontmatter fields: title, description, sidebar_position, tags, draft (true/false).\n\nOutput only valid Markdown with YAML frontmatter at the top. Preserve headings, lists, code blocks, and links. Do not add extra sections beyond the source content.",
     "proTip": "Specify the platform when using this for Docusaurus, Hugo,\n                or MkDocs.",
@@ -456,7 +544,11 @@ window.PROMPTS_DATA = [
       "publishing",
       "prepare",
       "ready"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "strategy",
+    "subcategoryName": "Strategy & Planning"
   },
   {
     "id": "p18",
@@ -475,7 +567,11 @@ window.PROMPTS_DATA = [
       "scratch",
       "guide",
       "build"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "strategy",
+    "subcategoryName": "Strategy & Planning"
   },
   {
     "id": "p19",
@@ -485,7 +581,7 @@ window.PROMPTS_DATA = [
     "title": "Create a Documentation Template",
     "useCase": "",
     "level": "Intermediate",
-    "badgeColor": "#14b8a6",
+    "badgeColor": "#0d9488",
     "promptText": "You are a technical writer creating reusable documentation templates. Create a template for the following document type.\n\nDocument type: <mark>[e.g., how-to guide / API endpoint reference / concept overview / release notes / runbook / troubleshooting guide]</mark>\n\nThe template must:\n- Include every section a complete document of this type should have\n- Use placeholder text in [SQUARE BRACKETS] to indicate what each section should contain\n- Include inline writing guidance as HTML comments (<!-- like this -->) explaining how to fill in each section\n- Show the recommended length or scope for each section\n- Be formatted in Markdown\n\nAlso include at the top: a metadata block with fields for Title, Author, Last updated, Status (draft/review/published), and Audience.",
     "copyPrompt": "Create a reusable Markdown template for: [DOCUMENT TYPE]\n\nThe template must:\n- Include all sections a complete document of this type needs\n- Use [SQUARE BRACKETS] for placeholder text\n- Include inline guidance as HTML comments <!-- like this -->\n- Show recommended length per section\n\nInclude a metadata block at the top: Title, Author, Last updated, Status, Audience.",
     "proTip": "Store approved templates in the team\n                  shared workspace to maintain consistent document structure.",
@@ -493,7 +589,11 @@ window.PROMPTS_DATA = [
       "template",
       "create",
       "documentation"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "draft_content",
+    "subcategoryName": "Draft & Content"
   },
   {
     "id": "p20",
@@ -503,7 +603,7 @@ window.PROMPTS_DATA = [
     "title": "Improve Sentence-Level Clarity",
     "useCase": "Line-edit a passage for tightness, voice, and precision",
     "level": "Intermediate",
-    "badgeColor": "#14b8a6",
+    "badgeColor": "#0d9488",
     "promptText": "You are a technical editor performing a line edit. Rewrite each sentence in the passage below to improve clarity, directness, and readability. Do not change the meaning or remove factual content.\n\nPassage:\n<mark>[PASTE PASSAGE HERE]</mark>\n\nApply these rules sentence by sentence:\n- Remove unnecessary words (e.g., \"in order to\" -> \"to\"; \"due to the fact that\" -> \"because\")\n- Convert passive voice to active voice\n- Break sentences over 25 words into two\n- Replace vague nouns with specific ones (e.g., \"the system\" -> name the system)\n- Remove hedging language where it is not needed (e.g., \"it should be noted that\")\n\nOutput format:\n| Original | Revised | Change made |\n(One row per sentence changed. Skip unchanged sentences.)",
     "copyPrompt": "Line-edit the passage below. Do not change meaning or remove facts.\n\nPassage:\n[PASTE PASSAGE HERE]\n\nApply:\n- Remove unnecessary words\n- Active voice\n- Break sentences over 25 words\n- Replace vague nouns with specific ones\n- Remove unneeded hedging language\n\nOutput as table: Original | Revised | Change made\nOne row per changed sentence only.",
     "proTip": "Apply this prompt to personal writing.\n                  Compare the original and revised columns to train your editing skills.",
@@ -513,7 +613,11 @@ window.PROMPTS_DATA = [
       "precision",
       "edit",
       "tightness"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "draft_content",
+    "subcategoryName": "Draft & Content"
   },
   {
     "id": "p49",
@@ -523,7 +627,7 @@ window.PROMPTS_DATA = [
     "title": "Create a Documentation Taxonomy",
     "useCase": "Organize docs by tasks, audience, and page type",
     "level": "Intermediate",
-    "badgeColor": "#14b8a6",
+    "badgeColor": "#0d9488",
     "promptText": "You are a technical writer designing documentation taxonomy. Create a structured doc organization for [YOUR_PRODUCT].\n\nProduct description: <mark>[ONE-SENTENCE DESCRIPTION]</mark>\nPrimary audiences: <mark>[e.g., new developers, experienced developers, non-technical stakeholders]</mark>\nMain user tasks: <mark>[LIST 3: 4 KEY TASKS]</mark>\n\nOutput an indented site map with top-level sections and page names. Then provide 3 recommended reading paths for different audiences. Finally, identify 2 content gaps and explain why they matter.",
     "copyPrompt": "You are a technical writer designing documentation taxonomy. Create a structured doc organization for [YOUR_PRODUCT].\n\nProduct description: [ONE-SENTENCE DESCRIPTION]\nPrimary audiences: [e.g., new developers, experienced developers, non-technical stakeholders]\nMain user tasks: [LIST 3: 4 KEY TASKS]\n\nOutput an indented site map with top-level sections and page names. Then provide 3 recommended reading paths for different audiences. Finally, identify 2 content gaps and explain why they matter.",
     "proTip": "Use the output as the basis for your docs site navigation\n                and page naming conventions.",
@@ -533,7 +637,11 @@ window.PROMPTS_DATA = [
       "tasks",
       "organize",
       "page"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "draft_content",
+    "subcategoryName": "Draft & Content"
   },
   {
     "id": "p21",
@@ -543,7 +651,7 @@ window.PROMPTS_DATA = [
     "title": "Build a Documentation Plan",
     "useCase": "",
     "level": "Intermediate",
-    "badgeColor": "#8b5cf6",
+    "badgeColor": "#0d9488",
     "promptText": "You are a senior technical writer creating a documentation plan for a product launch.\n\nProduct/release details:\n- Product: <mark>[NAME]</mark>\n- Launch date: <mark>[DATE OR TIMEFRAME]</mark>\n- What is being released: <mark>[DESCRIBE THE FEATURES OR PRODUCT]</mark>\n- Audiences to document for: <mark>[LIST]</mark>\n- Team size: <mark>[e.g., solo writer / 2-person team]</mark>\n- Known constraints: <mark>[e.g., no SME access until week 3 / must use existing templates]</mark>\n\nProduce a documentation plan that includes:\n1. Deliverables list: every document needed, with doc type, audience, and priority (P1/P2/P3)\n2. Effort estimates: rough hours per deliverable\n3. Dependencies: what information or approvals each doc needs before it can be written\n4. Risks: 3 risks that could delay delivery, with mitigations\n5. Review process: suggested review stages and owners\n6. Timeline: a week-by-week schedule from kickoff to launch",
     "copyPrompt": "Create a documentation plan for a product launch.\n\nDetails:\n- Product: [NAME]\n- Launch date: [DATE]\n- What is being released: [DESCRIBE]\n- Audiences: [LIST]\n- Team size: [e.g., solo / 2-person]\n- Constraints: [LIST]\n\nInclude:\n1. Deliverables list: doc type, audience, priority (P1/P2/P3)\n2. Effort estimates\n3. Dependencies\n4. Risks + mitigations\n5. Review process\n6. Week-by-week timeline",
     "proTip": "Share this plan with the engineering\n                  lead before writing to align on scope and prevent rework.",
@@ -551,7 +659,11 @@ window.PROMPTS_DATA = [
       "documentation",
       "plan",
       "build"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "draft_content",
+    "subcategoryName": "Draft & Content"
   },
   {
     "id": "p22",
@@ -561,7 +673,7 @@ window.PROMPTS_DATA = [
     "title": "Content Audit: Gap Analysis",
     "useCase": "",
     "level": "Advanced",
-    "badgeColor": "#8b5cf6",
+    "badgeColor": "#0d9488",
     "promptText": "You are a senior technical writer performing a content audit. I am giving you a list of documents that currently exist in our documentation set.\n\nExisting documents (list titles and brief descriptions):\n<mark>[PASTE YOUR DOC INVENTORY HERE]</mark>\n\nProduct overview (what the product does):\n<mark>[BRIEF DESCRIPTION]</mark>\n\nTarget audiences:\n<mark>[LIST]</mark>\n\nPerform a gap analysis:\n1. Coverage gaps: what topics or user tasks are not covered by any existing document?\n2. Redundancy: which documents cover overlapping content that could be merged?\n3. Outdated content: which documents are likely to contain stale information based on their titles and descriptions?\n4. Priority recommendations: rank the top 5 new documents to create, with justification\n5. Quick wins: list 3 improvements that could be made to existing docs with minimal effort\n\nBefore providing your final analysis, use a &lt;thinking&gt; tag to briefly brainstorm the user journeys and identify potential gaps.",
     "copyPrompt": "Perform a content audit gap analysis.\n\nExisting documents:\n[PASTE DOC INVENTORY HERE]\n\nProduct overview:\n[BRIEF DESCRIPTION]\n\nTarget audiences:\n[LIST]\n\nAnalyze:\n1. Coverage gaps: what topics or tasks are missing?\n2. Redundancy: documents to merge\n3. Outdated content: likely stale docs\n4. Top 5 new docs to create (ranked, with justification)\n5. Quick wins: 3 improvements with minimal effort\n\nBefore providing your final analysis, use a <thinking> tag to briefly brainstorm the user journeys and identify potential gaps.",
     "proTip": "Export a sitemap or Confluence page\n                  tree as the documentation inventory. A rough list provides enough context for the\n                  AI.",
@@ -570,7 +682,11 @@ window.PROMPTS_DATA = [
       "audit",
       "content",
       "analysis"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "draft_content",
+    "subcategoryName": "Draft & Content"
   },
   {
     "id": "p23",
@@ -580,7 +696,7 @@ window.PROMPTS_DATA = [
     "title": "Write a Docs-as-Code Proposal",
     "useCase": "",
     "level": "Advanced",
-    "badgeColor": "#8b5cf6",
+    "badgeColor": "#0d9488",
     "promptText": "You are a senior technical writer writing an internal proposal. Write a business case for adopting a docs-as-code workflow.\n\nContext:\n- Company type: <mark>[e.g., SaaS startup / enterprise / agency]</mark>\n- Current documentation tool: <mark>[e.g., Confluence / Google Docs / SharePoint / Word]</mark>\n- Target audience for this proposal: <mark>[e.g., VP of Engineering / CTO / Documentation manager]</mark>\n- Main pain points with the current setup: <mark>[LIST 2: 3]</mark>\n\nWrite the proposal with:\n1. Executive summary: 3 sentences: the problem, the solution, the expected outcome\n2. Current state: what is broken or inefficient today\n3. Proposed solution: what docs-as-code means in practice (Markdown, Git, static site generator, CI/CD pipeline)\n4. Benefits: 5 concrete, business-relevant benefits (not just technical wins)\n5. Implementation steps: a high-level 4-phase rollout plan\n6. Risks and mitigations\n7. Recommended tools: suggest a specific toolchain with brief justification\n8. Ask: what you need to proceed (headcount, budget, time)",
     "copyPrompt": "Write an internal business case for adopting docs-as-code.\n\nContext:\n- Company type: [e.g., SaaS startup / enterprise]\n- Current tool: [e.g., Confluence / Google Docs]\n- Audience: [e.g., VP Engineering / CTO]\n- Pain points: [LIST 2: 3]\n\nInclude:\n1. Executive summary (problem, solution, outcome)\n2. Current state: what is inefficient\n3. Proposed solution: Markdown, Git, static site, CI/CD\n4. 5 business benefits\n5. 4-phase rollout plan\n6. Risks and mitigations\n7. Recommended toolchain\n8. The ask: headcount, budget, time",
     "proTip": "Lead with business benefits.\n                  Highlight cost savings, speed, and reduced errors rather than technical\n                  details.",
@@ -588,7 +704,11 @@ window.PROMPTS_DATA = [
       "write",
       "code",
       "proposal"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "draft_content",
+    "subcategoryName": "Draft & Content"
   },
   {
     "id": "p50",
@@ -598,7 +718,7 @@ window.PROMPTS_DATA = [
     "title": "Write a Stakeholder Communication Plan",
     "useCase": "Plan documentation review, delivery, and updates",
     "level": "Advanced",
-    "badgeColor": "#8b5cf6",
+    "badgeColor": "#0d9488",
     "promptText": "You are a technical writer planning documentation communications. Create a stakeholder communication plan for a documentation initiative.\n\nContext:\n- Product or project: <mark>[NAME]</mark>\n- Audience: <mark>[e.g., engineering, product, support, leadership]</mark>\n- Timeline: <mark>[e.g., 6-week launch, quarterly docs refresh]</mark>\n- Key milestones: <mark>[e.g., first draft, review, publish]</mark>\n\nProduce a plan that includes:\n1. Stakeholder groups and their communication needs\n2. Messages to send at each milestone\n3. Channels and frequency (email, meetings, Slack, docs updates)\n4. Review checkpoints and decision owners\n5. Risk signals that should trigger a follow-up\n\nKeep the plan concise and actionable.",
     "copyPrompt": "You are a technical writer planning documentation communications. Create a stakeholder communication plan for a documentation initiative.\n\nContext:\n- Product or project: [NAME]\n- Audience: [e.g., engineering, product, support, leadership]\n- Timeline: [e.g., 6-week launch, quarterly docs refresh]\n- Key milestones: [e.g., first draft, review, publish]\n\nProduce a plan that includes:\n1. Stakeholder groups and their communication needs\n2. Messages to send at each milestone\n3. Channels and frequency (email, meetings, Slack, docs updates)\n4. Review checkpoints and decision owners\n5. Risk signals that should trigger a follow-up\n\nKeep the plan concise and actionable.",
     "proTip": "Include a concise escalation path for missed review\n                deadlines.",
@@ -608,7 +728,11 @@ window.PROMPTS_DATA = [
       "updates",
       "review",
       "documentation"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "draft_content",
+    "subcategoryName": "Draft & Content"
   },
   {
     "id": "p24",
@@ -618,7 +742,7 @@ window.PROMPTS_DATA = [
     "title": "Getting Started Guide",
     "useCase": "",
     "level": "Beginner",
-    "badgeColor": "#0369a1",
+    "badgeColor": "#0d9488",
     "promptText": "You are a technical writer specializing in developer documentation. Write a Getting Started guide for [YOUR_PRODUCT].\n\nAPI details:\n- Product name: <mark>[YOUR_PRODUCT]</mark>\n- What it does: <mark>[DESCRIBE WHAT THE API DOES IN ONE SENTENCE]</mark>\n- Base URL: <mark>[YOUR BASE URL, e.g., https://api.yourproduct.com/v1]</mark>\n- Authentication: API key passed in the Authorization header as a Bearer token\n- First task for the user: Retrieve a list of all <mark>[MAIN RESOURCE]</mark> using GET /<mark>[RESOURCE_ENDPOINT]</mark>\n\nWrite a Getting Started guide that includes:\n1. A one-paragraph introduction: what [YOUR_PRODUCT] is and what the user will achieve\n2. Prerequisites: API key, REST client, basic HTTP knowledge\n3. Step 1: Get your API key: how to generate and store it\n4. Step 2: Make your first request: curl example with Authorization header\n5. Step 3: Understand the response: sample JSON response with key fields explained\n6. Next steps: link to the full API reference\n\nGuidelines:\n- Use second person (\"you\") throughout\n- Use active voice\n- Keep sentences under 20 words where possible\n- Use numbered steps for all procedures\n- Add [SCREENSHOT: description] placeholders where a visual would help",
     "copyPrompt": "You are a technical writer specializing in developer documentation. Write a Getting Started guide for [YOUR_PRODUCT].\n\nAPI details:\n- Product name: [YOUR_PRODUCT]\n- What it does: [DESCRIBE IN ONE SENTENCE]\n- Base URL: [YOUR BASE URL]\n- Authentication: API key as Bearer token in Authorization header\n- First task: Retrieve a list of all [MAIN RESOURCE] using GET /[RESOURCE_ENDPOINT]\n\nWrite a Getting Started guide that includes:\n1. One-paragraph introduction\n2. Prerequisites: API key, REST client, basic HTTP knowledge\n3. Step 1: Get your API key\n4. Step 2: Make your first request: curl example\n5. Step 3: Understand the response: sample JSON with key fields explained\n6. Next steps: link to full API reference\n\nUse second person, active voice, sentences under 20 words, numbered steps, [SCREENSHOT: description] placeholders.",
     "proTip": "Rewrite the introduction and next\n                  steps manually to establish a unique voice.",
@@ -626,7 +750,11 @@ window.PROMPTS_DATA = [
       "started",
       "guide",
       "getting"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "draft_content",
+    "subcategoryName": "Draft & Content"
   },
   {
     "id": "p25",
@@ -636,7 +764,7 @@ window.PROMPTS_DATA = [
     "title": "GET Endpoint Reference Page",
     "useCase": "",
     "level": "Beginner",
-    "badgeColor": "#0369a1",
+    "badgeColor": "#0d9488",
     "promptText": "You are a technical writer documenting a REST API. Write a reference page for the following endpoint.\n\nEndpoint details:\n- Method: GET\n- Endpoint URL: <mark>[YOUR BASE URL]/[RESOURCE_ENDPOINT]</mark>\n- Description: Retrieves a list of all <mark>[RESOURCE NAME]</mark>. Supports optional query parameters for filtering\n- Authentication: Bearer token in the Authorization header\n- Query parameters: <mark>[LIST EACH: name (type, optional/required): description. Allowed values if applicable.]</mark>\n- Response: Returns an array of <mark>[RESOURCE]</mark> objects\n- Response codes: 200 (success), 401 (unauthorized), 500 (internal server error)\n- Example response: <mark>[PASTE SAMPLE JSON]</mark>\n\nFormat the output with these clearly labeled sections:\n1. Endpoint: method and URL\n2. Description: one sentence\n3. Authentication\n4. Query parameters: table: Parameter | Type | Required | Description | Allowed values\n5. Request example: curl command\n6. Response: sample JSON\n7. Response fields: table: Field | Type | Description\n8. Error responses: table: Code | Message | Description\n\nGuidelines:\n- Use code blocks for all URLs, parameters, and JSON\n- Use active voice and second person\n- Do not use em dashes",
     "copyPrompt": "You are a technical writer documenting a REST API. Write a reference page for the following endpoint.\n\nEndpoint details:\n- Method: GET\n- Endpoint URL: [YOUR BASE URL]/[RESOURCE_ENDPOINT]\n- Description: Retrieves a list of all [RESOURCE NAME]. Supports optional query parameters\n- Authentication: Bearer token in Authorization header\n- Query parameters: [LIST EACH WITH TYPE, REQUIRED/OPTIONAL, DESCRIPTION, ALLOWED VALUES]\n- Response: Array of [RESOURCE] objects\n- Response codes: 200, 401, 500\n- Example response: [PASTE SAMPLE JSON]\n\nSections: Endpoint | Description | Authentication | Query parameters table | Request example (curl) | Response JSON | Response fields table | Error responses table\nUse code blocks, tables, active voice, second person. No em dashes.",
     "proTip": "Compare field descriptions\n                  against the API overview to ensure consistency across the documentation\n                  set.",
@@ -645,7 +773,11 @@ window.PROMPTS_DATA = [
       "endpoint",
       "reference",
       "page"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "draft_content",
+    "subcategoryName": "Draft & Content"
   },
   {
     "id": "p26",
@@ -655,7 +787,7 @@ window.PROMPTS_DATA = [
     "title": "POST Endpoint Reference Page",
     "useCase": "",
     "level": "Beginner",
-    "badgeColor": "#0369a1",
+    "badgeColor": "#0d9488",
     "promptText": "You are a technical writer documenting a REST API. Write a reference page for the following POST endpoint.\n\nEndpoint details:\n- Method: POST\n- Endpoint URL: <mark>[YOUR BASE URL]/[RESOURCE_ENDPOINT]</mark>\n- Description: Creates a new <mark>[RESOURCE]</mark>\n- Authentication: Bearer token in the Authorization header\n- Request body fields: <mark>[LIST EACH: field name (type, required/optional): description, constraints, defaults]</mark>\n- Success response code: 201 Created\n- Error response codes: 400 (bad request), 401 (unauthorized), 500 (internal server error)\n- Example success response: <mark>[PASTE SAMPLE JSON]</mark>\n\nFormat with these sections:\n1. Endpoint: method and URL\n2. Description: one sentence\n3. Authentication\n4. Request body: table: Field | Type | Required | Default | Description | Constraints\n5. Request example: curl command with sample request body\n6. Response: 201 Created with sample JSON\n7. Response fields: table: Field | Type | Description\n8. Error responses: table: Code | Message | Description\n9. Example error response: 400 Bad Request JSON\n\nGuidelines:\n- Clearly distinguish required vs optional fields\n- Use code blocks for all JSON and curl examples\n- Use active voice and second person\n- Do not use em dashes",
     "copyPrompt": "You are a technical writer documenting a REST API. Write a reference page for the following POST endpoint.\n\nEndpoint details:\n- Method: POST\n- Endpoint URL: [YOUR BASE URL]/[RESOURCE_ENDPOINT]\n- Description: Creates a new [RESOURCE]\n- Authentication: Bearer token in Authorization header\n- Request body fields: [LIST EACH WITH TYPE, REQUIRED/OPTIONAL, DEFAULTS, CONSTRAINTS]\n- Success: 201 Created\n- Errors: 400, 401, 500\n- Example success response: [PASTE SAMPLE JSON]\n\nSections: Endpoint | Description | Authentication | Request body table (Field/Type/Required/Default/Description/Constraints) | curl example | 201 response JSON | Response fields table | Error table | 400 error JSON example\nClearly distinguish required vs optional. Active voice. Second person. No em dashes.",
     "proTip": "Compare this reference page\n                  with the GET reference to ensure structural consistency.",
@@ -664,7 +796,11 @@ window.PROMPTS_DATA = [
       "endpoint",
       "reference",
       "page"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "draft_content",
+    "subcategoryName": "Draft & Content"
   },
   {
     "id": "p27",
@@ -674,13 +810,17 @@ window.PROMPTS_DATA = [
     "title": "Glossary",
     "useCase": "",
     "level": "Beginner",
-    "badgeColor": "#0369a1",
+    "badgeColor": "#0d9488",
     "promptText": "You are a technical writer creating a glossary for [YOUR_PRODUCT] documentation.\n\nContext:\n- Product: <mark>[YOUR_PRODUCT]</mark>: <mark>[ONE-SENTENCE DESCRIPTION]</mark>\n- Audience: Technical writers and junior developers new to API documentation\n- Purpose: Define key terms so readers can refer to the glossary when they encounter unfamiliar language\n\nWrite a glossary with the following terms:\n<mark>[LIST YOUR TERMS: e.g., API key, endpoint, request body, response, HTTP status code, authentication, Bearer token, query parameter, JSON, plus any product-specific terms]</mark>\n\nFor each term:\n1. Term: use title case\n2. Definition: 1 to 2 plain-language sentences. Do not define a term using the term itself\n3. Example: one sentence showing how the term applies in the context of [YOUR_PRODUCT]. Include a short code snippet where relevant\n\nFormat as a definition list. Sort alphabetically.\n\nGuidelines:\n- Write for someone with no prior API experience\n- Keep each definition under 40 words\n- Do not use em dashes",
     "copyPrompt": "You are a technical writer creating a glossary for [YOUR_PRODUCT] documentation.\n\nContext:\n- Product: [YOUR_PRODUCT]: [ONE-SENTENCE DESCRIPTION]\n- Audience: Technical writers and junior developers\n- Purpose: Define key terms for readers unfamiliar with API documentation\n\nTerms to define: [LIST YOUR TERMS]\n\nFor each term:\n1. Term: title case\n2. Definition: 1-2 plain-language sentences. Do not define using the term itself\n3. Example: one sentence in the context of [YOUR_PRODUCT], with code snippet where relevant\n\nFormat as definition list, sorted alphabetically. Under 40 words per definition. No em dashes.",
     "proTip": "",
     "tags": [
       "glossary"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "draft_content",
+    "subcategoryName": "Draft & Content"
   },
   {
     "id": "p28",
@@ -690,14 +830,18 @@ window.PROMPTS_DATA = [
     "title": "GitHub README",
     "useCase": "",
     "level": "Beginner",
-    "badgeColor": "#0369a1",
+    "badgeColor": "#0d9488",
     "promptText": "You are a technical writer. Write a README.md for [YOUR_PRODUCT] as if it were a real open-source project on GitHub.\n\nProject details:\n- Project name: <mark>[YOUR_PRODUCT]</mark>\n- Project type: <mark>[e.g., REST API, SDK, CLI tool]</mark>\n- What it does: <mark>[DESCRIBE IN ONE SENTENCE]</mark>\n- Primary audience: <mark>[e.g., developers integrating a task management system]</mark>\n- Base URL or install command: <mark>[e.g., https://api.yourproduct.com/v1 or npm install yourproduct]</mark>\n- Authentication: <mark>[e.g., API key as Bearer token]</mark>\n- Key endpoints or commands: <mark>[LIST 4: 6]</mark>\n- License: <mark>[e.g., MIT]</mark>\n\nWrite the README.md in GitHub Flavored Markdown with these sections:\n1. Project name and one-line description\n2. Badges row: placeholders for build status, version, and license\n3. Overview: 2 to 3 sentences on what [YOUR_PRODUCT] does and who it is for\n4. Features: 5 key capabilities as a bulleted list\n5. Prerequisites: what the developer needs before starting\n6. Quick start: first API call in under 5 steps, with example\n7. Endpoints/Commands: summary table: Method | Endpoint | Description\n8. Authentication: how to pass credentials\n9. Contributing: one sentence pointing to CONTRIBUTING.md\n10. License\n\nUse second person and active voice. Keep Quick Start under 150 words.",
     "copyPrompt": "You are a technical writer. Write a README.md for [YOUR_PRODUCT] as if it were a real open-source project on GitHub.\n\nProject details:\n- Project name: [YOUR_PRODUCT]\n- Project type: [e.g., REST API, SDK, CLI tool]\n- What it does: [ONE SENTENCE]\n- Primary audience: [DESCRIBE]\n- Base URL or install command: [YOUR URL OR COMMAND]\n- Authentication: [e.g., API key as Bearer token]\n- Key endpoints or commands: [LIST 4: 6]\n- License: [e.g., MIT]\n\nSections: Project name + description | Badges (placeholders) | Overview | Features (5 bullets) | Prerequisites | Quick start (under 150 words, with example) | Endpoints table (Method/Endpoint/Description) | Authentication | Contributing | License\nSecond person. Active voice. GitHub Flavored Markdown.",
     "proTip": "Write the Overview and\n                  Features sections manually before reviewing the AI output to compare\n                  approaches.",
     "tags": [
       "readme",
       "github"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "draft_content",
+    "subcategoryName": "Draft & Content"
   },
   {
     "id": "p29",
@@ -707,7 +851,7 @@ window.PROMPTS_DATA = [
     "title": "Error Code Reference",
     "useCase": "",
     "level": "Beginner",
-    "badgeColor": "#0369a1",
+    "badgeColor": "#0d9488",
     "promptText": "You are a technical writer creating an error reference page for [YOUR_PRODUCT].\n\nContext:\n- Product: <mark>[YOUR_PRODUCT]</mark>\n- Base URL: <mark>[YOUR BASE URL]</mark>\n- Audience: Developers integrating with [YOUR_PRODUCT]\n- Purpose: Help developers understand what each error means and how to fix it\n\nWrite a complete error reference page covering these HTTP status codes:\n200 OK, 201 Created, 400 Bad Request, 401 Unauthorized, 403 Forbidden, 404 Not Found, 409 Conflict, 422 Unprocessable Entity, 429 Too Many Requests, 500 Internal Server Error\n\nFor each status code:\n1. Code and name: formatted as a heading (e.g., ### 400 Bad Request)\n2. Description: one sentence explaining what this code means in the context of [YOUR_PRODUCT]\n3. Common causes: 2 to 3 bulleted reasons this error occurs\n4. How to resolve: numbered steps the developer should take\n5. Example error response: JSON code block in this format:\n{\n  \"error\": {\n    \"code\": [STATUS CODE],\n    \"message\": \"[SHORT ERROR MESSAGE]\",\n    \"details\": \"[SPECIFIC DESCRIPTION]\"\n  }\n}\n\nWrite for a developer who is actively debugging. Be specific. Use active voice. Do not use em dashes.",
     "copyPrompt": "You are a technical writer creating an error reference page for [YOUR_PRODUCT].\n\nContext:\n- Product: [YOUR_PRODUCT]\n- Base URL: [YOUR BASE URL]\n- Audience: Developers integrating with [YOUR_PRODUCT]\n\nCover: 200, 201, 400, 401, 403, 404, 409, 422, 429, 500\n\nFor each code:\n1. Heading (### CODE Name)\n2. Description: one sentence for [YOUR_PRODUCT] context\n3. Common causes: 2-3 bullets\n4. How to resolve: numbered steps\n5. Example JSON: { \"error\": { \"code\": N, \"message\": \"...\", \"details\": \"...\" } }\n\nWrite for a developer actively debugging. Specific. Active voice. No em dashes.",
     "proTip": "Prioritize error\n                  documentation accuracy, as developers rely on it heavily when\n                  troubleshooting.",
@@ -715,7 +859,11 @@ window.PROMPTS_DATA = [
       "error",
       "code",
       "reference"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "draft_content",
+    "subcategoryName": "Draft & Content"
   },
   {
     "id": "p30",
@@ -725,14 +873,18 @@ window.PROMPTS_DATA = [
     "title": "FAQ Page",
     "useCase": "",
     "level": "Beginner",
-    "badgeColor": "#0369a1",
+    "badgeColor": "#0d9488",
     "promptText": "You are a technical writer creating a FAQ page for [YOUR_PRODUCT].\n\nContext:\n- Product: <mark>[YOUR_PRODUCT]</mark>\n- Audience: Developers who have read the Getting Started guide and are now integrating [YOUR_PRODUCT]\n- Purpose: Answer the most common questions developers ask when using [YOUR_PRODUCT] for the first time\n\nWrite a FAQ with 10 questions covering:\n- Authentication (2 questions)\n- Making requests (2 questions)\n- Handling errors (2 questions)\n- <mark>[YOUR MAIN RESOURCE, e.g., tasks, orders, users]</mark> and <mark>[SECOND RESOURCE]</mark> (2 questions)\n- Rate limits and data (2 questions)\n\nFor each question:\n1. Question: write it the way a developer would actually ask it\n2. Answer: 2 to 4 sentences. Lead with the answer, then explain\n3. Code example: include a curl snippet or JSON example where it adds clarity. Skip where it does not\n\nGuidelines:\n- Do not start answers with filler phrases\n- Use second person and active voice\n- Keep answers under 80 words each\n- Use code blocks for all code\n- Do not use em dashes",
     "copyPrompt": "You are a technical writer creating a FAQ page for [YOUR_PRODUCT].\n\nContext:\n- Product: [YOUR_PRODUCT]\n- Audience: Developers integrating [YOUR_PRODUCT] for the first time\n\n10 questions covering:\n- Authentication (2)\n- Making requests (2)\n- Handling errors (2)\n- [YOUR MAIN RESOURCES] (2)\n- Rate limits and data (2)\n\nFor each: natural developer question | 2-4 sentence answer (lead with the answer) | curl or JSON example where helpful\nUnder 80 words per answer. No filler phrases. Active voice. Second person. No em dashes.",
     "proTip": "Rewrite the three\n                  most useful answers manually to match a natural explanatory\n                  style.",
     "tags": [
       "faq",
       "page"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "draft_content",
+    "subcategoryName": "Draft & Content"
   },
   {
     "id": "p31",
@@ -742,14 +894,18 @@ window.PROMPTS_DATA = [
     "title": "Conceptual Overview",
     "useCase": "",
     "level": "Beginner",
-    "badgeColor": "#0369a1",
+    "badgeColor": "#0d9488",
     "promptText": "You are a technical writer creating a conceptual overview for [YOUR_PRODUCT].\n\nContext:\n- Product: <mark>[YOUR_PRODUCT]</mark>: <mark>[ONE-SENTENCE DESCRIPTION]</mark>\n- Audience: Non-technical stakeholders: product managers, business analysts, team leads\n- Purpose: Explain how [YOUR_PRODUCT] works without code\n\nCore resources to explain:\n- <mark>[RESOURCE 1, e.g., Users]</mark>: <mark>[BRIEF DESCRIPTION]</mark>\n- <mark>[RESOURCE 2, e.g., Projects]</mark>: <mark>[BRIEF DESCRIPTION]</mark>\n- <mark>[RESOURCE 3, e.g., Tasks]</mark>: <mark>[BRIEF DESCRIPTION]</mark>\n\nWrite a conceptual overview titled \"How [YOUR_PRODUCT] works\" that includes:\n1. Introduction: 2 sentences explaining what [YOUR_PRODUCT] does at a high level\n2. Core concepts: explain each resource in 2 to 3 plain-language sentences. No code\n3. How the resources relate: explain how these resources connect to each other. Use an analogy if it helps\n4. A real-world example: a realistic scenario showing all three resources working together\n5. Key terms: 5 terms the reader should know, with one-sentence definitions\n\nGuidelines:\n- No code blocks or technical syntax\n- No jargon without explanation\n- Second person and active voice\n- Under 400 words total\n- Do not use em dashes",
     "copyPrompt": "You are a technical writer creating a conceptual overview for [YOUR_PRODUCT].\n\nContext:\n- Product: [YOUR_PRODUCT]: [ONE-SENTENCE DESCRIPTION]\n- Audience: Non-technical stakeholders (PMs, BAs, team leads)\n- Purpose: Explain how [YOUR_PRODUCT] works without code\n\nCore resources:\n- [RESOURCE 1]: [BRIEF DESCRIPTION]\n- [RESOURCE 2]: [BRIEF DESCRIPTION]\n- [RESOURCE 3]: [BRIEF DESCRIPTION]\n\nWrite \"How [YOUR_PRODUCT] works\" with:\n1. 2-sentence introduction\n2. Core concepts: 2-3 plain sentences per resource, no code\n3. How resources relate: with analogy if helpful\n4. Real-world example: all three resources working together\n5. Key terms: 5 terms, one-sentence definitions each\n\nNo code, no jargon without explanation. Second person. Active voice. Under 400 words. No em dashes.",
     "proTip": "",
     "tags": [
       "conceptual",
       "overview"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "draft_content",
+    "subcategoryName": "Draft & Content"
   },
   {
     "id": "p32",
@@ -759,14 +915,18 @@ window.PROMPTS_DATA = [
     "title": "Quickstart Guide",
     "useCase": "",
     "level": "Beginner",
-    "badgeColor": "#0369a1",
+    "badgeColor": "#0d9488",
     "promptText": "You are a technical writer specializing in developer onboarding. Write a quickstart guide for [YOUR_PRODUCT].\n\nContext:\n- Product: <mark>[YOUR_PRODUCT]</mark>\n- Task to complete: <mark>[DESCRIBE THE FIRST ACTION, e.g., \"Create a new task using POST /tasks\"]</mark>\n- Time target: Under 5 minutes\n- Audience: A developer who has their API key and knows how to use a REST client\n- Base URL: <mark>[YOUR BASE URL]</mark>\n\nWrite a quickstart guide with this structure:\n1. Title: \"Quickstart: <mark>[TASK NAME]</mark>\"\n2. What you will do: one sentence\n3. Before you begin: 2-item checklist (API key, REST client)\n4. Step 1: Set up your request: endpoint and required headers\n5. Step 2: Write your request body: minimum required fields only\n6. Step 3: Send the request: full curl command\n7. Step 4: Check the response: expected response with the key field to note\n8. What is next: 2 bullet points for next actions\n\nGuidelines:\n- Maximum 300 words total\n- Every step must have a code block\n- Use numbered steps, not paragraphs\n- Do not explain concepts: link to them instead\n- Use second person and active voice\n- Do not use em dashes",
     "copyPrompt": "You are a technical writer. Write a quickstart guide for [YOUR_PRODUCT].\n\nContext:\n- Product: [YOUR_PRODUCT]\n- Task: [DESCRIBE THE FIRST ACTION]\n- Audience: Developer with API key and REST client\n- Base URL: [YOUR BASE URL]\n\nStructure:\n1. Title: \"Quickstart: [TASK NAME]\"\n2. What you will do: one sentence\n3. Before you begin: 2-item checklist\n4. Step 1: Set up request (endpoint + headers)\n5. Step 2: Write request body (minimum fields)\n6. Step 3: Send request (full curl)\n7. Step 4: Check response (key field to note)\n8. What is next: 2 bullets\n\nMax 300 words. Code block in every step. No concept explanations: link instead. Second person. Active voice. No em dashes.",
     "proTip": "Try cutting 20%\n                  of the AI output without losing information to keep the\n                  quickstart guide concise.",
     "tags": [
       "quickstart",
       "guide"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "draft_content",
+    "subcategoryName": "Draft & Content"
   },
   {
     "id": "p33",
@@ -776,7 +936,7 @@ window.PROMPTS_DATA = [
     "title": "Product Release Notes",
     "useCase": "",
     "level": "Intermediate",
-    "badgeColor": "#0369a1",
+    "badgeColor": "#0d9488",
     "promptText": "You are a technical writer responsible for software release communications. Write release notes for [YOUR_PRODUCT] <mark>[VERSION]</mark>.\n\nRelease details:\n- Product: <mark>[YOUR_PRODUCT]</mark>\n- Version: <mark>[VERSION NUMBER]</mark>\n- Release date: <mark>[DATE]</mark>\n- Audience: Developers already using [YOUR_PRODUCT]\n\nChanges to document:\n- New features: <mark>[LIST]</mark>\n- Bug fixes: <mark>[LIST]</mark>\n- Deprecations: <mark>[LIST: include what to use instead and when it will be removed. Or \"None\"]</mark>\n- Breaking changes: <mark>[LIST or \"None\"]</mark>\n\nFormat with these sections:\n1. Overview: 2-sentence summary of the most important changes\n2. New features: one entry per feature with heading, description, and code example where relevant\n3. Bug fixes: what was broken, what it does now, any action required\n4. Deprecations: what is deprecated, replacement, removal timeline, migration example\n5. Upgrade notes: any action required before or after upgrading\n\nGuidelines:\n- Frame every change from the developer's perspective (\"You can now...\" not \"We added...\")\n- Flag deprecations with a warning callout\n- Use code blocks for all endpoint and field references\n- Use active voice\n- Do not use em dashes",
     "copyPrompt": "You are a technical writer writing release notes for [YOUR_PRODUCT] [VERSION].\n\nDetails:\n- Product: [YOUR_PRODUCT]\n- Version: [VERSION NUMBER]\n- Release date: [DATE]\n- Audience: Existing developers\n\nChanges:\n- New features: [LIST]\n- Bug fixes: [LIST]\n- Deprecations: [LIST with replacement and removal date]\n- Breaking changes: [LIST or \"None\"]\n\nSections: Overview (2 sentences) | New features (with code examples) | Bug fixes | Deprecations (with warning callout + migration example) | Upgrade notes\nFrame changes as \"You can now...\": not \"We added...\". Active voice. Code blocks for all references. No em dashes.",
     "proTip": "Balance urgency\n                  with clear migration guidance in the deprecation\n                  notice.",
@@ -784,7 +944,11 @@ window.PROMPTS_DATA = [
       "product",
       "notes",
       "release"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "draft_content",
+    "subcategoryName": "Draft & Content"
   },
   {
     "id": "p34",
@@ -794,14 +958,18 @@ window.PROMPTS_DATA = [
     "title": "Authentication Guide",
     "useCase": "",
     "level": "Intermediate",
-    "badgeColor": "#0369a1",
+    "badgeColor": "#0d9488",
     "promptText": "You are a technical writer creating an authentication guide for [YOUR_PRODUCT].\n\nContext:\n- Product: <mark>[YOUR_PRODUCT]</mark>\n- Authentication method: <mark>[e.g., API key as Bearer token / OAuth 2.0 / JWT]</mark>\n- Audience: Developers integrating with [YOUR_PRODUCT] for the first time\n- Purpose: Explain how authentication works, how to use credentials correctly, and what to do when authentication fails\n\nWrite a complete authentication guide that includes:\n1. Overview: 2 sentences on how [YOUR_PRODUCT] handles authentication and why it matters\n2. How to get credentials: step-by-step (use placeholder steps appropriate to your product)\n3. How to authenticate requests: required header format and curl example\n4. What happens when authentication fails: 401 error response and the 3 most common causes\n5. Security best practices: 5 specific, actionable recommendations for API key or token security\n6. Revoking and regenerating credentials: when and how to do this\n\nGuidelines:\n- Use second person and active voice\n- Code blocks for all headers, curl examples, and JSON responses\n- Security best practices must be specific (e.g., \"Store your API key in an environment variable\" is better than \"Keep your key safe\")\n- Under 500 words total\n- Do not use em dashes",
     "copyPrompt": "You are a technical writer creating an authentication guide for [YOUR_PRODUCT].\n\nContext:\n- Product: [YOUR_PRODUCT]\n- Auth method: [e.g., API key as Bearer token / OAuth 2.0]\n- Audience: Developers integrating for the first time\n\nSections:\n1. Overview: 2 sentences\n2. How to get credentials: step-by-step\n3. How to authenticate requests: header format + curl example\n4. What happens when auth fails: 401 response + 3 common causes\n5. Security best practices: 5 specific, actionable recommendations\n6. Revoking and regenerating credentials\n\nUnder 500 words. Code blocks for all examples. Specific security advice. Second person. Active voice. No em dashes.",
     "proTip": "Provide\n                  specific details in the security best practices section\n                  rather than vague recommendations.",
     "tags": [
       "guide",
       "authentication"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "draft_content",
+    "subcategoryName": "Draft & Content"
   },
   {
     "id": "p35",
@@ -811,7 +979,7 @@ window.PROMPTS_DATA = [
     "title": "PUT Endpoint Reference Page",
     "useCase": "",
     "level": "Intermediate",
-    "badgeColor": "#0369a1",
+    "badgeColor": "#0d9488",
     "promptText": "You are a technical writer documenting a REST API. Write a reference page for the following PUT endpoint.\n\nEndpoint details:\n- Method: PUT\n- Endpoint URL: <mark>[YOUR BASE URL]/[RESOURCE_ENDPOINT]/{id}</mark>\n- Description: Updates an existing <mark>[RESOURCE]</mark>. Supports partial updates: only fields included in the request body will be updated\n- Authentication: Bearer token in the Authorization header\n- Path parameter: id (string, required): the unique identifier of the <mark>[RESOURCE]</mark> to update\n- Updatable fields: <mark>[LIST EACH: field name (type): description, allowed values, constraints]</mark>\n- Success response: 200 OK: returns the full updated <mark>[RESOURCE]</mark> object\n- Error codes: 400 (validation error), 401 (unauthorized), 404 (not found), 500 (internal server error)\n\nFormat with these sections:\n1. Endpoint: method and URL\n2. Description: note that partial updates are supported\n3. Authentication\n4. Path parameters: table: Parameter | Type | Required | Description\n5. Request body: table: Field | Type | Required | Description | Constraints\n6. Request example: curl command updating only 2: 3 fields\n7. Response: 200 OK with full object\n8. Validation rules: all field-level validation rules listed explicitly\n9. Error responses: table: Code | Message | Description\n10. Example error responses: show both 400 and 404\n\nGuidelines:\n- Make partial update behavior clear and prominent\n- Validation rules section is required: developers depend on it for debugging 400 errors\n- Do not use em dashes",
     "copyPrompt": "You are a technical writer documenting a REST API. Write a reference page for the following PUT endpoint.\n\nEndpoint details:\n- Method: PUT\n- Endpoint URL: [YOUR BASE URL]/[RESOURCE_ENDPOINT]/{id}\n- Description: Updates an existing [RESOURCE]. Supports partial updates\n- Authentication: Bearer token\n- Path parameter: id (string, required)\n- Updatable fields: [LIST EACH WITH TYPE, DESCRIPTION, ALLOWED VALUES, CONSTRAINTS]\n- Success: 200 OK: full updated object\n- Errors: 400, 401, 404, 500\n\nSections: Endpoint | Description (note partial updates) | Authentication | Path parameters table | Request body table | curl example (2-3 fields) | 200 response | Validation rules (explicit, all fields) | Error table | 400 + 404 examples\nNo em dashes.",
     "proTip": "Document\n                  validation rules thoroughly to help developers debug 400\n                  errors.",
@@ -820,7 +988,11 @@ window.PROMPTS_DATA = [
       "endpoint",
       "reference",
       "page"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "draft_content",
+    "subcategoryName": "Draft & Content"
   },
   {
     "id": "p36",
@@ -830,14 +1002,18 @@ window.PROMPTS_DATA = [
     "title": "Pagination Guide",
     "useCase": "",
     "level": "Intermediate",
-    "badgeColor": "#0369a1",
+    "badgeColor": "#0d9488",
     "promptText": "You are a technical writer creating a pagination guide for [YOUR_PRODUCT].\n\nContext:\n- Product: <mark>[YOUR_PRODUCT]</mark>\n- Feature: Pagination on all list endpoints\n- Audience: Developers who need to handle large data sets\n- Pagination type: <mark>[e.g., page-based (page + limit parameters) / cursor-based]</mark>\n\nWrite a pagination guide that includes:\n1. Overview: why pagination exists and what it prevents\n2. How pagination works in [YOUR_PRODUCT]: the approach and parameters\n3. Query parameters: table: Parameter | Type | Default | Maximum | Description\n   - page or cursor (as appropriate)\n   - limit (defaults and maximum)\n4. A paginated request example: curl command\n5. Understanding the response: full paginated response example with this envelope:\n{\n  \"data\": [...],\n  \"pagination\": {\n    \"total\": [NUMBER],\n    \"page\": [NUMBER],\n    \"limit\": [NUMBER],\n    \"total_pages\": [NUMBER],\n    \"next_page\": [NUMBER or null],\n    \"prev_page\": [NUMBER or null]\n  }\n}\nTable explaining each pagination field.\n6. How to retrieve all pages: pseudocode loop with plain-language explanation before the code\n7. Edge cases: page out of range, limit above maximum\n\nGuidelines:\n- Use code blocks for all examples\n- Explain the pseudocode loop in plain language first\n- Use second person and active voice\n- Do not use em dashes",
     "copyPrompt": "You are a technical writer creating a pagination guide for [YOUR_PRODUCT].\n\nContext:\n- Product: [YOUR_PRODUCT]\n- Feature: Pagination on all list endpoints\n- Pagination type: [e.g., page-based / cursor-based]\n\nSections:\n1. Overview: why pagination exists\n2. How it works in [YOUR_PRODUCT]\n3. Query parameters table (page/cursor, limit with defaults + max)\n4. Paginated request example (curl)\n5. Response envelope example with pagination object + field table\n6. How to retrieve all pages: plain-language explanation + pseudocode loop\n7. Edge cases: out-of-range page, limit above maximum\n\nCode blocks throughout. Second person. Active voice. No em dashes.",
     "proTip": "Document\n                  edge cases thoroughly to help developers test API\n                  boundaries.",
     "tags": [
       "guide",
       "pagination"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "draft_content",
+    "subcategoryName": "Draft & Content"
   },
   {
     "id": "p37",
@@ -847,7 +1023,7 @@ window.PROMPTS_DATA = [
     "title": "Audit and Rewrite a Poor API Doc",
     "useCase": "",
     "level": "Senior",
-    "badgeColor": "#0369a1",
+    "badgeColor": "#0d9488",
     "promptText": "You are a senior technical writer and documentation reviewer. I am giving you a poorly written API reference page. Audit it, identify all issues, and produce a professional rewrite.\n\nDocument to review:\n<mark>[PASTE THE POORLY WRITTEN DOCUMENT HERE]</mark>\n\nEndpoint details to use in your rewrite:\n- Method: <mark>[METHOD]</mark>\n- Endpoint URL: <mark>[YOUR BASE URL]/[ENDPOINT]</mark>\n- Description: <mark>[DESCRIPTION]</mark>\n- Authentication: <mark>[AUTH METHOD]</mark>\n- Path parameter (if applicable): <mark>[NAME, TYPE, DESCRIPTION]</mark>\n- Success response: <mark>[CODE AND DESCRIPTION]</mark>\n- Error codes: <mark>[LIST]</mark>\n\nProduce two outputs:\n\nOutput 1: Audit report\nFor each issue: quote the original text, name the problem (e.g., missing information, passive voice, no code example, inconsistent formatting), and explain the impact on the developer.\n\nOutput 2: Rewritten reference page\nUse the endpoint details above. Follow this structure:\n1. Endpoint: method and URL\n2. Description: include any critical warnings (e.g., irreversible actions)\n3. Authentication\n4. Path parameters: table (if applicable)\n5. Request example: curl command\n6. Response: explain the success response\n7. Error responses: table: Code | Message | Description\n8. Example error responses\n\nGuidelines:\n- Use code blocks for all examples\n- Use active voice and second person\n- Do not use em dashes",
     "copyPrompt": "You are a senior technical writer. Audit the poorly written document below and produce a professional rewrite.\n\nDocument to review:\n[PASTE POORLY WRITTEN DOCUMENT HERE]\n\nEndpoint details for rewrite:\n- Method: [METHOD]\n- Endpoint URL: [YOUR BASE URL]/[ENDPOINT]\n- Description: [DESCRIPTION]\n- Authentication: [AUTH METHOD]\n- Path parameter: [NAME, TYPE, DESCRIPTION: if applicable]\n- Success response: [CODE AND DESCRIPTION]\n- Error codes: [LIST]\n\nOutput 1: Audit report: for each issue: quote original | name the problem | explain impact on developer\nOutput 2: Rewritten reference page: Endpoint | Description | Authentication | Path parameters | curl example | Response | Error table | Error JSON examples\nActive voice. Second person. No em dashes.",
     "proTip": "",
@@ -856,7 +1032,11 @@ window.PROMPTS_DATA = [
       "rewrite",
       "audit",
       "api"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "draft_content",
+    "subcategoryName": "Draft & Content"
   },
   {
     "id": "p38",
@@ -866,7 +1046,7 @@ window.PROMPTS_DATA = [
     "title": "Documentation Information Architecture",
     "useCase": "",
     "level": "Senior",
-    "badgeColor": "#0369a1",
+    "badgeColor": "#0d9488",
     "promptText": "You are a senior technical writer and documentation strategist. Design the complete information architecture for [YOUR_PRODUCT] documentation.\n\nContext:\n- Product: <mark>[YOUR_PRODUCT]</mark>: <mark>[ONE-SENTENCE DESCRIPTION]</mark>\n- Audiences: New developers (onboarding), experienced developers (reference lookup), non-technical stakeholders (product evaluation)\n- Documentation types needed: Conceptual overviews, how-to guides, API reference, quickstart guides, release notes, FAQ\n- Publishing platform: <mark>[e.g., developer portal / docs site / Confluence / GitHub Pages]</mark>\n\nProduce a complete information architecture document with:\n\n1. Site map\nPresent the full navigation structure as an indented list. Include every page.\n\n2. Section descriptions\nFor each top-level section: 2 sentences explaining what it contains and who it is for.\n\n3. Reading paths\nDefine 3 recommended paths:\n- Path A: A developer integrating [YOUR_PRODUCT] for the first time\n- Path B: An experienced developer looking up a specific endpoint\n- Path C: A non-technical stakeholder evaluating [YOUR_PRODUCT]\n\n4. Page dependency map\nList 5 pages that must be written before others can reference them. Explain why each is a dependency.\n\n5. Content gaps\nIdentify 3 documentation types not yet covered and explain why they would be valuable.\n\nGuidelines:\n- Think about the user's goal at each step, not just the document type\n- The site map should reflect how a user navigates, not how the API is structured\n- Use plain language in all section descriptions\n- Do not use em dashes\n- Before providing your final output, use a &lt;thinking&gt; tag to briefly brainstorm the user goals and reading paths.",
     "copyPrompt": "You are a senior technical writer and documentation strategist. Design the complete information architecture for [YOUR_PRODUCT] documentation.\n\nContext:\n- Product: [YOUR_PRODUCT]: [ONE-SENTENCE DESCRIPTION]\n- Audiences: New developers, experienced developers, non-technical stakeholders\n- Doc types needed: Conceptual overviews, how-to guides, API reference, quickstart, release notes, FAQ\n- Publishing platform: [e.g., developer portal / GitHub Pages]\n\nProduce:\n1. Site map: full navigation as indented list\n2. Section descriptions: 2 sentences per top-level section (what + who)\n3. Reading paths: 3 paths: new developer / experienced developer / non-technical stakeholder\n4. Page dependency map: 5 pages that must exist first, with reasons\n5. Content gaps: 3 missing doc types with justification\n\nUser-goal focus, not API structure. Plain language. No em dashes. Before providing your final output, use a <thinking> tag to briefly brainstorm the user goals and reading paths.",
     "proTip": "Document the information architecture to\n                  demonstrate systems thinking to\n                  stakeholders.",
@@ -874,7 +1054,11 @@ window.PROMPTS_DATA = [
       "information",
       "architecture",
       "documentation"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "draft_content",
+    "subcategoryName": "Draft & Content"
   },
   {
     "id": "p42",
@@ -884,7 +1068,7 @@ window.PROMPTS_DATA = [
     "title": "Auto-Generate Code Comments",
     "useCase": "",
     "level": "Intermediate",
-    "badgeColor": "#0369a1",
+    "badgeColor": "#0d9488",
     "promptText": "You are a technical writer documenting source code. Review the following <mark>[LANGUAGE]</mark> code snippet:\n\n&lt;code&gt;\n<mark>[PASTE CODE HERE]</mark>\n&lt;/code&gt;\n\nAdd comprehensive inline documentation comments (e.g., JSDoc or Python Docstrings) explaining what the function does, its parameters, return types, and potential errors. \nDo not change the underlying code logic. Output the fully commented code block.",
     "copyPrompt": "You are a technical writer documenting source code. Review the following [LANGUAGE] code snippet:\n\n<code>\n[PASTE CODE HERE]\n</code>\n\nAdd comprehensive inline documentation comments (e.g., JSDoc or Python Docstrings) explaining what the function does, its parameters, return types, and potential errors. \nDo not change the underlying code logic. Output the fully commented code block.",
     "proTip": "",
@@ -893,7 +1077,11 @@ window.PROMPTS_DATA = [
       "code",
       "comments",
       "generate"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "draft_content",
+    "subcategoryName": "Draft & Content"
   },
   {
     "id": "p43",
@@ -903,13 +1091,17 @@ window.PROMPTS_DATA = [
     "title": "Prompt 43",
     "useCase": "",
     "level": "Intermediate",
-    "badgeColor": "#0369a1",
+    "badgeColor": "#0d9488",
     "promptText": "You are a technical writer drafting a public how-to guide from a raw demo video transcript. Review the following transcript:\n\n&lt;transcript&gt;\n<mark>[PASTE TRANSCRIPT HERE]</mark>\n&lt;/transcript&gt;\n\nIgnore all filler words, presenter chatter, and unrelated tangents. Focus only on the actionable steps the presenter takes in the UI. \nWrite a step-by-step how-to guide with a clear title, a brief introduction, and numbered steps. Use bold text for UI elements the user needs to click or interact with. \nUse a &lt;thinking&gt; tag to map out the core user journey before writing the steps.",
     "copyPrompt": "You are a technical writer drafting a public how-to guide from a raw demo video transcript. Review the following transcript:\n\n<transcript>\n[PASTE TRANSCRIPT HERE]\n</transcript>\n\nIgnore all filler words, presenter chatter, and unrelated tangents. Focus only on the actionable steps the presenter takes in the UI. \nWrite a step-by-step how-to guide with a clear title, a brief introduction, and numbered steps. Use bold text for UI elements the user needs to click or interact with. \nUse a <thinking> tag to map out the core user journey before writing the steps.",
     "proTip": "",
     "tags": [
       "prompt"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "draft_content",
+    "subcategoryName": "Draft & Content"
   },
   {
     "id": "p44",
@@ -919,7 +1111,7 @@ window.PROMPTS_DATA = [
     "title": "Convert Internal Wiki to External Guide",
     "useCase": "",
     "level": "Intermediate",
-    "badgeColor": "#0369a1",
+    "badgeColor": "#0d9488",
     "promptText": "You are a technical writer migrating internal documentation to an external user-facing knowledge base. Review the following raw text from an internal Confluence page:\n\n&lt;source_content&gt;\n<mark>[PASTE INTERNAL WIKI TEXT HERE]</mark>\n&lt;/source_content&gt;\n\nYour task is to convert this into a clean, professional user guide for external customers. Follow these rules:\n1. Remove all internal jargon, project codenames, and references to internal teams (e.g., \"ask the dev team on Slack\")\n2. Remove any placeholders for internal links (e.g., \"go to go/project-dashboard\")\n3. Reformat the content into a standard user guide structure: Title, Overview, Prerequisites, and Step-by-Step Instructions\n4. Ensure the tone is helpful, professional, and customer-centric.",
     "copyPrompt": "You are a technical writer migrating internal documentation to an external user-facing knowledge base. Review the following raw text from an internal Confluence page:\n\n<source_content>\n[PASTE INTERNAL WIKI TEXT HERE]\n</source_content>\n\nYour task is to convert this into a clean, professional user guide for external customers. Follow these rules:\n1. Remove all internal jargon, project codenames, and references to internal teams (e.g., \"ask the dev team on Slack\")\n2. Remove any placeholders for internal links (e.g., \"go to go/project-dashboard\")\n3. Reformat the content into a standard user guide structure: Title, Overview, Prerequisites, and Step-by-Step Instructions\n4. Ensure the tone is helpful, professional, and customer-centric.",
     "proTip": "",
@@ -929,7 +1121,11 @@ window.PROMPTS_DATA = [
       "external",
       "convert",
       "guide"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "draft_content",
+    "subcategoryName": "Draft & Content"
   },
   {
     "id": "p45",
@@ -939,7 +1135,7 @@ window.PROMPTS_DATA = [
     "title": "Generate UI Screenshot Alt Text",
     "useCase": "",
     "level": "Intermediate",
-    "badgeColor": "#0369a1",
+    "badgeColor": "#0d9488",
     "promptText": "You are an accessibility expert and technical writer. I am providing you with an image of a software user interface <mark>[UPLOAD IMAGE]</mark>.\n\nWrite alternative text (alt text) for this image that is optimized for screen readers. Follow these guidelines:\n1. Do not start with \"Image of\" or \"Screenshot of\"\n2. Focus on the functional purpose of the UI rather than describing every visual detail\n3. If there is a key action the user is supposed to take (e.g., clicking a specific \"Save\" button), make sure that action and button are clearly described\n4. Keep the alt text under 125 characters if possible, but prioritize clarity over length if the UI is complex.",
     "copyPrompt": "You are an accessibility expert and technical writer. I am providing you with an image of a software user interface [UPLOAD IMAGE].\n\nWrite alternative text (alt text) for this image that is optimized for screen readers. Follow these guidelines:\n1. Do not start with \"Image of\" or \"Screenshot of\"\n2. Focus on the functional purpose of the UI rather than describing every visual detail\n3. If there is a key action the user is supposed to take (e.g., clicking a specific \"Save\" button), make sure that action and button are clearly described\n4. Keep the alt text under 125 characters if possible, but prioritize clarity over length if the UI is complex.",
     "proTip": "",
@@ -948,7 +1144,11 @@ window.PROMPTS_DATA = [
       "text",
       "alt",
       "generate"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "draft_content",
+    "subcategoryName": "Draft & Content"
   },
   {
     "id": "p51",
@@ -958,7 +1158,7 @@ window.PROMPTS_DATA = [
     "title": "Write a CLI Reference Page",
     "useCase": "Document a command, flags, and examples",
     "level": "Beginner",
-    "badgeColor": "#0369a1",
+    "badgeColor": "#0d9488",
     "promptText": "You are a technical writer documenting a CLI tool. Write a reference page for the following command.\n                Command name: <mark>[COMMAND]</mark>\n                Description: <mark>[WHAT THIS COMMAND DOES]</mark>\n                Usage: <mark>[e.g., yourtool [command] [options]</mark>\n                Options: <mark>[LIST EACH FLAG/OPTION: name, type, default, description]</mark>\n                Examples: <mark>[LIST 2: 3 EXAMPLES]</mark>\n\n                Structure the page with:\n                1. Command synopsis\n                2. Description\n                3. Options table\n                4. Examples\n                5. Notes or warnings\n\n                Use code blocks for commands and note any required arguments.",
     "copyPrompt": "You are a technical writer documenting a CLI tool. Write a reference page for the following command.\n\n                Command name: [COMMAND]\n                Description: [WHAT THIS COMMAND DOES]\n                Usage: [e.g., yourtool [command] [options]]\n                Options: [LIST EACH FLAG/OPTION: name, type, default, description]\n                Examples: [LIST 2: 3 EXAMPLES]\n\n                Structure the page with:\n                1. Command synopsis\n                2. Description\n                3. Options table\n                4. Examples\n                5. Notes or warnings\n\n                Use code blocks for commands and note any required arguments.",
     "proTip": "Use this prompt for CLI tools, deployment scripts, or\n                command reference pages.",
@@ -968,6 +1168,563 @@ window.PROMPTS_DATA = [
       "page",
       "reference",
       "command"
-    ]
+    ],
+    "domain": "tech",
+    "domainName": "Technical Writing",
+    "subcategoryId": "draft_content",
+    "subcategoryName": "Draft & Content"
+  },
+  {
+    "id": "p52",
+    "number": "52",
+    "categoryId": "general",
+    "categoryName": "General Writing",
+    "title": "Write a High-Engagement LinkedIn Post",
+    "useCase": "Draft a thought leadership or storytelling post with an attention hook, scannable body, and CTA",
+    "level": "Beginner",
+    "badgeColor": "#ec4899",
+    "promptText": "Act as an experienced social media copywriter and personal branding strategist who specializes in LinkedIn growth.\n\nWrite an engaging, high-impact LinkedIn post based on the following details:\n\n- Topic or core idea: <mark>[TOPIC OR CORE IDEA]</mark>\n- Key takeaway or lesson: <mark>[KEY TAKEAWAY OR LESSON]</mark>\n- Target audience: <mark>[e.g., software engineers, marketing leaders, career changers]</mark>\n- Post style: <mark>[e.g., Storytelling / Contrarian Take / Tactical How-To / Milestone & Reflection]</mark>\n- Call to action (CTA): <mark>[e.g., Share your experience in the comments / Repost if you agree / Link to newsletter]</mark>\n\nFormatting & Strategy Guidelines:\n1. Hook (Lines 1-2): Write an irresistible, curiosity-driven opening line under 150 characters before the \"see more\" cutoff. Make it bold, provocative, or relatable.\n2. Body Structure: Use 1-2 sentence paragraphs with clean line breaks for effortless mobile scanning. If listing points, use clean bullet characters (• or →).\n3. Narrative Arc: Highlight a problem, friction, or mistake first, followed by the breakthrough insight or actionable solution.\n4. Call to Action: End with an open-ended question that prompts meaningful comments.\n5. Tone: Authentic, professional, and conversational—never robotic, pretentious, or overly formal.\n6. Hashtags & Polish: Recommend 3-4 targeted hashtags and suggest where 2-3 tasteful emojis could be placed.\n\nPlease provide two draft options:\n- Option A: Punchy, contrarian, and direct.\n- Option B: Personal storytelling and lesson-driven.",
+    "copyPrompt": "Act as an experienced social media copywriter and personal branding strategist who specializes in LinkedIn growth.\n\nWrite an engaging, high-impact LinkedIn post based on the following details:\n\n- Topic or core idea: [TOPIC OR CORE IDEA]\n- Key takeaway or lesson: [KEY TAKEAWAY OR LESSON]\n- Target audience: [e.g., software engineers, marketing leaders, career changers]\n- Post style: [e.g., Storytelling / Contrarian Take / Tactical How-To / Milestone & Reflection]\n- Call to action (CTA): [e.g., Share your experience in the comments / Repost if you agree / Link to newsletter]\n\nFormatting & Strategy Guidelines:\n1. Hook (Lines 1-2): Write an irresistible, curiosity-driven opening line under 150 characters before the \"see more\" cutoff. Make it bold, provocative, or relatable.\n2. Body Structure: Use 1-2 sentence paragraphs with clean line breaks for effortless mobile scanning. If listing points, use clean bullet characters (• or →).\n3. Narrative Arc: Highlight a problem, friction, or mistake first, followed by the breakthrough insight or actionable solution.\n4. Call to Action: End with an open-ended question that prompts meaningful comments.\n5. Tone: Authentic, professional, and conversational—never robotic, pretentious, or overly formal.\n6. Hashtags & Polish: Recommend 3-4 targeted hashtags and suggest where 2-3 tasteful emojis could be placed.\n\nPlease provide two draft options:\n- Option A: Punchy, contrarian, and direct.\n- Option B: Personal storytelling and lesson-driven.",
+    "proTip": "LinkedIn truncates posts after ~140 characters on mobile. Treat your first two lines as a headline that forces readers to tap '...see more'.",
+    "tags": [
+      "linkedin",
+      "social",
+      "post",
+      "copywriting",
+      "engagement",
+      "thought-leadership"
+    ],
+    "domain": "general",
+    "domainName": "General Writing",
+    "subcategoryId": "social",
+    "subcategoryName": "Social Media"
+  },
+  {
+    "id": "p53",
+    "number": "53",
+    "categoryId": "general",
+    "categoryName": "General Writing",
+    "title": "Review & Polish Short-Form Copy",
+    "useCase": "Line-edit emails, announcements, social posts, or blurbs for maximum clarity, brevity, and punch",
+    "level": "Beginner",
+    "badgeColor": "#3b82f6",
+    "promptText": "You are an expert copy editor and developmental editor specializing in concise, high-converting short-form writing.\n\nReview and refine the following piece of short content:\n\nContent to review:\n<mark>[PASTE SHORT CONTENT HERE]</mark>\n\nContext:\n- Channel/Format: <mark>[e.g., cold outreach email, company Slack announcement, product blurb, social update]</mark>\n- Intended audience: <mark>[DESCRIBE AUDIENCE, e.g., busy founders, prospective clients, team members]</mark>\n- Goal or primary CTA: <mark>[WHAT SHOULD THE READER DO OR FEEL?]</mark>\n- Desired tone: <mark>[e.g., crisp & direct / warm & empathetic / witty & bold / urgent]</mark>\n- Constraints: <mark>[e.g., max 100 words / keep under 3 sentences / fit on a single phone screen]</mark>\n\nPlease provide your review in 4 structured sections:\n1. Editorial Assessment & Score: Rate clarity (1-10), brevity (1-10), and hook strength (1-10). Note any fluff words, passive voice, or friction points.\n2. Polished Version: The best drop-in replacement that preserves the original intent while maximizing punch and readability.\n3. Two Alternative Angles:\n   - Angle 1: Ultra-minimalist / direct (cut to the chase).\n   - Angle 2: Conversational & curiosity-driven.\n4. Change Log: A brief bulleted explanation of what you cut or restructured and why.",
+    "copyPrompt": "You are an expert copy editor and developmental editor specializing in concise, high-converting short-form writing.\n\nReview and refine the following piece of short content:\n\nContent to review:\n[PASTE SHORT CONTENT HERE]\n\nContext:\n- Channel/Format: [e.g., cold outreach email, company Slack announcement, product blurb, social update]\n- Intended audience: [DESCRIBE AUDIENCE, e.g., busy founders, prospective clients, team members]\n- Goal or primary CTA: [WHAT SHOULD THE READER DO OR FEEL?]\n- Desired tone: [e.g., crisp & direct / warm & empathetic / witty & bold / urgent]\n- Constraints: [e.g., max 100 words / keep under 3 sentences / fit on a single phone screen]\n\nPlease provide your review in 4 structured sections:\n1. Editorial Assessment & Score: Rate clarity (1-10), brevity (1-10), and hook strength (1-10). Note any fluff words, passive voice, or friction points.\n2. Polished Version: The best drop-in replacement that preserves the original intent while maximizing punch and readability.\n3. Two Alternative Angles:\n   - Angle 1: Ultra-minimalist / direct (cut to the chase).\n   - Angle 2: Conversational & curiosity-driven.\n4. Change Log: A brief bulleted explanation of what you cut or restructured and why.",
+    "proTip": "Specify your distribution channel (e.g., Slack vs. Email) so the AI adapts paragraph lengths and greeting etiquette accordingly.",
+    "tags": [
+      "review",
+      "short-form",
+      "editing",
+      "polish",
+      "email",
+      "clarity",
+      "copyediting"
+    ],
+    "domain": "general",
+    "domainName": "General Writing",
+    "subcategoryId": "misc",
+    "subcategoryName": "Miscellaneous"
+  },
+  {
+    "id": "p54",
+    "number": "54",
+    "categoryId": "general",
+    "categoryName": "General Writing",
+    "title": "Audit Long-Form Article (Microsoft Style Guide)",
+    "useCase": "Comprehensive editorial review of blogs and articles strictly enforcing Microsoft Writing Style Guide rules",
+    "level": "Advanced",
+    "badgeColor": "#8b5cf6",
+    "promptText": "You are a senior managing editor and style guide specialist auditing a long-form article or blog post according to the official Microsoft Writing Style Guide (MWSG).\n\nArticle to review:\n<mark>[PASTE ARTICLE OR BLOG TEXT HERE]</mark>\n\nContext:\n- Target audience: <mark>[e.g., software engineers, IT decision-makers, general business readers]</mark>\n- Article goal or primary keyword: <mark>[e.g., explain Kubernetes architecture / promote new design workflow]</mark>\n\nPlease audit the text systematically against these core Microsoft Style Guide standards:\n1. Voice & Tone: Is it warm, relaxed, crisp, and clear? Does it sound human, modern, and approachable rather than robotic or stuffy?\n2. Second-Person Perspective: Does it directly address the reader as \"you\"? Does it avoid awkward third-person references or overuse of \"we\"?\n3. Plain Language & Jargon: Identify unnecessary corporate buzzwords and recommend simpler substitutes (e.g., \"use\" instead of \"utilize\", \"help\" instead of \"facilitate\", \"take advantage of\" instead of \"leverage\").\n4. Headings & Formatting: Are headings written in sentence case (only the first word and proper nouns capitalized)? Are headings actionable and parallel in structure?\n5. Paragraph & Sentence Density: Are sentences kept under 25 words where possible? Are paragraphs trimmed to 3-4 sentences maximum?\n6. Punctuation & Mechanics: Oxford comma (serial comma) applied consistently; em dashes used without spaces; standard contractions (it's, you'll, don't) used to maintain a natural rhythm.\n7. Inclusive & Accessible Language: Are link texts descriptive (no \"click here\")? Is gender-neutral and bias-free terminology used throughout?\n\nOutput format:\n- Part 1: Executive Summary & Readiness Score (0-100) with top 3 systemic issues.\n- Part 2: Findings Table:\n  | Excerpt / Paragraph | Style Guide Violation | Microsoft Rule | Recommended Revision |\n- Part 3: Fully Revised Article reflecting all MWSG guidelines while preserving the author's subject-matter expertise.",
+    "copyPrompt": "You are a senior managing editor and style guide specialist auditing a long-form article or blog post according to the official Microsoft Writing Style Guide (MWSG).\n\nArticle to review:\n[PASTE ARTICLE OR BLOG TEXT HERE]\n\nContext:\n- Target audience: [e.g., software engineers, IT decision-makers, general business readers]\n- Article goal or primary keyword: [e.g., explain Kubernetes architecture / promote new design workflow]\n\nPlease audit the text systematically against these core Microsoft Style Guide standards:\n1. Voice & Tone: Is it warm, relaxed, crisp, and clear? Does it sound human, modern, and approachable rather than robotic or stuffy?\n2. Second-Person Perspective: Does it directly address the reader as \"you\"? Does it avoid awkward third-person references or overuse of \"we\"?\n3. Plain Language & Jargon: Identify unnecessary corporate buzzwords and recommend simpler substitutes (e.g., \"use\" instead of \"utilize\", \"help\" instead of \"facilitate\", \"take advantage of\" instead of \"leverage\").\n4. Headings & Formatting: Are headings written in sentence case (only the first word and proper nouns capitalized)? Are headings actionable and parallel in structure?\n5. Paragraph & Sentence Density: Are sentences kept under 25 words where possible? Are paragraphs trimmed to 3-4 sentences maximum?\n6. Punctuation & Mechanics: Oxford comma (serial comma) applied consistently; em dashes used without spaces; standard contractions (it's, you'll, don't) used to maintain a natural rhythm.\n7. Inclusive & Accessible Language: Are link texts descriptive (no \"click here\")? Is gender-neutral and bias-free terminology used throughout?\n\nOutput format:\n- Part 1: Executive Summary & Readiness Score (0-100) with top 3 systemic issues.\n- Part 2: Findings Table:\n  | Excerpt / Paragraph | Style Guide Violation | Microsoft Rule | Recommended Revision |\n- Part 3: Fully Revised Article reflecting all MWSG guidelines while preserving the author's subject-matter expertise.",
+    "proTip": "The Microsoft Style Guide strictly requires sentence case for headings (e.g., 'How to configure your workspace' rather than 'How to Configure Your Workspace').",
+    "tags": [
+      "microsoft-style-guide",
+      "editorial-review",
+      "blog",
+      "style-guide",
+      "audit",
+      "grammar",
+      "long-form"
+    ],
+    "domain": "general",
+    "domainName": "General Writing",
+    "subcategoryId": "blogs",
+    "subcategoryName": "Blogs & Articles"
+  },
+  {
+    "id": "p55",
+    "number": "55",
+    "categoryId": "general",
+    "categoryName": "General Writing",
+    "title": "Craft Instagram Captions with Hooks & CTAs",
+    "useCase": "Write multi-format captions (storytelling, punchy, conversational) with hashtag sets and engagement prompts",
+    "level": "Beginner",
+    "badgeColor": "#ec4899",
+    "promptText": "You are an expert social media strategist and creative copywriter specializing in Instagram content.\n\nWrite high-converting Instagram captions based on the following visual and message details:\n\n- Visual content description: <mark>[DESCRIBE PHOTO, CAROUSEL SLIDES, OR REEL SCENE]</mark>\n- Core theme or takeaway: <mark>[WHAT IS THE MAIN MESSAGE OR LESSON?]</mark>\n- Target audience: <mark>[e.g., designers, remote workers, fitness beginners, tech enthusiasts]</mark>\n- Brand voice: <mark>[e.g., playful & relatable / inspiring & motivational / aesthetic & minimal / educational]</mark>\n- Primary call to action: <mark>[e.g., Save this post / Share to your story / Comment your opinion / Check link in bio]</mark>\n\nPlease provide 3 distinct caption variations:\n\n1. Option 1: The Micro-Blog / Carousel Caption\n   - A punchy first line hook (under 125 chars before the '...more' fold)\n   - 3-5 line-spaced points or a mini-story with clean spacing\n   - Clear save or share prompt\n\n2. Option 2: Short & Punchy (Aesthetic / Reel Caption)\n   - 1-2 powerful, memorable sentences that complement the visual without overwhelming it\n   - Subtle CTA\n\n3. Option 3: Conversational Question / Community Debate\n   - Personal reflection leading into a provocative or open-ended question to maximize comment velocity\n\nAdditional Assets:\n- First-comment conversation starter\n- 15 curated hashtags organized into: Broad reach (5), Niche-specific (5), and Community/trending (5)",
+    "copyPrompt": "You are an expert social media strategist and creative copywriter specializing in Instagram content.\n\nWrite high-converting Instagram captions based on the following visual and message details:\n\n- Visual content description: [DESCRIBE PHOTO, CAROUSEL SLIDES, OR REEL SCENE]\n- Core theme or takeaway: [WHAT IS THE MAIN MESSAGE OR LESSON?]\n- Target audience: [e.g., designers, remote workers, fitness beginners, tech enthusiasts]\n- Brand voice: [e.g., playful & relatable / inspiring & motivational / aesthetic & minimal / educational]\n- Primary call to action: [e.g., Save this post / Share to your story / Comment your opinion / Check link in bio]\n\nPlease provide 3 distinct caption variations:\n\n1. Option 1: The Micro-Blog / Carousel Caption\n   - A punchy first line hook (under 125 chars before the '...more' fold)\n   - 3-5 line-spaced points or a mini-story with clean spacing\n   - Clear save or share prompt\n\n2. Option 2: Short & Punchy (Aesthetic / Reel Caption)\n   - 1-2 powerful, memorable sentences that complement the visual without overwhelming it\n   - Subtle CTA\n\n3. Option 3: Conversational Question / Community Debate\n   - Personal reflection leading into a provocative or open-ended question to maximize comment velocity\n\nAdditional Assets:\n- First-comment conversation starter\n- 15 curated hashtags organized into: Broad reach (5), Niche-specific (5), and Community/trending (5)",
+    "proTip": "Instagram cuts off captions at 125 characters in the main feed. Make sure your hook creates enough intrigue that users tap '...more'.",
+    "tags": [
+      "instagram",
+      "social-media",
+      "captions",
+      "engagement",
+      "hashtags",
+      "visual-storytelling"
+    ],
+    "domain": "general",
+    "domainName": "General Writing",
+    "subcategoryId": "social",
+    "subcategoryName": "Social Media"
+  },
+  {
+    "id": "p56",
+    "number": "56",
+    "categoryId": "general",
+    "categoryName": "General Writing",
+    "title": "Generate Alt Text for Blog Visuals & Infographics",
+    "useCase": "Write accessibility-compliant (WCAG 2.2) and SEO-friendly alt text for photos, diagrams, and illustrations",
+    "level": "Beginner",
+    "badgeColor": "#8b5cf6",
+    "promptText": "You are a digital accessibility (a11y) specialist and SEO content strategist.\n\nCreate alternative text (alt text) for an image used in a blog post or web article.\n\nImage & Context Details:\n- Image description or paste/upload: <mark>[DESCRIBE THE IMAGE IN DETAIL OR PASTE AN IMAGE UPLOAD]</mark>\n- Article title & topic context: <mark>[ARTICLE TITLE AND WHAT SECTION THIS IMAGE APPEARS IN]</mark>\n- Image type: <mark>[e.g., Photograph / Conceptual Illustration / Workflow Diagram / Infographic / Chart / Meme]</mark>\n- Target SEO keyword (optional): <mark>[KEYWORD IF RELEVANT, OR 'None']</mark>\n\nGuidelines (WCAG 2.2 Standards):\n1. Do not start with redundant phrases like \"Image of\", \"Photo of\", or \"Graphic showing\". Screen readers announce graphics automatically.\n2. Convey the functional purpose and informational meaning, not just visual decoration.\n3. If the image contains text, flowcharts, or data points, include the essential text and data trends.\n4. Keep standard alt text between 80 to 125 characters whenever possible.\n5. If the image is purely decorative, note that an empty alt attribute (alt=\"\") should be used.\n\nOutput Deliverables:\n1. Standard Alt Text: Single concise sentence (<125 characters) ideal for the HTML `alt` attribute.\n2. Long Description (if image is a chart, workflow diagram, or data infographic): Markdown breakdown summarizing all steps or data values for screen readers.\n3. Suggested Editorial Caption: 1 reader-facing caption to display below the image for visual context.",
+    "copyPrompt": "You are a digital accessibility (a11y) specialist and SEO content strategist.\n\nCreate alternative text (alt text) for an image used in a blog post or web article.\n\nImage & Context Details:\n- Image description or paste/upload: [DESCRIBE THE IMAGE IN DETAIL OR PASTE AN IMAGE UPLOAD]\n- Article title & topic context: [ARTICLE TITLE AND WHAT SECTION THIS IMAGE APPEARS IN]\n- Image type: [e.g., Photograph / Conceptual Illustration / Workflow Diagram / Infographic / Chart / Meme]\n- Target SEO keyword (optional): [KEYWORD IF RELEVANT, OR 'None']\n\nGuidelines (WCAG 2.2 Standards):\n1. Do not start with redundant phrases like \"Image of\", \"Photo of\", or \"Graphic showing\". Screen readers announce graphics automatically.\n2. Convey the functional purpose and informational meaning, not just visual decoration.\n3. If the image contains text, flowcharts, or data points, include the essential text and data trends.\n4. Keep standard alt text between 80 to 125 characters whenever possible.\n5. If the image is purely decorative, note that an empty alt attribute (alt=\"\") should be used.\n\nOutput Deliverables:\n1. Standard Alt Text: Single concise sentence (<125 characters) ideal for the HTML `alt` attribute.\n2. Long Description (if image is a chart, workflow diagram, or data infographic): Markdown breakdown summarizing all steps or data values for screen readers.\n3. Suggested Editorial Caption: 1 reader-facing caption to display below the image for visual context.",
+    "proTip": "Never keyword-stuff alt text. Search engines rank pages higher when alt text accurately and naturally describes what a visually impaired reader needs to know.",
+    "tags": [
+      "alt-text",
+      "accessibility",
+      "seo",
+      "blog-images",
+      "wcag",
+      "a11y",
+      "infographics"
+    ],
+    "domain": "general",
+    "domainName": "General Writing",
+    "subcategoryId": "blogs",
+    "subcategoryName": "Blogs & Articles"
+  },
+  {
+    "id": "p57",
+    "number": "57",
+    "categoryId": "general",
+    "categoryName": "General Writing",
+    "title": "Analyze & Clone Writing Tone (from 200-Word Sample)",
+    "useCase": "Reverse-engineer a 200-word reference sample's voice, cadence, and diction, then replicate it in new writing",
+    "level": "Intermediate",
+    "badgeColor": "#8b5cf6",
+    "promptText": "You are an expert stylistic editor and linguistic profiler. I am providing you with a 200-word reference writing sample. Your job is to extract its exact voice and tone DNA, and then generate new content that seamlessly matches this voice.\n\nReference Sample (approx. 200 words):\n<mark>[PASTE 200-WORD REFERENCE SAMPLE HERE]</mark>\n\nNew Content Request:\n- Topic or draft to write/rewrite: <mark>[PASTE TOPIC, OUTLINE, OR DRAFT TO REWRITE]</mark>\n- Intended format: <mark>[e.g., blog post introduction, email newsletter, opinion piece, company memo]</mark>\n- Target audience: <mark>[DESCRIBE INTENDED AUDIENCE]</mark>\n\nExecute in two clear phases:\n\n### Phase 1: Voice & Tone DNA Analysis\nAnalyze the reference text across these 6 linguistic dimensions:\n1. Formality Scale: (Score 1-10, from ultra-casual to academic/regal).\n2. Sentence Rhythm & Cadence: Average sentence length, balance of punchy fragments vs. complex clauses, punctuation choices (e.g., em dashes, parentheses, ellipses).\n3. Diction & Vocabulary: Everyday plain language vs. elevated terms, technical vs. conversational words, sensory or metaphorical language.\n4. Perspective & Stance: Use of first (\"I/we\"), second (\"you\"), or third person; degree of empathy, authority, vulnerability, or humor.\n5. Tone Fingerprint: 3-4 precise adjectives defining the voice (e.g., 'Crisp, wry, encouraging, direct').\n\n### Phase 2: Tone-Matched Content Generation\nWrite or rewrite the requested new content strictly in this voice fingerprint. Match the reference sample's sentence cadence, vocabulary register, and attitude so closely that a reader would believe it was written by the same author.",
+    "copyPrompt": "You are an expert stylistic editor and linguistic profiler. I am providing you with a 200-word reference writing sample. Your job is to extract its exact voice and tone DNA, and then generate new content that seamlessly matches this voice.\n\nReference Sample (approx. 200 words):\n[PASTE 200-WORD REFERENCE SAMPLE HERE]\n\nNew Content Request:\n- Topic or draft to write/rewrite: [PASTE TOPIC, OUTLINE, OR DRAFT TO REWRITE]\n- Intended format: [e.g., blog post introduction, email newsletter, opinion piece, company memo]\n- Target audience: [DESCRIBE INTENDED AUDIENCE]\n\nExecute in two clear phases:\n\n### Phase 1: Voice & Tone DNA Analysis\nAnalyze the reference text across these 6 linguistic dimensions:\n1. Formality Scale: (Score 1-10, from ultra-casual to academic/regal).\n2. Sentence Rhythm & Cadence: Average sentence length, balance of punchy fragments vs. complex clauses, punctuation choices (e.g., em dashes, parentheses, ellipses).\n3. Diction & Vocabulary: Everyday plain language vs. elevated terms, technical vs. conversational words, sensory or metaphorical language.\n4. Perspective & Stance: Use of first (\"I/we\"), second (\"you\"), or third person; degree of empathy, authority, vulnerability, or humor.\n5. Tone Fingerprint: 3-4 precise adjectives defining the voice (e.g., 'Crisp, wry, encouraging, direct').\n\n### Phase 2: Tone-Matched Content Generation\nWrite or rewrite the requested new content strictly in this voice fingerprint. Match the reference sample's sentence cadence, vocabulary register, and attitude so closely that a reader would believe it was written by the same author.",
+    "proTip": "A 150-250 word excerpt is the ideal sample size for language models. It provides enough syntactic variety to identify cadence and diction patterns without conflicting stylistic shifts.",
+    "tags": [
+      "tone-analysis",
+      "voice-matching",
+      "style-transfer",
+      "brand-voice",
+      "rewrite",
+      "cadence"
+    ],
+    "domain": "general",
+    "domainName": "General Writing",
+    "subcategoryId": "blogs",
+    "subcategoryName": "Blogs & Articles"
+  },
+  {
+    "id": "p58",
+    "number": "58",
+    "categoryId": "general",
+    "categoryName": "General Writing",
+    "title": "Decline Requests Professionally (The Polite 'No')",
+    "useCase": "Say no to extra projects, impossible deadlines, or favors without burning bridges",
+    "level": "Beginner",
+    "badgeColor": "#3b82f6",
+    "promptText": "You are an executive coach and professional communications expert.\n\nWrite a polite, graceful, but firm email declining a request.\n\nContext:\n- Request received: <mark>[DESCRIBE WHAT WAS ASKED OF YOU]</mark>\n- Requester: <mark>[e.g., manager, cross-functional colleague, client, vendor, acquaintance]</mark>\n- Reason for declining: <mark>[e.g., current workload capacity, strategic misalignment, out of scope, strict deadline conflict]</mark>\n- Relationship dynamic: <mark>[e.g., high-stakes client / friendly teammate / formal senior leader]</mark>\n- Alternative offer or compromise (optional): <mark>[e.g., refer to another contact / revisit next quarter / provide existing resources / None]</mark>\n\nGuidelines:\n1. Open with sincere appreciation for being considered.\n2. State the refusal clearly and unequivocally in the first two sentences—never use ambiguous phrases like \"I'll try my best\" or \"maybe later\".\n3. Provide a brief, professional rationale without over-apologizing or making excuses.\n4. If applicable, offer the alternative or next step.\n5. Close warmly to maintain a positive long-term relationship.\n\nProvide 3 variations:\n- Option 1: Warm & collaborative (ideal for close teammates or friendly clients).\n- Option 2: Brief & direct (ideal for high-level executives or busy inboxes).\n- Option 3: Boundary-setting (ideal for repeated scope creep or persistent requests).",
+    "copyPrompt": "You are an executive coach and professional communications expert.\n\nWrite a polite, graceful, but firm email declining a request.\n\nContext:\n- Request received: [DESCRIBE WHAT WAS ASKED OF YOU]\n- Requester: [e.g., manager, cross-functional colleague, client, vendor, acquaintance]\n- Reason for declining: [e.g., current workload capacity, strategic misalignment, out of scope, strict deadline conflict]\n- Relationship dynamic: [e.g., high-stakes client / friendly teammate / formal senior leader]\n- Alternative offer or compromise (optional): [e.g., refer to another contact / revisit next quarter / provide existing resources / None]\n\nGuidelines:\n1. Open with sincere appreciation for being considered.\n2. State the refusal clearly and unequivocally in the first two sentences—never use ambiguous phrases like \"I'll try my best\" or \"maybe later\".\n3. Provide a brief, professional rationale without over-apologizing or making excuses.\n4. If applicable, offer the alternative or next step.\n5. Close warmly to maintain a positive long-term relationship.\n\nProvide 3 variations:\n- Option 1: Warm & collaborative (ideal for close teammates or friendly clients).\n- Option 2: Brief & direct (ideal for high-level executives or busy inboxes).\n- Option 3: Boundary-setting (ideal for repeated scope creep or persistent requests).",
+    "proTip": "Never over-apologize. Saying 'Unfortunately, I cannot take this on due to current sprint commitments' is more respected than five sentences of apologies.",
+    "tags": [
+      "email",
+      "workplace",
+      "decline",
+      "polite-no",
+      "boundaries",
+      "professional"
+    ],
+    "domain": "general",
+    "domainName": "General Writing",
+    "subcategoryId": "misc",
+    "subcategoryName": "Miscellaneous"
+  },
+  {
+    "id": "p59",
+    "number": "59",
+    "categoryId": "general",
+    "categoryName": "General Writing",
+    "title": "Write a Polite Follow-Up (Without Sounding Annoying)",
+    "useCase": "Nudge on unanswered emails, stalled approvals, or overdue deliverables with tact",
+    "level": "Beginner",
+    "badgeColor": "#3b82f6",
+    "promptText": "You are a professional communications expert specializing in workplace etiquette and relationship management.\n\nWrite a friendly, high-momentum follow-up email for an unanswered message.\n\nDetails:\n- Original request/topic: <mark>[WHAT DID YOU INITIALLY SEND OR ASK?]</mark>\n- Recipient: <mark>[e.g., busy executive, prospect, colleague, external vendor]</mark>\n- Days elapsed since last message: <mark>[e.g., 3 days, 1 week, 2 weeks]</mark>\n- Deadline or urgency: <mark>[WHAT IS THE TIMEFRAME OR BLOCKER?]</mark>\n- Desired action: <mark>[e.g., approve draft, confirm meeting time, sign contract, send feedback]</mark>\n\nGuidelines:\n1. Eliminate passive-aggressive cliches like \"Just checking in\", \"Circling back\", or \"Per my last email\".\n2. Add immediate value or context in the opening line so the recipient doesn't have to scroll down to remember what this is about.\n3. Keep it under 75 words.\n4. Make replying frictionless (e.g., offer a binary choice or a 1-click confirmation).\n\nProvide 3 distinct tones:\n- Option A: Quick & conversational (low pressure, high momentum).\n- Option B: Value-add nudge (shares a quick insight or asset while reminding them).\n- Option C: Urgent / Deadline-driven (clear consequence if not answered by date X).",
+    "copyPrompt": "You are a professional communications expert specializing in workplace etiquette and relationship management.\n\nWrite a friendly, high-momentum follow-up email for an unanswered message.\n\nDetails:\n- Original request/topic: [WHAT DID YOU INITIALLY SEND OR ASK?]\n- Recipient: [e.g., busy executive, prospect, colleague, external vendor]\n- Days elapsed since last message: [e.g., 3 days, 1 week, 2 weeks]\n- Deadline or urgency: [WHAT IS THE TIMEFRAME OR BLOCKER?]\n- Desired action: [e.g., approve draft, confirm meeting time, sign contract, send feedback]\n\nGuidelines:\n1. Eliminate passive-aggressive cliches like \"Just checking in\", \"Circling back\", or \"Per my last email\".\n2. Add immediate value or context in the opening line so the recipient doesn't have to scroll down to remember what this is about.\n3. Keep it under 75 words.\n4. Make replying frictionless (e.g., offer a binary choice or a 1-click confirmation).\n\nProvide 3 distinct tones:\n- Option A: Quick & conversational (low pressure, high momentum).\n- Option B: Value-add nudge (shares a quick insight or asset while reminding them).\n- Option C: Urgent / Deadline-driven (clear consequence if not answered by date X).",
+    "proTip": "Never use 'Just checking in' as a subject line. Instead use: '[Project Name] - Quick update & question for [Recipient Name]'.",
+    "tags": [
+      "follow-up",
+      "email",
+      "nudge",
+      "workplace",
+      "etiquette",
+      "communication"
+    ],
+    "domain": "general",
+    "domainName": "General Writing",
+    "subcategoryId": "misc",
+    "subcategoryName": "Miscellaneous"
+  },
+  {
+    "id": "p60",
+    "number": "60",
+    "categoryId": "general",
+    "categoryName": "General Writing",
+    "title": "Navigate Difficult Conversations & Pushback",
+    "useCase": "Address sensitive issues, scope creep, or unfair expectations with tact and empathy",
+    "level": "Intermediate",
+    "badgeColor": "#3b82f6",
+    "promptText": "You are an executive mediator and leadership communications consultant.\n\nHelp me draft a constructive, empathetic, but assertive message to handle a sensitive workplace situation.\n\nSituation Context:\n- The issue: <mark>[DESCRIBE THE PROBLEM, e.g., scope creep without extra budget, missed deadlines impacting your work, credit taken for your work, unrealistic timeline]</mark>\n- The person involved: <mark>[e.g., client, senior manager, direct report, cross-functional peer]</mark>\n- Current business impact: <mark>[HOW DOES THIS HURT QUALITY, DEADLINES, OR MORALE?]</mark>\n- Your desired outcome: <mark>[WHAT SOLUTION OR BOUNDARY DO YOU WANT TO ESTABLISH?]</mark>\n- Preferred channel: <mark>[e.g., Email, Slack/Teams message, Talking points for a 1-on-1 meeting]</mark>\n\nGuidelines:\n1. Use the Nonviolent Communication (NVC) / SBI Framework: Situation -> Observable Behavior -> Impact -> Proposed Path Forward.\n2. Separate objective facts from emotional interpretations.\n3. Assume positive intent while being uncompromising on necessary boundaries or facts.\n4. Use collaborative \"we\" for solutions, but clear \"I\" statements for personal observations.\n\nDeliverable:\n- Section 1: Written Message (ready to send via chosen channel).\n- Section 2: 3 anticipated objections and how to calmly respond in real time.",
+    "copyPrompt": "You are an executive mediator and leadership communications consultant.\n\nHelp me draft a constructive, empathetic, but assertive message to handle a sensitive workplace situation.\n\nSituation Context:\n- The issue: [DESCRIBE THE PROBLEM, e.g., scope creep without extra budget, missed deadlines impacting your work, credit taken for your work, unrealistic timeline]\n- The person involved: [e.g., client, senior manager, direct report, cross-functional peer]\n- Current business impact: [HOW DOES THIS HURT QUALITY, DEADLINES, OR MORALE?]\n- Your desired outcome: [WHAT SOLUTION OR BOUNDARY DO YOU WANT TO ESTABLISH?]\n- Preferred channel: [e.g., Email, Slack/Teams message, Talking points for a 1-on-1 meeting]\n\nGuidelines:\n1. Use the Nonviolent Communication (NVC) / SBI Framework: Situation -> Observable Behavior -> Impact -> Proposed Path Forward.\n2. Separate objective facts from emotional interpretations.\n3. Assume positive intent while being uncompromising on necessary boundaries or facts.\n4. Use collaborative \"we\" for solutions, but clear \"I\" statements for personal observations.\n\nDeliverable:\n- Section 1: Written Message (ready to send via chosen channel).\n- Section 2: 3 anticipated objections and how to calmly respond in real time.",
+    "proTip": "Focus on the shared goal (e.g., 'ensuring our product launch stays on schedule') before raising the friction point.",
+    "tags": [
+      "difficult-conversations",
+      "pushback",
+      "workplace",
+      "conflict-resolution",
+      "assertive",
+      "mediation"
+    ],
+    "domain": "general",
+    "domainName": "General Writing",
+    "subcategoryId": "misc",
+    "subcategoryName": "Miscellaneous"
+  },
+  {
+    "id": "p61",
+    "number": "61",
+    "categoryId": "general",
+    "categoryName": "General Writing",
+    "title": "Create a TL;DR & Executive Summary",
+    "useCase": "Condense long emails, reports, or meeting notes into 3 actionable bullets and next steps",
+    "level": "Beginner",
+    "badgeColor": "#3b82f6",
+    "promptText": "You are an executive communications chief of staff.\n\nRead the following document/email chain and produce a high-impact, scannable Executive Summary (TL;DR).\n\nContent to summarize:\n<mark>[PASTE LONG EMAIL THREAD, REPORT, OR MEETING NOTES HERE]</mark>\n\nAudience & Format:\n- Target reader: <mark>[e.g., C-level executives, cross-functional team, external stakeholders]</mark>\n- Maximum word count: <mark>[e.g., under 150 words / 5 bullet points]</mark>\n\nStructure Requirements:\n1. Bottom Line Up Front (BLUF): 1 sentence capturing the single most important decision, insight, or status.\n2. Key Highlights: 3 to 4 bullet points outlining context, numbers, or key milestones.\n3. Risks or Blockers (if any): What requires immediate attention.\n4. Next Actions & Owners: Table or bullet list showing Action | Owner | Due Date.\n\nMake every word earn its place. Cut all background preamble.",
+    "copyPrompt": "You are an executive communications chief of staff.\n\nRead the following document/email chain and produce a high-impact, scannable Executive Summary (TL;DR).\n\nContent to summarize:\n[PASTE LONG EMAIL THREAD, REPORT, OR MEETING NOTES HERE]\n\nAudience & Format:\n- Target reader: [e.g., C-level executives, cross-functional team, external stakeholders]\n- Maximum word count: [e.g., under 150 words / 5 bullet points]\n\nStructure Requirements:\n1. Bottom Line Up Front (BLUF): 1 sentence capturing the single most important decision, insight, or status.\n2. Key Highlights: 3 to 4 bullet points outlining context, numbers, or key milestones.\n3. Risks or Blockers (if any): What requires immediate attention.\n4. Next Actions & Owners: Table or bullet list showing Action | Owner | Due Date.\n\nMake every word earn its place. Cut all background preamble.",
+    "proTip": "Executives read on mobile devices. A strong BLUF (Bottom Line Up Front) ensures they get the point even if they only look at the notification banner.",
+    "tags": [
+      "summary",
+      "tldr",
+      "executive-summary",
+      "bluf",
+      "meeting-notes",
+      "productivity"
+    ],
+    "domain": "general",
+    "domainName": "General Writing",
+    "subcategoryId": "misc",
+    "subcategoryName": "Miscellaneous"
+  },
+  {
+    "id": "p62",
+    "number": "62",
+    "categoryId": "general",
+    "categoryName": "General Writing",
+    "title": "Rewrite Resume Bullets (Google's XYZ Formula)",
+    "useCase": "Transform passive job duties into quantifiable achievement bullets: Accomplished [X] as measured by [Y] by doing [Z]",
+    "level": "Beginner",
+    "badgeColor": "#3b82f6",
+    "promptText": "You are a senior executive recruiter and elite resume writer.\n\nTransform my raw job responsibilities and achievements into high-impact, metric-driven resume bullet points using Google's proven XYZ formula: \"Accomplished [X], as measured by [Y], by doing [Z]\".\n\nJob details:\n- Current/Past Role & Company: <mark>[YOUR ROLE, e.g., Project Manager at FinTech Startup]</mark>\n- Target Role applied for: <mark>[TARGET TITLE, e.g., Senior Operations Manager]</mark>\n- Raw responsibility or draft bullet points:\n<mark>[PASTE 1 TO 5 DRAFT BULLET POINTS OR RAW NOTES HERE]</mark>\n- Approximate metrics or scope (if known): <mark>[e.g., budget size, team size, % time saved, revenue increased, users impacted]</mark>\n\nGuidelines:\n1. Start each bullet point with a vigorous, non-cliche action verb (e.g., 'Spearheaded', 'Orchestrated', 'Architected', 'Streamlined'—avoid 'Responsible for' or 'Helped with').\n2. Clearly state the business impact or outcome first, followed by the specific tools, methodologies, or actions used.\n3. If exact metrics are missing, provide realistic bracketed metric suggestions (e.g., '[reduced churn by 18%]').\n4. Keep each bullet between 18 and 30 words.\n\nFor each input bullet, provide:\n- Refined Bullet (Standard format)\n- Enhanced Bullet (Leadership & scale focus)\n- What changed & why",
+    "copyPrompt": "You are a senior executive recruiter and elite resume writer.\n\nTransform my raw job responsibilities and achievements into high-impact, metric-driven resume bullet points using Google's proven XYZ formula: \"Accomplished [X], as measured by [Y], by doing [Z]\".\n\nJob details:\n- Current/Past Role & Company: [YOUR ROLE, e.g., Project Manager at FinTech Startup]\n- Target Role applied for: [TARGET TITLE, e.g., Senior Operations Manager]\n- Raw responsibility or draft bullet points:\n[PASTE 1 TO 5 DRAFT BULLET POINTS OR RAW NOTES HERE]\n- Approximate metrics or scope (if known): [e.g., budget size, team size, % time saved, revenue increased, users impacted]\n\nGuidelines:\n1. Start each bullet point with a vigorous, non-cliche action verb (e.g., 'Spearheaded', 'Orchestrated', 'Architected', 'Streamlined'—avoid 'Responsible for' or 'Helped with').\n2. Clearly state the business impact or outcome first, followed by the specific tools, methodologies, or actions used.\n3. If exact metrics are missing, provide realistic bracketed metric suggestions (e.g., '[reduced churn by 18%]').\n4. Keep each bullet between 18 and 30 words.\n\nFor each input bullet, provide:\n- Refined Bullet (Standard format)\n- Enhanced Bullet (Leadership & scale focus)\n- What changed & why",
+    "proTip": "Never start a resume bullet with 'Responsible for'. Always highlight the outcome first, then the mechanism you used to achieve it.",
+    "tags": [
+      "resume",
+      "career",
+      "xyz-formula",
+      "job-search",
+      "achievements",
+      "recruiting"
+    ],
+    "domain": "general",
+    "domainName": "General Writing",
+    "subcategoryId": "misc",
+    "subcategoryName": "Miscellaneous"
+  },
+  {
+    "id": "p63",
+    "number": "63",
+    "categoryId": "general",
+    "categoryName": "General Writing",
+    "title": "Draft a Modern, Story-Driven Cover Letter",
+    "useCase": "Write a high-impact, non-robotic 3-paragraph cover letter tailored to a job posting",
+    "level": "Intermediate",
+    "badgeColor": "#3b82f6",
+    "promptText": "You are a career consultant and creative copywriter who helps candidates land interviews at competitive companies.\n\nWrite a compelling, modern, and story-driven cover letter that avoids boring corporate clichés like \"I am writing to express my interest in...\".\n\nApplication Context:\n- Target Role & Company: <mark>[ROLE AND COMPANY NAME]</mark>\n- Job Description highlights / Key pain points: <mark>[PASTE 3-5 BULLET POINTS FROM JOB SPEC]</mark>\n- Candidate background & standout achievement: <mark>[SUMMARIZE 1-2 MAJOR CAREER HIGHLIGHTS OR RELEVANT SKILLS]</mark>\n- Why this company resonates with you: <mark>[SPECIFIC PRODUCT, MISSION, OR CULTURE ELEMENT YOU ADMIRE]</mark>\n\nStructure (The 3-Paragraph Modern Architecture):\n1. The Hook (Paragraph 1): A bold opening line connecting your core skill directly to the company's biggest current challenge or mission. Zero boilerplate.\n2. The Proof Story (Paragraph 2): A vivid micro-story demonstrating how you tackled a similar problem in a previous role, citing concrete results and methodology.\n3. The Vision & Fit (Paragraph 3): Why you want to do this work specifically at this company, ending with a confident, forward-looking call to conversation.\n\nTotal length: Strictly between 220 and 320 words.",
+    "copyPrompt": "You are a career consultant and creative copywriter who helps candidates land interviews at competitive companies.\n\nWrite a compelling, modern, and story-driven cover letter that avoids boring corporate clichés like \"I am writing to express my interest in...\".\n\nApplication Context:\n- Target Role & Company: [ROLE AND COMPANY NAME]\n- Job Description highlights / Key pain points: [PASTE 3-5 BULLET POINTS FROM JOB SPEC]\n- Candidate background & standout achievement: [SUMMARIZE 1-2 MAJOR CAREER HIGHLIGHTS OR RELEVANT SKILLS]\n- Why this company resonates with you: [SPECIFIC PRODUCT, MISSION, OR CULTURE ELEMENT YOU ADMIRE]\n\nStructure (The 3-Paragraph Modern Architecture):\n1. The Hook (Paragraph 1): A bold opening line connecting your core skill directly to the company's biggest current challenge or mission. Zero boilerplate.\n2. The Proof Story (Paragraph 2): A vivid micro-story demonstrating how you tackled a similar problem in a previous role, citing concrete results and methodology.\n3. The Vision & Fit (Paragraph 3): Why you want to do this work specifically at this company, ending with a confident, forward-looking call to conversation.\n\nTotal length: Strictly between 220 and 320 words.",
+    "proTip": "Hiring managers skim cover letters in under 30 seconds. Your first sentence should address a specific business objective they are trying to solve.",
+    "tags": [
+      "cover-letter",
+      "career",
+      "job-search",
+      "storytelling",
+      "application",
+      "hiring"
+    ],
+    "domain": "general",
+    "domainName": "General Writing",
+    "subcategoryId": "misc",
+    "subcategoryName": "Miscellaneous"
+  },
+  {
+    "id": "p64",
+    "number": "64",
+    "categoryId": "general",
+    "categoryName": "General Writing",
+    "title": "Craft a Compelling Professional Bio (3 Lengths)",
+    "useCase": "Generate 50-word, 100-word, and 200-word bios for LinkedIn, speaker pages, or portfolios",
+    "level": "Beginner",
+    "badgeColor": "#3b82f6",
+    "promptText": "You are a personal branding strategist and executive publicist.\n\nCraft a versatile professional bio in three standard lengths based on my background.\n\nMy details:\n- Current title & industry: <mark>[e.g., Product Designer & Design Systems Advocate in EdTech]</mark>\n- Core expertise & key accomplishments: <mark>[LIST 2-3 KEY SKILLS, IMPACT STATS, OR PAST COMPANIES]</mark>\n- Who I help / Target audience: <mark>[e.g., early-stage founders building zero-to-one products]</mark>\n- Personal flair or outside interest: <mark>[e.g., marathon runner, sci-fi book collector, coffee nerd]</mark>\n- Preferred tone: <mark>[e.g., authoritative & visionary / warm, approachable & creative / crisp & corporate]</mark>\n\nGenerate 3 bios:\n1. Micro Bio (under 50 words): Ideal for social profiles, Twitter/X bio, or conference speaker thumbnail.\n2. Medium Bio (approx. 100 words): Ideal for LinkedIn 'About' summary, company website team page, or podcast guest intro.\n3. Extended Bio (approx. 200 words): Full narrative arc for portfolio pages, press kits, or formal keynote introductions (written in third person).",
+    "copyPrompt": "You are a personal branding strategist and executive publicist.\n\nCraft a versatile professional bio in three standard lengths based on my background.\n\nMy details:\n- Current title & industry: [e.g., Product Designer & Design Systems Advocate in EdTech]\n- Core expertise & key accomplishments: [LIST 2-3 KEY SKILLS, IMPACT STATS, OR PAST COMPANIES]\n- Who I help / Target audience: [e.g., early-stage founders building zero-to-one products]\n- Personal flair or outside interest: [e.g., marathon runner, sci-fi book collector, coffee nerd]\n- Preferred tone: [e.g., authoritative & visionary / warm, approachable & creative / crisp & corporate]\n\nGenerate 3 bios:\n1. Micro Bio (under 50 words): Ideal for social profiles, Twitter/X bio, or conference speaker thumbnail.\n2. Medium Bio (approx. 100 words): Ideal for LinkedIn 'About' summary, company website team page, or podcast guest intro.\n3. Extended Bio (approx. 200 words): Full narrative arc for portfolio pages, press kits, or formal keynote introductions (written in third person).",
+    "proTip": "A great bio answers three questions in under 10 seconds: Who are you? What have you built or solved? Why should someone care?",
+    "tags": [
+      "bio",
+      "personal-branding",
+      "about-me",
+      "portfolio",
+      "linkedin",
+      "speaker"
+    ],
+    "domain": "general",
+    "domainName": "General Writing",
+    "subcategoryId": "misc",
+    "subcategoryName": "Miscellaneous"
+  },
+  {
+    "id": "p65",
+    "number": "65",
+    "categoryId": "general",
+    "categoryName": "General Writing",
+    "title": "Write a Memorable Post-Interview Thank-You Note",
+    "useCase": "Reinforce fit, reference a specific talking point, and express enthusiasm after an interview",
+    "level": "Beginner",
+    "badgeColor": "#3b82f6",
+    "promptText": "You are an executive career advisor specializing in interview follow-through and candidate positioning.\n\nWrite a thoughtful, authentic post-interview thank-you email sent within 24 hours of an interview.\n\nInterview Information:\n- Interviewer name & title: <mark>[INTERVIEWER NAME & ROLE]</mark>\n- Position interviewed for: <mark>[TARGET JOB TITLE]</mark>\n- Memorable conversation topic or shared insight: <mark>[DESCRIBE A SPECIFIC MOMENT, QUESTION, OR CHALLENGE YOU DISCUSSED]</mark>\n- Additional value or thought you want to add: <mark>[e.g., a brief solution to a problem they mentioned, or an article/case study link]</mark>\n- Overall interview vibe: <mark>[e.g., formal panel / friendly conversational chat / technical deep dive]</mark>\n\nGuidelines:\n1. Express genuine gratitude without sounding fawning or desperate.\n2. Anchor the email around the specific discussion point so the note is personalized and uncopyable.\n3. Provide one quick sentence reinforcing how your background directly addresses a current need they voiced.\n4. Keep length strictly under 150 words.",
+    "copyPrompt": "You are an executive career advisor specializing in interview follow-through and candidate positioning.\n\nWrite a thoughtful, authentic post-interview thank-you email sent within 24 hours of an interview.\n\nInterview Information:\n- Interviewer name & title: [INTERVIEWER NAME & ROLE]\n- Position interviewed for: [TARGET JOB TITLE]\n- Memorable conversation topic or shared insight: [DESCRIBE A SPECIFIC MOMENT, QUESTION, OR CHALLENGE YOU DISCUSSED]\n- Additional value or thought you want to add: [e.g., a brief solution to a problem they mentioned, or an article/case study link]\n- Overall interview vibe: [e.g., formal panel / friendly conversational chat / technical deep dive]\n\nGuidelines:\n1. Express genuine gratitude without sounding fawning or desperate.\n2. Anchor the email around the specific discussion point so the note is personalized and uncopyable.\n3. Provide one quick sentence reinforcing how your background directly addresses a current need they voiced.\n4. Keep length strictly under 150 words.",
+    "proTip": "Send this within 24 hours. The most effective thank-you notes add a fresh thought or quick link related to something the interviewer mentioned.",
+    "tags": [
+      "interview",
+      "thank-you",
+      "career",
+      "follow-up",
+      "hiring",
+      "job-search"
+    ],
+    "domain": "general",
+    "domainName": "General Writing",
+    "subcategoryId": "misc",
+    "subcategoryName": "Miscellaneous"
+  },
+  {
+    "id": "p66",
+    "number": "66",
+    "categoryId": "general",
+    "categoryName": "General Writing",
+    "title": "Generate 10 High-CTR Headlines & Titles",
+    "useCase": "Brainstorm 10 click-worthy titles for articles, newsletters, or videos using proven psychological frameworks",
+    "level": "Beginner",
+    "badgeColor": "#8b5cf6",
+    "promptText": "You are an award-winning direct response copywriter and viral editor.\n\nBrainstorm 10 magnetic, high-CTR headlines for my piece of content based on the details below.\n\nContent Context:\n- Core topic or subject: <mark>[WHAT IS YOUR CONTENT ABOUT?]</mark>\n- Target audience: <mark>[WHO ARE YOU WRITING FOR?]</mark>\n- The biggest benefit or takeaway: <mark>[WHAT DOES THE READER GAIN?]</mark>\n- Content format: <mark>[e.g., Blog post / Newsletter / YouTube video / Podcast episode]</mark>\n\nGenerate 10 headlines categorized into these proven frameworks:\n1. The Curiosity Gap (makes it irresistible not to know the answer)\n2. The \"How To\" with a Twist (actionable with an unexpected advantage)\n3. The Contrarian / Myth-Buster (challenges mainstream conventional wisdom)\n4. The Numbered List (specific, scannable, and tangible)\n5. The Direct & High-Benefit (zero fluff, pure value proposition)\n6. The Mistake / Warning (fosters FOMO and loss aversion)\n7. The Secret / Playbook (\"The exact system I used to...\")\n8. The Beginner / Fast-Track (\"The ultimate crash course in...\")\n9. The Question Hook (\"Why do most people fail at...?\")\n10. The Minimalist / Punchy (3 to 5 words max)\n\nInclude a 1-sentence note for each headline explaining the psychological trigger it activates.",
+    "copyPrompt": "You are an award-winning direct response copywriter and viral editor.\n\nBrainstorm 10 magnetic, high-CTR headlines for my piece of content based on the details below.\n\nContent Context:\n- Core topic or subject: [WHAT IS YOUR CONTENT ABOUT?]\n- Target audience: [WHO ARE YOU WRITING FOR?]\n- The biggest benefit or takeaway: [WHAT DOES THE READER GAIN?]\n- Content format: [e.g., Blog post / Newsletter / YouTube video / Podcast episode]\n\nGenerate 10 headlines categorized into these proven frameworks:\n1. The Curiosity Gap (makes it irresistible not to know the answer)\n2. The \"How To\" with a Twist (actionable with an unexpected advantage)\n3. The Contrarian / Myth-Buster (challenges mainstream conventional wisdom)\n4. The Numbered List (specific, scannable, and tangible)\n5. The Direct & High-Benefit (zero fluff, pure value proposition)\n6. The Mistake / Warning (fosters FOMO and loss aversion)\n7. The Secret / Playbook (\"The exact system I used to...\")\n8. The Beginner / Fast-Track (\"The ultimate crash course in...\")\n9. The Question Hook (\"Why do most people fail at...?\")\n10. The Minimalist / Punchy (3 to 5 words max)\n\nInclude a 1-sentence note for each headline explaining the psychological trigger it activates.",
+    "proTip": "Odd numbers (like 7 or 11) in listicle headlines consistently outperform even numbers by 20% in click-through testing.",
+    "tags": [
+      "headlines",
+      "titles",
+      "copywriting",
+      "ctr",
+      "content-creation",
+      "hooks"
+    ],
+    "domain": "general",
+    "domainName": "General Writing",
+    "subcategoryId": "blogs",
+    "subcategoryName": "Blogs & Articles"
+  },
+  {
+    "id": "p67",
+    "number": "67",
+    "categoryId": "general",
+    "categoryName": "General Writing",
+    "title": "Convert an Idea into an Engaging X/Twitter Thread",
+    "useCase": "Turn an article, insight, or lesson into a 5-7 post thread with a killer hook and bookmark-worthy conclusion",
+    "level": "Intermediate",
+    "badgeColor": "#ec4899",
+    "promptText": "You are a ghostwriter and social media strategist known for writing viral educational threads on X (Twitter).\n\nTransform the following idea, article, or raw notes into a high-retention 5-to-7 post thread.\n\nSource Content:\n- Core concept or lesson: <mark>[PASTE YOUR RAW IDEA, NOTES, OR ARTICLE EXCERPT HERE]</mark>\n- Target reader: <mark>[e.g., founders, knowledge workers, creators, students]</mark>\n- Desired tone: <mark>[e.g., energetic & inspiring / analytical & data-backed / tactical how-to]</mark>\n- Call to action: <mark>[e.g., Repost the first post / Follow for more / Subscribe to newsletter / Bookmark]</mark>\n\nThread Architecture Requirements:\n- Post 1 (The Hook): A standalone viral tweet under 240 characters that generates high intrigue. Use the \"Hook + Promise + Call to read 🧵\" format.\n- Posts 2 to 5 (The Body): Bite-sized, scannable lessons. Use bullet points, bold contrasts, and short sentences (under 15 words per line). Each tweet must deliver standalone value.\n- Post 6 (Summary & Key Takeaway): A quick 3-bullet TL;DR recapping the thread.\n- Post 7 (The Outro / CTA): Ask a question to encourage replies, prompt a bookmark, and give the creator's handle plug.",
+    "copyPrompt": "You are a ghostwriter and social media strategist known for writing viral educational threads on X (Twitter).\n\nTransform the following idea, article, or raw notes into a high-retention 5-to-7 post thread.\n\nSource Content:\n- Core concept or lesson: [PASTE YOUR RAW IDEA, NOTES, OR ARTICLE EXCERPT HERE]\n- Target reader: [e.g., founders, knowledge workers, creators, students]\n- Desired tone: [e.g., energetic & inspiring / analytical & data-backed / tactical how-to]\n- Call to action: [e.g., Repost the first post / Follow for more / Subscribe to newsletter / Bookmark]\n\nThread Architecture Requirements:\n- Post 1 (The Hook): A standalone viral tweet under 240 characters that generates high intrigue. Use the \"Hook + Promise + Call to read 🧵\" format.\n- Posts 2 to 5 (The Body): Bite-sized, scannable lessons. Use bullet points, bold contrasts, and short sentences (under 15 words per line). Each tweet must deliver standalone value.\n- Post 6 (Summary & Key Takeaway): A quick 3-bullet TL;DR recapping the thread.\n- Post 7 (The Outro / CTA): Ask a question to encourage replies, prompt a bookmark, and give the creator's handle plug.",
+    "proTip": "The first tweet determines 80% of a thread's reach. Never waste the hook tweet on greetings or introductions—jump right into the drama or counter-intuitive insight.",
+    "tags": [
+      "twitter",
+      "x-thread",
+      "social-media",
+      "growth",
+      "hooks",
+      "audience-building"
+    ],
+    "domain": "general",
+    "domainName": "General Writing",
+    "subcategoryId": "social",
+    "subcategoryName": "Social Media"
+  },
+  {
+    "id": "p68",
+    "number": "68",
+    "categoryId": "general",
+    "categoryName": "General Writing",
+    "title": "Write an Irresistible Newsletter Opener & Open Loop",
+    "useCase": "Hook subscribers in the first 3 sentences and set up narrative tension so they read to the end",
+    "level": "Beginner",
+    "badgeColor": "#8b5cf6",
+    "promptText": "You are an elite newsletter writer and narrative essayist with over 100,000 subscribers.\n\nWrite an opening section for my newsletter edition that hooks the reader instantly and sets up an \"open loop\" (unresolved narrative tension) they must read to the end to close.\n\nNewsletter Context:\n- Edition topic / primary theme: <mark>[WHAT IS THIS NEWSLETTER ABOUT?]</mark>\n- The core takeaway: <mark>[WHAT LESSON OR VALUE WILL READERS LEARN?]</mark>\n- Personal story or anecdote (optional): <mark>[BRIEFLY SHARE AN EXPERIENCE OR REAL-LIFE SCENARIO]</mark>\n- Audience profile: <mark>[DESCRIBE YOUR SUBSCRIBERS]</mark>\n- Voice: <mark>[e.g., candid & conversational / smart & witty / reflective & thought-provoking]</mark>\n\nGuidelines:\n1. The First Line: Cut all pleasantries (\"Happy Tuesday!\", \"I hope you had a good weekend\"). Start in media res (in the middle of the action or insight).\n2. Pacing: Short 1-2 sentence paragraphs with quick rhythm.\n3. The Open Loop: Introduce a question, puzzle, or paradox in sentence 3-4 that will only be resolved later in the issue.\n4. Smooth Bridge: Transition seamlessly into the first main section header.\n\nProvide 2 distinct opening styles:\n- Option 1: The Personal Confession / Story Hook\n- Option 2: The Provocative Observation / Data Puzzle",
+    "copyPrompt": "You are an elite newsletter writer and narrative essayist with over 100,000 subscribers.\n\nWrite an opening section for my newsletter edition that hooks the reader instantly and sets up an \"open loop\" (unresolved narrative tension) they must read to the end to close.\n\nNewsletter Context:\n- Edition topic / primary theme: [WHAT IS THIS NEWSLETTER ABOUT?]\n- The core takeaway: [WHAT LESSON OR VALUE WILL READERS LEARN?]\n- Personal story or anecdote (optional): [BRIEFLY SHARE AN EXPERIENCE OR REAL-LIFE SCENARIO]\n- Audience profile: [DESCRIBE YOUR SUBSCRIBERS]\n- Voice: [e.g., candid & conversational / smart & witty / reflective & thought-provoking]\n\nGuidelines:\n1. The First Line: Cut all pleasantries (\"Happy Tuesday!\", \"I hope you had a good weekend\"). Start in media res (in the middle of the action or insight).\n2. Pacing: Short 1-2 sentence paragraphs with quick rhythm.\n3. The Open Loop: Introduce a question, puzzle, or paradox in sentence 3-4 that will only be resolved later in the issue.\n4. Smooth Bridge: Transition seamlessly into the first main section header.\n\nProvide 2 distinct opening styles:\n- Option 1: The Personal Confession / Story Hook\n- Option 2: The Provocative Observation / Data Puzzle",
+    "proTip": "Never open a newsletter with 'In this issue, we will discuss...'. Treat your opening 50 words like a movie cold open.",
+    "tags": [
+      "newsletter",
+      "email",
+      "open-loop",
+      "storytelling",
+      "hooks",
+      "content-creation"
+    ],
+    "domain": "general",
+    "domainName": "General Writing",
+    "subcategoryId": "blogs",
+    "subcategoryName": "Blogs & Articles"
+  },
+  {
+    "id": "p69",
+    "number": "69",
+    "categoryId": "general",
+    "categoryName": "General Writing",
+    "title": "Outline a YouTube Video with a 30-Second Retention Hook",
+    "useCase": "Hook viewers in the crucial first 30 seconds, deliver core content with zero fluff, and transition to a CTA",
+    "level": "Intermediate",
+    "badgeColor": "#ec4899",
+    "promptText": "You are a professional YouTube scriptwriter and audience retention strategist.\n\nCreate a script outline and word-for-word retention hook for a YouTube video.\n\nVideo Details:\n- Video Topic & Working Title: <mark>[WORKING TITLE AND TOPIC]</mark>\n- Target Viewer: <mark>[WHO IS WATCHING THIS?]</mark>\n- Main Promise / Transformation: <mark>[WHAT WILL THE VIEWER BE ABLE TO DO BY THE END?]</mark>\n- Estimated Video Length: <mark>[e.g., 5-8 minutes / 10-15 minutes]</mark>\n- Key points or steps to cover: <mark>[LIST 3-5 CORE POINTS]</mark>\n\nOutline Architecture:\n1. The First 30 Seconds (Verbatim Script):\n   - Hook (0-5s): Visually and verbally state the high-stakes problem or end outcome immediately.\n   - Re-Hook (5-15s): Validate why current conventional methods fail.\n   - Payoff Preview (15-30s): State what they will unlock in this video without giving away the ending.\n2. Body Outline (Beat Sheet):\n   - Beat 1, 2, 3: For each point, outline: Core Insight -> Concrete Example/B-roll prompt -> Actionable takeaway.\n   - Retention Reset (halfway mark): A visual or conceptual pattern interrupt to prevent drop-off.\n3. Outro & Next-Video Recommendation (under 45 seconds): Seamless bridge recommending another video instead of saying 'In conclusion' or 'Thanks for watching'.",
+    "copyPrompt": "You are a professional YouTube scriptwriter and audience retention strategist.\n\nCreate a script outline and word-for-word retention hook for a YouTube video.\n\nVideo Details:\n- Video Topic & Working Title: [WORKING TITLE AND TOPIC]\n- Target Viewer: [WHO IS WATCHING THIS?]\n- Main Promise / Transformation: [WHAT WILL THE VIEWER BE ABLE TO DO BY THE END?]\n- Estimated Video Length: [e.g., 5-8 minutes / 10-15 minutes]\n- Key points or steps to cover: [LIST 3-5 CORE POINTS]\n\nOutline Architecture:\n1. The First 30 Seconds (Verbatim Script):\n   - Hook (0-5s): Visually and verbally state the high-stakes problem or end outcome immediately.\n   - Re-Hook (5-15s): Validate why current conventional methods fail.\n   - Payoff Preview (15-30s): State what they will unlock in this video without giving away the ending.\n2. Body Outline (Beat Sheet):\n   - Beat 1, 2, 3: For each point, outline: Core Insight -> Concrete Example/B-roll prompt -> Actionable takeaway.\n   - Retention Reset (halfway mark): A visual or conceptual pattern interrupt to prevent drop-off.\n3. Outro & Next-Video Recommendation (under 45 seconds): Seamless bridge recommending another video instead of saying 'In conclusion' or 'Thanks for watching'.",
+    "proTip": "Never say 'Welcome back to my channel' or play a 10-second animated intro. Jump straight into the video's core promise in second 1.",
+    "tags": [
+      "youtube",
+      "video-script",
+      "hook",
+      "retention",
+      "storytelling",
+      "content-creation"
+    ],
+    "domain": "general",
+    "domainName": "General Writing",
+    "subcategoryId": "social",
+    "subcategoryName": "Social Media"
+  },
+  {
+    "id": "p70",
+    "number": "70",
+    "categoryId": "general",
+    "categoryName": "General Writing",
+    "title": "Simplify Complex Ideas with Analogies (ELI5)",
+    "useCase": "Explain confusing, abstract, or technical concepts using everyday, relatable analogies",
+    "level": "Beginner",
+    "badgeColor": "#8b5cf6",
+    "promptText": "You are a master educator and communication coach with a knack for making the most confusing ideas crystal clear to anyone.\n\nExplain the following complex or abstract concept using the \"Explain Like I'm 5\" (ELI5) framework and a relatable real-world analogy.\n\nConcept to Explain:\n- The concept/term: <mark>[PASTE THE COMPLEX CONCEPT OR TOPIC HERE]</mark>\n- Target audience: <mark>[e.g., curious 10-year-old / non-technical board member / new team member]</mark>\n- Preferred analogy domain (optional): <mark>[e.g., cooking/kitchen / sports / traffic & cars / everyday household / None]</mark>\n\nOutput Structure:\n1. The One-Sentence Analogy: \"Think of [Concept] like [Familiar Everyday Object/Activity]...\"\n2. The Story Breakdown (ELI5): Walk through the concept step-by-step using only the analogy. Use simple, vivid vocabulary.\n3. The \"So What?\": Explain why this concept actually matters in real life.\n4. Quick Check Question: A fun, simple question the reader can use to test if they truly understood.",
+    "copyPrompt": "You are a master educator and communication coach with a knack for making the most confusing ideas crystal clear to anyone.\n\nExplain the following complex or abstract concept using the \"Explain Like I'm 5\" (ELI5) framework and a relatable real-world analogy.\n\nConcept to Explain:\n- The concept/term: [PASTE THE COMPLEX CONCEPT OR TOPIC HERE]\n- Target audience: [e.g., curious 10-year-old / non-technical board member / new team member]\n- Preferred analogy domain (optional): [e.g., cooking/kitchen / sports / traffic & cars / everyday household / None]\n\nOutput Structure:\n1. The One-Sentence Analogy: \"Think of [Concept] like [Familiar Everyday Object/Activity]...\"\n2. The Story Breakdown (ELI5): Walk through the concept step-by-step using only the analogy. Use simple, vivid vocabulary.\n3. The \"So What?\": Explain why this concept actually matters in real life.\n4. Quick Check Question: A fun, simple question the reader can use to test if they truly understood.",
+    "proTip": "If you can't explain an idea using a kitchen or traffic analogy, you don't fully understand it yet. Great analogies remove friction for non-experts instantly.",
+    "tags": [
+      "eli5",
+      "analogy",
+      "simplification",
+      "clarity",
+      "teaching",
+      "education"
+    ],
+    "domain": "general",
+    "domainName": "General Writing",
+    "subcategoryId": "blogs",
+    "subcategoryName": "Blogs & Articles"
+  },
+  {
+    "id": "p71",
+    "number": "71",
+    "categoryId": "general",
+    "categoryName": "General Writing",
+    "title": "Stress-Test an Argument (Devil's Advocate Mode)",
+    "useCase": "Expose logical fallacies, unexamined assumptions, and potential counter-arguments before publishing or pitching",
+    "level": "Advanced",
+    "badgeColor": "#8b5cf6",
+    "promptText": "Act as an intellectual sparring partner, rigorous editor, and devil's advocate.\n\nI want you to ruthlessly stress-test my argument, essay, or business proposal before I publish or present it.\n\nMy Argument / Thesis:\n<mark>[PASTE YOUR ARGUMENT, THESIS, OR PROPOSAL HERE]</mark>\n\nContext:\n- Target audience: <mark>[e.g., skeptical investors, public readers, team members, prospective customers]</mark>\n- Core objective: <mark>[WHAT ARE YOU TRYING TO CONVINCE THEM TO DO OR BELIEVE?]</mark>\n\nEvaluate the argument across these 4 critical dimensions:\n1. The Strongest Counter-Argument: What is the single most convincing objection an intelligent critic would raise?\n2. Hidden Assumptions & Blind Spots: What beliefs am I taking for granted that may not hold true in reality?\n3. Logical Fallacies & Weak Evidence: Are there slippery slopes, false dichotomies, correlation vs. causation leaps, or anecdotal over-reach?\n4. The \"Steel-Manned\" Refinement: How can I adjust or reframe the core argument to proactively inoculate against these criticisms without weakening my thesis?",
+    "copyPrompt": "Act as an intellectual sparring partner, rigorous editor, and devil's advocate.\n\nI want you to ruthlessly stress-test my argument, essay, or business proposal before I publish or present it.\n\nMy Argument / Thesis:\n[PASTE YOUR ARGUMENT, THESIS, OR PROPOSAL HERE]\n\nContext:\n- Target audience: [e.g., skeptical investors, public readers, team members, prospective customers]\n- Core objective: [WHAT ARE YOU TRYING TO CONVINCE THEM TO DO OR BELIEVE?]\n\nEvaluate the argument across these 4 critical dimensions:\n1. The Strongest Counter-Argument: What is the single most convincing objection an intelligent critic would raise?\n2. Hidden Assumptions & Blind Spots: What beliefs am I taking for granted that may not hold true in reality?\n3. Logical Fallacies & Weak Evidence: Are there slippery slopes, false dichotomies, correlation vs. causation leaps, or anecdotal over-reach?\n4. The \"Steel-Manned\" Refinement: How can I adjust or reframe the core argument to proactively inoculate against these criticisms without weakening my thesis?",
+    "proTip": "Steel-manning (building the strongest possible version of your opponent's criticism) makes your own argument virtually bulletproof.",
+    "tags": [
+      "devils-advocate",
+      "critical-thinking",
+      "argument",
+      "editing",
+      "debate",
+      "persuasion"
+    ],
+    "domain": "general",
+    "domainName": "General Writing",
+    "subcategoryId": "blogs",
+    "subcategoryName": "Blogs & Articles"
+  },
+  {
+    "id": "p72",
+    "number": "72",
+    "categoryId": "general",
+    "categoryName": "General Writing",
+    "title": "Eliminate Corporate Jargon & Fluff",
+    "useCase": "Strip bureaucratic buzzwords, bloated sentences, and passive voice to make writing 40% shorter and punchier",
+    "level": "Beginner",
+    "badgeColor": "#8b5cf6",
+    "promptText": "You are a ruthless plain-language copy editor trained in the style of William Zinsser ('On Writing Well') and George Orwell.\n\nCut the fluff, corporate jargon, and passive voice from the text below to make it crisp, energetic, and immediate.\n\nOriginal Text:\n<mark>[PASTE JARGON-HEAVY OR WORDY TEXT HERE]</mark>\n\nTarget Guidelines:\n- Target length reduction: <mark>[e.g., cut by 30% / cut by 50% / maximum brevity]</mark>\n- Audience: <mark>[e.g., general readers, customers, company staff]</mark>\n\nEditing Principles:\n1. Slay Buzzwords: Remove 'synergy', 'leverage', 'bandwidth', 'paradigm', 'holistic', 'actionable insights', and replace with honest, plain verbs.\n2. Passive to Active Voice: Ensure the subject of every sentence takes the action.\n3. Delete Throat-Clearing: Remove filler like 'It is important to remember that', 'In order to', 'Due to the fact that', and 'Needless to say'.\n4. One Idea Per Sentence: Break tangled 40-word sentences into punchy thoughts.\n\nDeliverables:\n- Revision 1: Polished Clean (cuts 25-30% of fluff while preserving conversational warmth).\n- Revision 2: Ultra-Minimalist (cuts 50%+ to deliver pure signal with zero filler).\n- Jargon Audit: A table showing the buzzwords removed and their plain-language replacements.",
+    "copyPrompt": "You are a ruthless plain-language copy editor trained in the style of William Zinsser ('On Writing Well') and George Orwell.\n\nCut the fluff, corporate jargon, and passive voice from the text below to make it crisp, energetic, and immediate.\n\nOriginal Text:\n[PASTE JARGON-HEAVY OR WORDY TEXT HERE]\n\nTarget Guidelines:\n- Target length reduction: [e.g., cut by 30% / cut by 50% / maximum brevity]\n- Audience: [e.g., general readers, customers, company staff]\n\nEditing Principles:\n1. Slay Buzzwords: Remove 'synergy', 'leverage', 'bandwidth', 'paradigm', 'holistic', 'actionable insights', and replace with honest, plain verbs.\n2. Passive to Active Voice: Ensure the subject of every sentence takes the action.\n3. Delete Throat-Clearing: Remove filler like 'It is important to remember that', 'In order to', 'Due to the fact that', and 'Needless to say'.\n4. One Idea Per Sentence: Break tangled 40-word sentences into punchy thoughts.\n\nDeliverables:\n- Revision 1: Polished Clean (cuts 25-30% of fluff while preserving conversational warmth).\n- Revision 2: Ultra-Minimalist (cuts 50%+ to deliver pure signal with zero filler).\n- Jargon Audit: A table showing the buzzwords removed and their plain-language replacements.",
+    "proTip": "Never use three words when one will do. Replace 'at this point in time' with 'now', and 'in the event that' with 'if'.",
+    "tags": [
+      "plain-language",
+      "jargon-buster",
+      "editing",
+      "brevity",
+      "clarity",
+      "copywriting"
+    ],
+    "domain": "general",
+    "domainName": "General Writing",
+    "subcategoryId": "blogs",
+    "subcategoryName": "Blogs & Articles"
+  },
+  {
+    "id": "p73",
+    "number": "73",
+    "categoryId": "general",
+    "categoryName": "General Writing",
+    "title": "Structure a Persuasive Story (The Pixar Story Spine)",
+    "useCase": "Turn boring case studies, company presentations, or personal achievements into a memorable narrative",
+    "level": "Intermediate",
+    "badgeColor": "#8b5cf6",
+    "promptText": "You are a master storyteller and narrative strategist who applies Hollywood and Pixar storytelling principles to business, personal, and creative writing.\n\nStructure my raw experience, case study, or presentation idea using the legendary 6-step Pixar Story Spine.\n\nMy Story Notes:\n- Protagonist / Subject: <mark>[WHO IS THIS ABOUT? e.g., you, a customer, your startup, your team]</mark>\n- Baseline Status Quo: <mark>[HOW WERE THINGS BEFORE?]</mark>\n- The Catalyst / Disruption: <mark>[WHAT EVENT OR PROBLEM CHANGED EVERYTHING?]</mark>\n- The Struggle / Key Steps: <mark>[WHAT ROADBLOCKS WERE OVERCOME?]</mark>\n- The Transformation / Climax: <mark>[WHAT WAS THE BREAKTHROUGH MOMENT?]</mark>\n- The New Reality: <mark>[HOW IS LIFE OR BUSINESS BETTER NOW?]</mark>\n- Intended Format: <mark>[e.g., keynote speech, blog article, customer case study, LinkedIn post]</mark>\n\nProduce the story in the 6-beat Pixar Framework:\n1. Once upon a time, there was [Protagonist / Normal World]...\n2. Every day, they [Faced Routine or Ongoing Friction]...\n3. Until one day, [Inciting Incident / Turning Point]...\n4. Because of that, [Action taken & First Obstacle]...\n5. Because of that, [Second Consequence & Climax]...\n6. Until finally, [Resolution & Transformation]...\n- Moral / Ever since that day, [The Enduring Lesson for the Audience]...\n\nThen, write out the complete, polished narrative ready for presentation.",
+    "copyPrompt": "You are a master storyteller and narrative strategist who applies Hollywood and Pixar storytelling principles to business, personal, and creative writing.\n\nStructure my raw experience, case study, or presentation idea using the legendary 6-step Pixar Story Spine.\n\nMy Story Notes:\n- Protagonist / Subject: [WHO IS THIS ABOUT? e.g., you, a customer, your startup, your team]\n- Baseline Status Quo: [HOW WERE THINGS BEFORE?]\n- The Catalyst / Disruption: [WHAT EVENT OR PROBLEM CHANGED EVERYTHING?]\n- The Struggle / Key Steps: [WHAT ROADBLOCKS WERE OVERCOME?]\n- The Transformation / Climax: [WHAT WAS THE BREAKTHROUGH MOMENT?]\n- The New Reality: [HOW IS LIFE OR BUSINESS BETTER NOW?]\n- Intended Format: [e.g., keynote speech, blog article, customer case study, LinkedIn post]\n\nProduce the story in the 6-beat Pixar Framework:\n1. Once upon a time, there was [Protagonist / Normal World]...\n2. Every day, they [Faced Routine or Ongoing Friction]...\n3. Until one day, [Inciting Incident / Turning Point]...\n4. Because of that, [Action taken & First Obstacle]...\n5. Because of that, [Second Consequence & Climax]...\n6. Until finally, [Resolution & Transformation]...\n- Moral / Ever since that day, [The Enduring Lesson for the Audience]...\n\nThen, write out the complete, polished narrative ready for presentation.",
+    "proTip": "The power of 'Because of that' is cause-and-effect. Avoid 'And then... and then...'. Compelling stories connect events by causation, not just chronology.",
+    "tags": [
+      "storytelling",
+      "pixar-spine",
+      "narrative",
+      "persuasion",
+      "case-study",
+      "presentation"
+    ],
+    "domain": "general",
+    "domainName": "General Writing",
+    "subcategoryId": "blogs",
+    "subcategoryName": "Blogs & Articles"
   }
 ];

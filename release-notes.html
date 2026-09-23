@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Release Notes - Awesome AI Prompt Library</title>
+    <meta
+      name="description"
+      content="Changelog and release notes for the Awesome AI Prompt Library. Explore new features, writing categories, and interface enhancements."
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+
+  <body>
+    <!-- STICKY GLASSMORPHISM HEADER -->
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="index.html" class="brand-logo">
+          <div class="logo-icon">
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+            >
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+          </div>
+          <div>
+            <div class="logo-title">Awesome Prompt Library</div>
+            <div class="logo-subtitle">For Writers &amp; Tech Writers</div>
+          </div>
+        </a>
+
+        <!-- HEADER ACTIONS -->
+        <div class="header-actions">
+          <a href="ai-prompt-library.html" class="btn-back">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+            <span>Back to Prompt Library</span>
+          </a>
+          <button
+            id="themeToggleBtn"
+            class="btn-icon"
+            title="Toggle Dark/Light Mode"
+            aria-label="Toggle Theme"
+          >
+            <svg
+              class="sun-icon"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="release-page-container">
+      <!-- HERO -->
+      <section class="release-header">
+        <div class="release-badge">
+          <span>🚀</span>
+          <span>Version 2.0 Released</span>
+        </div>
+        <h1 class="release-title">Release notes</h1>
+        <p class="release-lead">
+          Track updates, new features, and refinements across the Awesome Prompt Library. This changelog details enhancements made to organize prompts, improve navigation, and expand support for everyday writing.
+        </p>
+      </section>
+
+      <!-- TIMELINE ENTRIES -->
+      <div class="timeline-container">
+        <!-- PART 1: VERSION 2.0 -->
+        <article class="timeline-entry v2">
+          <div class="timeline-marker"></div>
+          <div class="version-card">
+            <div class="version-meta">
+              <div class="version-title-group">
+                <span class="version-tag">Version 2.0</span>
+                <span class="version-status">Current release</span>
+              </div>
+              <span class="version-date">September 2026</span>
+            </div>
+
+            <p class="version-summary">
+              Version 2.0 restructures the library into two distinct writing domains, introduces 22 new prompts for general writing, refines the prompt card presentation, and adds high-contrast navigation filters.
+            </p>
+
+            <!-- Navigation & Discovery -->
+            <div class="change-category">
+              <h2 class="change-category-title">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+                Navigation and discovery
+              </h2>
+              <ul class="change-list">
+                <li class="change-item">
+                  <span class="change-bullet"></span>
+                  <span><strong>Filter prompts by primary domain.</strong> Switch between All Prompts, General Writing, Technical Writing, and Saved prompts using the top navigation bar.</span>
+                </li>
+                <li class="change-item">
+                  <span class="change-bullet"></span>
+                  <span><strong>Browse contextual subcategories.</strong> Select secondary filter pills to view specific topics, such as Blogs &amp; Articles, Social Media, and Miscellaneous.</span>
+                </li>
+                <li class="change-item">
+                  <span class="change-bullet"></span>
+                  <span><strong>Identify active filters easily.</strong> View active subcategories highlighted with domain-specific accent colors and high-contrast white text in both light and dark modes.</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- General Writing Suite -->
+            <div class="change-category">
+              <h2 class="change-category-title">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                General writing prompt additions (22 prompts)
+              </h2>
+              <ul class="change-list">
+                <li class="change-item">
+                  <span class="change-bullet"></span>
+                  <span><strong>Draft social media posts.</strong> Create engaging content for LinkedIn posts, Instagram captions, X/Twitter threads, and YouTube video openers.</span>
+                </li>
+                <li class="change-item">
+                  <span class="change-bullet"></span>
+                  <span><strong>Compose clear workplace communications.</strong> Write professional emails for declining requests politely, following up gently, and handling sensitive conversations.</span>
+                </li>
+                <li class="change-item">
+                  <span class="change-bullet"></span>
+                  <span><strong>Build career assets.</strong> Format achievement-focused resume bullet points using the Google XYZ formula, tailored cover letters, executive bios, and interview thank-you notes.</span>
+                </li>
+                <li class="change-item">
+                  <span class="change-bullet"></span>
+                  <span><strong>Optimize articles and newsletters.</strong> Generate high-converting headlines, audit blog drafts against the Microsoft Style Guide, and craft memorable newsletter introductions.</span>
+                </li>
+                <li class="change-item">
+                  <span class="change-bullet"></span>
+                  <span><strong>Clarify complex thoughts.</strong> Explain technical concepts using simple analogies, challenge assumptions with counterarguments, and translate industry jargon into plain language.</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Interface & Card Refinements -->
+            <div class="change-category">
+              <h2 class="change-category-title">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                Interface and prompt card refinements
+              </h2>
+              <ul class="change-list">
+                <li class="change-item">
+                  <span class="change-bullet"></span>
+                  <span><strong>View cleaner prompt cards.</strong> Focus on prompt titles, use cases, and prompt text without redundant category badges inside individual cards.</span>
+                </li>
+                <li class="change-item">
+                  <span class="change-bullet"></span>
+                  <span><strong>Customize variable placeholders.</strong> Fill in bracketed parameters using an interactive form preview before copying your prompt.</span>
+                </li>
+                <li class="change-item">
+                  <span class="change-bullet"></span>
+                  <span><strong>Open prompts directly in AI tools.</strong> Launch prompts into ChatGPT, Claude, Google Gemini, Perplexity, or Microsoft Copilot with official brand logos.</span>
+                </li>
+                <li class="change-item">
+                  <span class="change-bullet"></span>
+                  <span><strong>Save favorites locally.</strong> Bookmark prompts using the star icon to keep frequently used prompts accessible across browser sessions.</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Data Architecture -->
+            <div class="change-category">
+              <h2 class="change-category-title">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                Data architecture and export
+              </h2>
+              <ul class="change-list">
+                <li class="change-item">
+                  <span class="change-bullet"></span>
+                  <span><strong>Load prompts dynamically.</strong> Access the entire prompt catalog via structured JSON (<code>data/prompts.json</code>) for faster rendering and easier maintenance.</span>
+                </li>
+                <li class="change-item">
+                  <span class="change-bullet"></span>
+                  <span><strong>Export filtered prompts.</strong> Download current views as formatted Markdown (.md) or JSON (.json) files for documentation repositories and wikis.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- PART 2: VERSION 1.0 -->
+        <article class="timeline-entry v1">
+          <div class="timeline-marker"></div>
+          <div class="version-card">
+            <div class="version-meta">
+              <div class="version-title-group">
+                <span class="version-tag">Version 1.0</span>
+                <span class="version-status legacy">Initial release</span>
+              </div>
+              <span class="version-date">Initial release</span>
+            </div>
+
+            <p class="version-summary">
+              Version 1.0 established the initial prompt library designed specifically for technical writers, documentarians, and software engineers.
+            </p>
+
+            <!-- Technical Writing Library -->
+            <div class="change-category">
+              <h2 class="change-category-title">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                Technical writing prompt collection (51 prompts)
+              </h2>
+              <ul class="change-list">
+                <li class="change-item">
+                  <span class="change-bullet"></span>
+                  <span><strong>Document API endpoints.</strong> Generate accurate reference documentation for GET, POST, and PUT operations with request and response examples.</span>
+                </li>
+                <li class="change-item">
+                  <span class="change-bullet"></span>
+                  <span><strong>Create CLI guides.</strong> Formulate command-line parameter summaries, installation steps, and syntax guidelines.</span>
+                </li>
+                <li class="change-item">
+                  <span class="change-bullet"></span>
+                  <span><strong>Structure product documentation.</strong> Write conceptual overviews, architecture summaries, and getting-started guides.</span>
+                </li>
+                <li class="change-item">
+                  <span class="change-bullet"></span>
+                  <span><strong>Develop troubleshooting resources.</strong> Produce error code catalogs, diagnosis workflows, and resolution guides.</span>
+                </li>
+                <li class="change-item">
+                  <span class="change-bullet"></span>
+                  <span><strong>Plan documentation strategies.</strong> Create content audit frameworks, information architecture outlines, and release notes templates.</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Platform Foundation -->
+            <div class="change-category">
+              <h2 class="change-category-title">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                Core platform features
+              </h2>
+              <ul class="change-list">
+                <li class="change-item">
+                  <span class="change-bullet"></span>
+                  <span><strong>Search prompts in real time.</strong> Query prompts by keyword, topic, or target task using the instant search bar.</span>
+                </li>
+                <li class="change-item">
+                  <span class="change-bullet"></span>
+                  <span><strong>Copy prompts with one click.</strong> Transfer clean prompt text to your clipboard instantly with toast notification feedback.</span>
+                </li>
+                <li class="change-item">
+                  <span class="change-bullet"></span>
+                  <span><strong>Toggle visual themes.</strong> Switch between light mode and dark mode with persistent user preferences.</span>
+                </li>
+                <li class="change-item">
+                  <span class="change-bullet"></span>
+                  <span><strong>Track community engagement.</strong> Display visitor metrics via a live page visit counter.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <!-- SCRIPT FOR THEME PERSISTENCE -->
+    <script>
+      (function() {
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        let currentTheme = localStorage.getItem('ai_prompt_theme') || 
+          (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        
+        document.documentElement.setAttribute('data-theme', currentTheme);
+
+        if (themeToggleBtn) {
+          themeToggleBtn.addEventListener('click', () => {
+            currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            localStorage.setItem('ai_prompt_theme', currentTheme);
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

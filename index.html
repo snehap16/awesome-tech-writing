@@ -48,9 +48,15 @@
           </svg>
           <span id="visitorCountVal">...</span>
         </div>
-        <button id="releaseNotesBtn" class="btn-release-notes" title="View Release Notes">
-          🚀 Release Notes
-        </button>
+        <a
+          href="release-notes.html"
+          id="releaseNotesBtn"
+          class="btn-release-notes"
+          title="View Release Notes"
+        >
+          <span class="btn-emoji" style="font-size: 1rem; line-height: 1;">🚀</span>
+          <span>Release Notes</span>
+        </a>
         <button id="themeToggleBtn" class="btn-icon" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
           <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="5"></circle>
@@ -74,7 +80,7 @@
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
         <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
       </svg>
-      ⚡ Comprehensive &amp; Growing Prompt Collection
+      Comprehensive &amp; Growing Prompt Collection
     </div>
     <h1 class="hero-title">AI Prompt Library for Writers</h1>
     <p class="hero-description">
@@ -82,11 +88,20 @@
     </p>
   </section>
 
-  <!-- FILTERS & CATEGORIES CONTAINER -->
+  <!-- TWO-TIER FILTERS & CATEGORIES CONTAINER -->
   <section class="filter-container">
-    <!-- Category Pills -->
-    <div class="categories-scroll" id="catContainer">
-      <!-- Populated dynamically via app.js -->
+    <!-- Tier 1: Primary Domain Tabs -->
+    <div class="domain-tabs-wrapper">
+      <div class="domain-tabs" id="domainTabs">
+        <!-- Populated dynamically via app.js -->
+      </div>
+    </div>
+
+    <!-- Tier 2: Subcategory Pills -->
+    <div class="subcategories-wrapper" id="subcatWrapper">
+      <div class="categories-scroll" id="subcatContainer">
+        <!-- Populated dynamically via app.js -->
+      </div>
     </div>
 
     <!-- Stats & Export Bar -->
@@ -106,10 +121,10 @@
         </button>
         <div class="dropdown-menu" id="exportMenu">
           <button class="dropdown-item" id="exportMarkdownBtn">
-            📄 Export as Markdown (.md)
+            Export as Markdown (.md)
           </button>
           <button class="dropdown-item" id="exportJsonBtn">
-            📦 Export as JSON (.json)
+            Export as JSON (.json)
           </button>
         </div>
       </div>
