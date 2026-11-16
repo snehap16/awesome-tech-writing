@@ -2,7 +2,7 @@
 
 ### Technical Writer
 
-📍 **Hyderabad, Telangana** | 📞 +91-8481007646 | 📧 snehapandey846@gmail.com | 💼 [linkedin.com/in/snehapandey846/](https://www.linkedin.com/in/snehapandey846/)
+📍 **Hyderabad, Telangana** | 📧 snehapandey846@gmail.com | 💼 [linkedin.com/in/snehapandey846/](https://www.linkedin.com/in/snehapandey846/)
 
 ---
 
