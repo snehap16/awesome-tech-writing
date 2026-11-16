@@ -80,7 +80,6 @@
   async function init() {
     try {
       setupEventListeners();
-      initVisitorCounter();
       await loadPromptsData();
       renderDomainTabs();
       renderSubcategories();
@@ -88,34 +87,6 @@
     } catch (err) {
       console.error('Initialization error:', err);
     }
-  }
-
-  // --- VISITOR COUNTER ---
-  async function initVisitorCounter() {
-    const visitorCountVal = document.getElementById('visitorCountVal');
-    if (!visitorCountVal) return;
-
-    try {
-      const response = await fetch('https://api.counterapi.dev/v1/snehap16_awesome_tech_writing/page_views/up');
-      if (response.ok) {
-        const data = await response.json();
-        if (data && typeof data.count === 'number') {
-          visitorCountVal.textContent = `${data.count.toLocaleString()} visits`;
-          return;
-        }
-      }
-    } catch (err) {
-      console.warn('CounterAPI fetch failed, falling back to local counter:', err);
-    }
-
-    // Resilient local session counter fallback
-    let localCount = parseInt(localStorage.getItem('ai_prompt_site_visits') || '142', 10);
-    if (!sessionStorage.getItem('visited_this_session')) {
-      localCount += 1;
-      localStorage.setItem('ai_prompt_site_visits', localCount);
-      sessionStorage.setItem('visited_this_session', 'true');
-    }
-    visitorCountVal.textContent = `${localCount.toLocaleString()} visits`;
   }
 
   // --- DATA LOADING ---

@@ -1,0 +1,655 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Guide: How to Use the AI Prompt Library</title>
+    <meta
+      name="description"
+      content="Comprehensive user guide for the Awesome AI Prompt Library. Learn how prompts are organized, how to customize variables, and how to launch into ChatGPT, Claude, Gemini, and more."
+    />
+    <link rel="stylesheet" href="style.css?v=2.1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+
+  <body>
+    <!-- STICKY GLASSMORPHISM HEADER -->
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="index.html" class="brand-logo">
+          <div class="logo-icon">
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+            >
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+          </div>
+          <div>
+            <div class="logo-title">Awesome Prompt Library</div>
+            <div class="logo-subtitle">For Writers &amp; Tech Writers</div>
+          </div>
+        </a>
+
+        <!-- HEADER ACTIONS -->
+        <div class="header-actions">
+          <a
+            href="release-notes.html"
+            id="releaseNotesBtn"
+            class="btn-release-notes"
+            title="View Release Notes"
+          >
+            <span class="btn-emoji" style="font-size: 1rem; line-height: 1;">🚀</span>
+            <span>Release Notes</span>
+          </a>
+          <a href="index.html" class="btn-back">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+            <span>Back to Library</span>
+          </a>
+          <button
+            id="themeToggleBtn"
+            class="btn-icon"
+            title="Toggle Dark/Light Mode"
+            aria-label="Toggle Theme"
+          >
+            <svg
+              class="sun-icon"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN GUIDE CONTAINER -->
+    <main class="guide-page-container">
+      <!-- HERO -->
+      <section class="guide-hero">
+        <div class="guide-badge">
+          <span>📘</span>
+          <span>Official User Guide &amp; Best Practices</span>
+        </div>
+        <h1 class="guide-title">How to Use the AI Prompt Library</h1>
+        <p class="guide-lead">
+          A definitive, step-by-step handbook to mastering your writing workflow. Discover the structural principles behind our 73+ curated prompts, understand domain categories, customize variable inputs, and launch directly into frontier AI models.
+        </p>
+
+        <div class="guide-meta-row">
+          <span class="guide-meta-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            4 min read
+          </span>
+          <span class="guide-meta-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            Updated for Version 2.0
+          </span>
+          <span class="guide-meta-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            73 Production-Grade Prompts
+          </span>
+        </div>
+      </section>
+
+      <!-- STICKY TABLE OF CONTENTS / QUICK JUMP -->
+      <nav class="guide-toc-nav" aria-label="Table of Contents">
+        <span class="guide-toc-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+          Quick Jump
+        </span>
+        <a href="#overview" class="guide-toc-link">1. Overview</a>
+        <a href="#categories" class="guide-toc-link">2. Categories &amp; Why</a>
+        <a href="#workflow" class="guide-toc-link">3. 3-Step Workflow</a>
+        <a href="#customizing" class="guide-toc-link">4. Customizing Variables</a>
+        <a href="#launching" class="guide-toc-link">5. Launching in AI</a>
+        <a href="#protips" class="guide-toc-link">6. Pro Tips</a>
+      </nav>
+
+      <!-- SECTION 1: OVERVIEW -->
+      <section id="overview" class="guide-section">
+        <div class="guide-section-header">
+          <div class="guide-section-tag">
+            <span>01</span>
+            <span>Background &amp; Philosophy</span>
+          </div>
+          <h2 class="guide-section-title">What is this Prompt Library?</h2>
+          <p class="guide-section-desc">
+            Most AI prompts produce generic, superficial text because they lack structural guardrails, context containers, and negative style constraints. This library was engineered to fix that.
+          </p>
+        </div>
+
+        <div class="guide-card">
+          <h3 class="guide-card-title">
+            <span>🎯</span>
+            The Problem with Traditional Prompting
+          </h3>
+          <p style="color: var(--text-muted); line-height: 1.65; margin-bottom: 1rem;">
+            When you type <em>"Write an API reference for our user endpoints"</em> into an AI model, the model generates hallucinated schemas, conversational filler (<em>"Sure, I'd be happy to help!"</em>), and unstructured paragraphs. Professional technical communication demands deterministic structure, syntactic precision, and authoritative tone.
+          </p>
+
+          <h3 class="guide-card-title" style="margin-top: 1.5rem;">
+            <span>📐</span>
+            Frontier Prompt Architecture
+          </h3>
+          <p style="color: var(--text-muted); line-height: 1.65; margin-bottom: 1rem;">
+            Every prompt in this repository adheres to a strict multi-layer architectural pattern optimized for frontier LLMs (such as Claude 3.5 Sonnet, GPT-4o, and Gemini 1.5 Pro):
+          </p>
+
+          <div class="guide-grid-2">
+            <div style="background: var(--bg-subtle); padding: 1.15rem; border-radius: 12px; border: 1px solid var(--border-color);">
+              <strong style="color: #6366f1; display: block; margin-bottom: 0.35rem;">1. Role &amp; Persona Framing</strong>
+              <span style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.55; display: block;">
+                Establishes senior-level perspective (e.g., <em>"You are a Staff Technical Writer and Developer Advocate..."</em>) to eliminate apologetic tone and superficial fluff.
+              </span>
+            </div>
+
+            <div style="background: var(--bg-subtle); padding: 1.15rem; border-radius: 12px; border: 1px solid var(--border-color);">
+              <strong style="color: #6366f1; display: block; margin-bottom: 0.35rem;">2. Structured &lt;input_sources&gt;</strong>
+              <span style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.55; display: block;">
+                Dedicated XML context containers advising you on what files to attach (.json, .yaml, .md) or raw code diffs to paste, grounding the model in reality.
+              </span>
+            </div>
+
+            <div style="background: var(--bg-subtle); padding: 1.15rem; border-radius: 12px; border: 1px solid var(--border-color);">
+              <strong style="color: #6366f1; display: block; margin-bottom: 0.35rem;">3. Algorithmic &lt;instructions&gt;</strong>
+              <span style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.55; display: block;">
+                Numbered sequential execution steps, style rules (Microsoft Writing Style Guide compliance, sentence case, zero em-dashes), and negative constraints.
+              </span>
+            </div>
+
+            <div style="background: var(--bg-subtle); padding: 1.15rem; border-radius: 12px; border: 1px solid var(--border-color);">
+              <strong style="color: #6366f1; display: block; margin-bottom: 0.35rem;">4. Strict &lt;output_format&gt;</strong>
+              <span style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.55; display: block;">
+                Commands the model to deliver pure, copy-pasteable Markdown tables, syntax-highlighted code fences, or diff blocks without conversational preambles.
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-callout info">
+          <div class="guide-callout-icon">💡</div>
+          <div>
+            <strong>Why XML tags?</strong> Frontier AI models like Anthropic Claude and OpenAI GPT-4o are heavily fine-tuned to parse semantic XML markers like <code>&lt;input_sources&gt;</code> and <code>&lt;instructions&gt;</code>. This prevents instruction injection and ensures the AI never confuses your reference data with its assigned task.
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2: CATEGORIES & WHY -->
+      <section id="categories" class="guide-section">
+        <div class="guide-section-header">
+          <div class="guide-section-tag">
+            <span>02</span>
+            <span>Architecture &amp; Taxonomy</span>
+          </div>
+          <h2 class="guide-section-title">What are the Categories and Why?</h2>
+          <p class="guide-section-desc">
+            Writing in technology is not one-dimensional. A technical communicator writes API specs in the morning, drafts an executive project update at noon, and writes a thought leadership blog post or release note in the afternoon. The library is partitioned into two core domains and nine specialized subcategories.
+          </p>
+        </div>
+
+        <!-- DOMAIN 1: TECH WRITING -->
+        <div class="guide-card">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.6rem;">
+              <span style="font-size: 1.3rem;">⚙️</span>
+              <h3 class="guide-card-title" style="margin-bottom: 0;">Domain: Technical Writing (51 Prompts)</h3>
+            </div>
+            <span style="font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 20px; background: rgba(99, 102, 241, 0.15); color: #6366f1;">CORE ENGINEERING</span>
+          </div>
+          <p style="color: var(--text-muted); font-size: 0.94rem; line-height: 1.6; margin-bottom: 1.25rem;">
+            Dedicated to software documentation engineers, developer relations (DevRel), and systems architects who treat documentation with the same rigor as production code.
+          </p>
+
+          <div class="guide-grid-2">
+            <div style="padding: 1rem; border-radius: 10px; background: var(--bg-subtle); border: 1px solid var(--border-color);">
+              <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.35rem;">Draft &amp; Content</h4>
+              <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                Generates API reference pages, CLI command manuals, Architecture Decision Records (ADRs), error troubleshooting catalogs, SDK quickstarts, and release notes.
+              </p>
+              <span style="display: inline-block; margin-top: 0.5rem; font-size: 0.76rem; font-weight: 600; color: #6366f1;">Why: Eliminates the tedious boilerplate of document drafting while enforcing strict technical accuracy.</span>
+            </div>
+
+            <div style="padding: 1rem; border-radius: 10px; background: var(--bg-subtle); border: 1px solid var(--border-color);">
+              <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.35rem;">Strategy &amp; Planning</h4>
+              <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                Provides documentation plans, content gap matrices, information architecture models, audience persona profiles, and localization readiness checklists.
+              </p>
+              <span style="display: inline-block; margin-top: 0.5rem; font-size: 0.76rem; font-weight: 600; color: #6366f1;">Why: Guides high-level content strategy before a single sentence of documentation is drafted.</span>
+            </div>
+
+            <div style="padding: 1rem; border-radius: 10px; background: var(--bg-subtle); border: 1px solid var(--border-color);">
+              <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.35rem;">Video &amp; Audio</h4>
+              <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                Drafts screencast walkthrough scripts, YouTube tutorial storyboards, and developer interview podcast outlines with visual and audio staging cues.
+              </p>
+              <span style="display: inline-block; margin-top: 0.5rem; font-size: 0.76rem; font-weight: 600; color: #6366f1;">Why: Developers increasingly consume technical learning visually through screencasts and video guides.</span>
+            </div>
+
+            <div style="padding: 1rem; border-radius: 10px; background: var(--bg-subtle); border: 1px solid var(--border-color);">
+              <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.35rem;">Format &amp; Style</h4>
+              <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                Audits prose against the Microsoft Writing Style Guide, converts unstructured text into clean Markdown, standardizes terminologies, and lints for tone.
+              </p>
+              <span style="display: inline-block; margin-top: 0.5rem; font-size: 0.76rem; font-weight: 600; color: #6366f1;">Why: Ensures consistent voice across a global engineering organization with hundreds of contributors.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- DOMAIN 2: GENERAL WRITING -->
+        <div class="guide-card">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.6rem;">
+              <span style="font-size: 1.3rem;">✍️</span>
+              <h3 class="guide-card-title" style="margin-bottom: 0;">Domain: General Writing (22 Prompts)</h3>
+            </div>
+            <span style="font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 20px; background: rgba(236, 72, 153, 0.15); color: #ec4899;">COMMUNICATION &amp; CAREER</span>
+          </div>
+          <p style="color: var(--text-muted); font-size: 0.94rem; line-height: 1.6; margin-bottom: 1.25rem;">
+            Engineered for professionals who need to persuade colleagues, educate audiences on complex concepts, advocate for their career, and write compelling digital content.
+          </p>
+
+          <div class="guide-grid-3">
+            <div style="padding: 1rem; border-radius: 10px; background: var(--bg-subtle); border: 1px solid var(--border-color);">
+              <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.35rem;">Blogs &amp; Articles</h4>
+              <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                Crafts high-converting newsletter hooks, thought-leadership essays, case-study narratives, and stress-tests thesis arguments against skeptics.
+              </p>
+            </div>
+
+            <div style="padding: 1rem; border-radius: 10px; background: var(--bg-subtle); border: 1px solid var(--border-color);">
+              <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.35rem;">Social Media</h4>
+              <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                Transforms technical insights into multi-slide LinkedIn carousels, viral Twitter/X breakdowns, and product launch teaser posts.
+              </p>
+            </div>
+
+            <div style="padding: 1rem; border-radius: 10px; background: var(--bg-subtle); border: 1px solid var(--border-color);">
+              <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.35rem;">Workplace &amp; Misc</h4>
+              <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                Generates graceful boundary-setting decline emails, quantifiable resume impact bullets, performance reviews, and simple analogies for complex jargon.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3: 3-STEP WORKFLOW -->
+      <section id="workflow" class="guide-section">
+        <div class="guide-section-header">
+          <div class="guide-section-tag">
+            <span>03</span>
+            <span>Execution Framework</span>
+          </div>
+          <h2 class="guide-section-title">How to Use the Prompts: The 3-Step Workflow</h2>
+          <p class="guide-section-desc">
+            Follow this frictionless workflow to go from a documentation requirement to a finished draft in under three minutes.
+          </p>
+        </div>
+
+        <!-- STEP 1 -->
+        <div class="step-card">
+          <div class="step-header">
+            <div class="step-number">1</div>
+            <div class="step-title-wrap">
+              <h3>Find &amp; Filter Your Prompt</h3>
+              <p>Locate the exact prompt engineered for your specific deliverable</p>
+            </div>
+          </div>
+          <div class="step-body">
+            <p>
+              Use the top-tier <strong>Domain Tabs</strong> to narrow down between Technical Writing, General Writing, or your Saved prompts. Then, click any <strong>Subcategory Pill</strong> to hone in on your task. You can also type keywords like <em>"REST API"</em>, <em>"Decline Email"</em>, or <em>"Troubleshooting"</em> directly into the global search bar for instant full-text matching across titles, use cases, and tags.
+            </p>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="step-card">
+          <div class="step-header">
+            <div class="step-number">2</div>
+            <div class="step-title-wrap">
+              <h3>Customize Variables &amp; Attach Sources</h3>
+              <p>Populate bracketed parameters and feed actual context into the model</p>
+            </div>
+          </div>
+          <div class="step-body">
+            <p>
+              Click <strong>Customize</strong> on any prompt card to trigger the built-in variable editor modal. Instead of manually editing messy text, type your values directly into the auto-generated input fields. The live preview updates in real time.
+            </p>
+            <p style="margin-top: 0.75rem;">
+              Crucially, review the <code>&lt;input_sources&gt;</code> section. If the prompt suggests attaching a Swagger spec, a Git commit diff, or a support ticket, have that file ready to upload into your AI tool.
+            </p>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="step-card">
+          <div class="step-header">
+            <div class="step-number">3</div>
+            <div class="step-title-wrap">
+              <h3>Launch in AI &amp; Refine the Output</h3>
+              <p>Send directly to your preferred AI model with a single click</p>
+            </div>
+          </div>
+          <div class="step-body">
+            <p>
+              Click <strong>Launch in AI ▾</strong> and select your model of choice: <strong>ChatGPT</strong>, <strong>Claude</strong>, <strong>Google Gemini</strong>, <strong>Perplexity</strong>, or <strong>Microsoft Copilot</strong>. The app automatically copies your customized prompt to the clipboard and opens the AI model's chat interface. Simply paste (<kbd>Cmd+V</kbd> or <kbd>Ctrl+V</kbd>), attach any source files, and press send.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4: CUSTOMIZING VARIABLES -->
+      <section id="customizing" class="guide-section">
+        <div class="guide-section-header">
+          <div class="guide-section-tag">
+            <span>04</span>
+            <span>Interactive Customizer</span>
+          </div>
+          <h2 class="guide-section-title">Customizing Variables in Depth</h2>
+          <p class="guide-section-desc">
+            Learn how placeholder tokens are constructed and how to provide optimal context to get publication-grade output.
+          </p>
+        </div>
+
+        <div class="guide-card">
+          <h3 class="guide-card-title">
+            <span>🔍</span>
+            Anatomy of a Variable Placeholder
+          </h3>
+          <p style="color: var(--text-muted); line-height: 1.65; margin-bottom: 1rem;">
+            Every prompt contains bracketed tokens styled with helpful guidance, formatted as:
+          </p>
+          <div style="background: var(--bg-subtle); padding: 0.85rem 1.25rem; border-radius: 8px; border: 1px solid var(--border-color); font-family: 'JetBrains Mono', monospace; font-size: 0.88rem; color: #6366f1; margin-bottom: 1rem;">
+            [VARIABLE_NAME, e.g., Concrete Example or Recommended Option]
+          </div>
+          <p style="color: var(--text-muted); line-height: 1.65;">
+            The comma provides immediate inspiration so you understand what level of detail the AI expects without needing to guess.
+          </p>
+
+          <!-- INTERACTIVE MOCKUP SIMULATION -->
+          <div class="mockup-container">
+            <div class="mockup-header">
+              <span>Interactive Variable Simulation</span>
+              <span>Live Form Preview</span>
+            </div>
+
+            <div class="guide-grid-2">
+              <div class="mockup-field-row">
+                <label class="mockup-label" for="guideSimApiName">[API_NAME]</label>
+                <input
+                  type="text"
+                  id="guideSimApiName"
+                  class="mockup-input"
+                  value="Stripe Webhook Delivery API"
+                />
+              </div>
+
+              <div class="mockup-field-row">
+                <label class="mockup-label" for="guideSimAuthType">[AUTH_TYPE]</label>
+                <input
+                  type="text"
+                  id="guideSimAuthType"
+                  class="mockup-input"
+                  value="HMAC-SHA256 Signature Header"
+                />
+              </div>
+            </div>
+
+            <div style="font-size: 0.78rem; font-weight: 700; color: var(--text-light); text-transform: uppercase; margin-top: 0.75rem;">
+              Generated Prompt Excerpt:
+            </div>
+            <div class="mockup-code-preview" id="guideSimPreview">You are a Senior API Technical Writer. Create an endpoint reference for <mark>Stripe Webhook Delivery API</mark> using <mark>HMAC-SHA256 Signature Header</mark> authentication.
+
+&lt;input_sources&gt;
+Attached documents (recommended):
+- Attach the OpenAPI / Swagger JSON or YAML specification.
+&lt;/input_sources&gt;</div>
+          </div>
+        </div>
+
+        <div class="guide-callout tip">
+          <div class="guide-callout-icon">💡</div>
+          <div>
+            <strong>Rule of Thumb:</strong> Never leave brackets unfilled in your final prompt! If a variable doesn't apply to your specific project (for example, if an API has no request body), simply delete that line from the <code>&lt;input_sources&gt;</code> block before submitting.
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5: LAUNCHING IN AI -->
+      <section id="launching" class="guide-section">
+        <div class="guide-section-header">
+          <div class="guide-section-tag">
+            <span>05</span>
+            <span>Model Capabilities</span>
+          </div>
+          <h2 class="guide-section-title">Launching in AI Models: Which Model to Pick?</h2>
+          <p class="guide-section-desc">
+            The library integrates with all major frontier models. Each model possesses unique strengths for technical and creative writing.
+          </p>
+        </div>
+
+        <div class="guide-grid-2">
+          <!-- CLAUDE -->
+          <div class="model-card">
+            <div class="model-card-header">
+              <div style="width: 28px; height: 28px; border-radius: 8px; background: rgba(218, 119, 86, 0.15); display: flex; align-items: center; justify-content: center;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#da7756"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.2L12 16.6l-6.3 4.6 2.3-7.2-6-4.6h7.6z"/></svg>
+              </div>
+              <span class="model-card-name">Anthropic Claude</span>
+              <span class="model-card-badge" style="background: rgba(218, 119, 86, 0.15); color: #da7756;">Top Choice</span>
+            </div>
+            <p class="model-card-desc">
+              Unmatched adherence to structural XML tags, negative constraints (e.g. <em>"do not use em-dashes"</em>), and nuanced, human-sounding prose without corporate clichés.
+            </p>
+            <div class="model-card-best">
+              Best For: API docs, architectural decision records, style guide adherence, essays.
+            </div>
+          </div>
+
+          <!-- GEMINI -->
+          <div class="model-card">
+            <div class="model-card-header">
+              <div style="width: 28px; height: 28px; border-radius: 8px; background: rgba(59, 130, 246, 0.15); display: flex; align-items: center; justify-content: center;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#3b82f6"><path d="M12 2C12 7.52 7.52 12 2 12C7.52 12 12 16.48 12 22C12 16.48 16.48 12 22 12C16.48 12 12 7.52 12 2Z"/></svg>
+              </div>
+              <span class="model-card-name">Google Gemini</span>
+              <span class="model-card-badge" style="background: rgba(59, 130, 246, 0.15); color: #3b82f6;">Massive Context</span>
+            </div>
+            <p class="model-card-desc">
+              Its huge 1M-2M token context window allows you to upload entire code repositories, 50-page PDF specifications, or complete video recordings in one prompt.
+            </p>
+            <div class="model-card-best">
+              Best For: Large documentation audits, full-repo analysis, video-to-tutorial transcription.
+            </div>
+          </div>
+
+          <!-- CHATGPT -->
+          <div class="model-card">
+            <div class="model-card-header">
+              <div style="width: 28px; height: 28px; border-radius: 8px; background: rgba(16, 163, 127, 0.15); display: flex; align-items: center; justify-content: center;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#10a37f"><path d="M22.28 9.82a6 6 0 0 0-.52-4.91 6.05 6.05 0 0 0-6.51-2.9 6.06 6.06 0 0 0-10.27 2.17 6 6 0 0 0-4 2.9 6.05 6.05 0 0 0 .74 7.1 6 6 0 0 0 .51 4.91 6.05 6.05 0 0 0 6.51 2.9 6.06 6.06 0 0 0 10.27-2.17 6 6 0 0 0 4-2.9 6.05 6.05 0 0 0-.73-7.27zM12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12z"/></svg>
+              </div>
+              <span class="model-card-name">ChatGPT (GPT-4o)</span>
+              <span class="model-card-badge" style="background: rgba(16, 163, 127, 0.15); color: #10a37f;">Fast &amp; Conversational</span>
+            </div>
+            <p class="model-card-desc">
+              Exceptionally fast code generation, interactive multi-turn brainstorming, and intuitive file-browsing with Advanced Data Analysis.
+            </p>
+            <div class="model-card-best">
+              Best For: Rapid first drafts, conversational editing, social threads, troubleshooting.
+            </div>
+          </div>
+
+          <!-- PERPLEXITY & COPILOT -->
+          <div class="model-card">
+            <div class="model-card-header">
+              <div style="width: 28px; height: 28px; border-radius: 8px; background: rgba(6, 182, 212, 0.15); display: flex; align-items: center; justify-content: center;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              </div>
+              <span class="model-card-name">Perplexity AI</span>
+              <span class="model-card-badge" style="background: rgba(6, 182, 212, 0.15); color: #06b6d4;">Live Web Grounding</span>
+            </div>
+            <p class="model-card-desc">
+              Performs real-time search engine queries across official documentation, GitHub repositories, and package registries to ensure syntax matches current release versions.
+            </p>
+            <div class="model-card-best">
+              Best For: Verification of latest library versions, external API citations, competitive tech audits.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 6: PRO TIPS -->
+      <section id="protips" class="guide-section">
+        <div class="guide-section-header">
+          <div class="guide-section-tag">
+            <span>06</span>
+            <span>Mastery</span>
+          </div>
+          <h2 class="guide-section-title">Pro Tips for Seasoned Writers</h2>
+          <p class="guide-section-desc">
+            Techniques to elevate your AI-generated technical drafts from acceptable to publication-grade.
+          </p>
+        </div>
+
+        <div class="guide-card">
+          <div class="change-category" style="margin-top: 0;">
+            <ul class="change-list">
+              <li class="change-item">
+                <span class="change-bullet"></span>
+                <span>
+                  <strong>Iterate with editorial follow-ups:</strong> Never accept the first output as final. Follow up immediately with: <em>"Review this draft against the Microsoft Writing Style Guide: change all passive constructions to active voice, verify second-person ('you'), and ensure headings are in sentence case."</em>
+                </span>
+              </li>
+              <li class="change-item">
+                <span class="change-bullet"></span>
+                <span>
+                  <strong>The Zero Em-Dash Standard:</strong> In technical documentation, em-dashes (—) often indicate fractured clauses and informal rambling. Our prompts enforce clean, declarative sentence boundaries using colons, parentheses, or separate sentences.
+                </span>
+              </li>
+              <li class="change-item">
+                <span class="change-bullet"></span>
+                <span>
+                  <strong>Export collections for team wikis:</strong> Use the <strong>Export ▾</strong> button on the main page to download your filtered prompts as clean Markdown (<code>.md</code>) or JSON (<code>.json</code>). Import them directly into Notion, Confluence, or company handbook repositories.
+                </span>
+              </li>
+              <li class="change-item">
+                <span class="change-bullet"></span>
+                <span>
+                  <strong>Bookmark your daily drivers:</strong> Click the bookmark star on any prompt card to save it into the <strong>Saved</strong> domain tab. Bookmarks are stored persistently in your local browser storage.
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- CTA BANNER -->
+        <div class="guide-cta-card">
+          <h2 class="guide-cta-title">Ready to Elevate Your Writing?</h2>
+          <p class="guide-cta-desc">
+            Explore all 73 production-grade prompts across technical and general writing domains in the interactive library.
+          </p>
+          <div class="guide-cta-buttons">
+            <a href="index.html" class="btn-primary-action">
+              <span>Explore Prompt Library</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <a href="release-notes.html" class="btn-back">
+              <span>View Release Notes</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+      (function () {
+        // Theme Persistence
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        let currentTheme =
+          localStorage.getItem('ai_prompt_theme') ||
+          (window.matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light');
+
+        document.documentElement.setAttribute('data-theme', currentTheme);
+
+        if (themeToggleBtn) {
+          themeToggleBtn.addEventListener('click', () => {
+            currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            localStorage.setItem('ai_prompt_theme', currentTheme);
+          });
+        }
+
+        // Live Simulation Form in Guide
+        const apiInput = document.getElementById('guideSimApiName');
+        const authInput = document.getElementById('guideSimAuthType');
+        const preview = document.getElementById('guideSimPreview');
+
+        function updateSimPreview() {
+          const apiVal = apiInput ? apiInput.value || 'Your API' : 'Your API';
+          const authVal = authInput ? authInput.value || 'Bearer Token' : 'Bearer Token';
+          
+          if (preview) {
+            preview.innerHTML = `You are a Senior API Technical Writer. Create an endpoint reference for <mark>${escapeHtml(apiVal)}</mark> using <mark>${escapeHtml(authVal)}</mark> authentication.
+
+&lt;input_sources&gt;
+Attached documents (recommended):
+- Attach the OpenAPI / Swagger JSON or YAML specification.
+&lt;/input_sources&gt;`;
+          }
+        }
+
+        function escapeHtml(str) {
+          if (!str) return '';
+          return str.replace(/[&<>"']/g, function (m) {
+            return {
+              '&': '&amp;',
+              '<': '&lt;',
+              '>': '&gt;',
+              '"': '&quot;',
+              "'": '&#039;'
+            }[m];
+          });
+        }
+
+        if (apiInput && authInput) {
+          apiInput.addEventListener('input', updateSimPreview);
+          authInput.addEventListener('input', updateSimPreview);
+        }
+      })();
+    </script>
+  </body>
+</html>
