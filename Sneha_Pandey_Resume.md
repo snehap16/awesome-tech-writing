@@ -13,9 +13,13 @@ Technical writer with 8+ years of experience creating user-focused documentation
 ---
 
 ## 💼 PROFESSIONAL EXPERIENCE
+### 🔹 Senior Technical Writer | **Salesforce, Hyderabad**
+**May 2024 – May 2026**
+
+- Responsible to create help doc, release notes, object refernce dcument, Dev documentation that's customer facing.
 
 ### 🔹 Technical Writer | **OpenText, Hyderabad**
-**May 2024 – Present**
+**May 2024 – May 2026**
 
 - Developed end-to-end product documentation using ArborText and internal tools according to OpenText style and standards
 - Collaborated with product managers to write, review, and publish release notes and new feature announcements
